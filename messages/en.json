@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "K3v | Live in Tokyo, Even Just for a Stay",
+    "description": "K3v is a hotel for staying in Tokyo the way you'd live there. Rooms where Japanese calm meets Nordic warmth, for an ordinary morning and one slightly special day."
+  },
+  "nav": {
+    "concept": "Concept",
+    "rooms": "Rooms",
+    "moments": "A Day at K3v",
+    "access": "Access",
+    "cta": "Check Availability"
+  },
+  "hero": {
+    "eyebrow": "TOKYO · LIVING HOTEL",
+    "titleLine1": "Live in Tokyo,",
+    "titleLine2": "even just for a stay.",
+    "description": "K3v is a place to stay in Tokyo as an extension of daily life, not a sightseeing base. In rooms layered with Japanese calm and Nordic warmth, the day begins with the smell of coffee, and ends with a single lamp switched off.",
+    "ctaPrimary": "Check Availability",
+    "ctaSecondary": "See the three rooms",
+    "illustrationAlt": "Illustration of a room with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
+  },
+  "concept": {
+    "eyebrow": "OUR CONCEPT",
+    "headingLine1": "Not a base for sightseeing —",
+    "headingLine2": "life in Tokyo itself.",
+    "pillars": [
+      {
+        "tag": "Wa",
+        "title": "A quiet floor plan",
+        "text": "Light through shoji screens, the texture of wood, rooms that make room for empty space. We chose calm over spectacle."
+      },
+      {
+        "tag": "Nordic",
+        "title": "Objects with a good hand-feel",
+        "text": "The way Nordic furniture and textiles settle in the more you use them. Comfort like your own belongings, not hotel fixtures."
+      },
+      {
+        "tag": "Living",
+        "title": "An extension of an ordinary morning",
+        "text": "Less the tension of checking in, more the feeling of unlocking the door and saying 'I'm home' — time that continues your everyday life."
+      }
+    ]
+  },
+  "rooms": {
+    "eyebrow": "ROOMS",
+    "headingLine1": "We don't photograph rooms.",
+    "headingLine2": "We photograph living.",
+    "description": "Each of the three rooms carries a different sense of how to live. Even within the same Tokyo, the room you choose shows you a slightly different face of the day.",
+    "items": [
+      {
+        "tag": "STANDARD",
+        "name": "ROOM 01",
+        "subtitle": "The everyday room, wa meets Nordic",
+        "text": "Our standard room layers solid-wood furniture and the scent of tatami with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
+        "cta": "See this room",
+        "alt": "Image of a room blending Japanese and Nordic design"
+      },
+      {
+        "tag": "JOURNAL STANDARD",
+        "name": "ROOM 02",
+        "subtitle": "Urban Vintage",
+        "text": "A room built around well-worn leather, brass, and furniture from Journal Standard. A little bolder, for those who want an evening that fits the city night.",
+        "cta": "See this room",
+        "alt": "Image of an urban-vintage room by Journal Standard"
+      },
+      {
+        "tag": "CRASH GATE",
+        "name": "ROOM 03",
+        "subtitle": "Industrial Modern",
+        "text": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living.",
+        "cta": "See this room",
+        "alt": "Image of an industrial-modern room by CRASH GATE"
+      }
+    ]
+  },
+  "moments": {
+    "eyebrow": "A DAY AT K3V",
+    "headingLine1": "Not between sightseeing stops —",
+    "headingLine2": "the Tokyo that lives between daily moments.",
+    "items": [
+      {
+        "time": "7:20 AM",
+        "title": "A morning with steam rising",
+        "text": "The first cup of coffee, brewed from beans sourced at a local roaster. Window cracked open, listening to the city start to move."
+      },
+      {
+        "time": "3:40 PM",
+        "title": "A rest on the veranda",
+        "text": "Making time to do nothing in a patch of sun. Even while traveling, letting your shoulders drop the way you would at home."
+      },
+      {
+        "time": "9:10 PM",
+        "title": "A quiet book at night",
+        "text": "One lamp on, opening the book you brought along. A night with the sound of turning pages instead of the television."
+      }
+    ]
+  },
+  "access": {
+    "eyebrow": "ACCESS",
+    "headingLine1": "Deep in the backstreets of",
+    "headingLine2": "Yanesen, a small home base.",
+    "description": "A small, eight-room inn tucked into the backstreets of Yanaka, where the air of Tokyo's old downtown still lingers. The smell of the shopping street and the voices of neighbors are part of the stay, too.",
+    "details": [
+      { "label": "Address", "value": "3-2-1 Yanaka, Taito City, Tokyo" },
+      { "label": "Nearest station", "value": "6 min walk from Nezu Station (Chiyoda Line)" },
+      { "label": "Check-in", "value": "From 15:00 / Check-out 11:00" }
+    ],
+    "cta": "Check Availability",
+    "mapAlt": "Simple map illustration of the Yanaka area",
+    "mapCaption": "6 min walk from Nezu Station"
+  },
+  "footer": {
+    "tagline": "Live in Tokyo, even just for a stay. A small, eight-room inn in the backstreets of Yanaka.",
+    "contactCta": "Ask about availability & reservations",
+    "copyrightName": "K3v Tokyo",
+    "address": "3-2-1 Yanaka, Taito City, Tokyo"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "ja": "日本語",
+    "en": "English",
+    "zh": "中文"
+  }
+}

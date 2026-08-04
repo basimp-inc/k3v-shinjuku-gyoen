@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  /* Base palette */
+  --color-bg: #f3ece1;
+  --color-bg-card: #efe5d3;
+  --color-bg-card-deep: #e8dcc4;
+  --color-text: #4a3a24;
+  --color-text-soft: #6f5c3f;
+  --color-accent: #8a6b45;
+  --color-accent-dark: #745936;
+  --color-accent2: #c77b4f;
+  --color-moss-from: #97c459;
+  --color-moss-to: #639922;
+  --color-cream: #faf6ee;
+
+  /* Room 02 / 03 hybrid accents */
+  --color-ink: #111110;
+  --color-brass: #c9974b;
+
+  --font-jp-heading: "Zen Maru Gothic", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
+  --font-jp-body: "M PLUS Rounded 1c", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
+  --font-en: "Quicksand", "Trebuchet MS", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --font-heading: var(--font-jp-heading);
+  --font-en: var(--font-en);
+  --font-sans: var(--font-jp-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-jp-body);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4,
+.font-heading {
+  font-family: var(--font-jp-heading);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.font-en {
+  font-family: var(--font-en);
+}
+
+/* Reveal-on-scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Steam animation for the hero illustration */
+@keyframes steam-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scaleX(1);
+  }
+  25% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-26px) scaleX(1.4);
+  }
+}
+.steam path {
+  animation: steam-rise 3.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+.steam path:nth-child(2) {
+  animation-delay: 0.9s;
+}
+.steam path:nth-child(3) {
+  animation-delay: 1.8s;
+}
+
+/* Gentle drifting light for hero backdrop */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -10px); }
+}
+.drift {
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* Pill focus visibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent2);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+::selection {
+  background: var(--color-accent2);
+  color: var(--color-cream);
+}
