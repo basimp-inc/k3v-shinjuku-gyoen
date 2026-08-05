@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "K3v | 像生活一样旅居东京",
-    "description": "K3v是一家让您像生活在东京一样入住的酒店。和风的沉静与北欧的温暖交融的房间里，度过寻常的早晨与稍显特别的一天。"
+    "title": "K3V SHINJUKU GYOEN | Not Just a Stay. Live Tokyo Beautifully.",
+    "description": "K3V SHINJUKU GYOEN 是一间紧邻新宿御苑、共3间客房的设计师民泊。每间客房由不同家具品牌打造，让您像生活在东京一样入住。"
   },
   "nav": {
     "concept": "理念",
     "rooms": "客房",
-    "moments": "在K3v的一天",
+    "moments": "在K3V的一天",
     "access": "交通",
     "cta": "查询空房"
   },
   "hero": {
-    "eyebrow": "TOKYO · LIVING HOTEL",
-    "titleLine1": "像生活一样，",
-    "titleLine2": "旅居东京。",
-    "description": "K3v(K三V)并非观光据点，而是将东京生活自然延伸的住所。在融合了和风沉静与北欧温暖的房间里，一天从咖啡的香气开始，又在关掉一盏灯时悄然落幕。",
+    "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
+    "titleLine1": "紧邻新宿御苑，",
+    "titleLine2": "像生活一样旅居东京。",
+    "description": "K3V SHINJUKU GYOEN 是一栋紧邻新宿御苑、共3间客房的设计师民泊。UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE——每间客房都是不同家具品牌打造的世界观。这里不是观光据点，而是能让您像生活一样入住东京的地方。",
     "ctaPrimary": "查询空房",
     "ctaSecondary": "浏览三种客房",
-    "illustrationAlt": "窗边摆放着盆栽与咖啡杯、可眺望东京街景的房间插画"
+    "illustrationAlt": "新宿御苑附近，窗边摆放着盆栽与咖啡杯、可眺望东京街景的房间插画"
   },
   "concept": {
     "eyebrow": "OUR CONCEPT",
@@ -25,19 +25,19 @@
     "headingLine2": "而是东京生活本身。",
     "pillars": [
       {
-        "tag": "和风",
-        "title": "静谧的空间布局",
-        "text": "透过纸拉窗的光线、木材的质感、留白的布局。比起华丽，我们更重视能让人静下心来的舒适感。"
+        "tag": "UNICO",
+        "title": "北欧自然风的清晨",
+        "text": "木材的温度与柔软的北欧布艺。由UNICO打造的ROOM 01，让寻常的早晨多一份用心。"
       },
       {
-        "tag": "北欧",
-        "title": "有质感的生活器物",
-        "text": "北欧家具与织物那种越用越贴合的感觉。不是酒店备品，而是如同自己私人物品般的自在。"
+        "tag": "JOURNAL STANDARD FURNITURE",
+        "title": "都市复古风的夜晚",
+        "text": "做旧皮革与黄铜的质感。JOURNAL STANDARD FURNITURE打造的ROOM 02，献给想在都市夜晚中沉淀片刻的人。"
       },
       {
-        "tag": "生活",
-        "title": "寻常清晨的延续",
-        "text": "比起办理入住时的拘谨，我们更希望您打开房门时，能自然地说一句「我回来了」——如同生活延续的时光。"
+        "tag": "CRASH GATE",
+        "title": "工业风的留白",
+        "text": "由CRASH GATE操刀的ROOM 03，兼具粗犷与舒适。钢材与黄铜的细节，为日常生活增添一丝张力。"
       }
     ]
   },
@@ -45,29 +45,29 @@
     "eyebrow": "ROOMS",
     "headingLine1": "我们拍摄的不是房间，",
     "headingLine2": "而是生活本身。",
-    "description": "三间客房各自蕴含着不同的生活气息。即便同在东京，选择不同的房间，也会让每一天呈现出略微不同的面貌。",
+    "description": "三间客房各自由不同的家具品牌演绎出不同的生活方式。即便同样紧邻新宿御苑，选择不同的房间，也会让每一天呈现出略微不同的面貌。",
     "items": [
       {
-        "tag": "STANDARD",
+        "tag": "UNICO",
         "name": "ROOM 01",
-        "subtitle": "和风与北欧交融的日常客房",
-        "text": "以实木家具与榻榻米的清香，叠加北欧布艺的柔软所构成的基础客房。为那些希望像生活一样长住的人，提供百看不厌的宁静。",
+        "subtitle": "Natural Living",
+        "text": "由UNICO打造，以实木家具叠加北欧布艺柔软质感的自然风客房。为那些希望像生活一样长住的人，提供百看不厌的舒适。",
         "cta": "查看这间客房",
-        "alt": "和风与北欧风格交融的客房意象"
+        "alt": "UNICO 打造的北欧自然风客房意象"
       },
       {
-        "tag": "JOURNAL STANDARD",
+        "tag": "JOURNAL STANDARD FURNITURE",
         "name": "ROOM 02",
-        "subtitle": "都市复古风",
-        "text": "由Journal Standard家具打造，以做旧皮革与黄铜元素统一整体的一间客房。略带粗犷气质，献给想在都市夜晚中沉淀片刻的人。",
+        "subtitle": "Urban Vintage",
+        "text": "由JOURNAL STANDARD FURNITURE家具打造，以做旧皮革与黄铜元素统一整体的一间客房。略带粗犷气质，献给想在都市夜晚中沉淀片刻的人。",
         "cta": "查看这间客房",
-        "alt": "Journal Standard 打造的都市复古风客房意象"
+        "alt": "JOURNAL STANDARD FURNITURE 打造的都市复古风客房意象"
       },
       {
         "tag": "CRASH GATE",
         "name": "ROOM 03",
-        "subtitle": "工业摩登风",
-        "text": "由CRASH GATE操刀，兼具粗犷与舒适的房间。钢材与黄铜的细节，为日常生活增添一丝张力。",
+        "subtitle": "Industrial Modern",
+        "text": "由CRASH GATE操刀，兼具粗犷与舒适的房间。钢材与黄铜的细节，为日常生活增添一丝张力。（详情筹备中）",
         "cta": "查看这间客房",
         "alt": "CRASH GATE 打造的工业摩登风客房意象"
       }
@@ -81,11 +81,11 @@
       {
         "time": "7:20 AM",
         "title": "冒着热气的清晨",
-        "text": "用附近烘焙坊购入的咖啡豆冲泡的第一杯咖啡。微微打开窗户，聆听城市苏醒的声音。"
+        "text": "用附近烘焙坊购入的咖啡豆冲泡的第一杯咖啡。微微打开窗户，感受新宿御苑的绿意把晨间的空气带进房间。"
       },
       {
         "time": "3:40 PM",
-        "title": "廊下的片刻小憩",
+        "title": "阳台上的片刻小憩",
         "text": "在阳光里，留出一段什么都不做的时间。即使身在旅途，也能像在家中一样放松肩膀。"
       },
       {
@@ -97,23 +97,23 @@
   },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "谷根千，深巷之中的",
+    "headingLine1": "紧邻新宿御苑的",
     "headingLine2": "小小生活据点。",
-    "description": "坐落于仍保留着老城区气息的谷中小巷，仅有8间客房的小型旅宿。商店街的气味与邻里的谈笑声，也是这里住宿体验的一部分。",
+    "description": "紧邻新宿御苑前、距新宿站也在步行范围内，仅有3间客房的小型旅宿。附近便利店、超市一应俱全，无论是旅行者还是长住者都很方便。",
     "details": [
-      { "label": "地址", "value": "东京都台东区谷中3-2-1" },
-      { "label": "最近车站", "value": "千代田线「根津站」步行6分钟" },
+      { "label": "地址", "value": "东京都新宿区（详情请咨询）" },
+      { "label": "最近车站", "value": "新宿御苑前站・新宿站 步行圈内" },
       { "label": "入住时间", "value": "15:00起 / 退房 11:00" }
     ],
     "cta": "查询空房",
-    "mapAlt": "谷中周边简易地图插画",
-    "mapCaption": "距根津站步行6分钟"
+    "mapAlt": "新宿御苑周边简易地图插画",
+    "mapCaption": "新宿御苑前站・新宿站 步行圈内"
   },
   "footer": {
-    "tagline": "像生活一样，旅居东京。位于谷中小巷、仅有8间客房的小型旅宿。",
+    "tagline": "Not Just a Stay. Live Tokyo Beautifully. 紧邻新宿御苑、共3间客房的设计师民泊。",
     "contactCta": "咨询空房与预订事宜",
-    "copyrightName": "K3v Tokyo",
-    "address": "东京都台东区谷中3-2-1"
+    "copyrightName": "K3V SHINJUKU GYOEN",
+    "address": "东京都新宿区（详情请咨询）"
   },
   "localeSwitcher": {
     "label": "语言",

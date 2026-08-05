@@ -17,14 +17,14 @@ export default async function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-en text-3xl font-semibold text-[#f3ece1]">K3v</p>
+            <p className="font-en text-3xl font-semibold text-[#f3ece1]">K3V</p>
             <p className="mt-3 max-w-sm text-sm leading-[1.8] text-[#c9bda3]">
               {t("tagline")}
             </p>
           </div>
 
           <a
-            href="mailto:stay@k3v-tokyo.jp"
+            href="mailto:stay@k3v-shinjuku-gyoen.jp"
             className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#c77b4f] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#b96b40]"
           >
             {t("contactCta")}

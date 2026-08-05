@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "K3v | Live in Tokyo, Even Just for a Stay",
-    "description": "K3v is a hotel for staying in Tokyo the way you'd live there. Rooms where Japanese calm meets Nordic warmth, for an ordinary morning and one slightly special day."
+    "title": "K3V SHINJUKU GYOEN | Not Just a Stay. Live Tokyo Beautifully.",
+    "description": "K3V SHINJUKU GYOEN is a 3-room design apartment stay steps away from Shinjuku Gyoen, each room styled by a different furniture brand. Live Tokyo the way you'd actually live it."
   },
   "nav": {
     "concept": "Concept",
     "rooms": "Rooms",
-    "moments": "A Day at K3v",
+    "moments": "A Day at K3V",
     "access": "Access",
     "cta": "Check Availability"
   },
   "hero": {
-    "eyebrow": "TOKYO · LIVING HOTEL",
-    "titleLine1": "Live in Tokyo,",
-    "titleLine2": "even just for a stay.",
-    "description": "K3v is a place to stay in Tokyo as an extension of daily life, not a sightseeing base. In rooms layered with Japanese calm and Nordic warmth, the day begins with the smell of coffee, and ends with a single lamp switched off.",
+    "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
+    "titleLine1": "Stay steps away from Shinjuku Gyoen.",
+    "titleLine2": "Design Apartments in the Heart of Tokyo.",
+    "description": "K3V SHINJUKU GYOEN is a 3-room design apartment building just steps from Shinjuku Gyoen. UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE — each room carries a different furniture brand's world. Not a sightseeing base, but a stay that feels like everyday life in Tokyo.",
     "ctaPrimary": "Check Availability",
     "ctaSecondary": "See the three rooms",
-    "illustrationAlt": "Illustration of a room with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
+    "illustrationAlt": "Illustration of a room near Shinjuku Gyoen with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
   },
   "concept": {
     "eyebrow": "OUR CONCEPT",
@@ -25,19 +25,19 @@
     "headingLine2": "life in Tokyo itself.",
     "pillars": [
       {
-        "tag": "Wa",
-        "title": "A quiet floor plan",
-        "text": "Light through shoji screens, the texture of wood, rooms that make room for empty space. We chose calm over spectacle."
+        "tag": "UNICO",
+        "title": "A Nordic-natural morning",
+        "text": "The warmth of wood and soft Nordic fabrics. ROOM 01, furnished by UNICO, makes an ordinary morning feel a little more thoughtful."
       },
       {
-        "tag": "Nordic",
-        "title": "Objects with a good hand-feel",
-        "text": "The way Nordic furniture and textiles settle in the more you use them. Comfort like your own belongings, not hotel fixtures."
+        "tag": "JOURNAL STANDARD FURNITURE",
+        "title": "An urban-vintage night",
+        "text": "The texture of well-worn leather and brass. ROOM 02 by JOURNAL STANDARD FURNITURE is for those who want an evening that fits the city night."
       },
       {
-        "tag": "Living",
-        "title": "An extension of an ordinary morning",
-        "text": "Less the tension of checking in, more the feeling of unlocking the door and saying 'I'm home' — time that continues your everyday life."
+        "tag": "CRASH GATE",
+        "title": "Industrial breathing room",
+        "text": "ROOM 03 by CRASH GATE balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living."
       }
     ]
   },
@@ -45,29 +45,29 @@
     "eyebrow": "ROOMS",
     "headingLine1": "We don't photograph rooms.",
     "headingLine2": "We photograph living.",
-    "description": "Each of the three rooms carries a different sense of how to live. Even within the same Tokyo, the room you choose shows you a slightly different face of the day.",
+    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand. Even steps from the same Shinjuku Gyoen, the room you choose shows you a slightly different face of the day.",
     "items": [
       {
-        "tag": "STANDARD",
+        "tag": "UNICO",
         "name": "ROOM 01",
-        "subtitle": "The everyday room, wa meets Nordic",
-        "text": "Our standard room layers solid-wood furniture and the scent of tatami with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
+        "subtitle": "Natural Living",
+        "text": "A natural room by UNICO, layering solid-wood furniture with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
         "cta": "See this room",
-        "alt": "Image of a room blending Japanese and Nordic design"
+        "alt": "Image of a Nordic-natural room by UNICO"
       },
       {
-        "tag": "JOURNAL STANDARD",
+        "tag": "JOURNAL STANDARD FURNITURE",
         "name": "ROOM 02",
         "subtitle": "Urban Vintage",
-        "text": "A room built around well-worn leather, brass, and furniture from Journal Standard. A little bolder, for those who want an evening that fits the city night.",
+        "text": "A room built around well-worn leather, brass, and furniture from JOURNAL STANDARD FURNITURE. A little bolder, for those who want an evening that fits the city night.",
         "cta": "See this room",
-        "alt": "Image of an urban-vintage room by Journal Standard"
+        "alt": "Image of an urban-vintage room by JOURNAL STANDARD FURNITURE"
       },
       {
         "tag": "CRASH GATE",
         "name": "ROOM 03",
         "subtitle": "Industrial Modern",
-        "text": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living.",
+        "text": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living. (Details coming soon)",
         "cta": "See this room",
         "alt": "Image of an industrial-modern room by CRASH GATE"
       }
@@ -81,11 +81,11 @@
       {
         "time": "7:20 AM",
         "title": "A morning with steam rising",
-        "text": "The first cup of coffee, brewed from beans sourced at a local roaster. Window cracked open, listening to the city start to move."
+        "text": "The first cup of coffee, brewed from beans sourced at a local roaster. Window cracked open, feeling the green of Shinjuku Gyoen carry the morning air in."
       },
       {
         "time": "3:40 PM",
-        "title": "A rest on the veranda",
+        "title": "A rest on the balcony",
         "text": "Making time to do nothing in a patch of sun. Even while traveling, letting your shoulders drop the way you would at home."
       },
       {
@@ -97,23 +97,23 @@
   },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "Deep in the backstreets of",
-    "headingLine2": "Yanesen, a small home base.",
-    "description": "A small, eight-room inn tucked into the backstreets of Yanaka, where the air of Tokyo's old downtown still lingers. The smell of the shopping street and the voices of neighbors are part of the stay, too.",
+    "headingLine1": "Steps from Shinjuku Gyoen,",
+    "headingLine2": "a small home base.",
+    "description": "A small, three-room stay steps from Shinjuku Gyoen and within walking distance of Shinjuku Station. Convenience stores and supermarkets nearby make it easy for travelers and long-stayers alike.",
     "details": [
-      { "label": "Address", "value": "3-2-1 Yanaka, Taito City, Tokyo" },
-      { "label": "Nearest station", "value": "6 min walk from Nezu Station (Chiyoda Line)" },
+      { "label": "Address", "value": "Shinjuku, Tokyo (details on request)" },
+      { "label": "Nearest station", "value": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station" },
       { "label": "Check-in", "value": "From 15:00 / Check-out 11:00" }
     ],
     "cta": "Check Availability",
-    "mapAlt": "Simple map illustration of the Yanaka area",
-    "mapCaption": "6 min walk from Nezu Station"
+    "mapAlt": "Simple map illustration of the Shinjuku Gyoen area",
+    "mapCaption": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station"
   },
   "footer": {
-    "tagline": "Live in Tokyo, even just for a stay. A small, eight-room inn in the backstreets of Yanaka.",
+    "tagline": "Not Just a Stay. Live Tokyo Beautifully. A 3-room design apartment stay steps away from Shinjuku Gyoen.",
     "contactCta": "Ask about availability & reservations",
-    "copyrightName": "K3v Tokyo",
-    "address": "3-2-1 Yanaka, Taito City, Tokyo"
+    "copyrightName": "K3V SHINJUKU GYOEN",
+    "address": "Shinjuku, Tokyo (details on request)"
   },
   "localeSwitcher": {
     "label": "Language",

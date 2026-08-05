@@ -10,16 +10,16 @@
 
 現行TOPページは要件定義書と異なるブランド設定（施設名・立地・部屋数・世界観）で書かれている。以降のページを増やす前に、または着手時にこの土台を直す。詳細は CLAUDE.md の「既知の不整合」表を参照。
 
-- [ ] `messages/ja.json` / `en.json` / `zh.json` を要件定義書のコピー案に合わせて全面更新
-  - [ ] `meta`: サイト名を K3V SHINJUKU GYOEN に、タグライン "Not Just a Stay. Live Tokyo Beautifully." を反映
-  - [ ] `hero`: コピー「新宿御苑のすぐそばで、東京を暮らすように滞在する。」（EN: "Stay steps away from Shinjuku Gyoen. Design Apartments in the Heart of Tokyo."）
-  - [ ] `nav`: ロゴ表記を K3V に統一（`Nav.tsx` のハードコード "K3v" も要修正）
-  - [ ] `concept`: ブランドストーリーの核（「暮らすように旅をする」体験、3部屋=3ライフスタイル）に書き換え。「和と北欧」軸は撤去
-  - [ ] `rooms`: ROOM 01 を UNICO ROOM / Natural Living（北欧ナチュラル、木の温もり）に。ROOM 02 (JOURNAL STANDARD FURNITURE / Urban Vintage)・ROOM 03 (CRASH GATE / Industrial Modern) は現行コピーを流用しつつ要件文面と整合させる
-  - [ ] `access`: 谷中/根津 → 新宿御苑前・新宿駅アクセスに全面差し替え。住所はクライアントに確認が必要（プレースホルダー明記）
-  - [ ] `footer`: 部屋数「8室」表記を削除、施設名・住所を修正
-- [ ] `components/` 側のハードコード文言（"K3v" ロゴ、`aria-label`等）を洗い出し修正
-- [ ] 上記変更後、TOPページをローカルで目視確認（3言語すべて）
+- [x] `messages/ja.json` / `en.json` / `zh.json` を要件定義書のコピー案に合わせて全面更新
+  - [x] `meta`: サイト名を K3V SHINJUKU GYOEN に、タグライン "Not Just a Stay. Live Tokyo Beautifully." を反映
+  - [x] `hero`: コピー「新宿御苑のすぐそばで、東京を暮らすように滞在する。」（EN: "Stay steps away from Shinjuku Gyoen. Design Apartments in the Heart of Tokyo."）
+  - [x] `nav`: ロゴ表記を K3V に統一（`Nav.tsx` のハードコード "K3v" も修正済み）
+  - [x] `concept`: ブランドストーリーの核（「暮らすように旅をする」体験、3部屋=3ライフスタイル）に書き換え。「和と北欧」軸は撤去し、UNICO / JOURNAL STANDARD FURNITURE / CRASH GATE の3ピラーに変更
+  - [x] `rooms`: ROOM 01 を UNICO ROOM / Natural Living（北欧ナチュラル、木の温もり）に。ROOM 02 (JOURNAL STANDARD FURNITURE / Urban Vintage)・ROOM 03 (CRASH GATE / Industrial Modern、詳細準備中を明記) は現行コピーを流用しつつ要件文面と整合
+  - [x] `access`: 谷中/根津 → 新宿御苑前・新宿駅アクセスに全面差し替え。住所は「東京都新宿区（詳細はお問い合わせください）」とプレースホルダー明記（クライアント確認待ち）
+  - [x] `footer`: 部屋数「8室」表記を削除、施設名・住所を修正
+- [x] `components/` 側のハードコード文言（Nav.tsx / Footer.tsx の "K3v" ロゴを "K3V" に修正。Footer の問い合わせ用メールアドレスも新ブランド名に更新）
+- [x] 上記変更後、TOPページをローカルで目視確認（3言語すべて、モバイル幅含む）
 
 ---
 

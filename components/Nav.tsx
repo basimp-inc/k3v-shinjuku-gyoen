@@ -16,7 +16,7 @@ export default async function Nav() {
     <header className='hidden lg:block sticky top-0 z-50 w-full bg-[#f3ece1]/85 backdrop-blur-md'>
       <div className='mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 md:px-10'>
         <a href='#top' className='font-en text-2xl font-semibold tracking-wide text-[#4a3a24]'>
-          K3v
+          K3V
         </a>
 
         <nav className='hidden items-center gap-2 rounded-full bg-[#efe5d3] p-1.5 lg:flex'>
