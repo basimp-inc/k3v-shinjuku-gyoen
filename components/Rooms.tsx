@@ -16,8 +16,8 @@ type RoomItem = {
 
 const roomStyles = [
   { theme: "warm" as const, tagClass: "bg-[#c77b4f] text-[#faf6ee]" },
-  { theme: "vintage" as const, tagClass: "bg-[#111110] text-[#c9974b]" },
-  { theme: "industrial" as const, tagClass: "bg-[#111110] text-[#c9974b]" },
+  { theme: "vintage" as const, tagClass: "bg-[#3d2f21] text-[#e8dcc4]" },
+  { theme: "industrial" as const, tagClass: "bg-[#2e2721] text-[#e8dcc4]" },
 ];
 
 export default async function Rooms() {

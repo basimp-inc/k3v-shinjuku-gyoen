@@ -14,9 +14,11 @@
   --color-moss-to: #639922;
   --color-cream: #faf6ee;
 
-  /* Room 02 / 03 hybrid accents */
-  --color-ink: #111110;
-  --color-brass: #c9974b;
+  /* Room 02 / 03 accents — warm deep browns, NOT black×gold (client NG: 高級感/黒×金) */
+  --color-vintage-dark: #3d2f21;
+  --color-vintage-accent: #b98a52;
+  --color-industrial-dark: #2e2721;
+  --color-industrial-accent: #c77b4f;
 
   --font-jp-heading: "Zen Maru Gothic", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-jp-body: "M PLUS Rounded 1c", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
