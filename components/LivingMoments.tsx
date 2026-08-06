@@ -10,8 +10,10 @@ type Moment = {
 
 const visuals = [
   { icon: CupIcon, grad: "from-[#f6ceac] to-[#efe5d3]" },
-  { icon: SunIcon, grad: "from-[#e8dcc4] to-[#dccca9]" },
-  { icon: BookIcon, grad: "from-[#efe5d3] to-[#f3ece1]" },
+  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#dccca9]" },
+  { icon: CupIcon, grad: "from-[#efe5d3] to-[#f3ece1]" },
+  { icon: SunIcon, grad: "from-[#f6ceac] to-[#dccca9]" },
+  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#f3ece1]" },
 ];
 
 export default async function LivingMoments() {
@@ -32,7 +34,7 @@ export default async function LivingMoments() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {moments.map((moment, i) => {
             const { icon: Icon, grad } = visuals[i % visuals.length];
             return (

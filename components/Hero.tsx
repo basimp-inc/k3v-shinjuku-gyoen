@@ -42,7 +42,7 @@ export default async function Hero() {
         </Reveal>
 
         <Reveal delay={150}>
-          <div className="mx-auto aspect-[6/5.2] w-full max-w-md overflow-hidden rounded-[28px] shadow-[0_30px_60px_-25px_rgba(74,58,36,0.35)]">
+          <div className="mx-auto aspect-[6/5.2] w-full max-w-md overflow-hidden rounded-[28px] shadow-[0_18px_36px_-20px_rgba(74,58,36,0.28)]">
             <HeroIllustration alt={t("illustrationAlt")} />
           </div>
         </Reveal>

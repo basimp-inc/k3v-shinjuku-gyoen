@@ -137,7 +137,7 @@ export default function MobileBottomNav() {
 
         <a
           href="#stay"
-          className="mx-1 -mt-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#8a6b45] text-[#faf6ee] shadow-[0_10px_20px_-6px_rgba(74,58,36,0.5)] transition-transform duration-200 active:scale-95"
+          className="mx-1 -mt-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#8a6b45] text-[#faf6ee] shadow-[0_8px_16px_-6px_rgba(74,58,36,0.35)] transition-transform duration-200 active:scale-95"
           aria-label={t("cta")}
         >
           <ArrowIcon className="h-5 w-5" />

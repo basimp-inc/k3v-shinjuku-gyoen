@@ -41,6 +41,51 @@
       }
     ]
   },
+  "primeLocation": {
+    "eyebrow": "PRIME LOCATION",
+    "headingLine1": "步行6分钟即达新宿御苑，",
+    "headingLine2": "日常所需触手可及。",
+    "description": "不仅适合观光，日常购物与出行同样便利——无论是短途旅行还是稍长的旅居，新宿御苑前都是理想之选。",
+    "stats": [
+      { "value": "步行6分钟", "label": "新宿御苑" },
+      { "value": "步行3分钟", "label": "丸之内线「新宿御苑前」站" },
+      { "value": "步行18分钟", "label": "新宿站" }
+    ],
+    "nearby": [
+      { "label": "便利店", "distance": "步行3分钟" },
+      { "label": "超市", "distance": "步行3分钟" },
+      { "label": "咖啡馆", "distance": "步行3分钟" },
+      { "label": "药妆店", "distance": "步行1分钟" }
+    ]
+  },
+  "renovated": {
+    "eyebrow": "NEWLY RENOVATED",
+    "headingLine1": "拥有酒店般的整洁，",
+    "headingLine2": "以及自家般的舒适。",
+    "description": "三间客房均已全面翻新，家具家电全部换新。您的入住，从崭新洁净的状态开始。",
+    "points": [
+      { "title": "全室彻底翻新", "text": "从上下水管线到室内装潢，全面焕新。" },
+      { "title": "全新家具家电", "text": "由UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE的全新家具统一打造。" },
+      { "title": "洁净的卫浴厨房", "text": "厨房与卫浴的每个角落都精心维护。" }
+    ]
+  },
+  "amenities": {
+    "eyebrow": "EVERYTHING YOU NEED",
+    "headingLine1": "只需带上换洗衣物，",
+    "headingLine2": "生活已经为您准备就绪。",
+    "description": "家电与洗漱用品一应俱全，无需大包小包，轻装即可开始入住生活。",
+    "items": [
+      { "label": "空调" },
+      { "label": "支持Netflix的电视" },
+      { "label": "洗衣机" },
+      { "label": "Wi-Fi" },
+      { "label": "咖啡机" },
+      { "label": "毛巾・床品" },
+      { "label": "洗发水・沐浴露" },
+      { "label": "吹风机" }
+    ],
+    "note": "此外还配备微波炉、烤面包机、电水壶、空气净化器、电饭煲、音箱、熨斗、厨具与餐具等。"
+  },
   "rooms": {
     "eyebrow": "ROOMS",
     "headingLine1": "我们拍摄的不是房间，",
@@ -74,26 +119,63 @@
     ]
   },
   "moments": {
-    "eyebrow": "A DAY AT K3V",
+    "eyebrow": "DISCOVER TOKYO",
     "headingLine1": "不是观光行程之间的空隙，",
     "headingLine2": "而是生活缝隙中的东京。",
     "items": [
       {
-        "time": "7:20 AM",
-        "title": "冒着热气的清晨",
-        "text": "用附近烘焙坊购入的咖啡豆冲泡的第一杯咖啡。微微打开窗户，感受新宿御苑的绿意把晨间的空气带进房间。"
+        "time": "Morning",
+        "title": "漫步新宿御苑的清晨",
+        "text": "手持咖啡，绕着家门口的御苑走一圈，从绿意的气息中开始新的一天。"
       },
       {
-        "time": "3:40 PM",
-        "title": "阳台上的片刻小憩",
-        "text": "在阳光里，留出一段什么都不做的时间。即使身在旅途，也能像在家中一样放松肩膀。"
+        "time": "Lunch",
+        "title": "在神乐坂享用午餐",
+        "text": "走在石板小路上，寻一家巷弄里的小餐馆或咖啡馆，悠闲地吃顿午饭。"
       },
       {
-        "time": "9:10 PM",
-        "title": "静谧夜晚的一本书",
-        "text": "只留一盏灯，翻开随身带来的书。这是一个有翻页声、而非电视声的夜晚。"
+        "time": "Coffee",
+        "title": "在涩谷 Blue Bottle 喝杯咖啡",
+        "text": "在City walk的间隙，用一杯用心冲泡的咖啡稍作休息。"
+      },
+      {
+        "time": "Sunset",
+        "title": "在涩谷天空眺望夕阳",
+        "text": "从高处眺望东京的天空一点点变换色彩。"
+      },
+      {
+        "time": "Night",
+        "title": "调暗灯光，静谧的夜晚",
+        "text": "回到房间后，按自己的节奏放松——比起电视声，更想要安静的时间。"
       }
     ]
+  },
+  "reviews": {
+    "eyebrow": "GUEST REVIEWS",
+    "headingLine1": "住客的评价，",
+    "headingLine2": "将从这里开始逐渐积累。",
+    "description": "由于是刚开业的旅宿，目前正在收集住客的真实评价。未来将从立地、清洁度、设计、设施等角度，为您呈现实际入住者的感想。",
+    "categories": [
+      { "label": "立地" },
+      { "label": "清洁度" },
+      { "label": "设计" },
+      { "label": "设施" }
+    ],
+    "comingSoon": "敬请期待"
+  },
+  "bookDirect": {
+    "eyebrow": "WHY BOOK DIRECT?",
+    "headingLine1": "通过官网预订，",
+    "headingLine2": "能让住宿体验更加舒心。",
+    "description": "相比通过OTA预订，直接通过官网预订可以享受一些小小的特别待遇。",
+    "benefits": [
+      { "title": "最优价格保证", "text": "官网始终提供最优惠的价格。" },
+      { "title": "灵活取消政策", "text": "即使行程有变，也能安心调整的取消政策。" },
+      { "title": "本地向导PDF", "text": "附赠一份汇总了周边私藏好去处的向导手册。" },
+      { "title": "灵活提前/延迟", "text": "视空房情况，可提供提前入住或延迟退房。" },
+      { "title": "优先支持", "text": "入住期间如有任何问题，可直接联系我们处理。" }
+    ],
+    "cta": "查询空房"
   },
   "access": {
     "eyebrow": "ACCESS",

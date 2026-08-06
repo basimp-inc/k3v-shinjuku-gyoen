@@ -41,6 +41,51 @@
       }
     ]
   },
+  "primeLocation": {
+    "eyebrow": "PRIME LOCATION",
+    "headingLine1": "6 minutes to Shinjuku Gyoen,",
+    "headingLine2": "everyday errands right around the corner.",
+    "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around — convenient for a short trip or a longer stay in the Shinjuku Gyoen area.",
+    "stats": [
+      { "value": "6 min walk", "label": "Shinjuku Gyoen" },
+      { "value": "3 min walk", "label": "Marunouchi Line, Shinjuku-gyoenmae Sta." },
+      { "value": "18 min walk", "label": "Shinjuku Station" }
+    ],
+    "nearby": [
+      { "label": "Convenience store", "distance": "3 min" },
+      { "label": "Supermarket", "distance": "3 min" },
+      { "label": "Café", "distance": "3 min" },
+      { "label": "Drugstore", "distance": "1 min" }
+    ]
+  },
+  "renovated": {
+    "eyebrow": "NEWLY RENOVATED",
+    "headingLine1": "The cleanliness of a hotel,",
+    "headingLine2": "the comfort of home.",
+    "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout. Your stay starts from a clean slate, not someone else's wear and tear.",
+    "points": [
+      { "title": "Fully renovated, every room", "text": "New plumbing, fixtures, and interiors throughout." },
+      { "title": "Brand-new furniture & appliances", "text": "Furnished entirely with new pieces from UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE." },
+      { "title": "Spotless kitchens & bathrooms", "text": "Every corner of the plumbing is carefully maintained." }
+    ]
+  },
+  "amenities": {
+    "eyebrow": "EVERYTHING YOU NEED",
+    "headingLine1": "Pack light —",
+    "headingLine2": "life here is already set up for you.",
+    "description": "Appliances and amenities for everyday living are all here, so you can travel light and settle in right away.",
+    "items": [
+      { "label": "Air conditioning" },
+      { "label": "Netflix-ready TV" },
+      { "label": "Washing machine" },
+      { "label": "Wi-Fi" },
+      { "label": "Coffee maker" },
+      { "label": "Towels & linens" },
+      { "label": "Shampoo & body soap" },
+      { "label": "Hair dryer" }
+    ],
+    "note": "Also included: microwave, toaster, electric kettle, air purifier, rice cooker, speaker, iron, cookware, and tableware."
+  },
   "rooms": {
     "eyebrow": "ROOMS",
     "headingLine1": "We don't photograph rooms.",
@@ -74,26 +119,63 @@
     ]
   },
   "moments": {
-    "eyebrow": "A DAY AT K3V",
+    "eyebrow": "DISCOVER TOKYO",
     "headingLine1": "Not between sightseeing stops —",
     "headingLine2": "the Tokyo that lives between daily moments.",
     "items": [
       {
-        "time": "7:20 AM",
-        "title": "A morning with steam rising",
-        "text": "The first cup of coffee, brewed from beans sourced at a local roaster. Window cracked open, feeling the green of Shinjuku Gyoen carry the morning air in."
+        "time": "Morning",
+        "title": "A walk through Shinjuku Gyoen",
+        "text": "Coffee in hand, a loop through the park right outside. Starting the day with the smell of green."
       },
       {
-        "time": "3:40 PM",
-        "title": "A rest on the balcony",
-        "text": "Making time to do nothing in a patch of sun. Even while traveling, letting your shoulders drop the way you would at home."
+        "time": "Lunch",
+        "title": "Lunch in Kagurazaka",
+        "text": "Wandering the stone-paved back streets to a small teishoku spot or café for a leisurely lunch."
       },
       {
-        "time": "9:10 PM",
-        "title": "A quiet book at night",
-        "text": "One lamp on, opening the book you brought along. A night with the sound of turning pages instead of the television."
+        "time": "Coffee",
+        "title": "A cup at Blue Bottle, Shibuya",
+        "text": "A pause mid-walk for a carefully brewed cup."
+      },
+      {
+        "time": "Sunset",
+        "title": "Sunset from Shibuya Sky",
+        "text": "Watching Tokyo's sky shift color from a little higher up."
+      },
+      {
+        "time": "Night",
+        "title": "Lights low, a quiet night",
+        "text": "Back in the room, at your own pace — quiet over television."
       }
     ]
+  },
+  "reviews": {
+    "eyebrow": "GUEST REVIEWS",
+    "headingLine1": "Guest reviews will",
+    "headingLine2": "start appearing here soon.",
+    "description": "As a newly opened stay, we're still gathering guest reviews. We'll be featuring real feedback here, organized around location, cleanliness, design, and facilities.",
+    "categories": [
+      { "label": "Location" },
+      { "label": "Cleanliness" },
+      { "label": "Design" },
+      { "label": "Facilities" }
+    ],
+    "comingSoon": "Coming soon"
+  },
+  "bookDirect": {
+    "eyebrow": "WHY BOOK DIRECT?",
+    "headingLine1": "Book through our official site",
+    "headingLine2": "for a slightly better stay.",
+    "description": "Booking directly with us instead of through an OTA comes with a few small perks.",
+    "benefits": [
+      { "title": "Best Rate Guarantee", "text": "Our official site always has the best available rate." },
+      { "title": "Flexible Cancellation", "text": "A cancellation policy that keeps you covered if plans change." },
+      { "title": "Local Guide PDF", "text": "A guide to our favorite spots nearby, on us." },
+      { "title": "Early / Late Options", "text": "Early check-in or late check-out when availability allows." },
+      { "title": "Priority Support", "text": "Direct contact with us if anything comes up during your stay." }
+    ],
+    "cta": "Check Availability"
   },
   "access": {
     "eyebrow": "ACCESS",
