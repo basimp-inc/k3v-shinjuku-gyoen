@@ -55,7 +55,7 @@ export default async function Amenities() {
         </div>
 
         <Reveal delay={200}>
-          <p className="mt-8 max-w-2xl text-sm leading-[1.8] text-[#6f5c3f]">
+          <p className="mt-8 text-sm leading-[1.8] text-[#6f5c3f]">
             {t("note")}
           </p>
         </Reveal>
