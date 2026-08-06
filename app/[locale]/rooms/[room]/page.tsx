@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ROOM_SLUGS, isRoomSlug } from "@/lib/rooms";
-import RoomDetailView from "@/components/RoomDetailView";
+import RoomDetailView from "./_components/RoomDetailView";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>

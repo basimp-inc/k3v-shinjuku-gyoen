@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import PageHero from "@/components/PageHero";
-import StayAvailability from "@/components/StayAvailability";
+import StayAvailability from "./_components/StayAvailability";
 import BookDirect from "@/components/BookDirect";
-import StayPlans from "@/components/StayPlans";
-import StayHowToBook from "@/components/StayHowToBook";
+import StayPlans from "./_components/StayPlans";
+import StayHowToBook from "./_components/StayHowToBook";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

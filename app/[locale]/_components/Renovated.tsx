@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { SparkleIcon, HouseIcon, DropletIcon } from "./icons";
-import Reveal from "./Reveal";
+import { SparkleIcon, HouseIcon, DropletIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Point = {
   title: string;

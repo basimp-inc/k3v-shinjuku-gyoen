@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { CupIcon, SunIcon, BookIcon } from "./icons";
-import Reveal from "./Reveal";
+import { CupIcon, SunIcon, BookIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Moment = {
   time: string;

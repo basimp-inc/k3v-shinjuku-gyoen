@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { PinIcon, SparkleIcon, HouseIcon, WasherIcon } from "./icons";
-import Reveal from "./Reveal";
+import { PinIcon, SparkleIcon, HouseIcon, WasherIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Category = {
   label: string;

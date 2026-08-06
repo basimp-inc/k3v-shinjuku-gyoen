@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { LeafIcon, CupIcon, HouseIcon } from "./icons";
-import Reveal from "./Reveal";
+import { LeafIcon, CupIcon, HouseIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Pillar = {
   tag: string;

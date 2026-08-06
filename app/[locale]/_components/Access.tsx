@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowIcon } from "./icons";
-import Reveal from "./Reveal";
+import { ArrowIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 import { Link } from "@/i18n/navigation";
 
 type Detail = {

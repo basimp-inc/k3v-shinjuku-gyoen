@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { ArrowIcon } from "./icons";
-import RoomVisual from "./RoomVisual";
-import Reveal from "./Reveal";
+import { ArrowIcon } from "@/components/icons";
+import RoomVisual from "@/components/RoomVisual";
+import Reveal from "@/components/Reveal";
 import { ROOM_SLUGS, roomThemes, roomTagClass, type RoomSlug } from "@/lib/rooms";
 
 type Highlight = { title: string; text: string };

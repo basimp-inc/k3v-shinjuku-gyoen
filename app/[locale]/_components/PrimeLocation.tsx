@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { PinIcon, StoreIcon } from "./icons";
-import Reveal from "./Reveal";
+import { PinIcon, StoreIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Stat = {
   value: string;

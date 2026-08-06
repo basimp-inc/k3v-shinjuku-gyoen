@@ -8,8 +8,8 @@ import {
   TowelIcon,
   DropletIcon,
   SunIcon,
-} from "./icons";
-import Reveal from "./Reveal";
+} from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Item = {
   label: string;

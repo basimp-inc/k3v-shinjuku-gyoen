@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import Reveal from "./Reveal";
+import Reveal from "@/components/Reveal";
 
 type PlanItem = {
   tag: string;

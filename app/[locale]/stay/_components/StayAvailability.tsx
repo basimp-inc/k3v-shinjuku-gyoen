@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { roomThemes, roomTagClass, type RoomSlug } from "@/lib/rooms";
-import RoomVisual from "./RoomVisual";
-import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
+import RoomVisual from "@/components/RoomVisual";
+import Reveal from "@/components/Reveal";
+import { ArrowIcon } from "@/components/icons";
 
 type RoomItem = {
   tag: string;

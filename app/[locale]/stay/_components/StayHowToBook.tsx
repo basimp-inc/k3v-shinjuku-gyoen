@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import Reveal from "./Reveal";
-import { ArrowIcon } from "./icons";
+import Reveal from "@/components/Reveal";
+import { ArrowIcon } from "@/components/icons";
 
 type Step = {
   step: string;
