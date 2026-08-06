@@ -59,15 +59,6 @@ function PinIcon({ className }: { className?: string }) {
   );
 }
 
-function ArrowIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...iconProps}>
-      <path d="M4.5 12h15" />
-      <path d="M13 6.5 19.5 12 13 17.5" />
-    </svg>
-  );
-}
-
 const items = [
   { id: "concept", icon: LeafIcon },
   { id: "rooms", icon: BedIcon },
@@ -134,15 +125,17 @@ export default function MobileBottomNav() {
       className="fixed inset-x-0 bottom-0 z-50 lg:hidden"
       aria-label="Mobile navigation"
     >
-      <div className="mx-auto flex max-w-md items-center gap-1 rounded-t-[24px] border-t border-[#e8dcc4] bg-[#f3ece1]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_-12px_rgba(74,58,36,0.25)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-md items-center gap-1 rounded-t-3xl border-t border-[#e8dcc4] bg-[#f3ece1]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_-12px_rgba(74,58,36,0.25)] backdrop-blur-md">
         {items.map(({ id, icon }) => renderItem(id, icon))}
 
         <a
           href={`/${locale}/stay`}
-          className="mx-1 -mt-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#8a6b45] text-[#faf6ee] shadow-[0_8px_16px_-6px_rgba(74,58,36,0.35)] transition-transform duration-200 active:scale-95"
-          aria-label={t("cta")}
+          className="mx-1 -mt-6 flex h-14 shrink-0 items-center gap-1.5 rounded-full bg-[#8a6b45] px-4 text-[#faf6ee] shadow-[0_8px_16px_-6px_rgba(74,58,36,0.35)] transition-transform duration-200 active:scale-95"
         >
-          <ArrowIcon className="h-5 w-5" />
+          <BedIcon className="h-5 w-5 shrink-0" />
+          <span className="whitespace-nowrap text-[12px] font-medium leading-tight">
+            {t("cta")}
+          </span>
         </a>
 
         {itemsRight.map(({ id, icon }) => renderItem(id, icon))}
