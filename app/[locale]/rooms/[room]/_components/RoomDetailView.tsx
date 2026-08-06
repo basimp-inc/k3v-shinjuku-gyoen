@@ -65,7 +65,7 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
             </Reveal>
 
             <Reveal delay={150}>
-              <div className="aspect-[4/3] overflow-hidden rounded-[22px]">
+              <div className="aspect-4/3 overflow-hidden rounded-[22px]">
                 <RoomVisual theme={theme} alt={room.subtitle} />
               </div>
             </Reveal>
@@ -85,8 +85,8 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
 
           {room.comingSoonNote && (
             <Reveal delay={room.story.length * 100}>
-              <p className="mt-6 rounded-[16px] bg-[#f3ece1] px-5 py-4 text-sm leading-[1.8] text-[#8a6b45]">
-                <span className="font-en tracking-[0.1em]">{common("comingSoonBadge")}</span> — {room.comingSoonNote}
+              <p className="mt-6 rounded-2xl bg-[#f3ece1] px-5 py-4 text-sm leading-[1.8] text-[#8a6b45]">
+                <span className="font-en tracking-widest">{common("comingSoonBadge")}</span> — {room.comingSoonNote}
               </p>
             </Reveal>
           )}

@@ -24,7 +24,7 @@ export default async function PrimeLocation() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
@@ -43,7 +43,7 @@ export default async function PrimeLocation() {
                 </span>
                 <div>
                   <p className="text-lg text-[#4a3a24]">{stat.value}</p>
-                  <p className="mt-0.5 text-xs leading-[1.5] text-[#6f5c3f]">{stat.label}</p>
+                  <p className="mt-0.5 text-xs/[1.5] text-[#6f5c3f]">{stat.label}</p>
                 </div>
               </div>
             </Reveal>

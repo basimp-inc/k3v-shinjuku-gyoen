@@ -19,7 +19,7 @@ export default async function Access() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 text-2xl/normal text-[#4a3a24] md:text-3xl/normal">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}

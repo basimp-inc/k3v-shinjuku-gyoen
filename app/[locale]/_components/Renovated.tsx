@@ -20,7 +20,7 @@ export default async function Renovated() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}

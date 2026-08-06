@@ -63,7 +63,7 @@ export default async function MeetTheDesignerPage() {
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <h2 className="text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">{t("closingHeading")}</h2>
+            <h2 className="text-2xl/normal text-[#4a3a24] md:text-3xl/normal">{t("closingHeading")}</h2>
             <p className="mt-5 text-sm leading-[1.9] text-[#6f5c3f] md:text-base">{t("closing")}</p>
 
             <Link

@@ -32,7 +32,7 @@ export default async function Rooms() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 max-w-xl text-2xl/normal text-[#4a3a24] md:text-3xl/normal">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
@@ -46,7 +46,7 @@ export default async function Rooms() {
           {rooms.map((room, i) => (
             <Reveal key={room.name} delay={i * 100}>
               <article className="group flex h-full flex-col overflow-hidden rounded-[18px] bg-[#f3ece1] transition-transform duration-300 hover:-translate-y-1.5">
-                <div className="aspect-[4/3] overflow-hidden rounded-t-[18px] transition-transform duration-500 group-hover:scale-[1.03]">
+                <div className="aspect-4/3 overflow-hidden rounded-t-[18px] transition-transform duration-500 group-hover:scale-[1.03]">
                   <RoomVisual theme={room.theme} alt={room.alt} />
                 </div>
 
