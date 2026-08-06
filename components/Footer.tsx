@@ -1,19 +1,20 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { ArrowIcon } from "./icons";
 
 export default async function Footer() {
   const t = await getTranslations("footer");
   const nav = await getTranslations("nav");
+  const locale = await getLocale();
 
   const links = [
-    { label: nav("concept"), href: "#concept" },
-    { label: nav("rooms"), href: "#rooms" },
-    { label: nav("moments"), href: "#moments" },
-    { label: nav("access"), href: "#access" },
+    { label: nav("concept"), href: `/${locale}#concept` },
+    { label: nav("rooms"), href: `/${locale}/rooms` },
+    { label: nav("moments"), href: `/${locale}#moments` },
+    { label: nav("access"), href: `/${locale}#access` },
   ];
 
   return (
-    <footer id="stay" className="bg-[#4a3a24] px-6 py-16 text-[#efe5d3] md:px-10 md:py-20">
+    <footer id="contact" className="bg-[#4a3a24] px-6 py-16 text-[#efe5d3] md:px-10 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>

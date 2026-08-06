@@ -47,15 +47,36 @@
     "headingLine2": "日常所需触手可及。",
     "description": "不仅适合观光，日常购物与出行同样便利——无论是短途旅行还是稍长的旅居，新宿御苑前都是理想之选。",
     "stats": [
-      { "value": "步行6分钟", "label": "新宿御苑" },
-      { "value": "步行3分钟", "label": "丸之内线「新宿御苑前」站" },
-      { "value": "步行18分钟", "label": "新宿站" }
+      {
+        "value": "步行6分钟",
+        "label": "新宿御苑"
+      },
+      {
+        "value": "步行3分钟",
+        "label": "丸之内线「新宿御苑前」站"
+      },
+      {
+        "value": "步行18分钟",
+        "label": "新宿站"
+      }
     ],
     "nearby": [
-      { "label": "便利店", "distance": "步行3分钟" },
-      { "label": "超市", "distance": "步行3分钟" },
-      { "label": "咖啡馆", "distance": "步行3分钟" },
-      { "label": "药妆店", "distance": "步行1分钟" }
+      {
+        "label": "便利店",
+        "distance": "步行3分钟"
+      },
+      {
+        "label": "超市",
+        "distance": "步行3分钟"
+      },
+      {
+        "label": "咖啡馆",
+        "distance": "步行3分钟"
+      },
+      {
+        "label": "药妆店",
+        "distance": "步行1分钟"
+      }
     ]
   },
   "renovated": {
@@ -64,9 +85,18 @@
     "headingLine2": "以及自家般的舒适。",
     "description": "三间客房均已全面翻新，家具家电全部换新。您的入住，从崭新洁净的状态开始。",
     "points": [
-      { "title": "全室彻底翻新", "text": "从上下水管线到室内装潢，全面焕新。" },
-      { "title": "全新家具家电", "text": "由UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE的全新家具统一打造。" },
-      { "title": "洁净的卫浴厨房", "text": "厨房与卫浴的每个角落都精心维护。" }
+      {
+        "title": "全室彻底翻新",
+        "text": "从上下水管线到室内装潢，全面焕新。"
+      },
+      {
+        "title": "全新家具家电",
+        "text": "由UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE的全新家具统一打造。"
+      },
+      {
+        "title": "洁净的卫浴厨房",
+        "text": "厨房与卫浴的每个角落都精心维护。"
+      }
     ]
   },
   "amenities": {
@@ -75,14 +105,30 @@
     "headingLine2": "生活已经为您准备就绪。",
     "description": "家电与洗漱用品一应俱全，无需大包小包，轻装即可开始入住生活。",
     "items": [
-      { "label": "空调" },
-      { "label": "支持Netflix的电视" },
-      { "label": "洗衣机" },
-      { "label": "Wi-Fi" },
-      { "label": "咖啡机" },
-      { "label": "毛巾・床品" },
-      { "label": "洗发水・沐浴露" },
-      { "label": "吹风机" }
+      {
+        "label": "空调"
+      },
+      {
+        "label": "支持Netflix的电视"
+      },
+      {
+        "label": "洗衣机"
+      },
+      {
+        "label": "Wi-Fi"
+      },
+      {
+        "label": "咖啡机"
+      },
+      {
+        "label": "毛巾・床品"
+      },
+      {
+        "label": "洗发水・沐浴露"
+      },
+      {
+        "label": "吹风机"
+      }
     ],
     "note": "此外还配备微波炉、烤面包机、电水壶、空气净化器、电饭煲、音箱、熨斗、厨具与餐具等。"
   },
@@ -98,7 +144,8 @@
         "subtitle": "Natural Living",
         "text": "由UNICO打造，以实木家具叠加北欧布艺柔软质感的自然风客房。为那些希望像生活一样长住的人，提供百看不厌的舒适。",
         "cta": "查看这间客房",
-        "alt": "UNICO 打造的北欧自然风客房意象"
+        "alt": "UNICO 打造的北欧自然风客房意象",
+        "slug": "unico"
       },
       {
         "tag": "JOURNAL STANDARD FURNITURE",
@@ -106,7 +153,8 @@
         "subtitle": "Urban Vintage",
         "text": "由JOURNAL STANDARD FURNITURE家具打造，以做旧皮革与黄铜元素统一整体的一间客房。略带粗犷气质，献给想在都市夜晚中沉淀片刻的人。",
         "cta": "查看这间客房",
-        "alt": "JOURNAL STANDARD FURNITURE 打造的都市复古风客房意象"
+        "alt": "JOURNAL STANDARD FURNITURE 打造的都市复古风客房意象",
+        "slug": "journal-standard-furniture"
       },
       {
         "tag": "CRASH GATE",
@@ -114,9 +162,11 @@
         "subtitle": "Industrial Modern",
         "text": "由CRASH GATE操刀，兼具粗犷与舒适的房间。钢材与黄铜的细节，为日常生活增添一丝张力。（详情筹备中）",
         "cta": "查看这间客房",
-        "alt": "CRASH GATE 打造的工业摩登风客房意象"
+        "alt": "CRASH GATE 打造的工业摩登风客房意象",
+        "slug": "crash-gate"
       }
-    ]
+    ],
+    "viewAll": "查看全部客房"
   },
   "moments": {
     "eyebrow": "DISCOVER TOKYO",
@@ -156,10 +206,18 @@
     "headingLine2": "将从这里开始逐渐积累。",
     "description": "由于是刚开业的旅宿，目前正在收集住客的真实评价。未来将从立地、清洁度、设计、设施等角度，为您呈现实际入住者的感想。",
     "categories": [
-      { "label": "立地" },
-      { "label": "清洁度" },
-      { "label": "设计" },
-      { "label": "设施" }
+      {
+        "label": "立地"
+      },
+      {
+        "label": "清洁度"
+      },
+      {
+        "label": "设计"
+      },
+      {
+        "label": "设施"
+      }
     ],
     "comingSoon": "敬请期待"
   },
@@ -169,11 +227,26 @@
     "headingLine2": "能让住宿体验更加舒心。",
     "description": "相比通过OTA预订，直接通过官网预订可以享受一些小小的特别待遇。",
     "benefits": [
-      { "title": "最优价格保证", "text": "官网始终提供最优惠的价格。" },
-      { "title": "灵活取消政策", "text": "即使行程有变，也能安心调整的取消政策。" },
-      { "title": "本地向导PDF", "text": "附赠一份汇总了周边私藏好去处的向导手册。" },
-      { "title": "灵活提前/延迟", "text": "视空房情况，可提供提前入住或延迟退房。" },
-      { "title": "优先支持", "text": "入住期间如有任何问题，可直接联系我们处理。" }
+      {
+        "title": "最优价格保证",
+        "text": "官网始终提供最优惠的价格。"
+      },
+      {
+        "title": "灵活取消政策",
+        "text": "即使行程有变，也能安心调整的取消政策。"
+      },
+      {
+        "title": "本地向导PDF",
+        "text": "附赠一份汇总了周边私藏好去处的向导手册。"
+      },
+      {
+        "title": "灵活提前/延迟",
+        "text": "视空房情况，可提供提前入住或延迟退房。"
+      },
+      {
+        "title": "优先支持",
+        "text": "入住期间如有任何问题，可直接联系我们处理。"
+      }
     ],
     "cta": "查询空房"
   },
@@ -183,9 +256,18 @@
     "headingLine2": "小小生活据点。",
     "description": "紧邻新宿御苑前、距新宿站也在步行范围内，仅有3间客房的小型旅宿。附近便利店、超市一应俱全，无论是旅行者还是长住者都很方便。",
     "details": [
-      { "label": "地址", "value": "东京都新宿区（详情请咨询）" },
-      { "label": "最近车站", "value": "新宿御苑前站・新宿站 步行圈内" },
-      { "label": "入住时间", "value": "15:00起 / 退房 11:00" }
+      {
+        "label": "地址",
+        "value": "东京都新宿区（详情请咨询）"
+      },
+      {
+        "label": "最近车站",
+        "value": "新宿御苑前站・新宿站 步行圈内"
+      },
+      {
+        "label": "入住时间",
+        "value": "15:00起 / 退房 11:00"
+      }
     ],
     "cta": "查询空房",
     "mapAlt": "新宿御苑周边简易地图插画",
@@ -202,5 +284,271 @@
     "ja": "日本語",
     "en": "English",
     "zh": "中文"
+  },
+  "roomsIndex": {
+    "meta": {
+      "title": "客房 | K3V SHINJUKU GYOEN",
+      "description": "UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE——紧邻新宿御苑的三间客房，三种生活方式，找到属于你的东京房间。"
+    },
+    "eyebrow": "ROOMS",
+    "headingLine1": "三间客房，",
+    "headingLine2": "三种生活方式。",
+    "intro": "K3V SHINJUKU GYOEN的每间客房，都由不同的家具品牌演绎出不同的气质。虽同样紧邻新宿御苑，但选择的房间不同，停留时光的质感也会略有不同。一起来看看吧。",
+    "designerEyebrow": "MEET THE DESIGNER",
+    "designerHeading": "想知道我们为什么选这些家具？",
+    "designerText": "了解每间客房背后的选品故事。",
+    "designerCta": "查看家具选品故事"
+  },
+  "roomDetails": {
+    "unico": {
+      "meta": {
+        "title": "UNICO ROOM — Natural Living | K3V SHINJUKU GYOEN",
+        "description": "实木家具叠加北欧布艺的柔软质感，由UNICO打造。为想要长住般停留的旅人准备的自然风客房。"
+      },
+      "tag": "UNICO",
+      "name": "ROOM 01",
+      "subtitle": "Natural Living",
+      "lead": "由UNICO打造，以实木家具叠加北欧布艺柔软质感的自然风客房。为那些希望像生活一样长住的人，提供百看不厌的舒适。",
+      "story": [
+        "以实木家具为中心布置整个房间，让透过窗户洒入的光线也变得柔和。UNICO的家具魅力在于，木质纹理会随着使用愈发有味道。如果你希望旅途中也拥有在家般的安稳，这里再合适不过。",
+        "搭配北欧布艺的抱枕与毯子，为偏冷的晨光增添一丝暖意。清晨在窗边慢慢煮一杯咖啡，夜晚点亮间接照明静静度过——这样的一天节奏，在这个房间里格外自然。"
+      ],
+      "highlights": [
+        {
+          "title": "实木家具",
+          "text": "以UNICO的餐桌与餐椅为中心，直接感受木材本身的温度。"
+        },
+        {
+          "title": "北欧布艺",
+          "text": "抱枕与毯子选用柔和的色调，随光线变化呈现不同表情。"
+        },
+        {
+          "title": "让人想久留的安稳感",
+          "text": "比起华丽，更重视舒适。无论住一晚还是一周，都能卸下疲惫。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "主题",
+          "value": "Natural Living（北欧自然风）"
+        },
+        {
+          "label": "家具品牌",
+          "value": "UNICO"
+        },
+        {
+          "label": "入住时间",
+          "value": "15:00起 / 退房 11:00"
+        },
+        {
+          "label": "设备",
+          "value": "空调、Wi-Fi、洗衣机等生活家电一应俱全"
+        }
+      ],
+      "designerQuote": {
+        "quote": "希望旅途中也能比在家更放松，所以家具选择上从不妥协。UNICO的沙发，我们尤其看重久坐也不易疲惫的硬度。",
+        "name": "K3V 设计团队"
+      },
+      "cta": "咨询这间客房"
+    },
+    "journal-standard-furniture": {
+      "meta": {
+        "title": "JOURNAL STANDARD FURNITURE ROOM — Urban Vintage | K3V SHINJUKU GYOEN",
+        "description": "做旧皮革与黄铜元素，由JOURNAL STANDARD FURNITURE打造。献给热爱设计、想在都市夜晚沉淀片刻的都市复古风客房。"
+      },
+      "tag": "JOURNAL STANDARD FURNITURE",
+      "name": "ROOM 02",
+      "subtitle": "Urban Vintage",
+      "lead": "由JOURNAL STANDARD FURNITURE家具打造，以做旧皮革与黄铜元素统一整体的一间客房。略带粗犷气质，献给想在都市夜晚中沉淀片刻的人。",
+      "story": [
+        "做旧的皮革与黄铜细节是这个房间的主角。选用JOURNAL STANDARD FURNITURE的家具，正是看中唯有时间才能沉淀出的质感，这是全新家具无法复制的味道。",
+        "我们希望无论从哪个角度取景都好看。这间客房，适合热爱设计与时尚的旅人，也适合只是想度过一个契合都市夜晚气质的夜晚的人。"
+      ],
+      "highlights": [
+        {
+          "title": "越用越有味道的皮革家具",
+          "text": "JOURNAL STANDARD FURNITURE的沙发与椅子，演绎出恰到好处的旧感。"
+        },
+        {
+          "title": "黄铜细节",
+          "text": "从灯具到把手，黄铜元素点缀在每一处细节中。"
+        },
+        {
+          "title": "无论怎么拍都好看",
+          "text": "为热爱设计与时尚的旅人准备的高上镜度客房。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "主题",
+          "value": "Urban Vintage（都市复古风）"
+        },
+        {
+          "label": "家具品牌",
+          "value": "JOURNAL STANDARD FURNITURE"
+        },
+        {
+          "label": "入住时间",
+          "value": "15:00起 / 退房 11:00"
+        },
+        {
+          "label": "设备",
+          "value": "空调、Wi-Fi、洗衣机等生活家电一应俱全"
+        }
+      ],
+      "designerQuote": {
+        "quote": "做旧皮革的质感，是全新沙发无论如何都做不出来的。选择略带粗犷感的家具，反而让房间多了一份沉稳。",
+        "name": "K3V 设计团队"
+      },
+      "cta": "咨询这间客房"
+    },
+    "crash-gate": {
+      "meta": {
+        "title": "CRASH GATE ROOM — Industrial Modern | K3V SHINJUKU GYOEN",
+        "description": "由CRASH GATE操刀的工业摩登风客房，目前正在筹备中。混凝土、皮革与黑色铁件，详情即将公开。"
+      },
+      "tag": "CRASH GATE",
+      "name": "ROOM 03",
+      "subtitle": "Industrial Modern",
+      "lead": "由CRASH GATE操刀，兼具粗犷与舒适的房间。钢材与黄铜的细节，为日常生活增添一丝张力。（详情筹备中）",
+      "story": [
+        "我们正在筹备一间融合混凝土、皮革与黑色铁件、宛如剧场空间的工业摩登客房。目标是打造粗犷中带点玩心的现代Loft氛围。"
+      ],
+      "comingSoonNote": "家具选品与拍摄工作仍在进行中。待一切准备就绪，我们会第一时间更新这个页面。如果感兴趣，欢迎随时联系我们。",
+      "highlights": [
+        {
+          "title": "混凝土 × 皮革 × 黑色铁件",
+          "text": "以粗犷而真实的材质，打造宛如剧场般的空间。"
+        },
+        {
+          "title": "CRASH GATE家具",
+          "text": "计划以带点玩心的现代Loft风格统一整体。"
+        },
+        {
+          "title": "详情筹备中",
+          "text": "家具到位后，将第一时间公开照片与详细规格。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "主题",
+          "value": "Industrial Modern（工业摩登风）"
+        },
+        {
+          "label": "家具品牌",
+          "value": "CRASH GATE"
+        },
+        {
+          "label": "公开状态",
+          "value": "筹备中（照片与详情即将公开）"
+        }
+      ],
+      "designerQuote": {
+        "quote": "即使是粗犷的材质，坐下的瞬间也想让人觉得『真的很舒服』。我们正在寻找这样的平衡，打造CRASH GATE式的玩心空间。",
+        "name": "K3V 设计团队"
+      },
+      "cta": "咨询这间客房"
+    }
+  },
+  "meetDesigner": {
+    "meta": {
+      "title": "Meet the Designer | K3V SHINJUKU GYOEN",
+      "description": "为什么选择这些家具？UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE三间客房的选品故事。"
+    },
+    "eyebrow": "MEET THE DESIGNER",
+    "headingLine1": "选择家具，",
+    "headingLine2": "其实是在选择一种生活方式。",
+    "intro": "K3V SHINJUKU GYOEN的三间客房，分别与不同的家具品牌共同打造。「希望旅途中也能比在家更放松」——正因为这个念头，我们在家具选择上从不妥协。",
+    "notesHeading": "我们在意的细节",
+    "notes": [
+      {
+        "room": "UNICO",
+        "tag": "ROOM 01",
+        "quote": "我们选择UNICO沙发时，尤其看重久坐也不易疲惫的硬度。木质家具会随着使用愈发有味道，住得越久，越能感受到这份用心。"
+      },
+      {
+        "room": "JOURNAL STANDARD FURNITURE",
+        "tag": "ROOM 02",
+        "quote": "做旧皮革的质感，是全新沙发怎么也做不出来的。选择略带粗犷感的家具，让房间多了一份契合都市夜晚的沉稳。"
+      },
+      {
+        "room": "CRASH GATE",
+        "tag": "ROOM 03",
+        "quote": "即使材质粗犷，也想让人一坐下就觉得『真的很舒服』——我们正在寻找这样的平衡。详情即将公开。"
+      }
+    ],
+    "closingHeading": "所以，会让人想住在这里。",
+    "closing": "不是廉价民宿能给到的，被真材实料家具围绕的时光。这正是K3V SHINJUKU GYOEN想要提供的、「像生活一样旅行」的体验。",
+    "cta": "查看客房"
+  },
+  "roomsCommon": {
+    "breadcrumb": "ROOMS",
+    "backToRooms": "返回客房列表",
+    "allRoomsLabel": "查看全部客房",
+    "prevRoom": "上一间",
+    "nextRoom": "下一间",
+    "comingSoonBadge": "筹备中"
+  },
+  "stayPage": {
+    "meta": {
+      "title": "预订 | K3V SHINJUKU GYOEN",
+      "description": "查询K3V SHINJUKU GYOEN空房情况并预订。直接预订特典、长住/家庭旅行/商务出差专属方案，以及预订流程说明。"
+    },
+    "eyebrow": "STAY",
+    "headingLine1": "与其说是住宿，",
+    "headingLine2": "不如说是生活。",
+    "intro": "入住K3V SHINJUKU GYOEN，不只是观光间隙的落脚点，而是东京生活本身。先来看看心仪房间的空房情况吧。",
+    "availability": {
+      "eyebrow": "ROOM AVAILABILITY",
+      "heading": "空房状况・预订",
+      "description": "三间客房均为独立单元，不与其他住客共用空间。选好心仪的房间后，欢迎随时与我们联系。",
+      "pendingNote": "在线预订系统目前正在筹备中。在此之前，请告知您的入住需求，我们会为您确认空房并尽快回复。",
+      "cta": "咨询空房情况"
+    },
+    "plans": {
+      "eyebrow": "STAY PLANS",
+      "heading": "配合你的旅行方式。",
+      "description": "根据不同的旅行需求，我们准备了几种适合的入住方案。",
+      "items": [
+        {
+          "tag": "LONG STAY",
+          "title": "长住方案",
+          "text": "住一周、住一个月——停留得越久，就越能感受到拥有独立厨房与洗衣机的可贵。行李尽管摊开，像本地人一样融入东京的日常。"
+        },
+        {
+          "tag": "FAMILY",
+          "title": "家庭出行",
+          "text": "一栋房源完全属于你们，即使带着孩子也能尽情放松，不必顾虑旁人。在厨房简单做顿饭，或在客厅悠闲度过——只属于一家人的时光。"
+        },
+        {
+          "tag": "BUSINESS",
+          "title": "商务出行",
+          "text": "步行可达新宿站，全屋覆盖Wi-Fi。与酒店客房不同的安静与从容，陪你度过会议之间的每一个夜晚。"
+        }
+      ]
+    },
+    "reservation": {
+      "eyebrow": "HOW TO BOOK",
+      "heading": "预订流程",
+      "description": "没有复杂的手续，只需三步。",
+      "steps": [
+        {
+          "step": "01",
+          "title": "选择房间",
+          "text": "从UNICO、JOURNAL STANDARD FURNITURE、CRASH GATE三间客房中，选出最心仪的一间。"
+        },
+        {
+          "step": "02",
+          "title": "确认空房",
+          "text": "通过邮件或咨询表单告知您期望的入住日期，我们会为您确认空房并尽快回复。"
+        },
+        {
+          "step": "03",
+          "title": "确定预订",
+          "text": "确认无误后，预订即完成。我们也会为您说明入住当天的具体流程。"
+        }
+      ],
+      "cta": "咨询空房情况"
+    }
   }
 }

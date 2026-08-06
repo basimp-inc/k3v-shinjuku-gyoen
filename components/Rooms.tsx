@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowIcon } from "./icons";
 import RoomVisual from "./RoomVisual";
 import Reveal from "./Reveal";
+import { Link } from "@/i18n/navigation";
 
 type RoomItem = {
   tag: string;
@@ -10,6 +11,7 @@ type RoomItem = {
   text: string;
   cta: string;
   alt: string;
+  slug: string;
 };
 
 const roomStyles = [
@@ -63,18 +65,28 @@ export default async function Rooms() {
                     {room.text}
                   </p>
 
-                  <a
-                    href="#stay"
+                  <Link
+                    href={`/rooms/${room.slug}`}
                     className="group/link mt-6 inline-flex items-center gap-2 text-sm text-[#4a3a24]"
                   >
                     {room.cta}
                     <ArrowIcon className="h-4 w-4 text-[#c77b4f] transition-transform duration-200 group-hover/link:translate-x-1" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={rooms.length * 100}>
+          <Link
+            href="/rooms"
+            className="group/link mt-10 inline-flex items-center gap-2 text-sm text-[#4a3a24]"
+          >
+            {t("viewAll")}
+            <ArrowIcon className="h-4 w-4 text-[#c77b4f] transition-transform duration-200 group-hover/link:translate-x-1" />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

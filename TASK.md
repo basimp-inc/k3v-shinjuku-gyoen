@@ -47,11 +47,11 @@
 
 要件定義書 10章のサイトマップに基づく。App Router で `app/[locale]/xxx/page.tsx` として追加し、Nav/Footer からリンクする。
 
-- [ ] `/rooms` — 3部屋一覧
-  - [ ] `/rooms/unico`（ROOM 01）
-  - [ ] `/rooms/journal-standard-furniture`（ROOM 02）
-  - [ ] `/rooms/crash-gate`（ROOM 03・詳細未定なので準備中表示でも可）
-  - [ ] `/rooms/meet-the-designer`（Meet the Designer — 家具選びのストーリー。要件定義書9章のトーン例を参照）
+- [x] `/rooms` — 3部屋一覧
+  - [x] `/rooms/unico`（ROOM 01）
+  - [x] `/rooms/journal-standard-furniture`（ROOM 02）
+  - [x] `/rooms/crash-gate`（ROOM 03・詳細未定のため「準備中」表示で実装。家具搬入・撮影後に本文差し替え必須）
+  - [x] `/rooms/meet-the-designer`（Meet the Designer — 家具選びのストーリー。要件定義書9章のトーン例を参照して実装）
 - [ ] `/stay`（Stay Plan / Book）
   - [ ] 空室状況・外部予約エンジン（Beds24 / CHILLNW想定）への導線
   - [ ] Direct Booking Benefits / Long Stay Plan / Family Stay / Business Stay の訴求
@@ -92,3 +92,4 @@
 - 予約エンジン（Beds24 / CHILLNW）の最終選定
 - Google宿泊広告を実施するか
 - Guest Reviews の実データ（`Reviews.tsx` は開業直後のため「準備中」プレースホルダーで実装。実際の宿泊者レビューが集まり次第、差し替えが必要）
+- 各部屋の詳細スペック（面積・定員・ベッドタイプ）※要件定義書に記載がないため、`roomDetails`（messages/*.json）ではチェックイン/アウト時間と設備概要のみ掲載し、面積・定員は未掲載。実測値が出たらspecsに追加

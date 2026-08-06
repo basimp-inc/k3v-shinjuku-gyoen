@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 /**
  * Fixed bottom navigation for mobile screens (hidden on lg+ where the
@@ -80,6 +80,7 @@ const itemsRight = [
 
 export default function MobileBottomNav() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
@@ -107,10 +108,11 @@ export default function MobileBottomNav() {
 
   const renderItem = (id: string, Icon: (p: { className?: string }) => React.JSX.Element) => {
     const active = activeId === id;
+    const href = id === "rooms" ? `/${locale}/rooms` : `/${locale}#${id}`;
     return (
       <a
         key={id}
-        href={`#${id}`}
+        href={href}
         className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] transition-colors duration-200"
       >
         <span
@@ -136,7 +138,7 @@ export default function MobileBottomNav() {
         {items.map(({ id, icon }) => renderItem(id, icon))}
 
         <a
-          href="#stay"
+          href={`/${locale}/stay`}
           className="mx-1 -mt-6 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#8a6b45] text-[#faf6ee] shadow-[0_8px_16px_-6px_rgba(74,58,36,0.35)] transition-transform duration-200 active:scale-95"
           aria-label={t("cta")}
         >
