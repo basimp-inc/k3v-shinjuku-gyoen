@@ -60,12 +60,12 @@ function PinIcon({ className }: { className?: string }) {
 }
 
 const items = [
-  { id: "concept", icon: LeafIcon },
+  // { id: "concept", icon: LeafIcon },
   { id: "rooms", icon: BedIcon },
 ] as const;
 
 const itemsRight = [
-  { id: "moments", icon: SunIcon },
+  // { id: "moments", icon: SunIcon },
   { id: "access", icon: PinIcon },
 ] as const;
 
