@@ -25,20 +25,21 @@
 
 ## Phase 1 — TOPページ ブラッシュアップ（"チープシック"方向への調整）
 
-- [ ] 現行デザイン（アーストーン+角丸+Zen Maru Gothic）を「高級感」に寄りすぎていないか確認。必要なら装飾を少しラフに調整
-- [ ] ファーストビュー: 要件定義書 7章の動画演出（新宿御苑の朝→部屋→コーヒー→廊下→マンション前廊下→玄関→夜景）を将来的に動画化する前提で、まずは静止画/イラストのプレースホルダーで構成を近づける
-- [ ] ヘッダーに言語切替（ja/en/zh）を常時表示 — `LocaleSwitcher.tsx` は実装済みのため配置/視認性を確認
-- [ ] フローティング予約ボタン（モバイルでスクロール時に画面下部固定の「空室検索/Book Now」）— `MobileBottomNav.tsx` が該当。要件（3クリック以内で予約完了）を満たす動線か確認
-- [ ] スクロール構成を要件定義書 7章の9セクション順に合わせて過不足を確認・拡張:
-  1. Why K3V?（ブランドストーリー・3部屋紹介・Feel at Home）— 実装済み(`Concept.tsx`)
-  2. Prime Location（新宿御苑周辺3分/新宿駅徒歩圏、コンビニ・スーパー等の生活利便性）— 未実装（`Access.tsx`は谷中版のため要書き換え）
-  3. Guest Reviews — 未実装
-  4. Newly Renovated（全室リノベ・新品家具を写真で訴求）— 未実装
-  5. Everything You Need（家電・アメニティのアイコン一覧）— 未実装
-  6. ROOMS（3部屋を写真でずらり）— 実装済み(`Rooms.tsx`)、内容はPhase 0で修正
-  7. Discover Tokyo（朝散歩→外食街→カフェ→夕景スパ→夜、周辺の暮らし方提案）— `LivingMoments.tsx` が近いが谷中前提のため要調整
-  8. Guest Reviews（詳細版）— 4と統合含め要検討
-  9. Why Book Direct?（Best Rate/柔軟なキャンセル/ローカルガイド/レイトチェックアウト/優先サポート → Book Now）— 未実装
+- [x] 現行デザイン（アーストーン+角丸+Zen Maru Gothic）を「高級感」に寄りすぎていないか確認。ヒーロー画像・モバイルFABの影を少し軽量化する程度の微調整に留め、大幅な作り直しは不要と判断
+- [ ] ファーストビュー: 要件定義書 7章の動画演出（新宿御苑→朝の街→カフェ→地下鉄→マンション外観→部屋→家具→コーヒー→夜景）を将来的に動画化する前提。現状は静止画イラスト（`HeroIllustration.tsx`）のまま — 動画化はクライアントから素材が揃うタイミングで着手
+- [x] ヘッダーに言語切替（ja/en/zh）を常時表示 — `Nav.tsx` が `hidden lg:block` でモバイル非表示になっており、`LocaleSwitcher` がモバイルで一切見えないバグを発見・修正。常時表示のコンパクトヘッダー（ロゴ＋言語切替）＋lg以上でフルナビに拡張する構成に変更
+- [x] フローティング予約ボタン（モバイルでスクロール時に画面下部固定の「空室検索/Book Now」）— `MobileBottomNav.tsx` で実装済み・常時1クリックで到達可能なことを確認。ただし実際の外部予約エンジン連携はPhase 3待ちのため、現状はお問い合わせ導線止まり（3クリック予約の完全達成はPhase 3で再確認）
+- [x] スクロール構成を要件定義書 7章の9セクション順に合わせて拡張（`app/[locale]/page.tsx`）:
+  1. Why K3V? — 実装済み(`Concept.tsx`)
+  2. Prime Location — **新規実装** (`PrimeLocation.tsx`)。徒歩分数（御苑6分/丸ノ内線3分/新宿駅18分）・周辺コンビニ等を掲載
+  3. Newly Renovated — **新規実装** (`Renovated.tsx`)
+  4. Everything You Need — **新規実装** (`Amenities.tsx`)。アイコン8種＋「ほか完備」注記で簡潔に構成
+  5. ROOMS — 実装済み(`Rooms.tsx`)
+  6. Discover Tokyo — `LivingMoments.tsx` を要件定義書の実際のモデルコース（新宿御苑→神楽坂→渋谷Blue Bottle→渋谷スカイ→夜）に差し替え
+  7. Guest Reviews（3・8を統合）— **新規実装** (`Reviews.tsx`)。⚠️ 開業したばかりでレビュー実績が無いため、捏造レビューは掲載せず「準備中」プレースホルダーとして実装。**クライアントから実際のレビューが届き次第、差し替え必須**
+  8. Why Book Direct? — **新規実装** (`BookDirect.tsx`)。Best Rate/柔軟キャンセル/ローカルガイドPDF/アーリーレイト/優先サポート → Book Now
+
+  実装順は Hero → Concept → PrimeLocation → Renovated → Amenities → Rooms → Moments(DiscoverTokyo) → Reviews → BookDirect → Access(実務情報+マップ) → Footer。既存の `Access.tsx`（住所・最寄駅・チェックイン時間・マップ）は要件定義書の9セクションには無いが、実務情報としてFooter直前に維持。
 
 ---
 
@@ -86,7 +87,8 @@
 
 ## 未確定事項（クライアントへの確認が必要）
 
-- 正式な住所・最寄駅の徒歩分数
+- 正式な住所（丁目・番地）※最寄り駅の徒歩分数は要件定義書に記載あり、`PrimeLocation.tsx` に反映済み
 - ROOM 03 CRASH GATE の詳細（要件定義書上も「未定・準備中」）
 - 予約エンジン（Beds24 / CHILLNW）の最終選定
 - Google宿泊広告を実施するか
+- Guest Reviews の実データ（`Reviews.tsx` は開業直後のため「準備中」プレースホルダーで実装。実際の宿泊者レビューが集まり次第、差し替えが必要）
