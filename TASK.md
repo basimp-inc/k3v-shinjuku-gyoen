@@ -52,10 +52,11 @@
   - [x] `/rooms/journal-standard-furniture`（ROOM 02）
   - [x] `/rooms/crash-gate`（ROOM 03・詳細未定のため「準備中」表示で実装。家具搬入・撮影後に本文差し替え必須）
   - [x] `/rooms/meet-the-designer`（Meet the Designer — 家具選びのストーリー。要件定義書9章のトーン例を参照して実装）
-- [ ] `/stay`（Stay Plan / Book）
-  - [ ] 空室状況・外部予約エンジン（Beds24 / CHILLNW想定）への導線
-  - [ ] Direct Booking Benefits / Long Stay Plan / Family Stay / Business Stay の訴求
-  - [ ] Reservation（予約実行）
+- [x] `/stay`（Stay Plan / Book）
+  - [x] 空室状況セクション — 3部屋へのリンク＋「オンライン予約システム準備中」の正直なプレースホルダー＋問い合わせCTA（外部予約エンジン未選定のため、現状はメール問い合わせ導線。Beds24/CHILLNW連携はPhase 3で確定後に差し替え）
+  - [x] Direct Booking Benefits（`BookDirect.tsx` を `showCta` prop付きで再利用）/ Long Stay Plan / Family Stay / Business Stay の訴求
+  - [x] Reservation（予約の流れ3ステップ＋問い合わせCTA。実際の決済・予約実行は予約エンジン連携後）
+  - [x] サイト全体の「空室を探す」CTA（Nav・モバイルFAB・Hero・Access・BookDirect）を `/stay` への実リンクに統一。Footerのidは `#stay`→`#contact` に改名（問い合わせ専用であることを明確化）
 - [ ] `/area` — 新宿御苑・新宿駅・周辺コンビニ/スーパー/飲食店・交通・観光・モデルコース・好立地訴求・リノベーション訴求
 - [ ] `/gallery` — Room Photos / Lifestyle Photos / Neighborhood Photos / Videos
 - [ ] `/reviews`
@@ -70,10 +71,10 @@
 
 ## Phase 3 — 予約導線・機能要件
 
-- [ ] フローティング予約ボタンを全ページ共通化（レイアウトへの組み込み）
-- [ ] 各部屋ページから空室カレンダー・予約ボタンへ「トップに戻らせない」導線を設計
-- [ ] Beds24 / CHILLNW 等の外部予約エンジンとの連携方式を確定（埋め込み/リンク/API）— クライアントに確認要
-- [ ] TOPから3クリック以内で予約完了できるか動線をテスト
+- [x] フローティング予約ボタンを全ページ共通化（`layout.tsx` に `Nav`/`MobileBottomNav` を組み込み済み。CTA遷移先も `/stay` に統一）
+- [~] 各部屋ページから空室カレンダー・予約ボタンへ「トップに戻らせない」導線を設計 — 各部屋詳細ページのCTAは同一ページ内の `#contact`（フッター問い合わせ）に直接遷移する形で実装済み。ただし実際の空室カレンダーは予約エンジン未選定のため未実装
+- [ ] Beds24 / CHILLNW 等の外部予約エンジンとの連携方式を確定（埋め込み/リンク/API）— クライアントに確認要。確定後、`/stay` の「空室状況・ご予約」セクションと各部屋ページCTAを実際のカレンダー/予約導線に差し替える
+- [ ] TOPから3クリック以内で予約完了できるか動線をテスト（現状は「予約」ではなく「問い合わせ」で完結するため、実予約フローが確定してから再テスト）
 
 ---
 

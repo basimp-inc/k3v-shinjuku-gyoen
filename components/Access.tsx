@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowIcon } from "./icons";
 import Reveal from "./Reveal";
+import { Link } from "@/i18n/navigation";
 
 type Detail = {
   label: string;
@@ -38,13 +39,13 @@ export default async function Access() {
             ))}
           </dl>
 
-          <a
-            href="#stay"
+          <Link
+            href="/stay"
             className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
           >
             {t("cta")}
             <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal delay={150}>

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ShieldIcon, CalendarIcon, BookIcon, ClockIcon, HeadsetIcon, ArrowIcon } from "./icons";
 import Reveal from "./Reveal";
+import { Link } from "@/i18n/navigation";
 
 type Benefit = {
   title: string;
@@ -9,7 +10,7 @@ type Benefit = {
 
 const icons = [ShieldIcon, CalendarIcon, BookIcon, ClockIcon, HeadsetIcon];
 
-export default async function BookDirect() {
+export default async function BookDirect({ showCta = true }: { showCta?: boolean }) {
   const t = await getTranslations("bookDirect");
   const benefits = t.raw("benefits") as Benefit[];
 
@@ -47,15 +48,17 @@ export default async function BookDirect() {
           })}
         </div>
 
-        <Reveal delay={150}>
-          <a
-            href="#stay"
-            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
-          >
-            {t("cta")}
-            <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </a>
-        </Reveal>
+        {showCta && (
+          <Reveal delay={150}>
+            <Link
+              href="/stay"
+              className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
+            >
+              {t("cta")}
+              <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+          </Reveal>
+        )}
       </div>
     </section>
   );
