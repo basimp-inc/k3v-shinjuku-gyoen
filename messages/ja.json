@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "K3v | 暮らすように、東京を旅する。",
-    "description": "K3vは東京の街に暮らすように滞在するホテル。和と北欧の温もりが溶け合う部屋で、いつもの朝と少し特別な一日を。"
+    "title": "K3V SHINJUKU GYOEN | Not Just a Stay. Live Tokyo Beautifully.",
+    "description": "新宿御苑のすぐそばに建つ、全3室のデザイナーズ民泊「K3V SHINJUKU GYOEN」。部屋ごとに異なる家具ブランドの世界観で、東京を暮らすように滞在する。"
   },
   "nav": {
     "concept": "コンセプト",
@@ -11,13 +11,13 @@
     "cta": "空室を探す"
   },
   "hero": {
-    "eyebrow": "TOKYO · LIVING HOTEL",
-    "titleLine1": "暮らすように、",
-    "titleLine2": "東京を旅する。",
-    "description": "K3v(ケースリーヴィ)は、観光地ではなく暮らしの延長として東京に滞在するための宿。和の落ち着きと北欧の温もりを重ねた部屋で、朝はコーヒーの香りから、夜は灯りをひとつ落とすところから一日がはじまります。",
+    "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
+    "titleLine1": "新宿御苑のすぐそばで、",
+    "titleLine2": "東京を暮らすように滞在する。",
+    "description": "K3V SHINJUKU GYOENは、新宿御苑のすぐそばに建つ全3室のデザイナーズ民泊。UNICO・JOURNAL STANDARD FURNITURE・CRASH GATE、部屋ごとに違う家具ブランドの世界観で、観光ではなく暮らしとして東京に滞在する時間を。",
     "ctaPrimary": "空室を探す",
     "ctaSecondary": "3つの部屋をみてみる",
-    "illustrationAlt": "窓辺に鉢植えとコーヒーカップが置かれ、東京の街並みを眺める部屋のイラスト"
+    "illustrationAlt": "新宿御苑近くの窓辺に鉢植えとコーヒーカップが置かれ、東京の街並みを眺める部屋のイラスト"
   },
   "concept": {
     "eyebrow": "OUR CONCEPT",
@@ -25,100 +25,530 @@
     "headingLine2": "東京での暮らしそのものを。",
     "pillars": [
       {
-        "tag": "和",
-        "title": "静けさのある間取り",
-        "text": "障子越しの光、木の質感、余白を活かした間取り。派手さより、落ち着いて過ごせることを優先しました。"
+        "tag": "UNICO",
+        "title": "北欧ナチュラルな朝",
+        "text": "木の温もりとやわらかな北欧ファブリック。UNICOの家具で揃えたROOM 01は、いつもの朝をちょっと丁寧にしてくれる部屋。"
       },
       {
-        "tag": "北欧",
-        "title": "手触りのある道具",
-        "text": "北欧の家具や織物が持つ、使うほどに馴染む感覚。ホテルの備品ではなく、自分の持ち物のような心地よさを。"
+        "tag": "JOURNAL STANDARD FURNITURE",
+        "title": "アーバンヴィンテージな夜",
+        "text": "使い込まれた革と真鍮の質感。JOURNAL STANDARD FURNITUREのROOM 02は、都会の夜に馴染む骨太な時間を過ごしたい人へ。"
       },
       {
-        "tag": "生活",
-        "title": "いつもの朝の続き",
-        "text": "チェックインの緊張感より、鍵を開けたら「ただいま」と言いたくなるような、暮らしの延長にある時間を。"
+        "tag": "CRASH GATE",
+        "title": "インダストリアルな余白",
+        "text": "無骨さと快適さを両立したCRASH GATEのROOM 03。スチールと真鍮のディテールが、暮らしにひとさじの緊張感を添えます。"
       }
     ]
+  },
+  "primeLocation": {
+    "eyebrow": "PRIME LOCATION",
+    "headingLine1": "新宿御苑まで徒歩6分、",
+    "headingLine2": "暮らしに必要なものはすぐそこに。",
+    "description": "観光地としてだけでなく、日々の買い物や移動のしやすさも大切に選んだ立地。短い旅行にも、少し長い滞在にも便利な新宿御苑前エリアです。",
+    "stats": [
+      {
+        "value": "徒歩6分",
+        "label": "新宿御苑"
+      },
+      {
+        "value": "徒歩3分",
+        "label": "丸ノ内線「新宿御苑前」駅"
+      },
+      {
+        "value": "徒歩18分",
+        "label": "新宿駅"
+      }
+    ],
+    "nearby": [
+      {
+        "label": "コンビニ",
+        "distance": "徒歩3分"
+      },
+      {
+        "label": "スーパー",
+        "distance": "徒歩3分"
+      },
+      {
+        "label": "カフェ",
+        "distance": "徒歩3分"
+      },
+      {
+        "label": "ドラッグストア",
+        "distance": "徒歩1分"
+      }
+    ]
+  },
+  "renovated": {
+    "eyebrow": "NEWLY RENOVATED",
+    "headingLine1": "ホテルのような清潔さと、",
+    "headingLine2": "自宅のような心地よさを。",
+    "description": "3部屋とも全面リノベーション済み。家具・家電もすべて新品でそろえました。誰かが暮らした形跡ではなく、まっさらな心地よさから滞在が始まります。",
+    "points": [
+      {
+        "title": "全室フルリノベーション",
+        "text": "水まわりから内装まで、新しく手を入れました。"
+      },
+      {
+        "title": "新品の家具・家電",
+        "text": "UNICO・JOURNAL STANDARD FURNITURE・CRASH GATEの新品家具で統一。"
+      },
+      {
+        "title": "清潔な水まわり",
+        "text": "キッチン・バスルームも隅々まで手入れが行き届いています。"
+      }
+    ]
+  },
+  "amenities": {
+    "eyebrow": "EVERYTHING YOU NEED",
+    "headingLine1": "着替えひとつで、",
+    "headingLine2": "暮らしはもう始まっている。",
+    "description": "家電もアメニティも、日常に必要なものはひと通り揃っています。荷物を増やさず、身ひとつで滞在を。",
+    "items": [
+      {
+        "label": "エアコン"
+      },
+      {
+        "label": "Netflix対応TV"
+      },
+      {
+        "label": "洗濯機"
+      },
+      {
+        "label": "Wi-Fi"
+      },
+      {
+        "label": "コーヒーメーカー"
+      },
+      {
+        "label": "タオル・リネン"
+      },
+      {
+        "label": "シャンプー・ボディソープ"
+      },
+      {
+        "label": "ドライヤー"
+      }
+    ],
+    "note": "ほか、電子レンジ・トースター・電気ケトル・空気清浄機・炊飯器・スピーカー・アイロン・調理器具・食器なども完備しています。"
   },
   "rooms": {
     "eyebrow": "ROOMS",
     "headingLine1": "部屋を撮るのではなく、",
     "headingLine2": "暮らしを撮る。",
-    "description": "3つの部屋には、それぞれ異なる暮らし方の気配があります。同じ東京でも、選ぶ部屋で過ごす一日は少しずつ違う顔を見せてくれます。",
+    "description": "3つの部屋には、それぞれ異なる家具ブランドが選んだ暮らし方があります。同じ新宿御苑のそばでも、選ぶ部屋で過ごす一日は少しずつ違う顔を見せてくれます。",
     "items": [
       {
-        "tag": "STANDARD",
+        "tag": "UNICO",
         "name": "ROOM 01",
-        "subtitle": "和と北欧の、いつもの部屋",
-        "text": "無垢材の家具と畳の香り、北欧ファブリックの柔らかさを重ねた基本の部屋。長く暮らすように滞在する人のための、飽きのこない静けさ。",
+        "subtitle": "Natural Living",
+        "text": "無垢材の家具と北欧ファブリックのやわらかさを重ねた、UNICOによるナチュラルな部屋。長く暮らすように滞在する人のための、飽きのこない心地よさ。",
         "cta": "この部屋をみてみる",
-        "alt": "和と北欧が溶け合う客室のイメージ"
+        "alt": "UNICOによる北欧ナチュラルな客室のイメージ",
+        "slug": "unico"
       },
       {
-        "tag": "JOURNAL STANDARD",
+        "tag": "JOURNAL STANDARD FURNITURE",
         "name": "ROOM 02",
-        "subtitle": "アーバンヴィンテージ",
-        "text": "使い込まれた革と真鍮、Journal Standardの家具でまとめた一室。少し骨太で、都会の夜に馴染むような時間を過ごしたい人へ。",
+        "subtitle": "Urban Vintage",
+        "text": "使い込まれた革と真鍮、JOURNAL STANDARD FURNITUREの家具でまとめた一室。少し骨太で、都会の夜に馴染むような時間を過ごしたい人へ。",
         "cta": "この部屋をみてみる",
-        "alt": "Journal Standard によるアーバンヴィンテージな客室のイメージ"
+        "alt": "JOURNAL STANDARD FURNITURE によるアーバンヴィンテージな客室のイメージ",
+        "slug": "journal-standard-furniture"
       },
       {
         "tag": "CRASH GATE",
         "name": "ROOM 03",
-        "subtitle": "インダストリアルモダン",
-        "text": "CRASH GATEによる、無骨さと快適さを両立した部屋。スチールと真鍮のディテールが、暮らしにひとさじの緊張感を添えます。",
+        "subtitle": "Industrial Modern",
+        "text": "CRASH GATEによる、無骨さと快適さを両立した部屋。スチールと真鍮のディテールが、暮らしにひとさじの緊張感を添えます。（詳細準備中）",
         "cta": "この部屋をみてみる",
-        "alt": "CRASH GATE によるインダストリアルモダンな客室のイメージ"
+        "alt": "CRASH GATE によるインダストリアルモダンな客室のイメージ",
+        "slug": "crash-gate"
       }
-    ]
+    ],
+    "viewAll": "すべての部屋を見る"
   },
   "moments": {
-    "eyebrow": "A DAY AT K3V",
+    "eyebrow": "DISCOVER TOKYO",
     "headingLine1": "観光の合間ではなく、",
     "headingLine2": "暮らしの合間にある東京。",
     "items": [
       {
-        "time": "7:20 AM",
-        "title": "湯気の立つ朝",
-        "text": "近所の焙煎所から仕入れた豆で淹れる、一杯目のコーヒー。窓を少し開けて、街が動き出す音を聞きながら。"
+        "time": "Morning",
+        "title": "新宿御苑を散歩する朝",
+        "text": "宿を出てすぐの新宿御苑を、コーヒー片手にひと回り。緑の匂いから一日をはじめる。"
       },
       {
-        "time": "3:40 PM",
-        "title": "縁側でひと休み",
-        "text": "陽だまりの中、何もしない時間をつくる。旅先でも、家にいるときのように肩の力を抜いて過ごせるように。"
+        "time": "Lunch",
+        "title": "神楽坂でお昼ごはん",
+        "text": "石畳の路地を歩きながら、路地裏の小さな定食屋やカフェでゆっくりランチ。"
       },
       {
-        "time": "9:10 PM",
-        "title": "静かな夜の一冊",
-        "text": "灯りをひとつだけ点けて、持ち込んだ本を開く。テレビの音ではなく、紙をめくる音がある夜。"
+        "time": "Coffee",
+        "title": "渋谷 Blue Bottle で一杯",
+        "text": "街歩きの合間に、丁寧に淹れられた一杯でひと休み。"
+      },
+      {
+        "time": "Sunset",
+        "title": "渋谷スカイで夕景を",
+        "text": "刻々と色を変える東京の空を、少し高い場所から眺める時間。"
+      },
+      {
+        "time": "Night",
+        "title": "灯りを落として、静かな夜",
+        "text": "部屋に戻れば、あとは自分のペースで。テレビの音より、静かな時間を。"
       }
     ]
   },
+  "reviews": {
+    "eyebrow": "GUEST REVIEWS",
+    "headingLine1": "泊まった人の声は、",
+    "headingLine2": "これからここに増えていきます。",
+    "description": "オープンしたばかりの宿のため、ただいまゲストの声を準備中です。実際に泊まっていただいた方の感想を、立地・清潔さ・デザイン・設備の視点でご紹介していく予定です。",
+    "categories": [
+      {
+        "label": "立地"
+      },
+      {
+        "label": "清潔さ"
+      },
+      {
+        "label": "デザイン"
+      },
+      {
+        "label": "設備"
+      }
+    ],
+    "comingSoon": "近日公開"
+  },
+  "bookDirect": {
+    "eyebrow": "WHY BOOK DIRECT?",
+    "headingLine1": "公式サイトから予約すると、",
+    "headingLine2": "もう少しだけ気持ちよく泊まれる。",
+    "description": "OTA経由ではなく公式サイトから直接予約することで受けられる、ちょっとした特典があります。",
+    "benefits": [
+      {
+        "title": "ベストレート保証",
+        "text": "公式サイトが、いつでも一番お得な料金です。"
+      },
+      {
+        "title": "柔軟なキャンセル",
+        "text": "予定が変わっても安心して変更できるキャンセルポリシー。"
+      },
+      {
+        "title": "ローカルガイドPDF",
+        "text": "近所のお気に入りスポットをまとめた案内をプレゼント。"
+      },
+      {
+        "title": "アーリー / レイト対応",
+        "text": "空き状況に応じて、早めのチェックインや遅めのチェックアウトにも対応。"
+      },
+      {
+        "title": "優先サポート",
+        "text": "滞在中の困りごとも、直接やり取りできる安心感。"
+      }
+    ],
+    "cta": "空室を探す"
+  },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "谷根千、路地の奥の",
+    "headingLine1": "新宿御苑のすぐそば、",
     "headingLine2": "小さな暮らしの拠点へ。",
-    "description": "下町の空気が残る谷中の路地に佇む、8室だけの小さな宿。商店街の匂いや近所の話し声も、ここでの滞在の一部です。",
+    "description": "新宿御苑前、新宿駅からも徒歩圏の全3室だけの小さな宿。コンビニやスーパーも近く、旅行者だけでなく暮らす人の目線で便利な立地です。",
     "details": [
-      { "label": "住所", "value": "東京都台東区谷中3-2-1" },
-      { "label": "最寄り駅", "value": "千代田線「根津駅」徒歩6分" },
-      { "label": "チェックイン", "value": "15:00〜 / チェックアウト 11:00" }
+      {
+        "label": "住所",
+        "value": "東京都新宿区（詳細はお問い合わせください）"
+      },
+      {
+        "label": "最寄り駅",
+        "value": "新宿御苑前駅・新宿駅 徒歩圏"
+      },
+      {
+        "label": "チェックイン",
+        "value": "15:00〜 / チェックアウト 11:00"
+      }
     ],
     "cta": "空室を探す",
-    "mapAlt": "谷中周辺の簡易マップイラスト",
-    "mapCaption": "根津駅から徒歩6分"
+    "mapAlt": "新宿御苑周辺の簡易マップイラスト",
+    "mapCaption": "新宿御苑前・新宿駅から徒歩圏"
   },
   "footer": {
-    "tagline": "暮らすように、東京を旅する。谷中の路地にある8室だけの小さな宿。",
+    "tagline": "Not Just a Stay. Live Tokyo Beautifully. 新宿御苑のすぐそばにある、全3室のデザイナーズ民泊。",
     "contactCta": "空室・予約について問い合わせる",
-    "copyrightName": "K3v Tokyo",
-    "address": "東京都台東区谷中3-2-1"
+    "copyrightName": "K3V SHINJUKU GYOEN",
+    "address": "東京都新宿区（詳細はお問い合わせください）"
   },
   "localeSwitcher": {
     "label": "言語",
     "ja": "日本語",
     "en": "English",
     "zh": "中文"
+  },
+  "roomsIndex": {
+    "meta": {
+      "title": "ROOMS | K3V SHINJUKU GYOEN",
+      "description": "UNICO・JOURNAL STANDARD FURNITURE・CRASH GATE。家具ブランドごとに世界観が異なる全3室から、自分らしい東京の部屋を選ぶ。"
+    },
+    "eyebrow": "ROOMS",
+    "headingLine1": "3つの部屋、",
+    "headingLine2": "3つの暮らし方。",
+    "intro": "K3V SHINJUKU GYOENには、家具ブランドごとに空気の違う3つの部屋があります。どこも新宿御苑のすぐそばですが、選ぶ部屋によって過ごす時間の質感は少しずつ変わります。気になる部屋をのぞいてみてください。",
+    "designerEyebrow": "MEET THE DESIGNER",
+    "designerHeading": "なぜこの家具を選んだのか。",
+    "designerText": "3部屋それぞれの、家具選びの背景を少しだけ紹介します。",
+    "designerCta": "家具選びのストーリーを読む"
+  },
+  "roomDetails": {
+    "unico": {
+      "meta": {
+        "title": "UNICO ROOM — Natural Living | K3V SHINJUKU GYOEN",
+        "description": "無垢材の家具と北欧ファブリックのやわらかさを重ねた、UNICOによるナチュラルな部屋。長く暮らすように滞在する人のための、飽きのこない心地よさ。"
+      },
+      "tag": "UNICO",
+      "name": "ROOM 01",
+      "subtitle": "Natural Living",
+      "lead": "無垢材の家具と北欧ファブリックのやわらかさを重ねた、UNICOによるナチュラルな部屋。長く暮らすように滞在する人のための、飽きのこない心地よさ。",
+      "story": [
+        "窓から差し込む光がやわらかく反射するように、無垢材の家具を中心に据えました。UNICOの家具は、使うほどに馴染む木の質感が魅力。旅行のあいだも、自分の家にいるような落ち着きを大事にしたい人に向いています。",
+        "北欧テキスタイルのクッションやブランケットを添えて、寒色になりがちな朝の光にあたたかみをプラス。朝はコーヒーを淹れて窓辺でゆっくり、夜は間接照明を灯して静かに過ごす——そんな一日のリズムがしっくりくる部屋です。"
+      ],
+      "highlights": [
+        {
+          "title": "無垢材家具",
+          "text": "UNICOのダイニングテーブルとチェアを中心に、木のあたたかみをそのまま感じられるしつらえ。"
+        },
+        {
+          "title": "北欧ファブリック",
+          "text": "クッションやブランケットにやわらかな色柄を選び、光の入り方にあわせて表情が変わります。"
+        },
+        {
+          "title": "長く滞在したくなる落ち着き",
+          "text": "派手さより心地よさを優先。1泊でも1週間でも、疲れが抜けていくような空間です。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "テーマ",
+          "value": "Natural Living（北欧ナチュラル）"
+        },
+        {
+          "label": "家具ブランド",
+          "value": "UNICO"
+        },
+        {
+          "label": "チェックイン",
+          "value": "15:00〜 / チェックアウト 11:00"
+        },
+        {
+          "label": "設備",
+          "value": "エアコン・Wi-Fi・洗濯機など生活家電ひと通り完備"
+        }
+      ],
+      "designerQuote": {
+        "quote": "旅先でも、自宅以上にリラックスしてほしいから、妥協せず本物の家具を選びました。UNICOのソファは、何時間座っても疲れない座り心地を大切にしています。",
+        "name": "K3V デザインチーム"
+      },
+      "cta": "この部屋について問い合わせる"
+    },
+    "journal-standard-furniture": {
+      "meta": {
+        "title": "JOURNAL STANDARD FURNITURE ROOM — Urban Vintage | K3V SHINJUKU GYOEN",
+        "description": "使い込まれた革と真鍮、JOURNAL STANDARD FURNITUREの家具でまとめた一室。少し骨太で、都会の夜に馴染むような時間を過ごしたい人へ。"
+      },
+      "tag": "JOURNAL STANDARD FURNITURE",
+      "name": "ROOM 02",
+      "subtitle": "Urban Vintage",
+      "lead": "使い込まれた革と真鍮、JOURNAL STANDARD FURNITUREの家具でまとめた一室。少し骨太で、都会の夜に馴染むような時間を過ごしたい人へ。",
+      "story": [
+        "使い込まれたレザーと真鍮のディテールが主役の部屋です。JOURNAL STANDARD FURNITUREならではの経年変化を楽しむ家具で、新品にはない味わいを表現しました。",
+        "写真を撮ってもどこを切り取っても様になる、そんな空間を意識しています。デザインやファッションが好きな人、都会的な夜の時間を楽しみたい人にちょうどいい一室です。"
+      ],
+      "highlights": [
+        {
+          "title": "経年変化を楽しむレザー家具",
+          "text": "JOURNAL STANDARD FURNITUREのソファやチェアが、使い込まれた質感を演出します。"
+        },
+        {
+          "title": "真鍮のディテール",
+          "text": "照明や取っ手など、細部にまで効かせた真鍮のアクセント。"
+        },
+        {
+          "title": "どこを切り取っても絵になる",
+          "text": "デザイン・ファッション好きの旅にちょうどいい、フォトジェニックな一室。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "テーマ",
+          "value": "Urban Vintage（アーバンヴィンテージ）"
+        },
+        {
+          "label": "家具ブランド",
+          "value": "JOURNAL STANDARD FURNITURE"
+        },
+        {
+          "label": "チェックイン",
+          "value": "15:00〜 / チェックアウト 11:00"
+        },
+        {
+          "label": "設備",
+          "value": "エアコン・Wi-Fi・洗濯機など生活家電ひと通り完備"
+        }
+      ],
+      "designerQuote": {
+        "quote": "経年変化した革の質感は、新品では出せない味わい。使い込まれた家具だからこそ、部屋に落ち着きが生まれると思っています。",
+        "name": "K3V デザインチーム"
+      },
+      "cta": "この部屋について問い合わせる"
+    },
+    "crash-gate": {
+      "meta": {
+        "title": "CRASH GATE ROOM — Industrial Modern | K3V SHINJUKU GYOEN",
+        "description": "CRASH GATEによるインダストリアルモダンな部屋。現在準備中で、コンクリート・レザー・アイアンブラックの空間を予定しています。"
+      },
+      "tag": "CRASH GATE",
+      "name": "ROOM 03",
+      "subtitle": "Industrial Modern",
+      "lead": "CRASH GATEによる、無骨さと快適さを両立した部屋。スチールと真鍮のディテールが、暮らしにひとさじの緊張感を添えます。（詳細準備中）",
+      "story": [
+        "コンクリート・レザー・アイアンブラックを組み合わせた、シアターのようなインダストリアルモダンの部屋を準備しています。ラフでエッジの効いた、遊び心のあるロフトの空気感を目指しています。"
+      ],
+      "comingSoonNote": "現在、家具の選定と撮影を進めています。詳細と写真が揃い次第、このページを更新します。気になる方はお気軽にお問い合わせください。",
+      "highlights": [
+        {
+          "title": "コンクリート×レザー×アイアンブラック",
+          "text": "無骨な素材を組み合わせた、シアターのような空間を予定しています。"
+        },
+        {
+          "title": "CRASH GATEの家具",
+          "text": "遊び心のあるモダンロフトスタイルで統一予定。"
+        },
+        {
+          "title": "詳細は準備中",
+          "text": "写真とスペックは、家具の搬入が完了し次第公開します。"
+        }
+      ],
+      "specs": [
+        {
+          "label": "テーマ",
+          "value": "Industrial Modern（インダストリアルモダン）"
+        },
+        {
+          "label": "家具ブランド",
+          "value": "CRASH GATE"
+        },
+        {
+          "label": "公開状況",
+          "value": "準備中（写真・詳細は近日公開）"
+        }
+      ],
+      "designerQuote": {
+        "quote": "無骨さの中にも、ちゃんとくつろげる座り心地を。CRASH GATEらしい遊び心のある一室を準備しています。",
+        "name": "K3V デザインチーム"
+      },
+      "cta": "この部屋について問い合わせる"
+    }
+  },
+  "meetDesigner": {
+    "meta": {
+      "title": "Meet the Designer | K3V SHINJUKU GYOEN",
+      "description": "なぜこの家具を選んだのか。UNICO・JOURNAL STANDARD FURNITURE・CRASH GATE、3部屋の家具選びの背景を紹介します。"
+    },
+    "eyebrow": "MEET THE DESIGNER",
+    "headingLine1": "家具を選ぶって、",
+    "headingLine2": "暮らし方を選ぶこと。",
+    "intro": "K3V SHINJUKU GYOENの3部屋は、それぞれ異なる家具ブランドとつくりました。「旅先でも、自宅以上にリラックスしてほしい」——その一心で、妥協せず本物の家具を選んでいます。",
+    "notesHeading": "家具選びのこだわり",
+    "notes": [
+      {
+        "room": "UNICO",
+        "tag": "ROOM 01",
+        "quote": "unicoのソファは、何時間座っても疲れない硬さを重視して選びました。木の家具は使うほどに馴染むので、長く滞在する人ほど心地よく感じてもらえるはずです。"
+      },
+      {
+        "room": "JOURNAL STANDARD FURNITURE",
+        "tag": "ROOM 02",
+        "quote": "経年変化した革の質感は、新品のソファでは絶対に出せません。少し骨太な家具を選ぶことで、都会の夜に似合う部屋になったと思います。"
+      },
+      {
+        "room": "CRASH GATE",
+        "tag": "ROOM 03",
+        "quote": "無骨な素材でも、座ってみると「あ、ちゃんと快適」と思ってもらえるバランスを探しています。詳細は近日公開予定です。"
+      }
+    ],
+    "closingHeading": "だから、ここに泊まりたくなる。",
+    "closing": "安いだけの民泊にはない、本物の家具に囲まれた時間。K3V SHINJUKU GYOENが目指しているのは、そんな「暮らすように泊まる」体験です。",
+    "cta": "部屋を見てみる"
+  },
+  "roomsCommon": {
+    "breadcrumb": "ROOMS",
+    "backToRooms": "ROOMSに戻る",
+    "allRoomsLabel": "すべての部屋を見る",
+    "prevRoom": "前の部屋",
+    "nextRoom": "次の部屋",
+    "comingSoonBadge": "準備中"
+  },
+  "stayPage": {
+    "meta": {
+      "title": "STAY | K3V SHINJUKU GYOEN",
+      "description": "K3V SHINJUKU GYOENの空室確認・ご予約について。直接予約の特典、長期滞在・家族旅行・出張向けプラン、ご予約の流れをご案内します。"
+    },
+    "eyebrow": "STAY",
+    "headingLine1": "泊まる、というより、",
+    "headingLine2": "暮らす。",
+    "intro": "K3V SHINJUKU GYOENでの滞在は、観光の合間の宿ではなく、東京での暮らしそのもの。まずは気になる部屋の空室状況をチェックしてみてください。",
+    "availability": {
+      "eyebrow": "ROOM AVAILABILITY",
+      "heading": "空室状況・ご予約",
+      "description": "3部屋とも独立した1棟タイプなので、他の宿泊者と共有するスペースはありません。気になる部屋が決まったら、下記からお気軽にご連絡ください。",
+      "pendingNote": "オンライン予約システムは現在準備中です。それまでの間は、お問い合わせいただいた内容をもとに空室を確認し、折り返しご連絡いたします。",
+      "cta": "空室について問い合わせる"
+    },
+    "plans": {
+      "eyebrow": "STAY PLANS",
+      "heading": "滞在スタイルに合わせて。",
+      "description": "旅行のかたちに合わせて、心地よく過ごせるようにプランを分けています。",
+      "items": [
+        {
+          "tag": "LONG STAY",
+          "title": "ロングステイプラン",
+          "text": "1週間、1ヶ月——長く滞在するほど、キッチンや洗濯機のある暮らしのありがたみを感じるはず。荷物を広げたまま、東京の日常に溶け込むように過ごせます。"
+        },
+        {
+          "tag": "FAMILY",
+          "title": "ファミリーステイ",
+          "text": "1棟まるごと使えるから、小さな子どもがいても周りを気にせずくつろげます。キッチンで簡単な食事を作ったり、リビングでゆっくり過ごしたり、家族だけの時間を。"
+        },
+        {
+          "tag": "BUSINESS",
+          "title": "ビジネスステイ",
+          "text": "新宿駅まで徒歩圏、Wi-Fi完備。出張の合間もひとりで静かに過ごせる、ホテルの部屋とは違う落ち着きがあります。"
+        }
+      ]
+    },
+    "reservation": {
+      "eyebrow": "HOW TO BOOK",
+      "heading": "ご予約の流れ",
+      "description": "むずかしい手続きはありません。3ステップでご案内します。",
+      "steps": [
+        {
+          "step": "01",
+          "title": "部屋を選ぶ",
+          "text": "UNICO・JOURNAL STANDARD FURNITURE・CRASH GATE、3つの部屋から気になる一室を選んでください。"
+        },
+        {
+          "step": "02",
+          "title": "空室を確認する",
+          "text": "お問い合わせフォームまたはメールで、滞在希望日をお知らせください。空室を確認し、折り返しご連絡します。"
+        },
+        {
+          "step": "03",
+          "title": "予約を確定する",
+          "text": "内容に問題なければ、そのままご予約が確定します。チェックイン当日の流れも合わせてご案内します。"
+        }
+      ],
+      "cta": "空室について問い合わせる"
+    }
   }
 }

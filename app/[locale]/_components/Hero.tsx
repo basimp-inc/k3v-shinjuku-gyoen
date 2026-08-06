@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowIcon } from "./icons";
+import { ArrowIcon } from "@/components/icons";
 import HeroIllustration from "./HeroIllustration";
-import Reveal from "./Reveal";
+import Reveal from "@/components/Reveal";
+import { Link } from "@/i18n/navigation";
 
 export default async function Hero() {
   const t = await getTranslations("hero");
@@ -25,13 +26,13 @@ export default async function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href="#stay"
+            <Link
+              href="/stay"
               className="group inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
             >
               {t("ctaPrimary")}
               <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </a>
+            </Link>
             <a
               href="#rooms"
               className="text-sm text-[#6f5c3f] underline decoration-[#c77b4f] decoration-2 underline-offset-4 transition-colors hover:text-[#4a3a24]"
@@ -42,7 +43,7 @@ export default async function Hero() {
         </Reveal>
 
         <Reveal delay={150}>
-          <div className="mx-auto aspect-[6/5.2] w-full max-w-md overflow-hidden rounded-[28px] shadow-[0_30px_60px_-25px_rgba(74,58,36,0.35)]">
+          <div className="mx-auto aspect-[6/5.2] w-full max-w-md overflow-hidden rounded-[28px] shadow-[0_18px_36px_-20px_rgba(74,58,36,0.28)]">
             <HeroIllustration alt={t("illustrationAlt")} />
           </div>
         </Reveal>

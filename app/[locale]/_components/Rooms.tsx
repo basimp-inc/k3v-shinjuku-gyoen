@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { ArrowIcon } from "./icons";
-import RoomVisual from "./RoomVisual";
-import Reveal from "./Reveal";
+import { ArrowIcon } from "@/components/icons";
+import RoomVisual from "@/components/RoomVisual";
+import Reveal from "@/components/Reveal";
+import { Link } from "@/i18n/navigation";
 
 type RoomItem = {
   tag: string;
@@ -10,12 +11,13 @@ type RoomItem = {
   text: string;
   cta: string;
   alt: string;
+  slug: string;
 };
 
 const roomStyles = [
   { theme: "warm" as const, tagClass: "bg-[#c77b4f] text-[#faf6ee]" },
-  { theme: "vintage" as const, tagClass: "bg-[#111110] text-[#c9974b]" },
-  { theme: "industrial" as const, tagClass: "bg-[#111110] text-[#c9974b]" },
+  { theme: "vintage" as const, tagClass: "bg-[#3d2f21] text-[#e8dcc4]" },
+  { theme: "industrial" as const, tagClass: "bg-[#2e2721] text-[#e8dcc4]" },
 ];
 
 export default async function Rooms() {
@@ -30,7 +32,7 @@ export default async function Rooms() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 max-w-xl text-2xl/normal text-[#4a3a24] md:text-3xl/normal">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
@@ -44,7 +46,7 @@ export default async function Rooms() {
           {rooms.map((room, i) => (
             <Reveal key={room.name} delay={i * 100}>
               <article className="group flex h-full flex-col overflow-hidden rounded-[18px] bg-[#f3ece1] transition-transform duration-300 hover:-translate-y-1.5">
-                <div className="aspect-[4/3] overflow-hidden rounded-t-[18px] transition-transform duration-500 group-hover:scale-[1.03]">
+                <div className="aspect-4/3 overflow-hidden rounded-t-[18px] transition-transform duration-500 group-hover:scale-[1.03]">
                   <RoomVisual theme={room.theme} alt={room.alt} />
                 </div>
 
@@ -63,18 +65,28 @@ export default async function Rooms() {
                     {room.text}
                   </p>
 
-                  <a
-                    href="#stay"
+                  <Link
+                    href={`/rooms/${room.slug}`}
                     className="group/link mt-6 inline-flex items-center gap-2 text-sm text-[#4a3a24]"
                   >
                     {room.cta}
                     <ArrowIcon className="h-4 w-4 text-[#c77b4f] transition-transform duration-200 group-hover/link:translate-x-1" />
-                  </a>
+                  </Link>
                 </div>
               </article>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={rooms.length * 100}>
+          <Link
+            href="/rooms"
+            className="group/link mt-10 inline-flex items-center gap-2 text-sm text-[#4a3a24]"
+          >
+            {t("viewAll")}
+            <ArrowIcon className="h-4 w-4 text-[#c77b4f] transition-transform duration-200 group-hover/link:translate-x-1" />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

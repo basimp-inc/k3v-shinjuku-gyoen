@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { CupIcon, SunIcon, BookIcon } from "./icons";
-import Reveal from "./Reveal";
+import { CupIcon, SunIcon, BookIcon } from "@/components/icons";
+import Reveal from "@/components/Reveal";
 
 type Moment = {
   time: string;
@@ -10,8 +10,10 @@ type Moment = {
 
 const visuals = [
   { icon: CupIcon, grad: "from-[#f6ceac] to-[#efe5d3]" },
-  { icon: SunIcon, grad: "from-[#e8dcc4] to-[#dccca9]" },
-  { icon: BookIcon, grad: "from-[#efe5d3] to-[#f3ece1]" },
+  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#dccca9]" },
+  { icon: CupIcon, grad: "from-[#efe5d3] to-[#f3ece1]" },
+  { icon: SunIcon, grad: "from-[#f6ceac] to-[#dccca9]" },
+  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#f3ece1]" },
 ];
 
 export default async function LivingMoments() {
@@ -25,14 +27,14 @@ export default async function LivingMoments() {
           <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl leading-[1.5] text-[#4a3a24] md:text-3xl">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {moments.map((moment, i) => {
             const { icon: Icon, grad } = visuals[i % visuals.length];
             return (

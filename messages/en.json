@@ -1,23 +1,23 @@
 {
   "meta": {
-    "title": "K3v | Live in Tokyo, Even Just for a Stay",
-    "description": "K3v is a hotel for staying in Tokyo the way you'd live there. Rooms where Japanese calm meets Nordic warmth, for an ordinary morning and one slightly special day."
+    "title": "K3V SHINJUKU GYOEN | Not Just a Stay. Live Tokyo Beautifully.",
+    "description": "K3V SHINJUKU GYOEN is a 3-room design apartment stay steps away from Shinjuku Gyoen, each room styled by a different furniture brand. Live Tokyo the way you'd actually live it."
   },
   "nav": {
     "concept": "Concept",
     "rooms": "Rooms",
-    "moments": "A Day at K3v",
+    "moments": "A Day at K3V",
     "access": "Access",
     "cta": "Check Availability"
   },
   "hero": {
-    "eyebrow": "TOKYO · LIVING HOTEL",
-    "titleLine1": "Live in Tokyo,",
-    "titleLine2": "even just for a stay.",
-    "description": "K3v is a place to stay in Tokyo as an extension of daily life, not a sightseeing base. In rooms layered with Japanese calm and Nordic warmth, the day begins with the smell of coffee, and ends with a single lamp switched off.",
+    "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
+    "titleLine1": "Stay steps away from Shinjuku Gyoen.",
+    "titleLine2": "Design Apartments in the Heart of Tokyo.",
+    "description": "K3V SHINJUKU GYOEN is a 3-room design apartment building just steps from Shinjuku Gyoen. UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE — each room carries a different furniture brand's world. Not a sightseeing base, but a stay that feels like everyday life in Tokyo.",
     "ctaPrimary": "Check Availability",
     "ctaSecondary": "See the three rooms",
-    "illustrationAlt": "Illustration of a room with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
+    "illustrationAlt": "Illustration of a room near Shinjuku Gyoen with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
   },
   "concept": {
     "eyebrow": "OUR CONCEPT",
@@ -25,100 +25,530 @@
     "headingLine2": "life in Tokyo itself.",
     "pillars": [
       {
-        "tag": "Wa",
-        "title": "A quiet floor plan",
-        "text": "Light through shoji screens, the texture of wood, rooms that make room for empty space. We chose calm over spectacle."
+        "tag": "UNICO",
+        "title": "A Nordic-natural morning",
+        "text": "The warmth of wood and soft Nordic fabrics. ROOM 01, furnished by UNICO, makes an ordinary morning feel a little more thoughtful."
       },
       {
-        "tag": "Nordic",
-        "title": "Objects with a good hand-feel",
-        "text": "The way Nordic furniture and textiles settle in the more you use them. Comfort like your own belongings, not hotel fixtures."
+        "tag": "JOURNAL STANDARD FURNITURE",
+        "title": "An urban-vintage night",
+        "text": "The texture of well-worn leather and brass. ROOM 02 by JOURNAL STANDARD FURNITURE is for those who want an evening that fits the city night."
       },
       {
-        "tag": "Living",
-        "title": "An extension of an ordinary morning",
-        "text": "Less the tension of checking in, more the feeling of unlocking the door and saying 'I'm home' — time that continues your everyday life."
+        "tag": "CRASH GATE",
+        "title": "Industrial breathing room",
+        "text": "ROOM 03 by CRASH GATE balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living."
       }
     ]
+  },
+  "primeLocation": {
+    "eyebrow": "PRIME LOCATION",
+    "headingLine1": "6 minutes to Shinjuku Gyoen,",
+    "headingLine2": "everyday errands right around the corner.",
+    "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around — convenient for a short trip or a longer stay in the Shinjuku Gyoen area.",
+    "stats": [
+      {
+        "value": "6 min walk",
+        "label": "Shinjuku Gyoen"
+      },
+      {
+        "value": "3 min walk",
+        "label": "Marunouchi Line, Shinjuku-gyoenmae Sta."
+      },
+      {
+        "value": "18 min walk",
+        "label": "Shinjuku Station"
+      }
+    ],
+    "nearby": [
+      {
+        "label": "Convenience store",
+        "distance": "3 min"
+      },
+      {
+        "label": "Supermarket",
+        "distance": "3 min"
+      },
+      {
+        "label": "Café",
+        "distance": "3 min"
+      },
+      {
+        "label": "Drugstore",
+        "distance": "1 min"
+      }
+    ]
+  },
+  "renovated": {
+    "eyebrow": "NEWLY RENOVATED",
+    "headingLine1": "The cleanliness of a hotel,",
+    "headingLine2": "the comfort of home.",
+    "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout. Your stay starts from a clean slate, not someone else's wear and tear.",
+    "points": [
+      {
+        "title": "Fully renovated, every room",
+        "text": "New plumbing, fixtures, and interiors throughout."
+      },
+      {
+        "title": "Brand-new furniture & appliances",
+        "text": "Furnished entirely with new pieces from UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE."
+      },
+      {
+        "title": "Spotless kitchens & bathrooms",
+        "text": "Every corner of the plumbing is carefully maintained."
+      }
+    ]
+  },
+  "amenities": {
+    "eyebrow": "EVERYTHING YOU NEED",
+    "headingLine1": "Pack light —",
+    "headingLine2": "life here is already set up for you.",
+    "description": "Appliances and amenities for everyday living are all here, so you can travel light and settle in right away.",
+    "items": [
+      {
+        "label": "Air conditioning"
+      },
+      {
+        "label": "Netflix-ready TV"
+      },
+      {
+        "label": "Washing machine"
+      },
+      {
+        "label": "Wi-Fi"
+      },
+      {
+        "label": "Coffee maker"
+      },
+      {
+        "label": "Towels & linens"
+      },
+      {
+        "label": "Shampoo & body soap"
+      },
+      {
+        "label": "Hair dryer"
+      }
+    ],
+    "note": "Also included: microwave, toaster, electric kettle, air purifier, rice cooker, speaker, iron, cookware, and tableware."
   },
   "rooms": {
     "eyebrow": "ROOMS",
     "headingLine1": "We don't photograph rooms.",
     "headingLine2": "We photograph living.",
-    "description": "Each of the three rooms carries a different sense of how to live. Even within the same Tokyo, the room you choose shows you a slightly different face of the day.",
+    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand. Even steps from the same Shinjuku Gyoen, the room you choose shows you a slightly different face of the day.",
     "items": [
       {
-        "tag": "STANDARD",
+        "tag": "UNICO",
         "name": "ROOM 01",
-        "subtitle": "The everyday room, wa meets Nordic",
-        "text": "Our standard room layers solid-wood furniture and the scent of tatami with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
+        "subtitle": "Natural Living",
+        "text": "A natural room by UNICO, layering solid-wood furniture with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
         "cta": "See this room",
-        "alt": "Image of a room blending Japanese and Nordic design"
+        "alt": "Image of a Nordic-natural room by UNICO",
+        "slug": "unico"
       },
       {
-        "tag": "JOURNAL STANDARD",
+        "tag": "JOURNAL STANDARD FURNITURE",
         "name": "ROOM 02",
         "subtitle": "Urban Vintage",
-        "text": "A room built around well-worn leather, brass, and furniture from Journal Standard. A little bolder, for those who want an evening that fits the city night.",
+        "text": "A room built around well-worn leather, brass, and furniture from JOURNAL STANDARD FURNITURE. A little bolder, for those who want an evening that fits the city night.",
         "cta": "See this room",
-        "alt": "Image of an urban-vintage room by Journal Standard"
+        "alt": "Image of an urban-vintage room by JOURNAL STANDARD FURNITURE",
+        "slug": "journal-standard-furniture"
       },
       {
         "tag": "CRASH GATE",
         "name": "ROOM 03",
         "subtitle": "Industrial Modern",
-        "text": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living.",
+        "text": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living. (Details coming soon)",
         "cta": "See this room",
-        "alt": "Image of an industrial-modern room by CRASH GATE"
+        "alt": "Image of an industrial-modern room by CRASH GATE",
+        "slug": "crash-gate"
       }
-    ]
+    ],
+    "viewAll": "See all rooms"
   },
   "moments": {
-    "eyebrow": "A DAY AT K3V",
+    "eyebrow": "DISCOVER TOKYO",
     "headingLine1": "Not between sightseeing stops —",
     "headingLine2": "the Tokyo that lives between daily moments.",
     "items": [
       {
-        "time": "7:20 AM",
-        "title": "A morning with steam rising",
-        "text": "The first cup of coffee, brewed from beans sourced at a local roaster. Window cracked open, listening to the city start to move."
+        "time": "Morning",
+        "title": "A walk through Shinjuku Gyoen",
+        "text": "Coffee in hand, a loop through the park right outside. Starting the day with the smell of green."
       },
       {
-        "time": "3:40 PM",
-        "title": "A rest on the veranda",
-        "text": "Making time to do nothing in a patch of sun. Even while traveling, letting your shoulders drop the way you would at home."
+        "time": "Lunch",
+        "title": "Lunch in Kagurazaka",
+        "text": "Wandering the stone-paved back streets to a small teishoku spot or café for a leisurely lunch."
       },
       {
-        "time": "9:10 PM",
-        "title": "A quiet book at night",
-        "text": "One lamp on, opening the book you brought along. A night with the sound of turning pages instead of the television."
+        "time": "Coffee",
+        "title": "A cup at Blue Bottle, Shibuya",
+        "text": "A pause mid-walk for a carefully brewed cup."
+      },
+      {
+        "time": "Sunset",
+        "title": "Sunset from Shibuya Sky",
+        "text": "Watching Tokyo's sky shift color from a little higher up."
+      },
+      {
+        "time": "Night",
+        "title": "Lights low, a quiet night",
+        "text": "Back in the room, at your own pace — quiet over television."
       }
     ]
   },
+  "reviews": {
+    "eyebrow": "GUEST REVIEWS",
+    "headingLine1": "Guest reviews will",
+    "headingLine2": "start appearing here soon.",
+    "description": "As a newly opened stay, we're still gathering guest reviews. We'll be featuring real feedback here, organized around location, cleanliness, design, and facilities.",
+    "categories": [
+      {
+        "label": "Location"
+      },
+      {
+        "label": "Cleanliness"
+      },
+      {
+        "label": "Design"
+      },
+      {
+        "label": "Facilities"
+      }
+    ],
+    "comingSoon": "Coming soon"
+  },
+  "bookDirect": {
+    "eyebrow": "WHY BOOK DIRECT?",
+    "headingLine1": "Book through our official site",
+    "headingLine2": "for a slightly better stay.",
+    "description": "Booking directly with us instead of through an OTA comes with a few small perks.",
+    "benefits": [
+      {
+        "title": "Best Rate Guarantee",
+        "text": "Our official site always has the best available rate."
+      },
+      {
+        "title": "Flexible Cancellation",
+        "text": "A cancellation policy that keeps you covered if plans change."
+      },
+      {
+        "title": "Local Guide PDF",
+        "text": "A guide to our favorite spots nearby, on us."
+      },
+      {
+        "title": "Early / Late Options",
+        "text": "Early check-in or late check-out when availability allows."
+      },
+      {
+        "title": "Priority Support",
+        "text": "Direct contact with us if anything comes up during your stay."
+      }
+    ],
+    "cta": "Check Availability"
+  },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "Deep in the backstreets of",
-    "headingLine2": "Yanesen, a small home base.",
-    "description": "A small, eight-room inn tucked into the backstreets of Yanaka, where the air of Tokyo's old downtown still lingers. The smell of the shopping street and the voices of neighbors are part of the stay, too.",
+    "headingLine1": "Steps from Shinjuku Gyoen,",
+    "headingLine2": "a small home base.",
+    "description": "A small, three-room stay steps from Shinjuku Gyoen and within walking distance of Shinjuku Station. Convenience stores and supermarkets nearby make it easy for travelers and long-stayers alike.",
     "details": [
-      { "label": "Address", "value": "3-2-1 Yanaka, Taito City, Tokyo" },
-      { "label": "Nearest station", "value": "6 min walk from Nezu Station (Chiyoda Line)" },
-      { "label": "Check-in", "value": "From 15:00 / Check-out 11:00" }
+      {
+        "label": "Address",
+        "value": "Shinjuku, Tokyo (details on request)"
+      },
+      {
+        "label": "Nearest station",
+        "value": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station"
+      },
+      {
+        "label": "Check-in",
+        "value": "From 15:00 / Check-out 11:00"
+      }
     ],
     "cta": "Check Availability",
-    "mapAlt": "Simple map illustration of the Yanaka area",
-    "mapCaption": "6 min walk from Nezu Station"
+    "mapAlt": "Simple map illustration of the Shinjuku Gyoen area",
+    "mapCaption": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station"
   },
   "footer": {
-    "tagline": "Live in Tokyo, even just for a stay. A small, eight-room inn in the backstreets of Yanaka.",
+    "tagline": "Not Just a Stay. Live Tokyo Beautifully. A 3-room design apartment stay steps away from Shinjuku Gyoen.",
     "contactCta": "Ask about availability & reservations",
-    "copyrightName": "K3v Tokyo",
-    "address": "3-2-1 Yanaka, Taito City, Tokyo"
+    "copyrightName": "K3V SHINJUKU GYOEN",
+    "address": "Shinjuku, Tokyo (details on request)"
   },
   "localeSwitcher": {
     "label": "Language",
     "ja": "日本語",
     "en": "English",
     "zh": "中文"
+  },
+  "roomsIndex": {
+    "meta": {
+      "title": "Rooms | K3V SHINJUKU GYOEN",
+      "description": "UNICO, JOURNAL STANDARD FURNITURE, CRASH GATE — three rooms, three ways of living, all steps from Shinjuku Gyoen. Pick the Tokyo room that feels like you."
+    },
+    "eyebrow": "ROOMS",
+    "headingLine1": "Three rooms,",
+    "headingLine2": "three ways to live.",
+    "intro": "Each room at K3V SHINJUKU GYOEN carries the mood of a different furniture brand. All are steps from Shinjuku Gyoen, but the room you pick changes the texture of your stay. Take a look around.",
+    "designerEyebrow": "MEET THE DESIGNER",
+    "designerHeading": "Curious why we chose this furniture?",
+    "designerText": "A short look at the story behind each room's furniture.",
+    "designerCta": "Meet the Designer"
+  },
+  "roomDetails": {
+    "unico": {
+      "meta": {
+        "title": "UNICO ROOM — Natural Living | K3V SHINJUKU GYOEN",
+        "description": "Solid wood furniture and soft Nordic textiles by UNICO. A natural room for guests who want to settle in, not just stay over."
+      },
+      "tag": "UNICO",
+      "name": "ROOM 01",
+      "subtitle": "Natural Living",
+      "lead": "A natural room by UNICO, layering solid-wood furniture with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
+      "story": [
+        "Solid wood furniture sits at the center of this room, catching the light that comes through the window. UNICO's pieces are all about wood that grows more comfortable the more you use it — ideal if you want a trip that still feels like home.",
+        "Nordic textile cushions and throws warm up the cooler morning light. Coffee by the window in the morning, soft lamplight in the evening — the rhythm of the day just seems to fit here."
+      ],
+      "highlights": [
+        {
+          "title": "Solid wood furniture",
+          "text": "A UNICO dining table and chairs bring the warmth of real wood into the room."
+        },
+        {
+          "title": "Nordic textiles",
+          "text": "Cushions and throws in soft tones shift character with the light throughout the day."
+        },
+        {
+          "title": "A calm worth staying in",
+          "text": "Comfort over flash — a space that lets you unwind, whether for one night or one week."
+        }
+      ],
+      "specs": [
+        {
+          "label": "Theme",
+          "value": "Natural Living (Nordic Natural)"
+        },
+        {
+          "label": "Furniture brand",
+          "value": "UNICO"
+        },
+        {
+          "label": "Check-in",
+          "value": "From 15:00 / Check-out 11:00"
+        },
+        {
+          "label": "Amenities",
+          "value": "Full set of daily appliances — AC, Wi-Fi, washer and more"
+        }
+      ],
+      "designerQuote": {
+        "quote": "We want guests to relax even more than they do at home, so we didn't compromise on the furniture. The UNICO sofa was chosen for a firmness that stays comfortable no matter how many hours you sit.",
+        "name": "K3V Design Team"
+      },
+      "cta": "Ask about this room"
+    },
+    "journal-standard-furniture": {
+      "meta": {
+        "title": "JOURNAL STANDARD FURNITURE ROOM — Urban Vintage | K3V SHINJUKU GYOEN",
+        "description": "Well-worn leather and brass by JOURNAL STANDARD FURNITURE. An urban-vintage room for guests who love design and a night that fits the city."
+      },
+      "tag": "JOURNAL STANDARD FURNITURE",
+      "name": "ROOM 02",
+      "subtitle": "Urban Vintage",
+      "lead": "A room built around well-worn leather, brass, and furniture from JOURNAL STANDARD FURNITURE. A little bolder, for those who want an evening that fits the city night.",
+      "story": [
+        "Worn-in leather and brass details take center stage here. Furniture from JOURNAL STANDARD FURNITURE is chosen for the character that only comes with age — a texture new furniture simply can't fake.",
+        "We wanted a room that looks good from every angle, on camera or off. It suits guests who love design and fashion, or just want an evening that matches the city outside."
+      ],
+      "highlights": [
+        {
+          "title": "Leather that gets better with age",
+          "text": "JOURNAL STANDARD FURNITURE sofas and chairs bring in that well-worn texture."
+        },
+        {
+          "title": "Brass details",
+          "text": "From lighting to hardware, brass accents run through every small detail."
+        },
+        {
+          "title": "Photogenic from every angle",
+          "text": "A room built for guests who love design and fashion."
+        }
+      ],
+      "specs": [
+        {
+          "label": "Theme",
+          "value": "Urban Vintage"
+        },
+        {
+          "label": "Furniture brand",
+          "value": "JOURNAL STANDARD FURNITURE"
+        },
+        {
+          "label": "Check-in",
+          "value": "From 15:00 / Check-out 11:00"
+        },
+        {
+          "label": "Amenities",
+          "value": "Full set of daily appliances — AC, Wi-Fi, washer and more"
+        }
+      ],
+      "designerQuote": {
+        "quote": "The texture of aged leather is something brand-new furniture can never fake. Choosing pieces with real wear is exactly what gives this room its sense of calm.",
+        "name": "K3V Design Team"
+      },
+      "cta": "Ask about this room"
+    },
+    "crash-gate": {
+      "meta": {
+        "title": "CRASH GATE ROOM — Industrial Modern | K3V SHINJUKU GYOEN",
+        "description": "An industrial-modern room by CRASH GATE, currently in the works. Concrete, leather, and black iron — details coming soon."
+      },
+      "tag": "CRASH GATE",
+      "name": "ROOM 03",
+      "subtitle": "Industrial Modern",
+      "lead": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living. (Details coming soon)",
+      "story": [
+        "We're putting together a theater-like industrial-modern room using concrete, leather, and black iron. The goal is a playful, edgy modern-loft feel with just enough rawness to keep things interesting."
+      ],
+      "comingSoonNote": "Furniture selection and photography are still in progress. We'll update this page as soon as everything is in place — feel free to reach out if you're curious.",
+      "highlights": [
+        {
+          "title": "Concrete, leather, black iron",
+          "text": "A theater-like space built from raw, honest materials."
+        },
+        {
+          "title": "Furniture by CRASH GATE",
+          "text": "Pulled together in a playful, modern-loft style."
+        },
+        {
+          "title": "Details coming soon",
+          "text": "Photos and specs will go live as soon as the furniture is in."
+        }
+      ],
+      "specs": [
+        {
+          "label": "Theme",
+          "value": "Industrial Modern"
+        },
+        {
+          "label": "Furniture brand",
+          "value": "CRASH GATE"
+        },
+        {
+          "label": "Status",
+          "value": "In preparation — photos and details coming soon"
+        }
+      ],
+      "designerQuote": {
+        "quote": "Raw materials don't have to mean an uncomfortable seat. We're putting together a room with the playful edge CRASH GATE is known for.",
+        "name": "K3V Design Team"
+      },
+      "cta": "Ask about this room"
+    }
+  },
+  "meetDesigner": {
+    "meta": {
+      "title": "Meet the Designer | K3V SHINJUKU GYOEN",
+      "description": "Why this furniture? The story behind the choices for UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE."
+    },
+    "eyebrow": "MEET THE DESIGNER",
+    "headingLine1": "Choosing furniture is",
+    "headingLine2": "choosing a way to live.",
+    "intro": "Each of K3V SHINJUKU GYOEN's three rooms was built with a different furniture brand. We didn't compromise on any of it, because we want guests to relax even more here than they do at home.",
+    "notesHeading": "What we cared about",
+    "notes": [
+      {
+        "room": "UNICO",
+        "tag": "ROOM 01",
+        "quote": "We chose the UNICO sofa for a firmness that never tires you out, no matter how long you sit. Wood furniture only gets better with use — the longer you stay, the more you'll feel it."
+      },
+      {
+        "room": "JOURNAL STANDARD FURNITURE",
+        "tag": "ROOM 02",
+        "quote": "The texture of aged leather is something brand-new furniture can never fake. Going a little bolder gave the room a sense of calm that fits the city night."
+      },
+      {
+        "room": "CRASH GATE",
+        "tag": "ROOM 03",
+        "quote": "Raw materials, but still a seat you actually want to sink into — that's the balance we're chasing. Details are coming soon."
+      }
+    ],
+    "closingHeading": "That's why you'll want to stay here.",
+    "closing": "Real furniture, not just a cheap place to sleep. That's the kind of stay K3V SHINJUKU GYOEN is built around.",
+    "cta": "See the rooms"
+  },
+  "roomsCommon": {
+    "breadcrumb": "ROOMS",
+    "backToRooms": "Back to Rooms",
+    "allRoomsLabel": "See all rooms",
+    "prevRoom": "Previous room",
+    "nextRoom": "Next room",
+    "comingSoonBadge": "Coming Soon"
+  },
+  "stayPage": {
+    "meta": {
+      "title": "Stay | K3V SHINJUKU GYOEN",
+      "description": "Check availability and book your stay at K3V SHINJUKU GYOEN. Direct booking benefits, plans for long stays, families, and business trips, and how reservations work."
+    },
+    "eyebrow": "STAY",
+    "headingLine1": "Not just a stay —",
+    "headingLine2": "a place to live.",
+    "intro": "A stay at K3V SHINJUKU GYOEN isn't a break between sightseeing — it's Tokyo life itself. Start by checking availability for the room that catches your eye.",
+    "availability": {
+      "eyebrow": "ROOM AVAILABILITY",
+      "heading": "Availability & Booking",
+      "description": "All three rooms are fully independent units, so there's no shared space with other guests. Once you've picked a room, just reach out below.",
+      "pendingNote": "Our online booking system is still in the works. In the meantime, send us your dates and we'll check availability and get back to you directly.",
+      "cta": "Ask about availability"
+    },
+    "plans": {
+      "eyebrow": "STAY PLANS",
+      "heading": "A plan for the way you travel.",
+      "description": "We've shaped a few ways to stay, depending on what kind of trip this is.",
+      "items": [
+        {
+          "tag": "LONG STAY",
+          "title": "Long Stay Plan",
+          "text": "A week, a month — the longer you stay, the more you'll appreciate having your own kitchen and washer. Settle in and let Tokyo become part of your everyday."
+        },
+        {
+          "tag": "FAMILY",
+          "title": "Family Stay",
+          "text": "The whole unit is yours, so kids can be kids without worrying about anyone else. Cook a simple meal in the kitchen, relax in the living room — just your family's time."
+        },
+        {
+          "tag": "BUSINESS",
+          "title": "Business Stay",
+          "text": "Walking distance from Shinjuku Station, with Wi-Fi throughout. A quieter kind of calm than a hotel room, for the evenings between meetings."
+        }
+      ]
+    },
+    "reservation": {
+      "eyebrow": "HOW TO BOOK",
+      "heading": "How reservations work",
+      "description": "No complicated steps — just three.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Choose a room",
+          "text": "Pick the room that fits you — UNICO, JOURNAL STANDARD FURNITURE, or CRASH GATE."
+        },
+        {
+          "step": "02",
+          "title": "Check availability",
+          "text": "Send us your dates by email or the contact form. We'll check availability and get back to you."
+        },
+        {
+          "step": "03",
+          "title": "Confirm your booking",
+          "text": "Once everything looks good, your reservation is confirmed. We'll walk you through check-in from there."
+        }
+      ],
+      "cta": "Ask about availability"
+    }
   }
 }
