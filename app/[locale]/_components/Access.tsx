@@ -8,6 +8,9 @@ type Detail = {
   value: string;
 };
 
+const ADDRESS = "東京都新宿区大久保２丁目２";
+const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`;
+
 export default async function Access() {
   const t = await getTranslations("access");
   const details = t.raw("details") as Detail[];
@@ -50,27 +53,14 @@ export default async function Access() {
 
         <Reveal delay={150}>
           <div className="relative aspect-[4/3.4] w-full overflow-hidden rounded-[22px] bg-[#e8dcc4]">
-            <svg viewBox="0 0 400 340" className="h-full w-full" role="img" aria-label={t("mapAlt")}>
-              <rect width="400" height="340" fill="#f3ece1" />
-              <g stroke="#dccca9" strokeWidth="10">
-                <path d="M0 100h400" />
-                <path d="M0 220h400" />
-                <path d="M120 0v340" />
-                <path d="M280 0v340" />
-              </g>
-              <g fill="#c9a874" opacity="0.6">
-                <rect x="150" y="130" width="34" height="34" rx="4" />
-                <rect x="200" y="150" width="26" height="26" rx="4" />
-                <rect x="90" y="60" width="30" height="30" rx="4" />
-                <rect x="230" y="70" width="28" height="28" rx="4" />
-              </g>
-              <circle cx="200" cy="170" r="14" fill="#c77b4f" />
-              <circle cx="200" cy="170" r="24" fill="none" stroke="#c77b4f" strokeWidth="2" opacity="0.5" />
-              <path
-                d="M193 172v-8l7-6 7 6v8h-4v-5h-6v5Z"
-                fill="#faf6ee"
-              />
-            </svg>
+            <iframe
+              title={t("mapAlt")}
+              src={MAP_EMBED_SRC}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 size-full border-0"
+              allowFullScreen
+            />
             <div className="absolute bottom-5 left-5 rounded-full bg-[#f3ece1]/90 px-4 py-2 text-xs text-[#4a3a24]">
               {t("mapCaption")}
             </div>
