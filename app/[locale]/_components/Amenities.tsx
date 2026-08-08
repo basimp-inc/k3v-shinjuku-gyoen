@@ -25,15 +25,15 @@ export default async function Amenities() {
     <section id="amenities" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-[#6f5c3f] md:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
             {t("description")}
           </p>
         </Reveal>
@@ -43,11 +43,11 @@ export default async function Amenities() {
             const Icon = icons[i % icons.length];
             return (
               <Reveal key={item.label} delay={i * 60}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-[18px] bg-[#efe5d3] p-5 text-center">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#f3ece1] text-[#8a6b45]">
+                <div className="flex h-full flex-col items-center gap-3 rounded-[18px] bg-(--color-bg-card) p-5 text-center">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-(--color-bg) text-(--color-accent)">
                     <Icon className="h-6 w-6" />
                   </span>
-                  <p className="text-sm text-[#4a3a24]">{item.label}</p>
+                  <p className="text-sm text-(--color-text)">{item.label}</p>
                 </div>
               </Reveal>
             );
@@ -55,7 +55,7 @@ export default async function Amenities() {
         </div>
 
         <Reveal delay={200}>
-          <p className="mt-8 max-w-2xl text-sm leading-[1.8] text-[#6f5c3f]">
+          <p className="mt-8 max-w-2xl text-sm leading-[1.8] text-(--color-text-soft)">
             {t("note")}
           </p>
         </Reveal>

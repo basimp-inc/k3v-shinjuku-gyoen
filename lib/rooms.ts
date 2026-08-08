@@ -9,9 +9,9 @@ export const roomThemes: Record<RoomSlug, "warm" | "vintage" | "industrial"> = {
 };
 
 export const roomTagClass: Record<RoomSlug, string> = {
-  unico: "bg-[#c77b4f] text-[#faf6ee]",
-  "journal-standard-furniture": "bg-[#3d2f21] text-[#e8dcc4]",
-  "crash-gate": "bg-[#2e2721] text-[#e8dcc4]",
+  unico: "bg-(--color-accent2) text-(--color-cream)",
+  "journal-standard-furniture": "bg-(--color-vintage-dark) text-(--color-bg-card-deep)",
+  "crash-gate": "bg-(--color-industrial-dark) text-(--color-bg-card-deep)",
 };
 
 export function isRoomSlug(value: string): value is RoomSlug {

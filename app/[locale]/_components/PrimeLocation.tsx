@@ -21,15 +21,15 @@ export default async function PrimeLocation() {
     <section id="location" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-[#6f5c3f] md:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
             {t("description")}
           </p>
         </Reveal>
@@ -37,13 +37,13 @@ export default async function PrimeLocation() {
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 80}>
-              <div className="flex h-full items-center gap-4 rounded-[18px] bg-[#efe5d3] p-6">
-                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f3ece1] text-[#8a6b45]">
+              <div className="flex h-full items-center gap-4 rounded-[18px] bg-(--color-bg-card) p-6">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-(--color-bg) text-(--color-accent)">
                   <PinIcon className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="text-lg text-[#4a3a24]">{stat.value}</p>
-                  <p className="mt-0.5 text-xs/[1.5] text-[#6f5c3f]">{stat.label}</p>
+                  <p className="text-lg text-(--color-text)">{stat.value}</p>
+                  <p className="mt-0.5 text-xs/[1.5] text-(--color-text-soft)">{stat.label}</p>
                 </div>
               </div>
             </Reveal>
@@ -51,15 +51,15 @@ export default async function PrimeLocation() {
         </div>
 
         <Reveal delay={100}>
-          <div className="mt-6 flex flex-wrap gap-3 rounded-[18px] bg-[#f6ceac]/25 p-6">
+          <div className="mt-6 flex flex-wrap gap-3 rounded-[18px] bg-(--color-glow)/25 p-6">
             {nearby.map((item) => (
               <span
                 key={item.label}
-                className="inline-flex items-center gap-2 rounded-full bg-[#faf6ee] px-4 py-2 text-sm text-[#4a3a24]"
+                className="inline-flex items-center gap-2 rounded-full bg-(--color-cream) px-4 py-2 text-sm text-(--color-text)"
               >
-                <StoreIcon className="h-4 w-4 text-[#c77b4f]" />
+                <StoreIcon className="h-4 w-4 text-(--color-accent2)" />
                 {item.label}
-                <span className="text-xs text-[#8a6b45]">{item.distance}</span>
+                <span className="text-xs text-(--color-accent)">{item.distance}</span>
               </span>
             ))}
           </div>

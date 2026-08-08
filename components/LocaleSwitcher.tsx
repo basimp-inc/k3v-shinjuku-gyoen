@@ -11,7 +11,7 @@ export default function LocaleSwitcher() {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-full bg-[#efe5d3] p-1"
+      className="flex items-center gap-1 rounded-full bg-(--color-bg-card) p-1"
       aria-label={t("label")}
     >
       {routing.locales.map((code) => {
@@ -24,8 +24,8 @@ export default function LocaleSwitcher() {
             aria-current={active ? "true" : undefined}
             className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-200 ${
               active
-                ? "bg-[#8a6b45] text-[#faf6ee]"
-                : "text-[#6f5c3f] hover:bg-[#e8dcc4] hover:text-[#4a3a24]"
+                ? "bg-(--color-accent) text-(--color-cream)"
+                : "text-(--color-text-soft) hover:bg-(--color-bg-card-deep) hover:text-(--color-text)"
             }`}
           >
             {t(code)}

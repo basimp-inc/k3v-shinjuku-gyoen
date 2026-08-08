@@ -22,11 +22,11 @@ export default async function StayAvailability() {
     <section id="availability" className="px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">{t("eyebrow")}</p>
-          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">{t("eyebrow")}</p>
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-[#6f5c3f] md:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
             {t("description")}
           </p>
         </Reveal>
@@ -36,7 +36,7 @@ export default async function StayAvailability() {
             <Reveal key={room.slug} delay={i * 80}>
               <Link
                 href={`/rooms/${room.slug}`}
-                className="group flex items-center gap-4 rounded-[16px] bg-[#efe5d3] p-3 transition-colors duration-200 hover:bg-[#e8dcc4]"
+                className="group flex items-center gap-4 rounded-[16px] bg-(--color-bg-card) p-3 transition-colors duration-200 hover:bg-(--color-bg-card-deep)"
               >
                 <div className="h-16 w-20 shrink-0 overflow-hidden rounded-[10px]">
                   <RoomVisual theme={roomThemes[room.slug as RoomSlug]} alt={room.alt} />
@@ -47,7 +47,7 @@ export default async function StayAvailability() {
                   >
                     {room.tag}
                   </span>
-                  <p className="mt-1.5 truncate text-sm text-[#4a3a24]">{room.subtitle}</p>
+                  <p className="mt-1.5 truncate text-sm text-(--color-text)">{room.subtitle}</p>
                 </div>
               </Link>
             </Reveal>
@@ -55,11 +55,11 @@ export default async function StayAvailability() {
         </div>
 
         <Reveal delay={150}>
-          <div className="mt-8 rounded-[18px] bg-[#f3ece1] p-6">
-            <p className="text-sm leading-[1.8] text-[#8a6b45]">{t("pendingNote")}</p>
+          <div className="mt-8 rounded-[18px] bg-(--color-bg) p-6">
+            <p className="text-sm leading-[1.8] text-(--color-accent)">{t("pendingNote")}</p>
             <a
               href="#contact"
-              className="group mt-5 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
+              className="group mt-5 inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-7 py-3.5 text-sm text-(--color-cream) transition-all duration-200 hover:scale-[1.03] hover:bg-(--color-accent-dark)"
             >
               {t("cta")}
               <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />

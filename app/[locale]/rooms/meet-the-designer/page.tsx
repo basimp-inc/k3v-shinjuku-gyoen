@@ -38,19 +38,19 @@ export default async function MeetTheDesignerPage() {
         description={t("intro")}
       />
 
-      <section className="bg-[#efe5d3] px-6 py-16 md:px-10 md:py-24">
+      <section className="bg-(--color-bg-card) px-6 py-16 md:px-10 md:py-24">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">{t("notesHeading")}</p>
+            <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">{t("notesHeading")}</p>
           </Reveal>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {notes.map((note, i) => (
               <Reveal key={note.room} delay={i * 100}>
-                <div className="flex h-full flex-col rounded-[18px] bg-[#f3ece1] p-6">
-                  <p className="font-en text-xs tracking-[0.15em] text-[#8a6b45]">{note.tag}</p>
-                  <p className="mt-1 text-base text-[#4a3a24]">{note.room}</p>
-                  <p className="mt-4 flex-1 text-sm leading-[1.9] text-[#6f5c3f]">
+                <div className="flex h-full flex-col rounded-[18px] bg-(--color-bg) p-6">
+                  <p className="font-en text-xs tracking-[0.15em] text-(--color-accent)">{note.tag}</p>
+                  <p className="mt-1 text-base text-(--color-text)">{note.room}</p>
+                  <p className="mt-4 flex-1 text-sm leading-[1.9] text-(--color-text-soft)">
                     &ldquo;{note.quote}&rdquo;
                   </p>
                 </div>
@@ -63,12 +63,12 @@ export default async function MeetTheDesignerPage() {
       <section className="px-6 py-20 md:px-10 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
-            <h2 className="text-2xl/normal text-[#4a3a24] md:text-3xl/normal">{t("closingHeading")}</h2>
-            <p className="mt-5 text-sm leading-[1.9] text-[#6f5c3f] md:text-base">{t("closing")}</p>
+            <h2 className="text-2xl/normal text-(--color-text) md:text-3xl/normal">{t("closingHeading")}</h2>
+            <p className="mt-5 text-sm leading-[1.9] text-(--color-text-soft) md:text-base">{t("closing")}</p>
 
             <Link
               href="/rooms"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-7 py-3.5 text-sm text-(--color-cream) transition-all duration-200 hover:scale-[1.03] hover:bg-(--color-accent-dark)"
             >
               {t("cta")}
               <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />

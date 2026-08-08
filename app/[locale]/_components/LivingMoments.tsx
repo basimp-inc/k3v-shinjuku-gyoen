@@ -9,11 +9,11 @@ type Moment = {
 };
 
 const visuals = [
-  { icon: CupIcon, grad: "from-[#f6ceac] to-[#efe5d3]" },
-  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#dccca9]" },
-  { icon: CupIcon, grad: "from-[#efe5d3] to-[#f3ece1]" },
-  { icon: SunIcon, grad: "from-[#f6ceac] to-[#dccca9]" },
-  { icon: BookIcon, grad: "from-[#e8dcc4] to-[#f3ece1]" },
+  { icon: CupIcon, grad: "from-(--color-glow) to-(--color-bg-card)" },
+  { icon: BookIcon, grad: "from-(--color-bg-card-deep) to-(--color-line)" },
+  { icon: CupIcon, grad: "from-(--color-bg-card) to-(--color-bg)" },
+  { icon: SunIcon, grad: "from-(--color-glow) to-(--color-line)" },
+  { icon: BookIcon, grad: "from-(--color-bg-card-deep) to-(--color-bg)" },
 ];
 
 export default async function LivingMoments() {
@@ -24,10 +24,10 @@ export default async function LivingMoments() {
     <section id="moments" className="px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("headingLine1")}
             <br />
             {t("headingLine2")}
@@ -39,18 +39,18 @@ export default async function LivingMoments() {
             const { icon: Icon, grad } = visuals[i % visuals.length];
             return (
               <Reveal key={moment.title} delay={i * 100}>
-                <div className="overflow-hidden rounded-[18px] bg-[#efe5d3] transition-transform duration-300 hover:-translate-y-1">
+                <div className="overflow-hidden rounded-[18px] bg-(--color-bg-card) transition-transform duration-300 hover:-translate-y-1">
                   <div className={`flex aspect-[5/4] items-center justify-center bg-gradient-to-br ${grad}`}>
-                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f3ece1]/80 text-[#8a6b45]">
+                    <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-(--color-bg)/80 text-(--color-accent)">
                       <Icon className="h-7 w-7" />
                     </span>
                   </div>
                   <div className="p-6">
-                    <span className="font-en text-xs tracking-[0.2em] text-[#c77b4f]">
+                    <span className="font-en text-xs tracking-[0.2em] text-(--color-accent2)">
                       {moment.time}
                     </span>
-                    <h3 className="mt-2 text-lg text-[#4a3a24]">{moment.title}</h3>
-                    <p className="mt-3 text-sm leading-[1.8] text-[#6f5c3f]">
+                    <h3 className="mt-2 text-lg text-(--color-text)">{moment.title}</h3>
+                    <p className="mt-3 text-sm leading-[1.8] text-(--color-text-soft)">
                       {moment.text}
                     </p>
                   </div>

@@ -108,12 +108,12 @@ export default function MobileBottomNav() {
       >
         <span
           className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ${
-            active ? "bg-[#efe5d3] text-[#8a6b45]" : "text-[#a99878]"
+            active ? "bg-(--color-bg-card) text-(--color-accent)" : "text-(--color-on-dark-muted)"
           }`}
         >
           <Icon className="h-5 w-5" />
         </span>
-        <span className={active ? "text-[#4a3a24]" : "text-[#a99878]"}>
+        <span className={active ? "text-(--color-text)" : "text-(--color-on-dark-muted)"}>
           {t(id as "concept" | "rooms" | "moments" | "access")}
         </span>
       </a>
@@ -125,12 +125,12 @@ export default function MobileBottomNav() {
       className="fixed inset-x-0 bottom-0 z-50 lg:hidden"
       aria-label="Mobile navigation"
     >
-      <div className="mx-auto flex max-w-md items-center gap-1 rounded-t-3xl border-t border-[#e8dcc4] bg-[#f3ece1]/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_-12px_rgba(74,58,36,0.25)] backdrop-blur-md">
+      <div className="mx-auto flex max-w-md items-center gap-1 rounded-t-3xl border-t border-(--color-bg-card-deep) bg-(--color-bg)/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_-12px_rgb(var(--color-shadow)/0.25)] backdrop-blur-md">
         {items.map(({ id, icon }) => renderItem(id, icon))}
 
         <a
           href={`/${locale}/stay`}
-          className="mx-1 -mt-6 flex h-14 shrink-0 items-center gap-1.5 rounded-full bg-[#8a6b45] px-4 text-[#faf6ee] shadow-[0_8px_16px_-6px_rgba(74,58,36,0.35)] transition-transform duration-200 active:scale-95"
+          className="mx-1 -mt-6 flex h-14 shrink-0 items-center gap-1.5 rounded-full bg-(--color-accent) px-4 text-(--color-cream) shadow-[0_8px_16px_-6px_rgb(var(--color-shadow)/0.35)] transition-transform duration-200 active:scale-95"
         >
           <BedIcon className="h-5 w-5 shrink-0" />
           <span className="whitespace-nowrap text-[12px] font-medium leading-tight">

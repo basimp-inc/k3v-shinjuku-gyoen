@@ -16,11 +16,11 @@ export default async function StayHowToBook() {
     <section id="how-to-book" className="px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">{t("eyebrow")}</p>
-          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-[#4a3a24] md:text-3xl/[1.5]">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">{t("eyebrow")}</p>
+          <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-[#6f5c3f] md:text-base">
+          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
             {t("description")}
           </p>
         </Reveal>
@@ -28,10 +28,10 @@ export default async function StayHowToBook() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {steps.map((step, i) => (
             <Reveal key={step.step} delay={i * 100}>
-              <div className="h-full rounded-[18px] bg-[#efe5d3] p-7">
-                <span className="font-en text-2xl text-[#c9a874]">{step.step}</span>
-                <h3 className="mt-3 text-lg text-[#4a3a24]">{step.title}</h3>
-                <p className="mt-2 text-sm leading-[1.8] text-[#6f5c3f]">{step.text}</p>
+              <div className="h-full rounded-[18px] bg-(--color-bg-card) p-7">
+                <span className="font-en text-2xl text-(--color-line-strong)">{step.step}</span>
+                <h3 className="mt-3 text-lg text-(--color-text)">{step.title}</h3>
+                <p className="mt-2 text-sm leading-[1.8] text-(--color-text-soft)">{step.text}</p>
               </div>
             </Reveal>
           ))}
@@ -40,7 +40,7 @@ export default async function StayHowToBook() {
         <Reveal delay={300}>
           <a
             href="#contact"
-            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#8a6b45] px-7 py-3.5 text-sm text-[#faf6ee] transition-all duration-200 hover:scale-[1.03] hover:bg-[#745936]"
+            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-7 py-3.5 text-sm text-(--color-cream) transition-all duration-200 hover:scale-[1.03] hover:bg-(--color-accent-dark)"
           >
             {t("cta")}
             <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />

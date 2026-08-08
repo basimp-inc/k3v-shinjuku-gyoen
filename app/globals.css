@@ -1,28 +1,85 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Colour tokens.
+
+   Every colour used in app/, components/ and lib/ resolves through one of these
+   variables — there are no hardcoded hex values outside this file. That means a
+   theme only has to redefine the variables it wants to move: set
+   <html data-theme="…"> and the whole site follows.
+
+   :root holds the "current" palette (what the client has already reviewed).
+   Each [data-theme="…"] block further down overrides a subset of it.
+   --------------------------------------------------------------------------- */
 :root {
-  /* Base palette */
+  /* Surfaces — page background, card, and the deeper card/section tone */
   --color-bg: #f3ece1;
   --color-bg-card: #efe5d3;
   --color-bg-card-deep: #e8dcc4;
+  --color-cream: #faf6ee;
+
+  /* Text */
   --color-text: #4a3a24;
   --color-text-soft: #6f5c3f;
+
+  /* Accents (each with its hover partner) */
   --color-accent: #8a6b45;
   --color-accent-dark: #745936;
   --color-accent2: #c77b4f;
+  --color-accent2-dark: #b96b40;
+
+  /* Lines and edges */
+  --color-line: #dccca9;
+  --color-line-strong: #c9a874;
+  --color-line-on-dark: #5c4a30;
+
+  /* Marks sitting on a dark surface (footer text, inactive mobile nav) */
+  --color-on-dark-soft: #c9bda3;
+  --color-on-dark-muted: #a99878;
+
+  /* Greens — moss gradient and the hero plant */
   --color-moss-from: #97c459;
   --color-moss-to: #639922;
-  --color-cream: #faf6ee;
+  --color-leaf: #7f9a52;
+  --color-leaf-dark: #5d7a3a;
+
+  /* Illustration warm tones (hero sky, sun glow, floor, skyline, props) */
+  --color-glow: #f6ceac;
+  --color-glow-soft: #f9e2b8;
+  --color-sky-mid: #f0ddc0;
+  --color-floor: #ddc9a3;
+  --color-skyline: #a9855c;
+  --color-terracotta-dark: #a85f38;
+  --color-object-dark: #3a2c19;
 
   /* Room 02 / 03 accents — warm deep browns, NOT black×gold (client NG: 高級感/黒×金) */
   --color-vintage-dark: #3d2f21;
   --color-vintage-accent: #b98a52;
+  --color-vintage-mid: #4a3a28;
+  --color-vintage-mid-soft: #55442f;
   --color-industrial-dark: #2e2721;
   --color-industrial-accent: #c77b4f;
+  --color-industrial-mid: #3a3128;
+  --color-industrial-metal: #4a4038;
+
+  /* Drop-shadow tint. Space-separated channels so it can take an alpha:
+     rgb(var(--color-shadow) / 0.28) */
+  --color-shadow: 74 58 36;
 
   --font-jp-heading: "Zen Maru Gothic", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-jp-body: "M PLUS Rounded 1c", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-en: "Quicksand", "Trebuchet MS", sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Themes. Selected via <html data-theme="…">, which components/ThemeMock.tsx
+   sets from ?theme= or localStorage. Each block overrides only what it changes.
+   --------------------------------------------------------------------------- */
+
+/* current — the palette the client has already seen. Deliberately overrides
+   nothing, so data-theme="current" and no attribute at all render identically. */
+[data-theme="current"] {
+  --color-bg: #f3ece1;
 }
 
 @theme inline {

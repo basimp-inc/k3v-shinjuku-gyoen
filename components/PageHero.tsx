@@ -8,11 +8,11 @@ type PageHeroProps = {
 
 export default function PageHero({ eyebrow, headingLines, description }: PageHeroProps) {
   return (
-    <section className="bg-[#f3ece1] px-6 py-16 md:px-10 md:py-24">
+    <section className="bg-(--color-bg) px-6 py-16 md:px-10 md:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-en text-xs tracking-[0.25em] text-[#8a6b45]">{eyebrow}</p>
-          <h1 className="mt-4 max-w-2xl text-3xl leading-[1.4] text-[#4a3a24] md:text-4xl">
+          <p className="font-en text-xs tracking-[0.25em] text-(--color-accent)">{eyebrow}</p>
+          <h1 className="mt-4 max-w-2xl text-3xl leading-[1.4] text-(--color-text) md:text-4xl">
             {headingLines.map((line, i) => (
               <span key={line}>
                 {line}
@@ -21,7 +21,7 @@ export default function PageHero({ eyebrow, headingLines, description }: PageHer
             ))}
           </h1>
           {description && (
-            <p className="mt-5 max-w-xl text-sm leading-[1.8] text-[#6f5c3f] md:text-base">
+            <p className="mt-5 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
               {description}
             </p>
           )}
