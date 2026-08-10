@@ -13,14 +13,14 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Concept />
+      {/* <Concept /> */}
       <PrimeLocation />
       <Renovated />
       <Amenities />
       <Rooms />
-      <LivingMoments />
-      <Reviews />
-      <BookDirect />
+      {/* <LivingMoments /> */}
+      {/* <Reviews /> */}
+      {/* <BookDirect /> */}
       <Access />
     </main>
   );

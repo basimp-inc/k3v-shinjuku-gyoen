@@ -83,7 +83,7 @@
     "eyebrow": "NEWLY RENOVATED",
     "headingLine1": "The cleanliness of a hotel,",
     "headingLine2": "the comfort of home.",
-    "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout. Your stay starts from a clean slate, not someone else's wear and tear.",
+    "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout.",
     "points": [
       {
         "title": "Fully renovated, every room",
@@ -309,10 +309,7 @@
       "name": "ROOM 01",
       "subtitle": "Natural Living",
       "lead": "A natural room by UNICO, layering solid-wood furniture with the softness of Nordic fabrics. A quiet that never grows tiresome, for those staying as if they lived here.",
-      "story": [
-        "Solid wood furniture sits at the center of this room, catching the light that comes through the window. UNICO's pieces are all about wood that grows more comfortable the more you use it — ideal if you want a trip that still feels like home.",
-        "Nordic textile cushions and throws warm up the cooler morning light. Coffee by the window in the morning, soft lamplight in the evening — the rhythm of the day just seems to fit here."
-      ],
+      "story": ["Solid wood furniture sits at the center of this room, catching the light that comes through the window. UNICO's pieces are all about wood that grows more comfortable the more you use it — ideal if you want a trip that still feels like home.", "Nordic textile cushions and throws warm up the cooler morning light. Coffee by the window in the morning, soft lamplight in the evening — the rhythm of the day just seems to fit here."],
       "highlights": [
         {
           "title": "Solid wood furniture",
@@ -360,10 +357,7 @@
       "name": "ROOM 02",
       "subtitle": "Urban Vintage",
       "lead": "A room built around well-worn leather, brass, and furniture from JOURNAL STANDARD FURNITURE. A little bolder, for those who want an evening that fits the city night.",
-      "story": [
-        "Worn-in leather and brass details take center stage here. Furniture from JOURNAL STANDARD FURNITURE is chosen for the character that only comes with age — a texture new furniture simply can't fake.",
-        "We wanted a room that looks good from every angle, on camera or off. It suits guests who love design and fashion, or just want an evening that matches the city outside."
-      ],
+      "story": ["Worn-in leather and brass details take center stage here. Furniture from JOURNAL STANDARD FURNITURE is chosen for the character that only comes with age — a texture new furniture simply can't fake.", "We wanted a room that looks good from every angle, on camera or off. It suits guests who love design and fashion, or just want an evening that matches the city outside."],
       "highlights": [
         {
           "title": "Leather that gets better with age",
@@ -411,9 +405,7 @@
       "name": "ROOM 03",
       "subtitle": "Industrial Modern",
       "lead": "A room by CRASH GATE that balances rawness with comfort. Steel and brass details add a spoonful of edge to everyday living. (Details coming soon)",
-      "story": [
-        "We're putting together a theater-like industrial-modern room using concrete, leather, and black iron. The goal is a playful, edgy modern-loft feel with just enough rawness to keep things interesting."
-      ],
+      "story": ["We're putting together a theater-like industrial-modern room using concrete, leather, and black iron. The goal is a playful, edgy modern-loft feel with just enough rawness to keep things interesting."],
       "comingSoonNote": "Furniture selection and photography are still in progress. We'll update this page as soon as everything is in place — feel free to reach out if you're curious.",
       "highlights": [
         {

@@ -82,6 +82,54 @@
   --color-bg: #f3ece1;
 }
 
+/* brick-warm — Gaia Brick HOA(赤)/HOY(焼過) 参照。5案中もっとも直球にレンガの
+   あたたかみを出す案。背景も目地(mortar)寄りのウォームクリームへ動かし、
+   面の階層を bg → bg-card → bg-card-deep で明確に分ける。 */
+[data-theme="brick-warm"] {
+  --color-bg: #f7ece2;
+  --color-bg-card: #f1e2d0;
+  --color-bg-card-deep: #e8cdb8;
+  --color-cream: #fbf3ea;
+
+  --color-text: #3a2119;
+  --color-text-soft: #6b4536;
+
+  --color-accent: #b5503c;
+  --color-accent-dark: #8c4232;
+  --color-accent2: #9e4823;
+  --color-accent2-dark: #83391a;
+
+  --color-line: #ddc6b0;
+  --color-line-strong: #8f6a46;
+  --color-line-on-dark: #6b4536;
+
+  --color-on-dark-soft: #d9c3b0;
+  --color-on-dark-muted: #b89a83;
+
+  /* hero illustration ambient tones only — ROOM 02/03 (vintage/industrial)
+     keep their own fixed brand colours across every theme */
+  --color-glow: #e8a67c;
+  --color-glow-soft: #f0c39a;
+  --color-sky-mid: #eed3bb;
+  --color-floor: #d9b795;
+  --color-skyline: #a97456;
+  --color-terracotta-dark: #7a3d24;
+  --color-object-dark: #2c1913;
+
+  --color-shadow: 58 33 25;
+}
+
+/* Faint brick-coursing texture, mortar-line only — kept to the alternating
+   card-toned section bands (not full-bleed) so it stays "casual", not "重い". */
+[data-theme="brick-warm"] #renovated,
+[data-theme="brick-warm"] #rooms,
+[data-theme="brick-warm"] #reviews,
+[data-theme="brick-warm"] #access {
+  background-image:
+    repeating-linear-gradient(0deg, rgb(154 88 55 / 0.06) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgb(154 88 55 / 0.05) 0 1px, transparent 1px 52px);
+}
+
 @theme inline {
   --color-background: var(--color-bg);
   --color-foreground: var(--color-text);
