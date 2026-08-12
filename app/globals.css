@@ -1,4 +1,14 @@
 @import "tailwindcss";
+/* REVIEW-ONLY alternative TOP page designs (entries 2–7 of the switcher) */
+@import "./gyoen-design.css";
+@import "./denim-design.css";
+@import "./timber-design.css";
+@import "./chambray-design.css";
+@import "./kraft-design.css";
+@import "./doma-design.css";
+/* Layouts for the canonical six sections those six designs all share.
+   Imported last so it can narrow the generated stylesheets above. */
+@import "./mock-structure.css";
 
 /* ---------------------------------------------------------------------------
    Colour tokens.
@@ -82,52 +92,355 @@
   --color-bg: #f3ece1;
 }
 
-/* brick-warm — Gaia Brick HOA(赤)/HOY(焼過) 参照。5案中もっとも直球にレンガの
-   あたたかみを出す案。背景も目地(mortar)寄りのウォームクリームへ動かし、
-   面の階層を bg → bg-card → bg-card-deep で明確に分ける。 */
-[data-theme="brick-warm"] {
-  --color-bg: #f7ece2;
-  --color-bg-card: #f1e2d0;
-  --color-bg-card-deep: #e8cdb8;
-  --color-cream: #fbf3ea;
+/* gyoen-green — 新宿御苑の樹木の深緑 #33502f を主役に、空/デニムの #a9c3d6 を
+   小面積のアクセント、芝の #93b23e を差し色、木（ローズウッド〜チーク）を素材色に
+   置く案。docs/top-page-mock-5.html のTOPページモックと同じ配色体系。
+   緑を「主役の構造色」にした唯一の案。 */
+[data-theme="gyoen-green"] {
+  --color-bg: #f2efe6;
+  --color-bg-card: #eae6d9;
+  --color-bg-card-deep: #ddd9c7;
+  --color-cream: #fbf9f3;
 
-  --color-text: #3a2119;
-  --color-text-soft: #6b4536;
+  --color-text: #1e2a1c;
+  --color-text-soft: #4a5546;
 
-  --color-accent: #b5503c;
-  --color-accent-dark: #8c4232;
-  --color-accent2: #9e4823;
-  --color-accent2-dark: #83391a;
+  /* 主役は深緑。accent2 は木（ローズウッド）で、緑一色にせず素材のコントラストを残す */
+  --color-accent: #33502f;
+  --color-accent-dark: #22331f;
+  --color-accent2: #7a3f1f;
+  --color-accent2-dark: #5e2f16;
 
-  --color-line: #ddc6b0;
-  --color-line-strong: #8f6a46;
-  --color-line-on-dark: #6b4536;
+  /* デニムはここ（罫線・細部）に効かせる。面では使わない */
+  --color-line: #d7d9cc;
+  --color-line-strong: #58809e;
+  --color-line-on-dark: #3f6238;
 
-  --color-on-dark-soft: #d9c3b0;
-  --color-on-dark-muted: #b89a83;
+  --color-on-dark-soft: #bfd1dc;
+  --color-on-dark-muted: #7c8b7b;
 
   /* hero illustration ambient tones only — ROOM 02/03 (vintage/industrial)
      keep their own fixed brand colours across every theme */
-  --color-glow: #e8a67c;
-  --color-glow-soft: #f0c39a;
-  --color-sky-mid: #eed3bb;
-  --color-floor: #d9b795;
-  --color-skyline: #a97456;
-  --color-terracotta-dark: #7a3d24;
-  --color-object-dark: #2c1913;
+  --color-moss-from: #93b23e;
+  --color-moss-to: #4e7238;
+  --color-leaf: #5c7a4e;
+  --color-leaf-dark: #33502f;
 
-  --color-shadow: 58 33 25;
+  --color-glow: #f0d9a8;
+  --color-glow-soft: #f7eccf;
+  --color-sky-mid: #cbdce7;
+  --color-floor: #c08b57;
+  --color-skyline: #8aa6b8;
+  --color-terracotta-dark: #7a3f1f;
+  --color-object-dark: #22331f;
+
+  --color-shadow: 30 42 28;
 }
 
-/* Faint brick-coursing texture, mortar-line only — kept to the alternating
-   card-toned section bands (not full-bleed) so it stays "casual", not "重い". */
-[data-theme="brick-warm"] #renovated,
-[data-theme="brick-warm"] #rooms,
-[data-theme="brick-warm"] #reviews,
-[data-theme="brick-warm"] #access {
+/* Plank seams instead of brick coursing — a dark seam with its lit edge, one
+   every 152px, on the alternating card-toned bands. Board width only: a fine
+   grain hairline was tried at 7–19px pitch and reads as corduroy stripes at
+   section scale, not as wood. */
+[data-theme="gyoen-green"] #renovated,
+[data-theme="gyoen-green"] #rooms,
+[data-theme="gyoen-green"] #reviews,
+[data-theme="gyoen-green"] #access {
   background-image:
-    repeating-linear-gradient(0deg, rgb(154 88 55 / 0.06) 0 1px, transparent 1px 26px),
-    repeating-linear-gradient(90deg, rgb(154 88 55 / 0.05) 0 1px, transparent 1px 52px);
+    repeating-linear-gradient(
+      90deg,
+      rgb(122 63 31 / 0.07) 0 1px,
+      rgb(255 255 255 / 0.5) 1px 3px,
+      transparent 3px 152px
+    );
+}
+
+/* denim-sakura — 空とデニムの #a8c6d9 を主役に、御苑の樹の #4a6b3e を深さと
+   コントラスト、八重桜の #e6b8cc をアクセント（セルビッジ＝耳の赤糸を桜に置き換え、
+   飾りではなく構造として使う）、芝の #93b23e をごく小面積の差し色に置く案。
+   docs/top-page-mock-6.html のTOPページモックと同じ配色体系。gyoen-green と
+   主役／脇役がちょうど逆で、寒色が面を支配する唯一の案。
+
+   TOPページは app/denim-design.css がまるごと差し替えるので、ここで効くのは
+   下層ページ（/rooms 等）と、スイッチャーのスウォッチ表示。 */
+[data-theme="denim-sakura"] {
+  --color-bg: #dee9f0;
+  --color-bg-card: #cedfe9;
+  --color-bg-card-deep: #a8c6d9;
+  --color-cream: #fbfaf5;
+
+  --color-text: #16241c;
+  --color-text-soft: #4c5c52;
+
+  /* 面はデニム。accent は御苑の緑、accent2 は桜（淡いままだと明所で沈むので
+     一段深い #b87c9b を使う） */
+  --color-accent: #4a6b3e;
+  --color-accent-dark: #33502f;
+  --color-accent2: #b87c9b;
+  --color-accent2-dark: #9c6280;
+
+  --color-line: #bfd3df;
+  --color-line-strong: #7fa5be;
+  --color-line-on-dark: #3e5f79;
+
+  --color-on-dark-soft: #c6dbe7;
+  --color-on-dark-muted: #8fa9b8;
+
+  --color-moss-from: #93b23e;
+  --color-moss-to: #4a6b3e;
+  --color-leaf: #6d8c5c;
+  --color-leaf-dark: #33502f;
+
+  --color-glow: #f2dce5;
+  --color-glow-soft: #fbfaf5;
+  --color-sky-mid: #c6dbe7;
+  --color-floor: #d8c8ac;
+  --color-skyline: #7fa5be;
+  --color-terracotta-dark: #b87c9b;
+  --color-object-dark: #1b2836;
+
+  --color-shadow: 27 40 54;
+}
+
+/* Denim twill instead of brick coursing — a fine 45° warp/weft on the
+   alternating card-toned bands, so the fabric reads as material on the lower
+   pages too. Kept faint: at section scale anything stronger becomes a pattern
+   rather than a texture. */
+[data-theme="denim-sakura"] #renovated,
+[data-theme="denim-sakura"] #rooms,
+[data-theme="denim-sakura"] #reviews,
+[data-theme="denim-sakura"] #access {
+  background-image:
+    repeating-linear-gradient(45deg, rgb(255 255 255 / 0.5) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(45deg, rgb(43 62 82 / 0.07) 0 1px, transparent 1px 5px);
+}
+
+/* timber-indigo — 生成りの紙 #e4daca を地に、生デニム #1b3a57 を主役、無垢材の
+   #6b4a32 を構造色、御苑の樹の #1f3a2e を脇役、温かい黒 #2b2620 を影とタイポに
+   置く案。docs/top-page-mock-7.html のTOPページモックと同じ配色体系。
+   四色を等分せず「デニム＞木＞緑＞影」の序列をつけた唯一の案で、差し色は
+   デニムのステッチ糸 #c8783a ひと色だけ。
+
+   TOPページは app/timber-design.css がまるごと差し替えるので、ここで効くのは
+   下層ページとプレビュー用スウォッチだけ。 */
+[data-theme="timber-indigo"] {
+  --color-bg: #e4daca;
+  --color-bg-card: #dcd0bc;
+  --color-bg-card-deep: #cabfa8;
+  --color-cream: #f3eee3;
+
+  --color-text: #2b2620;
+  --color-text-soft: #5c534a;
+
+  /* accent は生デニム、accent2 は無垢材。緑は面ではなく葉まわりだけに効かせる */
+  --color-accent: #1b3a57;
+  --color-accent-dark: #122739;
+  --color-accent2: #6b4a32;
+  --color-accent2-dark: #4a3222;
+
+  --color-line: #cec2ac;
+  --color-line-strong: #8f6743;
+  --color-line-on-dark: #3d6a92;
+
+  --color-on-dark-soft: #e4daca;
+  --color-on-dark-muted: #a99a86;
+
+  --color-moss-from: #33553f;
+  --color-moss-to: #1f3a2e;
+  --color-leaf: #4a6b4a;
+  --color-leaf-dark: #1f3a2e;
+
+  --color-glow: #e8c98f;
+  --color-glow-soft: #f3eee3;
+  --color-sky-mid: #7d9ab3;
+  --color-floor: #8f6743;
+  --color-skyline: #3d6a92;
+  --color-terracotta-dark: #6b4a32;
+  --color-object-dark: #2b2620;
+
+  --color-shadow: 43 38 32;
+}
+
+/* 63° denim twill — the same warp angle the TOP page weaves, at section scale.
+   Two passes: a fine light warp over a darker, wider weft, so the band reads as
+   woven cloth rather than as a stripe. */
+[data-theme="timber-indigo"] #renovated,
+[data-theme="timber-indigo"] #rooms,
+[data-theme="timber-indigo"] #reviews,
+[data-theme="timber-indigo"] #access {
+  background-image:
+    repeating-linear-gradient(63deg, rgb(255 255 255 / 0.45) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(63deg, rgb(27 58 87 / 0.07) 0 1px, transparent 1px 4px);
+}
+
+/* washed-chambray — timber-indigo の明暗を反転させた案。地は洗いざらしの
+   シャンブレー #c6d6e4 で、生デニム #1b3a57 は面ではなく「インク」として
+   見出し・タイポ・小さなパッチにだけ使う。無垢材 #6b4a32 と御苑の緑 #1f3a2e、
+   温かい黒 #2b2620 の役割は timber-indigo と同じ。
+   docs/top-page-mock-8.html のTOPページモックと同じ配色体系。
+   薄い地に濃紺が2箇所だけ落ちる構成なので、最後の予約ブロックが一番強くなる。
+
+   TOPページは app/chambray-design.css がまるごと差し替えるので、ここで効くのは
+   下層ページとプレビュー用スウォッチだけ。 */
+[data-theme="washed-chambray"] {
+  --color-bg: #dee8f1;
+  --color-bg-card: #d1dfec;
+  --color-bg-card-deep: #c6d6e4;
+  --color-cream: #f2efe8;
+
+  --color-text: #2b2620;
+  --color-text-soft: #55606b;
+
+  /* accent は生デニム（インク）、accent2 は無垢材 */
+  --color-accent: #1b3a57;
+  --color-accent-dark: #12283c;
+  --color-accent2: #6b4a32;
+  --color-accent2-dark: #4a3222;
+
+  --color-line: #bccfe0;
+  --color-line-strong: #6e8fac;
+  --color-line-on-dark: #2c5779;
+
+  --color-on-dark-soft: #dee8f1;
+  --color-on-dark-muted: #93a8bb;
+
+  --color-moss-from: #7fa07f;
+  --color-moss-to: #33553f;
+  --color-leaf: #5e8b54;
+  --color-leaf-dark: #1f3a2e;
+
+  --color-glow: #f0d9a8;
+  --color-glow-soft: #f2efe8;
+  --color-sky-mid: #c6d6e4;
+  --color-floor: #8f6743;
+  --color-skyline: #8fa9bf;
+  --color-terracotta-dark: #6b4a32;
+  --color-object-dark: #2b2620;
+
+  --color-shadow: 43 38 32;
+}
+
+/* Same 63° warp as timber-indigo, but the white weft sits on top of the blue
+   instead of under it — on a light ground the weave is the more visible half,
+   so the light pass is stronger and the dark pass fainter. */
+[data-theme="washed-chambray"] #renovated,
+[data-theme="washed-chambray"] #rooms,
+[data-theme="washed-chambray"] #reviews,
+[data-theme="washed-chambray"] #access {
+  background-image:
+    repeating-linear-gradient(63deg, rgb(255 255 255 / 0.6) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(63deg, rgb(27 58 87 / 0.06) 0 1px, transparent 1px 4px);
+}
+
+/* Kraft Riso — the palette the lower pages inherit while the TOP page is
+   swapped wholesale by app/kraft-design.css.
+
+   The two bright inks (#00A95C, #FF6C2F) are deliberately absent from the text
+   and accent slots: they sit at 2.03 and 1.86 against kraft, so they can only
+   be areas. accent/accent2 use the type-safe deep variants, which clear 4.5
+   both as text on the page and as a fill under white. */
+[data-theme="kraft-riso"] {
+  --color-bg: #efe6d4;
+  --color-bg-card: #e0d0b4;
+  --color-bg-card-deep: #c9b492;
+  --color-cream: #f7f2e6;
+
+  --color-text: #2b2621;
+  --color-text-soft: #6a5f50;
+
+  /* accent は飴色ではなくリソの橙（濃）、accent2 は御苑のフローグリーン（濃） */
+  --color-accent: #9a320c;
+  --color-accent-dark: #7a2708;
+  --color-accent2: #005c32;
+  --color-accent2-dark: #00401f;
+
+  --color-line: #d6c4a4;
+  --color-line-strong: #3d5588;
+  --color-line-on-dark: #4a6499;
+
+  --color-on-dark-soft: #efe6d4;
+  --color-on-dark-muted: #b3a48c;
+
+  --color-moss-from: #6cc98d;
+  --color-moss-to: #00a95c;
+  --color-leaf: #35a86a;
+  --color-leaf-dark: #005c32;
+
+  --color-glow: #ffb08a;
+  --color-glow-soft: #f7d9bc;
+  --color-sky-mid: #e6d5b8;
+  --color-floor: #d6c4a4;
+  --color-skyline: #3d5588;
+  --color-terracotta-dark: #9a320c;
+  --color-object-dark: #2b2621;
+
+  --color-shadow: 43 38 33;
+}
+
+/* 45° halftone, built as two offset lattices rather than one rotated grid —
+   a rotated 6px dot grid resamples into soft diagonal moiré bands. */
+[data-theme="kraft-riso"] #renovated,
+[data-theme="kraft-riso"] #rooms,
+[data-theme="kraft-riso"] #reviews,
+[data-theme="kraft-riso"] #access {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgb(43 38 33 / 0.14) 0 1.4px, transparent 1.8px),
+    radial-gradient(circle at 50% 50%, rgb(43 38 33 / 0.14) 0 1.4px, transparent 1.8px);
+  background-size: 8px 8px, 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+/* Doma Ceramic — the palette the lower pages inherit while the TOP page is
+   swapped wholesale by app/doma-design.css.
+
+   Every glaze is matte and dark enough to take paper-coloured type, so the
+   accents are the glazes themselves rather than lightened versions of them. */
+[data-theme="doma-ceramic"] {
+  --color-bg: #f2ede1;
+  --color-bg-card: #e4dac6;
+  --color-bg-card-deep: #d3c5aa;
+  --color-cream: #faf6ec;
+
+  --color-text: #26221f;
+  --color-text-soft: #6f5c48;
+
+  /* accent は飴釉、accent2 は織部釉 */
+  --color-accent: #7a4218;
+  --color-accent-dark: #5c3110;
+  --color-accent2: #3e4f36;
+  --color-accent2-dark: #2b3826;
+
+  --color-line: #ddd2bc;
+  --color-line-strong: #6f5c48;
+  --color-line-on-dark: #5c7052;
+
+  --color-on-dark-soft: #faf6ec;
+  --color-on-dark-muted: #b8a68e;
+
+  --color-moss-from: #86a077;
+  --color-moss-to: #5c7052;
+  --color-leaf: #6b8060;
+  --color-leaf-dark: #3e4f36;
+
+  --color-glow: #d8a86a;
+  --color-glow-soft: #eddcbe;
+  --color-sky-mid: #e9e0cc;
+  --color-floor: #a99177;
+  --color-skyline: #8b7355;
+  --color-terracotta-dark: #9a5622;
+  --color-object-dark: #26221f;
+
+  --color-shadow: 38 34 31;
+}
+
+/* 和紙の簀の目（縦の細い筋）と糸目（34px ごとの横筋）。織りではないので
+   斜めには走らせない。 */
+[data-theme="doma-ceramic"] #renovated,
+[data-theme="doma-ceramic"] #rooms,
+[data-theme="doma-ceramic"] #reviews,
+[data-theme="doma-ceramic"] #access {
+  background-image:
+    repeating-linear-gradient(90deg, rgb(150 128 98 / 0.055) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg, rgb(150 128 98 / 0.05) 0 1px, transparent 1px 34px);
 }
 
 @theme inline {

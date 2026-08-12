@@ -14,7 +14,11 @@ export default async function Footer() {
   ];
 
   return (
-    <footer id="contact" className="bg-(--color-text) px-6 py-16 text-(--color-bg-card) md:px-10 md:py-20">
+    <footer
+      id="contact"
+      data-chrome="current"
+      className="bg-(--color-text) px-6 py-16 text-(--color-bg-card) md:px-10 md:py-20"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K3V SHINJUKU GYOEN — TOP PAGE MOCK 09 / KRAFT RISO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Anton&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   K3V SHINJUKU GYOEN — MOCK 09 "KRAFT RISO"
+   The printed one. Kraft paper ground, three risograph inks,
+   45° halftone, 2px misregistration, overprint multiply.
+
+   STRUCTURAL IDEA: three rooms = three inks.
+     ROOM 01 unico                 → FLUO GREEN  (御苑)
+     ROOM 02 journal standard f.   → ORANGE      (vintage)
+     ROOM 03 crash gate            → FED BLUE    (denim)
+   The ink is not decoration — it is how the page is organised.
+
+   INK RULES (verified, see matrix below):
+     bright green / orange  = AREAS + display only. Never body type.
+     on kraft ground        → ink 9.88 / blue 4.85 / green-dp 5.37 / orange-dp 4.88
+     on green area          → ink 4.87        on orange area → ink 5.31
+     on blue area           → kraft-lt 5.94
+   ============================================================ */
+
+:root{
+  /* --- paper ------------------------------------------- */
+  --kraft:#E0D0B4;        /* the sheet */
+  --kraft-lt:#EFE6D4;     /* short-run stock, the pale sheet */
+  --kraft-dk:#C9B492;     /* board / cardboard band */
+  --kraft-deep:#A8916C;   /* the fold shadow */
+
+  /* --- the three inks (areas + display only) ----------- */
+  --green:#00A95C;
+  --orange:#FF6C2F;
+  --blue:#3D5588;
+
+  /* --- type-safe variants of the same inks ------------- */
+  --green-dp:#005C32;
+  --orange-dp:#9A320C;
+  --blue-dp:#2C3F68;
+
+  /* --- overprint results (two inks multiplied) --------- */
+  --op-go:#8A5A18;        /* green × orange */
+  --op-gb:#0F3B45;        /* green × blue   */
+  --op-ob:#7A3A2A;        /* orange × blue  */
+
+  --ink:#2B2621;          /* black plate */
+  --ink-soft:rgba(43,38,33,.62);
+
+  --dsp:'Archivo Black','Helvetica Neue',Arial,sans-serif;
+  --cnd:'Anton','Arial Narrow',sans-serif;
+  --ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --jp:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+
+  --pad:clamp(18px,4.6vw,72px);
+  --mis:2px;              /* the misregistration offset, ONE direction */
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--kraft);
+  color:var(--ink);
+  font-family:var(--ui);
+  font-size:16px;line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--orange-dp);outline-offset:3px}
+::selection{background:var(--orange);color:var(--ink)}
+
+/* ============================================================
+   MATERIAL 01 — KRAFT PAPER
+   Reads as paper because the fibre runs sideways and the tone
+   is uneven at large scale, not because of a flat noise wash.
+   ============================================================ */
+.paper{
+  position:relative;
+  background-color:var(--kraft);
+  background-image:
+    repeating-linear-gradient(91deg, rgba(120,92,54,.055) 0 1px, rgba(120,92,54,0) 1px 3px),
+    repeating-linear-gradient(178deg, rgba(255,247,232,.30) 0 1px, rgba(255,247,232,0) 1px 5px),
+    radial-gradient(130% 70% at 12% 0%, rgba(255,248,235,.55), rgba(255,248,235,0) 60%),
+    radial-gradient(120% 80% at 100% 100%, rgba(140,110,68,.22), rgba(140,110,68,0) 64%),
+    linear-gradient(174deg,#E6D8BE,#E0D0B4 52%,#D6C4A4);
+}
+.paper::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.42;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62 .95' numOctaves='4' seed='17'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .42 0 0 0 0 .33 0 0 0 0 .20 .8 .4 .2 0 -.42'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+.paper-lt{background-color:var(--kraft-lt)}
+.paper-lt.paper{
+  background-image:
+    repeating-linear-gradient(91deg, rgba(120,92,54,.035) 0 1px, rgba(120,92,54,0) 1px 3px),
+    radial-gradient(130% 70% at 20% 0%, rgba(255,252,244,.7), rgba(255,252,244,0) 62%),
+    linear-gradient(172deg,#F4ECDC,#EFE6D4 55%,#E6DAC4);
+}
+.paper-lt.paper::after{opacity:.3}
+/* corrugated board — the darker band, used for tickers + footer */
+.board{
+  position:relative;color:var(--ink);
+  background-color:var(--kraft-dk);
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(120,92,54,.16) 0 1px,
+      rgba(255,247,232,.16) 1px 3px,
+      rgba(120,92,54,.04) 3px 9px),
+    linear-gradient(178deg,#D2BE9C,#C9B492 60%,#BCA47E);
+}
+.board::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.34;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7 .9' numOctaves='3' seed='9'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .4 0 0 0 0 .31 0 0 0 0 .18 .8 .4 .2 0 -.5'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23b)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   MATERIAL 02 — INK AREAS
+   A riso area is never flat: the drum lays it down unevenly and
+   the edge of the sheet gets less ink. .roller does that.
+   ============================================================ */
+.ink-area{position:relative;isolation:isolate}
+.ink-area>*{position:relative;z-index:2}
+.ink-area::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  /* kept at exactly 90deg — a tilted repeating gradient resamples into
+     wide diagonal bands at this size, which reads as a bug, not a roller */
+  background-image:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,.09) 0 3px,
+      rgba(255,255,255,0) 3px 15px,
+      rgba(0,0,0,.045) 15px 18px,
+      rgba(0,0,0,0) 18px 44px);
+  mix-blend-mode:overlay;opacity:.8;
+}
+.ink-green{background-color:var(--green);color:var(--ink)}
+.ink-orange{background-color:var(--orange);color:var(--ink)}
+.ink-blue{background-color:var(--blue);color:var(--kraft-lt)}
+
+/* MATERIAL 03 — 45° HALFTONE. A real riso screen is coarse.
+   Built as TWO offset square lattices rather than one rotated grid: a 45°
+   screen is exactly that, and skipping transform:rotate() skips the
+   resampling moiré that turns a rotated 4px grid into soft diagonal bands. */
+.halftone{position:relative;overflow:hidden}
+.halftone::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(43,38,33,.42) 0 1.5px, rgba(43,38,33,0) 1.9px),
+    radial-gradient(circle at 50% 50%, rgba(43,38,33,.42) 0 1.5px, rgba(43,38,33,0) 1.9px);
+  background-size:8px 8px,8px 8px;
+  background-position:0 0,4px 4px;
+  opacity:.5;
+}
+.halftone.fine::after{
+  background-size:6px 6px,6px 6px;
+  background-position:0 0,3px 3px;
+  opacity:.3;
+}
+.halftone.knock::after{
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(239,230,212,.5) 0 1.6px, rgba(239,230,212,0) 2px),
+    radial-gradient(circle at 50% 50%, rgba(239,230,212,.5) 0 1.6px, rgba(239,230,212,0) 2px);
+}
+
+/* ============================================================
+   MATERIAL 04 — MISREGISTRATION
+   The whole plate slipped, so the fringe appears on ONE side
+   only, in ONE direction, page-wide. Random offsets read as
+   dirt; a consistent offset reads as printing.
+   ============================================================ */
+.misreg{color:var(--ink)}
+/* The slipped plate is a text-shadow, not a duplicated element. A second copy
+   of the words — whether ::before content or an aria-hidden span — still lands
+   in the heading's accessible name, so screen readers read every heading twice.
+   A shadow carries no text at all, and it re-wraps with the type for free. */
+.misreg{text-shadow:var(--mis) var(--mis) 0 var(--orange)}
+.misreg.g{text-shadow:var(--mis) var(--mis) 0 var(--green)}
+.misreg.b{text-shadow:var(--mis) var(--mis) 0 var(--blue)}
+/* display sizes need a bigger slip to read as a printing fault */
+.hero h1 .misreg,.h2 .misreg{--mis:4px}
+
+/* ============================================================
+   PRINT ARTEFACTS — トンボ / カラーバー / スタンプ
+   ============================================================ */
+.tombo{position:absolute;width:26px;height:26px;opacity:.5;pointer-events:none;z-index:5}
+.tombo::before,.tombo::after{content:"";position:absolute;background:var(--ink)}
+.tombo::before{left:50%;top:0;width:1px;height:100%;transform:translateX(-.5px)}
+.tombo::after{top:50%;left:0;height:1px;width:100%;transform:translateY(-.5px)}
+.tombo.tl{top:14px;left:14px}
+.tombo.tr{top:14px;right:14px}
+.tombo.bl{bottom:14px;left:14px}
+.tombo.br{bottom:14px;right:14px}
+
+.colorbar{display:flex;height:12px;width:100%}
+.colorbar span{flex:1}
+.colorbar i{flex:1;display:block}
+
+.stamp{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:.42em .8em;
+  border:2px solid currentColor;border-radius:3px;
+  transform:rotate(-3.2deg);
+  opacity:.9;
+}
+
+/* ============================================================
+   TYPE
+   ============================================================ */
+.dsp{
+  font-family:var(--dsp);
+  line-height:.92;letter-spacing:-.022em;
+  text-transform:uppercase;
+}
+.cnd{font-family:var(--cnd);letter-spacing:.01em;text-transform:uppercase}
+.mono{font-family:var(--mono);letter-spacing:.1em}
+.jp{font-family:var(--jp);line-height:1.9;font-feature-settings:"palt" 1}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+}
+.lead{font-family:var(--jp);font-size:clamp(15px,1.5vw,17px);line-height:2.05}
+.muted{color:var(--ink-soft)}
+
+.wrap{max-width:1360px;margin:0 auto;padding-inline:var(--pad)}
+section{position:relative}
+/* the nav is sticky, so anchor targets must clear it or the heading lands under it */
+section[id]{scroll-margin-top:76px}
+.sec-pad{padding-block:clamp(64px,9vw,132px)}
+
+/* dotted rule — a printed hairline, not a UI border */
+.rule{height:0;border-top:2px dotted rgba(43,38,33,.34)}
+.rule.solid{border-top:2px solid rgba(43,38,33,.5)}
+
+/* page number, bottom of each section */
+.folio{
+  position:absolute;right:var(--pad);bottom:22px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  color:var(--ink-soft);z-index:4;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.7em;
+  min-height:52px;padding:0 26px;
+  font-family:var(--ui);font-size:14px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;
+  cursor:pointer;position:relative;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn svg{width:17px;height:17px;flex:none}
+/* the CTA is a printed block with the plate shifted behind it */
+.btn-ink{background:var(--orange);color:var(--ink);box-shadow:var(--mis) var(--mis) 0 var(--blue)}
+.btn-ink:hover{box-shadow:5px 5px 0 var(--blue);transform:translate(-1px,-1px)}
+.btn-green{background:var(--green);color:var(--ink);box-shadow:var(--mis) var(--mis) 0 var(--orange)}
+.btn-green:hover{box-shadow:5px 5px 0 var(--orange);transform:translate(-1px,-1px)}
+.btn-line{
+  background:transparent;color:var(--ink);
+  box-shadow:inset 0 0 0 2px var(--ink);
+}
+.btn-line:hover{background:var(--ink);color:var(--kraft-lt)}
+.btn-line.on-blue{color:var(--kraft-lt);box-shadow:inset 0 0 0 2px var(--kraft-lt)}
+.btn-line.on-blue:hover{background:var(--kraft-lt);color:var(--blue)}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:60;
+  border-bottom:2px solid var(--ink);
+}
+.nav-in{
+  display:flex;align-items:center;gap:26px;
+  min-height:64px;
+}
+.logo{font-family:var(--dsp);font-size:23px;letter-spacing:-.02em;line-height:1;display:flex;align-items:baseline;gap:.42em}
+.logo b{font-weight:400}
+.logo i{
+  font-family:var(--mono);font-style:normal;font-size:9.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+}
+.nav-links{display:flex;gap:22px;margin-left:auto;align-items:center}
+.nav-links a{
+  font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 0;position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:var(--orange);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s ease;
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+.lang{display:flex;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-soft)}
+.lang b{color:var(--ink)}
+.nav .btn{min-height:44px;padding:0 18px;font-size:12px}
+.burger{display:none;width:46px;height:46px;align-items:center;justify-content:center}
+.burger span{display:block;width:24px;height:2.5px;background:var(--ink);box-shadow:0 -7px 0 var(--ink),0 7px 0 var(--ink)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:clamp(40px,6vw,76px);padding-bottom:0;overflow:hidden}
+/* The headline runs the full width of the sheet, poster-style — "BEAUTIFULLY."
+   set in Archivo Black is ~7.9× its font-size wide, so it cannot share a row
+   with the artwork at any usable display size. Copy + art sit under it. */
+.hero-lower{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,4vw,60px);align-items:end;
+  margin-top:clamp(30px,3.6vw,52px);
+}
+.hero-lower>*{min-width:0}
+.hero h1{
+  font-family:var(--dsp);
+  font-size:clamp(40px,9.9vw,148px);
+  line-height:.86;letter-spacing:-.028em;text-transform:uppercase;
+  margin:16px 0 0;
+}
+.hero h1 .ln{display:block;position:relative}
+/* the one line printed as an ink AREA with the type knocked out */
+.hero h1 .fill{
+  display:inline-block;
+  background:var(--green);color:var(--kraft-lt);
+  padding:.02em .18em .06em;
+  margin-left:-.06em;
+  box-shadow:var(--mis) var(--mis) 0 var(--orange);
+  position:relative;
+}
+.hero-sub{
+  font-family:var(--jp);font-size:clamp(15px,1.6vw,18px);line-height:2;
+  margin-top:26px;max-width:30em;
+}
+.hero-en{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
+  color:var(--ink-soft);margin-top:10px;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-art{position:relative;align-self:end}
+.hero-art svg{width:100%;height:auto}
+.hero-cap{
+  display:flex;justify-content:space-between;gap:12px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft);
+  margin-top:10px;
+}
+.hero-marks{position:absolute;inset:0;pointer-events:none}
+
+/* ============================================================
+   TICKER
+   ============================================================ */
+.ticker{overflow:hidden;border-block:2px solid var(--ink);padding-block:11px}
+.ticker-track{display:flex;gap:44px;width:max-content;animation:roll 34s linear infinite}
+.ticker-track span{
+  font-family:var(--cnd);font-size:19px;letter-spacing:.06em;
+  display:flex;align-items:center;gap:44px;white-space:nowrap;
+}
+.ticker-track i{width:9px;height:9px;border-radius:50%;display:block;flex:none}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* stat strip */
+.stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats div{padding:22px var(--pad);border-right:2px dotted rgba(43,38,33,.3)}
+.stats div:last-child{border-right:0}
+.stats b{font-family:var(--dsp);font-size:clamp(26px,3vw,40px);line-height:1;display:block}
+.stats small{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-top:7px}
+
+/* ============================================================
+   SECTION HEAD
+   ============================================================ */
+.head{display:flex;align-items:baseline;gap:16px;margin-bottom:12px}
+.head .no{
+  font-family:var(--dsp);font-size:13px;
+  background:var(--ink);color:var(--kraft-lt);
+  padding:.32em .6em;line-height:1;
+}
+.head .nm{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase}
+.h2{
+  font-family:var(--dsp);
+  font-size:clamp(30px,4.6vw,62px);line-height:.96;letter-spacing:-.02em;
+  text-transform:uppercase;margin-top:18px;
+}
+
+/* ============================================================
+   CONCEPT
+   ============================================================ */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.4vw,68px);margin-top:44px;align-items:start}
+.concept-body p+p{margin-top:1.4em}
+.concept-en{
+  font-family:var(--mono);font-size:12px;line-height:2;letter-spacing:.02em;
+  color:var(--ink-soft);margin-top:26px;padding-top:22px;border-top:2px dotted rgba(43,38,33,.3);
+}
+.plate{position:relative}
+.plate svg{width:100%;height:auto}
+.plate-tag{
+  position:absolute;left:-10px;bottom:-14px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--ink);color:var(--kraft-lt);padding:.5em .8em;
+}
+
+/* ============================================================
+   ROOMS — one room, one ink
+   ============================================================ */
+.rooms-list{margin-top:52px;display:flex;flex-direction:column;gap:0}
+.room{
+  display:grid;grid-template-columns:auto 1.15fr 1fr;
+  gap:clamp(20px,3.4vw,52px);
+  padding-block:clamp(34px,4.4vw,58px);
+  padding-inline:clamp(20px,3vw,44px);
+  align-items:start;
+}
+.room-no{
+  font-family:var(--dsp);font-size:clamp(46px,6.4vw,96px);line-height:.8;
+  opacity:.42;
+}
+.room-brand{font-family:var(--dsp);font-size:clamp(21px,2.5vw,34px);line-height:1.05;text-transform:uppercase;letter-spacing:-.015em}
+.room-en{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;margin-top:12px}
+.room-jp{font-family:var(--jp);font-size:15px;line-height:1.95;margin-top:16px;max-width:34em}
+.room-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.spec{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:4px}
+.spec div{padding:13px 15px;background:rgba(43,38,33,.09)}
+.spec dt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.spec dd{font-family:var(--dsp);font-size:17px;margin-top:5px}
+.room .btn{margin-top:20px}
+.room.on-blue .spec div{background:rgba(239,230,212,.14)}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.exp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:46px}
+.exp-card{
+  padding:26px 22px 30px;background:rgba(43,38,33,.055);
+  transition:background-color .2s ease;position:relative;
+}
+.exp-card:hover{background:rgba(43,38,33,.12)}
+.exp-card .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--ink-soft)}
+.exp-card h3{font-family:var(--dsp);font-size:20px;text-transform:uppercase;margin:14px 0 10px;letter-spacing:-.01em}
+.exp-card p{font-family:var(--jp);font-size:13.5px;line-height:1.9}
+/* every plate multiplies against the ones under it, same rule as the big figures */
+.spot .plates>*{mix-blend-mode:multiply}
+.exp-card .spot{width:100%;height:auto;margin-bottom:16px}
+.dist{display:flex;flex-wrap:wrap;gap:0;margin-top:2px}
+.dist span{
+  flex:1 1 auto;padding:15px 18px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  border-right:2px dotted rgba(43,38,33,.3);white-space:nowrap;
+}
+.dist span:last-child{border-right:0}
+.dist b{font-family:var(--dsp);font-size:14px;margin-left:.5em}
+
+/* ============================================================
+   INK SECTION — replaces mock-08's "four materials"
+   ============================================================ */
+.ink-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:46px}
+.ink-card{padding:0;position:relative;overflow:hidden}
+.ink-swatch{height:190px;position:relative}
+.ink-meta{padding:24px 24px 30px}
+.ink-meta .hex{font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+.ink-meta h3{font-family:var(--dsp);font-size:26px;text-transform:uppercase;margin:10px 0 4px}
+.ink-meta .role{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.ink-meta p{font-family:var(--jp);font-size:13.5px;line-height:1.95;margin-top:14px}
+.overprint-note{
+  margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+}
+.op{display:flex;align-items:center;gap:14px;padding:18px 20px;background:rgba(239,230,212,.1)}
+.op i{width:34px;height:34px;flex:none;display:block}
+.op span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;line-height:1.7}
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);margin-top:44px;align-items:start}
+.addr{font-family:var(--jp);font-size:15px;line-height:2;margin-top:22px}
+.addr .zip{font-family:var(--mono);font-size:12px;letter-spacing:.12em;display:block;margin-bottom:4px;color:var(--ink-soft)}
+.routes{margin-top:30px;display:flex;flex-direction:column}
+.routes div{
+  display:flex;align-items:baseline;gap:14px;
+  padding:14px 0;border-bottom:2px dotted rgba(43,38,33,.3);
+}
+.routes .line{font-family:var(--jp);font-size:14px;flex:1}
+.routes .min{font-family:var(--dsp);font-size:24px;line-height:1}
+.routes .u{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.map{position:relative}
+.map svg{width:100%;height:auto}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-in{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(28px,4vw,64px);align-items:end}
+.cta h2{font-family:var(--dsp);font-size:clamp(32px,5.2vw,72px);line-height:.94;text-transform:uppercase;letter-spacing:-.022em;margin-top:18px}
+.cta p{font-family:var(--jp);font-size:15px;line-height:2;margin-top:24px;max-width:32em}
+.cta-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.price{text-align:right}
+.price b{font-family:var(--dsp);font-size:clamp(38px,5vw,66px);line-height:1;display:block}
+.price small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;display:block;margin-top:10px}
+.price ul{list-style:none;margin-top:22px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;line-height:2.1}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot-in{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:36px;padding-block:56px}
+.foot-in h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+.foot-in ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-in a{font-size:13.5px;font-weight:500}
+.foot-in a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-note{font-family:var(--jp);font-size:13px;line-height:1.95;margin-top:16px;max-width:26em}
+.foot-bar{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-block:18px;border-top:2px solid var(--ink);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .hero-lower{grid-template-columns:1fr;align-items:start}
+  .hero-art{margin-top:32px}
+  .concept-grid,.loc-grid,.cta-in{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .ink-grid{grid-template-columns:1fr}
+  .overprint-note{grid-template-columns:1fr}
+  .room{grid-template-columns:auto 1fr}
+  .room .spec-wrap{grid-column:1/-1}
+  .foot-in{grid-template-columns:1fr 1fr}
+  .price{text-align:left}
+}
+@media (max-width:820px){
+  .nav-links,.lang{display:none}
+  .burger{display:flex}
+  .logo i{display:none}          /* the sub-label wraps and breaks the bar */
+  .nav-in{gap:14px}
+  .nav .btn{margin-left:auto}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:nth-child(2){border-right:0}
+  .stats div:nth-child(-n+2){border-bottom:2px dotted rgba(43,38,33,.3)}
+}
+@media (max-width:560px){
+  .exp-grid{grid-template-columns:1fr}
+  .room{grid-template-columns:1fr;gap:18px}
+  .room-no{font-size:54px}
+  .spec{grid-template-columns:1fr 1fr}
+  .foot-in{grid-template-columns:1fr}
+  .dist span{flex:1 1 100%;border-right:0;border-bottom:2px dotted rgba(43,38,33,.3)}
+  .hero h1 .fill{margin-left:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ NAV -->
+<header class="nav paper board">
+  <div class="wrap nav-in">
+    <a href="#" class="logo" aria-label="K3V Shinjuku Gyoen — ホーム">K3<b>v</b><i>Shinjuku Gyoen</i></a>
+    <nav class="nav-links" aria-label="メインナビゲーション">
+      <a href="#concept">Concept</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#experience">Experience</a>
+      <a href="#ink">Ink</a>
+      <a href="#location">Access</a>
+    </nav>
+    <div class="lang" aria-label="言語"><b>JA</b>/<span>EN</span>/<span>中文</span></div>
+    <a href="#book" class="btn btn-ink">Book Now
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="メニューを開く"><span></span></button>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="hero paper" aria-labelledby="hero-h">
+  <div class="hero-marks" aria-hidden="true">
+    <i class="tombo tl"></i><i class="tombo tr"></i>
+  </div>
+  <div class="wrap">
+
+    <div class="hero-head">
+      <p class="eyebrow" style="display:flex;align-items:center;gap:10px">
+        <span style="width:9px;height:9px;background:var(--orange);display:block"></span>
+        03 Rooms — Shinjuku Gyoenmae, Tokyo
+      </p>
+
+      <h1 id="hero-h">
+        <span class="ln misreg b">Live</span>
+        <span class="ln misreg">Tokyo</span>
+        <span class="ln"><span class="fill halftone knock">Beautifully.</span></span>
+      </h1>
+    </div>
+
+    <div class="hero-lower">
+    <div>
+      <p class="hero-sub jp">刷りたてのZINEみたいに、ざらっとした東京。<br>
+      御苑まで3分、全3室。ぜんぶ違う色で刷ってあります。</p>
+      <p class="hero-en">Three rooms. Three inks. One small house next to the garden.</p>
+
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-ink">Book Direct
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#rooms" class="btn btn-line">See The Rooms</a>
+      </div>
+    </div>
+
+    <!-- riso overprint illustration: three plates, multiply -->
+    <figure class="hero-art">
+      <svg viewBox="0 0 620 470" role="img" aria-labelledby="art-t">
+        <title id="art-t">新宿御苑の樹々とビル、夕日を3色のインクで重ね刷りしたイラスト</title>
+        <defs>
+          <pattern id="ht" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <circle cx="3" cy="3" r="1.5" fill="#2B2621" opacity=".34"/>
+          </pattern>
+          <!-- windows are UNPRINTED paper, so they are masked out of the blue
+               plate rather than painted over it — you cannot overprint light -->
+          <mask id="win">
+            <rect width="620" height="470" fill="#fff"/>
+            <g fill="#000">
+              <rect x="60" y="196" width="14" height="14"/><rect x="84" y="196" width="14" height="14"/>
+              <rect x="60" y="228" width="14" height="14"/><rect x="84" y="228" width="14" height="14"/>
+              <rect x="60" y="260" width="14" height="14"/>
+              <rect x="134" y="140" width="13" height="13"/><rect x="134" y="172" width="13" height="13"/>
+              <rect x="134" y="204" width="13" height="13"/>
+              <rect x="518" y="176" width="16" height="16"/><rect x="546" y="176" width="16" height="16"/>
+              <rect x="518" y="212" width="16" height="16"/><rect x="546" y="248" width="16" height="16"/>
+              <rect x="192" y="246" width="12" height="12"/><rect x="192" y="278" width="12" height="12"/>
+            </g>
+          </mask>
+        </defs>
+
+        <!-- the sheet -->
+        <rect width="620" height="470" fill="#EFE6D4"/>
+
+        <!-- Each plate multiplies against the ones already down. Where two
+             plates meet, a third colour appears — that is the whole idea, so
+             the trees are set low enough to cross both the sun and the towers. -->
+        <g style="mix-blend-mode:multiply" fill="#FF6C2F">
+          <circle cx="438" cy="196" r="94"/>
+          <rect x="0" y="392" width="620" height="78"/>
+        </g>
+        <g style="mix-blend-mode:multiply" fill="#3D5588" mask="url(#win)" transform="translate(2,2)">
+          <rect x="46" y="176" width="62" height="216"/>
+          <rect x="122" y="118" width="48" height="274"/>
+          <rect x="504" y="150" width="70" height="242"/>
+          <rect x="182" y="226" width="34" height="166"/>
+        </g>
+        <g style="mix-blend-mode:multiply" fill="#00A95C">
+          <circle cx="198" cy="352" r="76"/>
+          <circle cx="302" cy="332" r="96"/>
+          <circle cx="420" cy="348" r="86"/>
+          <rect x="0" y="392" width="620" height="14"/>
+        </g>
+        <g style="mix-blend-mode:multiply" fill="#2B2621">
+          <rect x="296" y="392" width="14" height="46"/>
+          <rect x="193" y="392" width="10" height="46"/>
+          <rect x="415" y="392" width="10" height="46"/>
+        </g>
+        <!-- halftone screen over everything -->
+        <rect width="620" height="470" fill="url(#ht)" opacity=".42" style="mix-blend-mode:multiply"/>
+      </svg>
+      <figcaption class="hero-cap">
+        <span>Fig. 01 — Gyoen / 3 plates</span>
+        <span>Green × Orange × Blue</span>
+      </figcaption>
+    </figure>
+    </div>
+
+  </div>
+
+  <div style="margin-top:clamp(40px,5vw,72px)">
+    <div class="colorbar" aria-hidden="true">
+      <i style="background:var(--green)"></i><i style="background:var(--orange)"></i>
+      <i style="background:var(--blue)"></i><i style="background:var(--op-go)"></i>
+      <i style="background:var(--op-gb)"></i><i style="background:var(--op-ob)"></i>
+      <i style="background:var(--ink)"></i>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TICKER -->
+<div class="ticker board" aria-hidden="true">
+  <div class="ticker-track">
+    <span>
+      Kraft<i style="background:var(--orange)"></i>Riso<i style="background:var(--green)"></i>
+      3 Rooms 3 Inks<i style="background:var(--blue)"></i>Shinjuku Gyoen 3′<i style="background:var(--orange)"></i>
+      Printed in Tokyo<i style="background:var(--green)"></i>
+      Kraft<i style="background:var(--orange)"></i>Riso<i style="background:var(--green)"></i>
+      3 Rooms 3 Inks<i style="background:var(--blue)"></i>Shinjuku Gyoen 3′<i style="background:var(--orange)"></i>
+      Printed in Tokyo<i style="background:var(--green)"></i>
+    </span>
+    <span>
+      Kraft<i style="background:var(--orange)"></i>Riso<i style="background:var(--green)"></i>
+      3 Rooms 3 Inks<i style="background:var(--blue)"></i>Shinjuku Gyoen 3′<i style="background:var(--orange)"></i>
+      Printed in Tokyo<i style="background:var(--green)"></i>
+      Kraft<i style="background:var(--orange)"></i>Riso<i style="background:var(--green)"></i>
+      3 Rooms 3 Inks<i style="background:var(--blue)"></i>Shinjuku Gyoen 3′<i style="background:var(--orange)"></i>
+      Printed in Tokyo<i style="background:var(--green)"></i>
+    </span>
+  </div>
+</div>
+
+<!-- stats -->
+<div class="stats paper paper-lt">
+  <div><b>03</b><small>Rooms Only</small></div>
+  <div><b>3′</b><small>To Shinjuku Gyoen</small></div>
+  <div><b>8′</b><small>To Shinjuku Station</small></div>
+  <div><b>4</b><small>Guests Max</small></div>
+</div>
+
+<!-- ============================================================ CONCEPT -->
+<section id="concept" class="paper paper-lt sec-pad rv" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="head">
+      <span class="no">01</span><span class="nm">Concept</span>
+    </div>
+    <h2 class="h2" id="c-h">
+      <span class="misreg g">Three inks,</span><br>
+      <span class="misreg">one small house.</span>
+    </h2>
+
+    <div class="concept-grid">
+      <div class="concept-body">
+        <p class="lead">新宿三丁目の喧騒から二本入ると、空気がすっとゆるむ。K3V SHINJUKU GYOEN は、その路地に建つ全3室の小さな家です。</p>
+        <p class="lead">部屋は3つ、それぞれ家具ブランドが違います。だから3色で刷り分けました。緑は御苑の芝、オレンジは使い込んだ革とアイアン、青は洗いざらしのデニム。ページをめくるみたいに、ドアごとに色が変わります。</p>
+        <p class="lead">整いすぎたホテルの快適さではなく、「ここに住んでみたい」と思う快適さを目指しました。</p>
+        <p class="concept-en">Three rooms between the noise of Shinjuku and the quiet of the garden. We printed each one in its own ink — green for the lawn, orange for worn leather, blue for washed indigo. Built to be lived in, not checked into.</p>
+      </div>
+
+      <figure class="plate">
+        <svg viewBox="0 0 560 420" role="img" aria-labelledby="p2-t">
+          <title id="p2-t">窓辺のソファと観葉植物、朝の光を2色で刷った室内のイラスト</title>
+          <defs>
+            <pattern id="ht2" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <circle cx="3" cy="3" r="1.5" fill="#2B2621" opacity=".3"/>
+            </pattern>
+            <!-- the glass is unprinted paper, masked out of the frame plate -->
+            <mask id="pane">
+              <rect width="560" height="420" fill="#fff"/>
+              <g fill="#000">
+                <rect x="344" y="60" width="72" height="168"/>
+                <rect x="430" y="60" width="66" height="168"/>
+              </g>
+            </mask>
+          </defs>
+          <rect width="560" height="420" fill="#EFE6D4"/>
+
+          <!-- morning light falling across the floor -->
+          <g style="mix-blend-mode:multiply" fill="#FF6C2F">
+            <path d="M300 0 L560 0 L560 300 L360 420 L228 420 Z"/>
+          </g>
+          <!-- window frame + sofa, blue plate, slipped 2px like everything else -->
+          <g style="mix-blend-mode:multiply" fill="#3D5588" mask="url(#pane)" transform="translate(2,2)">
+            <rect x="330" y="46" width="180" height="196"/>
+            <rect x="66" y="252" width="286" height="104" rx="10"/>
+            <rect x="66" y="216" width="286" height="52" rx="14"/>
+            <rect x="60" y="340" width="24" height="44"/>
+            <rect x="330" y="340" width="24" height="44"/>
+          </g>
+          <!-- plant + cushion, green plate: overprints both the light and the sofa -->
+          <g style="mix-blend-mode:multiply" fill="#00A95C">
+            <circle cx="468" cy="300" r="52"/>
+            <circle cx="432" cy="330" r="34"/>
+            <circle cx="504" cy="332" r="30"/>
+            <rect x="96" y="222" width="66" height="52" rx="8"/>
+          </g>
+          <g style="mix-blend-mode:multiply" fill="#2B2621">
+            <rect x="452" y="346" width="34" height="44"/>
+          </g>
+          <rect width="560" height="420" fill="url(#ht2)" opacity=".4" style="mix-blend-mode:multiply"/>
+        </svg>
+        <figcaption class="plate-tag">Fig. 02 — Living / Room 01</figcaption>
+      </figure>
+    </div>
+  </div>
+  <span class="folio">— 01 —</span>
+</section>
+
+<!-- ============================================================ ROOMS -->
+<section id="rooms" class="paper sec-pad rv" aria-labelledby="r-h">
+  <div class="wrap">
+    <div class="head"><span class="no">02</span><span class="nm">Rooms</span></div>
+    <h2 class="h2" id="r-h">
+      <span class="misreg">Three rooms.</span><br>
+      <span class="misreg b">Three ways to live here.</span>
+    </h2>
+    <p class="lead" style="margin-top:22px;max-width:40em">家具ブランドごとに世界観を変えた全3室。同じ建物なのに、ドアを開けると空気が変わります。</p>
+  </div>
+
+  <div class="wrap rooms-list">
+
+    <!-- ROOM 01 — GREEN -->
+    <article class="room ink-area ink-green halftone fine">
+      <div class="room-no">01</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">unico</h3>
+          <span class="stamp">Now Open</span>
+        </div>
+        <p class="room-en">Natural Living — やわらかい北欧</p>
+        <p class="room-jp">オークの家具と麻のファブリック。朝の光がいちばん長く入る部屋です。ベッドの脇には小さなワークデスク。</p>
+        <a href="#book" class="btn btn-line">View Room 01
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>Size</dt><dd>32㎡</dd></div>
+          <div><dt>Guests</dt><dd>2–4</dd></div>
+          <div><dt>Bed</dt><dd>Double + Sofa</dd></div>
+          <div><dt>Floor</dt><dd>2F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ROOM 02 — ORANGE -->
+    <article class="room ink-area ink-orange halftone fine">
+      <div class="room-no">02</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">journal standard furniture</h3>
+          <span class="stamp">Now Open</span>
+        </div>
+        <p class="room-en">Urban Vintage — 使い込んだ質感</p>
+        <p class="room-jp">アイアンと古材、履き込んだインディゴのソファ。夜がいちばん似合う部屋。灯りを落とすと、外の新宿がちょうどよく遠くなります。</p>
+        <a href="#book" class="btn btn-line">View Room 02
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>Size</dt><dd>34㎡</dd></div>
+          <div><dt>Guests</dt><dd>2–4</dd></div>
+          <div><dt>Bed</dt><dd>Queen + Sofa</dd></div>
+          <div><dt>Floor</dt><dd>3F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ROOM 03 — BLUE (paper-coloured type) -->
+    <article class="room on-blue ink-area ink-blue halftone knock fine">
+      <div class="room-no">03</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">crash gate</h3>
+          <span class="stamp">Coming Soon</span>
+        </div>
+        <p class="room-en">Industrial Modern — 準備中</p>
+        <p class="room-jp">アイアンと無垢材のコントラストで組み上げる3室目。いま、いちばん骨太な部屋をつくっています。オープンは追ってお知らせします。</p>
+        <a href="#book" class="btn btn-line on-blue">Get Notified
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>Size</dt><dd>TBA</dd></div>
+          <div><dt>Guests</dt><dd>TBA</dd></div>
+          <div><dt>Open</dt><dd>2026 —</dd></div>
+          <div><dt>Floor</dt><dd>4F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+  </div>
+  <span class="folio">— 02 —</span>
+</section>
+
+<!-- ============================================================ EXPERIENCE -->
+<section id="experience" class="paper paper-lt sec-pad rv" aria-labelledby="e-h">
+  <div class="wrap">
+    <div class="head"><span class="no">03</span><span class="nm">Experience</span></div>
+    <h2 class="h2" id="e-h">
+      <span class="misreg">Step out.</span><br>
+      <span class="misreg g">The city is the lobby.</span>
+    </h2>
+    <p class="lead" style="margin-top:22px;max-width:40em">御苑の芝生、路地裏の喫茶店、深夜のうどん。玄関を出た瞬間から、滞在は始まっています。</p>
+
+    <div class="exp-grid">
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#EFE6D4"/><g class="plates">
+            <circle cx="44" cy="42" r="30" fill="#00A95C"/><circle cx="76" cy="50" r="24" fill="#00A95C"/>
+            <rect x="0" y="68" width="120" height="6" fill="#FF6C2F" transform="translate(2,2)"/>
+            <rect x="42" y="68" width="6" height="16" fill="#2B2621"/>
+          </g>
+        </svg>
+        <span class="n">01</span>
+        <h3>Gyoen</h3>
+        <p>徒歩3分。朝いちの芝生はほぼ貸切です。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#EFE6D4"/><g class="plates">
+            <rect x="28" y="30" width="52" height="38" rx="4" fill="#FF6C2F"/>
+            <path d="M80 40h14a10 10 0 010 20H80z" fill="none" stroke="#3D5588" stroke-width="5" transform="translate(2,2)"/>
+            <rect x="22" y="68" width="66" height="6" fill="#2B2621"/>
+            <path d="M42 20c0 6-6 6-6 12M56 18c0 6-6 6-6 12" stroke="#3D5588" stroke-width="4" fill="none"/>
+          </g>
+        </svg>
+        <span class="n">02</span>
+        <h3>Kissa</h3>
+        <p>昭和から続く喫茶店が、まだ何軒も残っています。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#EFE6D4"/><g class="plates">
+            <rect x="30" y="14" width="60" height="60" rx="6" fill="#3D5588"/>
+            <circle cx="60" cy="46" r="19" fill="#EFE6D4"/>
+            <circle cx="60" cy="46" r="11" fill="#00A95C" transform="translate(2,2)"/>
+            <rect x="38" y="22" width="10" height="6" fill="#FF6C2F"/>
+          </g>
+        </svg>
+        <span class="n">03</span>
+        <h3>Laundry</h3>
+        <p>洗濯機は部屋にも。長く居るほど、旅が生活になります。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#EFE6D4"/><g class="plates">
+            <rect x="14" y="24" width="30" height="50" fill="#3D5588"/>
+            <rect x="52" y="12" width="26" height="62" fill="#FF6C2F" transform="translate(2,2)"/>
+            <rect x="86" y="34" width="22" height="40" fill="#3D5588"/>
+            <g fill="#EFE6D4" opacity=".7"><rect x="20" y="32" width="8" height="8"/><rect x="32" y="32" width="8" height="8"/><rect x="20" y="48" width="8" height="8"/></g>
+            <circle cx="65" cy="28" r="7" fill="#00A95C"/>
+          </g>
+        </svg>
+        <span class="n">04</span>
+        <h3>Yokocho</h3>
+        <p>新宿三丁目の路地。深夜1時でも灯りが残っている。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#EFE6D4"/><g class="plates">
+            <circle cx="86" cy="26" r="18" fill="#FF6C2F"/>
+            <rect x="10" y="40" width="22" height="34" fill="#3D5588"/>
+            <rect x="40" y="28" width="18" height="46" fill="#3D5588" transform="translate(2,2)"/>
+            <circle cx="76" cy="60" r="20" fill="#00A95C"/>
+            <path d="M0 22h120" stroke="#2B2621" stroke-width="2.5"/>
+          </g>
+        </svg>
+        <span class="n">05</span>
+        <h3>Skyline</h3>
+        <p>電線と高層ビルと木。東京らしい風景がぜんぶある。</p>
+      </article>
+    </div>
+
+    <div class="rule" style="margin-top:44px"></div>
+    <div class="dist">
+      <span>Shinjuku Gyoen<b>3′</b></span>
+      <span>Isetan<b>9′</b></span>
+      <span>Golden Gai<b>12′</b></span>
+      <span>Omoide Yokocho<b>14′</b></span>
+      <span>Yoyogi Park<b>18′</b></span>
+      <span>Haneda<b>45′</b></span>
+      <span>Narita<b>90′</b></span>
+    </div>
+  </div>
+  <span class="folio">— 03 —</span>
+</section>
+
+<!-- ============================================================ INK -->
+<section id="ink" class="board sec-pad rv" aria-labelledby="i-h">
+  <div class="wrap">
+    <div class="head"><span class="no">04</span><span class="nm">Ink</span></div>
+    <h2 class="h2" id="i-h">
+      <span class="misreg">Three inks.</span><br>
+      <span class="misreg">One sheet of kraft.</span>
+    </h2>
+    <p class="lead" style="margin-top:22px;max-width:42em">この建物は、たった3つの色でできています。混ぜず、重ねる。重なったところに4つ目の色が出る ── リソグラフと同じつくりかたです。</p>
+
+    <div class="ink-grid">
+      <article class="ink-card paper paper-lt">
+        <div class="ink-swatch ink-area ink-green halftone"></div>
+        <div class="ink-meta">
+          <span class="hex" style="color:var(--green-dp)">#00A95C · fluo green</span>
+          <h3>Gyoen</h3>
+          <span class="role">Room 01 — unico</span>
+          <p>御苑の芝と、窓辺の鉢。いちばん面積の広いインクで、朝の部屋を刷っています。</p>
+        </div>
+      </article>
+      <article class="ink-card paper paper-lt">
+        <div class="ink-swatch ink-area ink-orange halftone"></div>
+        <div class="ink-meta">
+          <span class="hex" style="color:var(--orange-dp)">#FF6C2F · orange</span>
+          <h3>Worn</h3>
+          <span class="role">Room 02 — journal standard</span>
+          <p>使い込んだ革、錆びたアイアン、夕方の光。時間が経つほど良くなるものの色です。</p>
+        </div>
+      </article>
+      <article class="ink-card paper paper-lt">
+        <div class="ink-swatch ink-area ink-blue halftone knock"></div>
+        <div class="ink-meta">
+          <span class="hex" style="color:var(--blue-dp)">#3D5588 · federal blue</span>
+          <h3>Indigo</h3>
+          <span class="role">Room 03 — crash gate</span>
+          <p>洗いざらしのデニムと、夜の新宿。文字を刷れる唯一の明るいインクでもあります。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="overprint-note">
+      <div class="op"><i style="background:var(--op-go)"></i><span>Green × Orange<br>= 廊下と階段のオリーブ</span></div>
+      <div class="op"><i style="background:var(--op-gb)"></i><span>Green × Blue<br>= 夕暮れの御苑の深緑</span></div>
+      <div class="op"><i style="background:var(--op-ob)"></i><span>Orange × Blue<br>= 古材と革の赤茶</span></div>
+    </div>
+  </div>
+  <span class="folio">— 04 —</span>
+</section>
+
+<!-- ============================================================ LOCATION -->
+<section id="location" class="paper sec-pad rv" aria-labelledby="l-h">
+  <div class="wrap">
+    <div class="head"><span class="no">05</span><span class="nm">Location &amp; Access</span></div>
+    <h2 class="h2" id="l-h">
+      <span class="misreg g">Three minutes</span><br>
+      <span class="misreg">from the garden gate.</span>
+    </h2>
+
+    <div class="loc-grid">
+      <div>
+        <p class="addr">
+          <span class="zip">〒160-0022</span>
+          東京都新宿区新宿1丁目 ×-×-×<br>
+          K3V SHINJUKU GYOEN
+        </p>
+        <div class="routes">
+          <div><span class="line">丸ノ内線 新宿御苑前</span><span class="min">3</span><span class="u">min</span></div>
+          <div><span class="line">副都心線 新宿三丁目</span><span class="min">7</span><span class="u">min</span></div>
+          <div><span class="line">JR 新宿駅 東南口</span><span class="min">8</span><span class="u">min</span></div>
+          <div><span class="line">新宿御苑 大木戸門</span><span class="min">3</span><span class="u">min</span></div>
+        </div>
+      </div>
+
+      <figure class="map">
+        <svg viewBox="0 0 560 400" role="img" aria-labelledby="m-t">
+          <title id="m-t">新宿御苑と新宿三丁目、K3Vの位置を示した略地図</title>
+          <rect width="560" height="400" fill="#EFE6D4"/>
+          <!-- the garden -->
+          <path d="M300 96 h230 v250 h-190 c-30 0 -40 -22 -40 -50 z" fill="#00A95C" style="mix-blend-mode:multiply"/>
+          <!-- roads, blue plate, slipped 2px — crosses the garden and overprints it -->
+          <g style="mix-blend-mode:multiply" stroke="#3D5588" stroke-width="13" fill="none" transform="translate(2,2)">
+            <path d="M0 148 H560"/><path d="M0 300 H560"/>
+            <path d="M186 0 V400"/><path d="M96 0 V400"/>
+          </g>
+          <!-- the block -->
+          <rect x="106" y="196" width="66" height="66" fill="#FF6C2F" style="mix-blend-mode:multiply"/>
+          <g style="mix-blend-mode:multiply" fill="#2B2621">
+            <g font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.5">
+              <text x="108" y="188">K3V — HERE</text>
+              <text x="330" y="82">SHINJUKU GYOEN</text>
+              <text x="12" y="330">SHINJUKU 3-CHOME</text>
+            </g>
+            <circle cx="139" cy="229" r="9"/>
+          </g>
+          <rect width="560" height="400" fill="url(#ht2)" opacity=".36" style="mix-blend-mode:multiply"/>
+        </svg>
+        <figcaption class="plate-tag">Fig. 03 — Neighbourhood</figcaption>
+      </figure>
+    </div>
+  </div>
+  <span class="folio">— 05 —</span>
+</section>
+
+<!-- ============================================================ CTA -->
+<section id="book" class="cta ink-area ink-blue halftone knock sec-pad rv" aria-labelledby="b-h">
+  <div class="wrap cta-in">
+    <div>
+      <p class="eyebrow">Direct Booking — Best Rate Guaranteed</p>
+      <h2 id="b-h">Stay in the heart of Tokyo.<br>Live it beautifully.</h2>
+      <p>公式サイトからのご予約が、いちばんお得です。OTA手数料のぶん、そのまま宿泊料に還元しています。</p>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-green">Book Your Stay
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#" class="btn btn-line on-blue">Ask a Question</a>
+      </div>
+    </div>
+    <div class="price">
+      <b>¥18,000</b>
+      <small>/ night — from, 2 guests</small>
+      <ul>
+        <li>Check-in 16:00 — Check-out 11:00</li>
+        <li>Self check-in / Free Wi-Fi</li>
+        <li>Washer &amp; Dryer in every room</li>
+      </ul>
+    </div>
+  </div>
+  <i class="tombo bl" style="opacity:.4"></i><i class="tombo br" style="opacity:.4"></i>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="board">
+  <div class="colorbar" aria-hidden="true">
+    <i style="background:var(--green)"></i><i style="background:var(--orange)"></i>
+    <i style="background:var(--blue)"></i><i style="background:var(--op-go)"></i>
+    <i style="background:var(--op-gb)"></i><i style="background:var(--op-ob)"></i>
+    <i style="background:var(--ink)"></i>
+  </div>
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <a href="#" class="logo">K3<b>v</b><i>Shinjuku Gyoen</i></a>
+        <p class="foot-note">新宿御苑のすぐそばで、東京を暮らすように滞在する。家具ブランドごとにコンセプトが異なる、全3室のデザイナーズ民泊。</p>
+      </div>
+      <nav aria-label="お部屋">
+        <h4>Stay</h4>
+        <ul>
+          <li><a href="#rooms">Room 01 — unico</a></li>
+          <li><a href="#rooms">Room 02 — journal standard</a></li>
+          <li><a href="#rooms">Room 03 — crash gate</a></li>
+          <li><a href="#book">Book Direct</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ハウス">
+        <h4>House</h4>
+        <ul>
+          <li><a href="#concept">Concept</a></li>
+          <li><a href="#ink">Ink</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#location">Access</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="インフォメーション">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">House Rules</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">住宅宿泊事業法 表示</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 K3V Shinjuku Gyoen</span>
+      <span>Kraft Riso — Green × Orange × Blue on Kraft</span>
+      <span>Mock 09 — Top Page</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* reveal on scroll — skipped entirely when the user asks for less motion */
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

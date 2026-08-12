@@ -16,6 +16,13 @@ import { useState, useSyncExternalStore } from "react";
  * resolves through a --color-* variable, and app/globals.css redefines those
  * per [data-theme="…"], so nothing else has to know a theme exists.
  *
+ * Every entry other than "current" goes further than colour: "gyoen-green",
+ * "denim-sakura", "timber-indigo", "washed-chambray", "kraft-riso" and
+ * "doma-ceramic" replace the whole TOP page — layout, typography, materials and
+ * chrome. Those designs live in app/gyoen-design.css, app/denim-design.css,
+ * app/timber-design.css, app/chambray-design.css, app/kraft-design.css and
+ * app/doma-design.css, which also carry their own removal steps.
+ *
  * Selecting a theme also rewrites the ?theme= query string in place — the URL
  * in the address bar is always a shareable link to exactly what is on screen.
  * Only the query string is touched, so the /ja | /en | /zh locale prefix and
@@ -26,11 +33,12 @@ const STORAGE_KEY = "k3v-theme";
 
 const THEMES = [
   { id: "current", label: "Current", note: "現行" },
-  { id: "brick-warm", label: "Brick Warm", note: "レンガ暖色" },
-  { id: "brick-orange", label: "Brick Orange", note: "レンガ橙" },
-  { id: "teak", label: "Teak", note: "木目チーク" },
-  { id: "kakishibu", label: "Kakishibu", note: "木目柿渋" },
-  { id: "denim-stonewash", label: "Denim Stonewash", note: "デニム" },
+  { id: "gyoen-green", label: "Gyoen Green", note: "御苑グリーン×デニム" },
+  { id: "denim-sakura", label: "Denim Sakura", note: "デニムスカイ×御苑緑×桜" },
+  { id: "timber-indigo", label: "Timber Indigo", note: "生デニム×無垢材×御苑緑×影" },
+  { id: "washed-chambray", label: "Washed Chambray", note: "薄デニム×無垢材×御苑緑×影" },
+  { id: "kraft-riso", label: "Kraft Riso", note: "クラフト紙×リソグラフ3色刷り" },
+  { id: "doma-ceramic", label: "Doma Ceramic", note: "和紙×三つの釉×土間" },
 ] as const;
 
 const INIT_SCRIPT = `(function(){try{

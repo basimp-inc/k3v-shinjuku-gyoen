@@ -1,0 +1,1238 @@
+/* ---------------------------------------------------------------------------
+   REVIEW-ONLY — canonical section layouts for the six alternative TOP designs.
+
+   The six designs (Gyoen Green, Denim Sakura, Timber Indigo, Washed Chambray,
+   Kraft Riso, Doma Ceramic) render the SAME six sections in the SAME order —
+   Hero → PrimeLocation → Renovated → Amenities → Rooms → Access — from the
+   same canonical message namespaces. Only the visual direction differs.
+
+   Each design's own stylesheet (app/<name>-design.css) owns its materials,
+   palette, typography and chrome, and is generated verbatim from its source
+   mock in docs/. This file holds only the layout rules the canonical structure
+   needs on top of that vocabulary, per design, so:
+
+     * the generated stylesheets stay byte-for-byte regenerable, and
+     * every structural decision for all six designs is readable in one place.
+
+   Class-name convention: rules reuse each design's existing vocabulary where a
+   suitable class already exists, and add `.mock-*` classes only for the parts
+   the source mocks never had (the amenity grid, the access detail list, the
+   embedded map). Modifier classes like `.exp-grid-4` narrow an existing grid.
+
+   To remove before launch:
+     1. delete this file and its @import in app/globals.css
+     2. follow the removal steps at the top of each app/<name>-design.css
+   --------------------------------------------------------------------------- */
+
+/* ===========================================================================
+   DOMA CERAMIC — 和紙と粉引が交互に、三つの釉が部屋を持つ
+   Sections alternate washi ⇄ kohiki; the rooms are full-width glaze stripes;
+   amenities are unglazed tiles so the glazes stay reserved for the rooms.
+   =========================================================================== */
+.doma-top {
+  /* Hero — the canonical headline is two full 和文 sentences, longer than the
+     short display line the source mock was set for, so the display size steps
+     down to keep it to the two lines the copy is written as. */
+  .hero h1 {
+    font-size: clamp(24px, 3vw, 39px);
+  }
+  .mock-lead {
+    margin-top: 20px;
+    max-width: 40em;
+  }
+
+  /* PrimeLocation — the canonical stat value is a whole phrase ("徒歩6分"),
+     not the number/unit pair the source mock split into .min + .u */
+  .routes-plain .min {
+    font-size: 19px;
+    letter-spacing: 0.01em;
+  }
+
+  /* PrimeLocation — the four neighbourhood spots */
+  .exp-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .exp-grid-4 h3 {
+    margin-bottom: 4px;
+  }
+  .exp-grid-4 p {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--sumi-soft);
+  }
+
+  /* Renovated — three points, three glazes */
+  .glaze-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Amenities — 粉引の棚に並ぶ札。No illustration: the glazes are the rooms'
+     signature and reusing them here would flatten that. */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 38px;
+  }
+  .mock-ami li {
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    padding: 16px 18px;
+    border-radius: var(--r);
+    background: rgba(38, 34, 31, 0.05);
+    box-shadow: inset 0 0 0 1px rgba(38, 34, 31, 0.11);
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--sumi-soft);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--dsp);
+    font-weight: 700;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .mock-note {
+    margin-top: 24px;
+    max-width: 46em;
+    color: var(--sumi-soft);
+    font-size: 13.5px;
+  }
+
+  /* Rooms — the source mock's third column held a spec table the canonical
+     content has no data for. The action moves into it instead, so the stripe
+     still reads 番号 → 暮らし → 行き先 across its full width. */
+  .room-3col {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+  .room-3col .room-jp {
+    max-width: 40em;
+  }
+  .room-go .btn {
+    margin-top: 0;
+    white-space: nowrap;
+  }
+  .mock-viewall {
+    margin-top: 26px;
+  }
+
+  /* Access */
+  .mock-details {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .mock-details div {
+    padding: 14px 18px;
+    border-radius: var(--r);
+    background: rgba(38, 34, 31, 0.045);
+    box-shadow: inset 0 0 0 1px rgba(38, 34, 31, 0.09);
+  }
+  .mock-details dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sumi-soft);
+  }
+  .mock-details dd {
+    font-size: 14.5px;
+    line-height: 1.9;
+    margin-top: 4px;
+  }
+  .mock-access-cta {
+    margin-top: 26px;
+  }
+  .mock-map {
+    aspect-ratio: 4 / 3.4;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(38, 34, 31, 0.14);
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 1080px) {
+    .exp-grid-4,
+    .glaze-grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    /* the action drops under the copy rather than squeezing it */
+    .room-3col {
+      grid-template-columns: auto 1fr;
+      align-items: start;
+    }
+    .room-go {
+      grid-column: 2 / -1;
+    }
+  }
+  @media (max-width: 700px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .exp-grid-4,
+    .glaze-grid-3 {
+      grid-template-columns: 1fr;
+    }
+    .room-3col {
+      grid-template-columns: 1fr;
+    }
+    .room-go {
+      grid-column: auto;
+    }
+    .routes-plain div {
+      /* label and value stack rather than squeezing the phrase to one line */
+      flex-wrap: wrap;
+      row-gap: 2px;
+    }
+  }
+}
+
+/* ===========================================================================
+   KRAFT RISO — 三色刷り。部屋が三色、リノベーションはその重ね刷り
+   The page is a print run: hairline gaps instead of gutters, no rounded
+   corners anywhere, and every panel edge is a trim, not a card.
+   =========================================================================== */
+.kraft-top {
+  /* Display type. The source mock set its headlines in Archivo Black, which
+     has no 和文 glyphs — the canonical headings are Japanese, so they move to
+     the JP face. The poster character is kept by the misregistration and the
+     knocked-out ink area, not by the typeface. */
+  /* The Latin display line. Archivo Black has no 和文 glyphs, so it cannot set
+     the canonical Japanese heading — it sets this line instead, and the
+     Japanese heading becomes the subhead under it. That is the hierarchy the
+     source mock had, and it is where this design's voice lives. */
+  .mock-dsp {
+    font-family: var(--dsp);
+    font-size: clamp(25px, 4.4vw, 58px);
+    line-height: 0.96;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+  .hero .mock-dsp {
+    font-size: clamp(29px, 6.2vw, 90px);
+    margin-top: 18px;
+  }
+  /* printed as a solid ink area with the type knocked out. Cloned so a wrapped
+     line gets its own bar rather than one tall box swallowing the line above —
+     which is also what a real press would lay down. */
+  .hero .mock-dsp .fill {
+    display: inline;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background: var(--green);
+    color: var(--kraft-lt);
+    padding: 0.04em 0.16em 0.1em;
+    box-shadow: var(--mis) var(--mis) 0 var(--orange);
+  }
+  .hero h1,
+  .h2,
+  .exp-card h3,
+  .ink-meta h3 {
+    font-family: var(--jp);
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .hero h1 {
+    font-size: clamp(17px, 1.9vw, 25px);
+    line-height: 1.8;
+    margin-top: 24px;
+    max-width: 28em;
+  }
+  .h2 {
+    font-size: clamp(16px, 1.7vw, 22px);
+    line-height: 1.8;
+    margin-top: 14px;
+    max-width: 32em;
+  }
+  .exp-card h3 {
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .ink-meta h3 {
+    font-size: 20px;
+    line-height: 1.45;
+  }
+  .mock-lead {
+    margin-top: 20px;
+    max-width: 40em;
+  }
+  /* The source mock bottom-aligned the copy against a headline tall enough to
+     fill the row. The 和文 headline is shorter, so bottom-alignment would open
+     a hole between it and the copy — the copy follows the headline instead. */
+  .hero-lower {
+    align-items: start;
+  }
+
+  /* PrimeLocation */
+  .routes-plain .min {
+    font-family: var(--dsp);
+    font-size: 19px;
+  }
+  .exp-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .exp-grid-4 p {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  /* Amenities — a printed checklist. Hairline gaps, square corners. */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 46px;
+  }
+  .mock-ami li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 18px 20px;
+    background: rgba(43, 38, 33, 0.09);
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .mock-note {
+    margin-top: 26px;
+    max-width: 46em;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+  }
+
+  /* Rooms — full-bleed ink bands; the third column carries the brand and the
+     action, where the source mock had a spec table. */
+  .rooms-list {
+    margin-top: 52px;
+  }
+  .room {
+    padding-inline: var(--pad);
+  }
+  .room-tag {
+    font-size: clamp(17px, 2vw, 26px);
+    line-height: 1.12;
+    opacity: 0.86;
+  }
+  .room-go .btn {
+    margin-top: 18px;
+  }
+  .mock-viewall {
+    margin-top: 40px;
+  }
+
+  /* Access */
+  .mock-details {
+    margin-top: 26px;
+    display: grid;
+    gap: 2px;
+  }
+  .mock-details div {
+    padding: 16px 20px;
+    background: rgba(43, 38, 33, 0.09);
+  }
+  .mock-details dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+  .mock-details dd {
+    font-family: var(--jp);
+    font-size: 14.5px;
+    line-height: 1.85;
+    margin-top: 5px;
+  }
+  .mock-access-cta {
+    margin-top: 28px;
+  }
+  .mock-map {
+    aspect-ratio: 4 / 3.4;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px var(--ink);
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  /* The design's label tab hangs off the corner of an illustration. Over a
+     live map it would sit on Google's attribution, so under the map it goes. */
+  .map .plate-tag {
+    position: static;
+    display: inline-block;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 1080px) {
+    .exp-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ink-grid {
+      grid-template-columns: 1fr;
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .room {
+      grid-template-columns: auto 1fr;
+    }
+    .room-go {
+      grid-column: 2 / -1;
+    }
+  }
+  @media (max-width: 700px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .exp-grid-4 {
+      grid-template-columns: 1fr;
+    }
+    .room {
+      grid-template-columns: 1fr;
+    }
+    .room-go {
+      grid-column: auto;
+    }
+    .routes-plain div {
+      flex-wrap: wrap;
+      row-gap: 2px;
+    }
+  }
+}
+
+/* ===========================================================================
+   WASHED CHAMBRAY — 12列のエディトリアル。仕立てのディテールで差をつける
+   One dark anchor (Renovated), room bands breaking the grid edge to edge, and
+   a horizontal rail for the neighbourhood. Everything reads as garment
+   construction: dashed stitch, raw-denim patches, rivets.
+   =========================================================================== */
+.chambray-top {
+  /* Display type. The source mock set every headline in Barlow Condensed and
+     Newsreader italic — Latin faces with no 和文 glyphs. The canonical
+     headings are Japanese, so they move to the JP face; the design's voice is
+     carried by the em sub-line, the colour split and the stitch details. */
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .ehead h2,
+  .mhead h2,
+  .linfo h2,
+  .card h4,
+  .sample b,
+  .word b {
+    font-family: var(--jp);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  /* .band h3 is NOT in that list: the room names are Latin in every locale, so
+     they keep Barlow Condensed — the one place this design's display face can
+     do its job. */
+  /* The Latin display line, set in the condensed face the source mock used for
+     every headline. Barlow Condensed has no 和文 glyphs, so it takes this line
+     and the canonical Japanese heading becomes the subhead beneath it. */
+  .mock-dsp {
+    font-family: var(--cnd);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    color: var(--indigo);
+    margin-top: 14px;
+  }
+  .hero .mock-dsp {
+    font-size: clamp(2.4rem, 6.4vw, 5.6rem);
+    margin-top: 16px;
+  }
+  .mhead .mock-dsp {
+    color: var(--ecru);
+  }
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .ehead h2,
+  .mhead h2,
+  .linfo h2 {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.85;
+    margin-top: 14px;
+    max-width: 34em;
+  }
+  /* the second heading line keeps the wood/forest accent, minus the italic
+     serif that has no 和文 cut */
+  .c-head h2 em,
+  .rhead h2 em,
+  .ehead h2 em,
+  .mhead h2 em,
+  .linfo h2 em {
+    font-family: var(--jp);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: none;
+  }
+  .card h4 {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+  .sample b {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* PrimeLocation — the walk-time list carries a whole phrase, not a bare
+     numeral with a unit, so it steps down from the display size. */
+  .acc i {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+  }
+  .acc {
+    margin-top: 26px;
+  }
+  .rail-x {
+    margin-top: clamp(40px, 5vw, 68px);
+  }
+  .card p {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Renovated — three cloths instead of the source mock's four */
+  .samples-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sample p {
+    margin-top: 8px;
+  }
+
+  /* Amenities — every item a patch, stitched like the hero's */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(10px, 1.4vw, 18px);
+    margin-top: clamp(28px, 3.4vw, 44px);
+  }
+  .mock-ami li {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    padding: 17px 18px;
+    background: rgba(27, 58, 87, 0.07);
+    border: 1px solid rgba(27, 58, 87, 0.2);
+  }
+  .mock-ami .edge {
+    position: absolute;
+    inset: 5px;
+    border: 1px dashed rgba(27, 58, 87, 0.32);
+    pointer-events: none;
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    color: var(--thread);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .mock-note {
+    display: block;
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* Rooms */
+  .mock-viewall-wrap {
+    padding-block: clamp(34px, 4.4vw, 60px);
+  }
+
+  /* Access — the live map replaces the illustrated one, so it fills .lmap */
+  .mock-map {
+    position: absolute;
+    inset: 0;
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mock-detail-value {
+    text-align: right;
+    max-width: 60%;
+  }
+  .mock-access-cta {
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 1100px) {
+    .samples-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 880px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mock-detail-value {
+      max-width: 55%;
+    }
+  }
+  @media (max-width: 600px) {
+    .samples-3 {
+      grid-template-columns: 1fr;
+    }
+    .acc li {
+      align-items: flex-start;
+    }
+  }
+}
+
+/* ===========================================================================
+   TIMBER INDIGO — 暗いほうの案。紙 → 影 → 紙 と振れるセクション地
+   The full-bleed hero puts the artwork behind a veil instead of beside the
+   copy, and the rooms sit on the darkest ground in the set.
+   =========================================================================== */
+.timber-top {
+  /* Display type. The source mock set its headlines in Archivo 800 uppercase
+     with a tight negative track — Latin settings that 和文 cannot use. The
+     headings move to the JP face; the Instrument Serif italic em line stays
+     the design's signature wherever the copy is Latin. */
+  .h1-a,
+  .concept-h h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .mt-head h2,
+  .loc-info h2,
+  .exp-card h4,
+  .mt-cell b {
+    font-family: var(--jp);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  /* The Latin display line. Instrument Serif has no 和文 glyphs, so it sets
+     this line and the canonical Japanese heading becomes the subhead beneath —
+     the hierarchy the source mock had, and where this design's voice lives. */
+  .mock-dsp {
+    font-family: var(--dsp);
+    font-weight: 400;
+    font-size: clamp(1.85rem, 4.4vw, 3.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.012em;
+    margin-top: 14px;
+  }
+  .hero .mock-dsp {
+    font-size: clamp(2.1rem, 6vw, 5.2rem);
+    color: var(--chalk);
+    margin-top: 18px;
+  }
+  .mt-head .mock-dsp {
+    color: var(--paper);
+  }
+  .h1-a,
+  .concept-h h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .mt-head h2,
+  .loc-info h2 {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.85;
+    margin-top: 14px;
+    max-width: 34em;
+  }
+  .concept-h h2 em,
+  .rooms-head h2 em,
+  .exp-head h2 em,
+  .mt-head h2 em,
+  .loc-info h2 em {
+    display: block;
+    font-family: var(--jp);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  /* .rm-txt h3 keeps Archivo: the room names are Latin in every locale */
+  .exp-card h4 {
+    font-size: 0.9375rem;
+  }
+  .mt-cell b {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.4;
+  }
+
+  /* PrimeLocation — the concept grid loses the small inset square the source
+     mock stacked under the main plate, so the main plate stands alone. */
+  .concept-img {
+    margin-top: 0;
+  }
+  .exp-rail {
+    margin-top: clamp(44px, 6vw, 80px);
+  }
+  .exp-card p {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--thread);
+  }
+
+  /* Renovated — three materials rather than the source mock's four */
+  .mt-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .mt-cell {
+    color: var(--chalk);
+  }
+  .mt-n {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    opacity: 0.75;
+  }
+
+  /* Amenities — a ruled stock list, not cards */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 clamp(16px, 2.4vw, 40px);
+    margin-top: clamp(30px, 3.6vw, 48px);
+    border-top: 1px solid rgba(43, 38, 32, 0.22);
+  }
+  .mock-ami li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 16px 2px;
+    border-bottom: 1px solid rgba(43, 38, 32, 0.16);
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    color: var(--thread);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .mock-note {
+    margin-top: 26px;
+    max-width: 62ch;
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    color: rgba(43, 38, 32, 0.62);
+  }
+
+  /* Rooms */
+  .mock-viewall {
+    margin-top: clamp(38px, 5vw, 60px);
+  }
+
+  /* Access — the live map fills .loc-map in place of the illustrated one */
+  .mock-map {
+    position: absolute;
+    inset: 0;
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mock-details {
+    margin-top: 24px;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid rgba(43, 38, 32, 0.22);
+  }
+  .mock-details div {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(43, 38, 32, 0.14);
+  }
+  .mock-details dt {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--thread);
+  }
+  .mock-details dd {
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.85;
+    margin-top: 5px;
+    color: rgba(43, 38, 32, 0.82);
+  }
+  .mock-access-cta {
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 1100px) {
+    .mt-grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 880px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .mt-grid-3 {
+      grid-template-columns: 1fr;
+    }
+    .mock-ami {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ===========================================================================
+   DENIM SAKURA — 三色目のある案。デニム × 御苑の緑 × 桜
+   The softest of the six and the only one with a third hue. Everything is
+   garment-made: selvedge edges, dashed stitching, rivets, a woven patch, and
+   a real care label carrying the renovation points.
+   =========================================================================== */
+.denim-top {
+  /* Display type. The source mock's .dsp is a Latin serif; the canonical
+     headings are Japanese, so headings switch to the JP display face while
+     .dsp keeps its role on the Latin room names and the brand mark. */
+  .hero h1,
+  .c-text h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .loc .txt h2,
+  .cta-body h2 {
+    font-family: var(--jp);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-feature-settings: "palt" 1;
+  }
+  /* The Latin display line, set in Fraunces — the serif the source mock used
+     for every headline, which has no 和文 glyphs. The canonical Japanese
+     heading becomes the subhead beneath it. */
+  .mock-dsp {
+    font-family: var(--dsp);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.012em;
+    margin-top: 14px;
+  }
+  .hero .mock-dsp {
+    font-size: clamp(2.1rem, 5.4vw, 4.6rem);
+    color: var(--cream);
+    margin-top: 12px;
+  }
+  .loc .txt .mock-dsp {
+    color: var(--cream);
+  }
+  .cta-body .mock-dsp {
+    color: var(--cream);
+  }
+  .c-text .mock-dsp,
+  .rooms-head .mock-dsp,
+  .exp-head .mock-dsp {
+    color: var(--green-deep);
+  }
+  .hero h1 .l2 {
+    padding-left: 0;
+  }
+  .hero h1,
+  .c-text h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .loc .txt h2,
+  .cta-body h2 {
+    max-width: 34em;
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.9;
+    margin-top: 14px;
+  }
+  .c-text h2 em,
+  .rooms-head h2 em,
+  .exp-head h2 em,
+  .loc .txt h2 em,
+  .cta-body h2 em,
+  .hero h1 em {
+    font-style: normal;
+    font-weight: 700;
+  }
+  /* .room h3 keeps .dsp: the room names are Latin in every locale */
+  .room h3 {
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  }
+
+  /* PrimeLocation — walk times as a list, the shops as staggered scenes */
+  .walks li {
+    padding-block: 12px;
+  }
+  .mock-nearby {
+    grid-column: 1 / 13;
+    margin-top: clamp(46px, 6vw, 84px);
+  }
+  .mock-nearby .cap .x span {
+    color: rgba(251, 250, 245, 0.9);
+  }
+  .mock-nearby .cap .t {
+    color: var(--sakura);
+  }
+
+  /* Renovated — three points, so the two-column card grid becomes three */
+  .c-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .c-cols .item p {
+    font-family: var(--jp);
+  }
+
+  /* Amenities — woven tags */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(10px, 1.4vw, 18px);
+    margin-top: clamp(28px, 3.4vw, 44px);
+  }
+  .mock-ami li {
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    padding: 16px 18px;
+    background: var(--cream);
+    box-shadow: 0 12px 26px -22px rgba(27, 40, 54, 0.5);
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    color: var(--sakura-dp);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .mock-note {
+    display: block;
+    font-family: var(--jp);
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.95;
+    text-align: left;
+  }
+
+  /* Rooms */
+  .mock-viewall {
+    margin-top: clamp(46px, 6vw, 80px);
+  }
+
+  /* Access — the live map sits in the stitched frame the source mock drew an
+     illustrated map into. */
+  .mock-mapbox {
+    margin-top: clamp(26px, 3.4vw, 40px);
+    max-width: 560px;
+  }
+  .mock-map {
+    aspect-ratio: 900 / 560;
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mapbox .cap {
+    color: rgba(251, 250, 245, 0.68);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+  }
+  .loc .mapbox .cap {
+    color: rgba(251, 250, 245, 0.68);
+  }
+  .perks li span {
+    display: block;
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.85;
+  }
+  .mock-perk-label {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sakura);
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 1000px) {
+    .c-cols {
+      grid-template-columns: 1fr 1fr;
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 760px) {
+    .c-cols {
+      grid-template-columns: 1fr;
+    }
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+/* ===========================================================================
+   GYOEN GREEN — 一番緑で、一番建築的な案
+   A cinematic canopy hero cropped by a walnut ledge, real wood surfaces with
+   seams and sheen, outlined numerals, and three rooms that each break the
+   grid a different way. The park leads, not the interior.
+   =========================================================================== */
+.gyoen-top {
+  /* Display type. The source mock's .dsp pairs a Latin serif with tight
+     tracking; the canonical headings are Japanese, so headings take the JP
+     face while .dsp keeps its role on the Latin room names and the mark. */
+  .hero h1,
+  .concept h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .loc h2,
+  .cta-body h2 {
+    font-family: var(--jp);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-feature-settings: "palt" 1;
+  }
+  /* The Latin display line, set in Fraunces — the serif the source mock used
+     for every headline, which has no 和文 glyphs. The canonical Japanese
+     heading becomes the subhead beneath it. */
+  .mock-dsp {
+    font-family: var(--dsp);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+    line-height: 1.04;
+    letter-spacing: -0.012em;
+    margin-top: 14px;
+    color: var(--green);
+  }
+  .hero .mock-dsp,
+  .loc .mock-dsp,
+  .cta-body .mock-dsp {
+    color: var(--cream);
+  }
+  .hero .mock-dsp {
+    font-size: clamp(2.1rem, 5.4vw, 4.6rem);
+    margin-top: 12px;
+  }
+  .hero h1,
+  .concept h2,
+  .rooms-head h2,
+  .exp-head h2,
+  .loc h2,
+  .cta-body h2 {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.9;
+    margin-top: 14px;
+    max-width: 34em;
+  }
+  .hero h1 em,
+  .concept h2 em,
+  .loc h2 em,
+  .cta-body h2 em {
+    font-style: normal;
+    font-weight: 700;
+  }
+  /* .room h3 keeps .dsp: the room names are Latin in every locale */
+  .room h3 {
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+  }
+  /* the hero's single big figure is a whole phrase ("徒歩6分"), not a numeral */
+  .hero-side .big {
+    font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+    line-height: 1.3;
+  }
+
+  /* PrimeLocation — the shop chips under the illustration */
+  .mock-chiprow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .mock-chip-val {
+    font-weight: 400;
+    opacity: 0.72;
+    margin-left: 0.5em;
+  }
+
+  /* Renovated — the source mock's spec list paired a short label with a short
+     value on one row. Each renovation point is a title plus a sentence, so the
+     row stacks instead of trying to sit them side by side. */
+  .spec div {
+    display: block;
+    padding: 0.9em 0;
+  }
+  .spec dt {
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-family: var(--jp);
+    font-size: 0.875rem;
+    color: var(--green);
+  }
+  .mock-spec-body {
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.85;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    margin-top: 5px;
+  }
+
+  /* Amenities — ruled rows on a lime baseline, matching the section heads */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 clamp(16px, 2.4vw, 38px);
+    margin-top: clamp(30px, 3.6vw, 48px);
+  }
+  .mock-ami li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 15px 2px;
+    border-bottom: 1px solid rgba(31, 58, 46, 0.18);
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    color: var(--green);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .mock-note {
+    display: block;
+    margin-top: 26px;
+    max-width: 62ch;
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    color: var(--ink-soft);
+  }
+
+  /* Access — the live map framed like the mock's illustrated map panel */
+  .mock-access-lead {
+    margin-top: 18px;
+  }
+  .mock-mapframe {
+    margin-top: 22px;
+    max-width: 560px;
+    overflow: hidden;
+  }
+  .mock-map {
+    aspect-ratio: 900 / 560;
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 1000px) {
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 760px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 520px) {
+    .mock-ami {
+      grid-template-columns: 1fr;
+    }
+  }
+}

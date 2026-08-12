@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K3V SHINJUKU GYOEN — TOP PAGE MOCK 10 / DOMA CERAMIC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   K3V SHINJUKU GYOEN — MOCK 10 "DOMA CERAMIC"
+   The earthenware one. 和紙 ground, three matte glazes, a clay
+   floor, rattan. No gloss anywhere — 器 is matte, and matte is
+   what keeps this out of "高級旅館".
+
+   STRUCTURAL IDEA: three rooms = three glazes.
+     ROOM 01 unico                → 織部 ORIBE  (green, the garden)
+     ROOM 02 journal standard f.  → 飴釉 AME    (amber, worn)
+     ROOM 03 crash gate           → 鉄釉 TETSU  (iron black)
+
+   TWO RULES THAT KEEP IT OUT OF RYOKAN TERRITORY:
+     1. NO SERIF / NO 明朝. Display face is 角丸ゴシック (Zen Maru
+        Gothic 900) — 和文主導, and the roundness is the "気取らなさ".
+     2. Generous 角丸 + tight-ish rhythm. Wide airy grids read luxury;
+        this should read like a shelf of everyday bowls.
+
+   GLAZE RULES (verified):
+     和紙/粉引の上   → 墨 13.51 / 11.38, 織部 4.62, 飴釉 4.82, 土間影 5.45
+     釉薬のベタ面すべて → 紙色  織部 5.00 / 飴釉 5.22 / 鉄釉 11.52
+     土間 #A99177 だけが墨文字を受ける中間トーン 5.26
+   ============================================================ */
+
+:root{
+  /* --- 紙 ---------------------------------------------- */
+  --washi:#F2EDE1;        /* 生成りの和紙 — the page */
+  --washi-lt:#FAF6EC;     /* 薄美濃紙 — type on glaze */
+  --kohiki:#E4DAC6;       /* 粉引（白化粧）— panels */
+
+  /* --- 土 ---------------------------------------------- */
+  --doma:#A99177;         /* 三和土 — the only mid tone that takes dark type */
+  --doma-dk:#6F5C48;      /* 土間の影 */
+
+  /* --- 釉 (all matte, all take paper-coloured type) ----- */
+  --oribe:#5C7052;        /* 織部釉 — ROOM 01 */
+  --oribe-dp:#3E4F36;
+  --ame:#9A5622;          /* 飴釉 — ROOM 02 */
+  --ame-dp:#7A4218;
+  --tetsu:#3A332C;        /* 鉄釉 — ROOM 03 */
+
+  --take:#B99C63;         /* 竹・籐 */
+  --sumi:#26221F;         /* 墨 */
+  --sumi-soft:rgba(38,34,31,.62);
+
+  --dsp:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;  /* 角丸・和文主導 */
+  --jp:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+  --ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --pad:clamp(18px,4.4vw,64px);
+  --r:14px;               /* the 器 radius */
+  --r-lg:24px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--washi);
+  color:var(--sumi);
+  font-family:var(--jp);
+  font-size:16px;line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--ame-dp);outline-offset:3px}
+::selection{background:var(--take);color:var(--sumi)}
+
+/* ============================================================
+   材 01 — 和紙
+   簀の目（縦の細い筋）＋ 糸目（横の太い筋）＋ 繊維のムラ。
+   クラフト紙と違って繊維は「縦横に絡む」ので等方に近い。
+   ============================================================ */
+.washi{
+  position:relative;
+  background-color:var(--washi);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(150,128,98,.055) 0 1px, rgba(150,128,98,0) 1px 5px),
+    repeating-linear-gradient(0deg,  rgba(150,128,98,.05) 0 1px, rgba(150,128,98,0) 1px 34px),
+    radial-gradient(130% 80% at 16% 0%, rgba(255,253,246,.7), rgba(255,253,246,0) 58%),
+    radial-gradient(110% 90% at 100% 100%, rgba(150,128,98,.16), rgba(150,128,98,0) 62%),
+    linear-gradient(176deg,#F6F1E6,#F2EDE1 54%,#EBE4D5);
+}
+.washi::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.36;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75 .8' numOctaves='4' seed='21'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .48 0 0 0 0 .40 0 0 0 0 .28 .75 .4 .2 0 -.46'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23w)'/%3E%3C/svg%3E");
+}
+/* 粉引 — 白化粧をかけた面。和紙より一段沈む */
+.kohiki{
+  position:relative;
+  background-color:var(--kohiki);
+  background-image:
+    radial-gradient(120% 80% at 24% 4%, rgba(255,252,244,.6), rgba(255,252,244,0) 58%),
+    linear-gradient(174deg,#EAE1CE,#E4DAC6 56%,#DACEB6);
+}
+.kohiki::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.3;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6 .7' numOctaves='4' seed='6'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .5 0 0 0 0 .42 0 0 0 0 .3 .7 .4 .2 0 -.5'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23k)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   材 02 — 三和土（たたき）
+   骨材が入った土の床。粒を散らして、目地は作らない。
+   ============================================================ */
+.doma{
+  position:relative;color:var(--sumi);
+  background-color:var(--doma);
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(70,56,40,.20) 0 2px, transparent 2.6px),
+    radial-gradient(circle at 63% 14%, rgba(70,56,40,.16) 0 2.4px, transparent 3px),
+    radial-gradient(circle at 34% 71%, rgba(255,250,240,.26) 0 2.2px, transparent 2.8px),
+    radial-gradient(circle at 84% 62%, rgba(70,56,40,.18) 0 1.8px, transparent 2.4px),
+    radial-gradient(circle at 47% 38%, rgba(255,250,240,.2) 0 1.6px, transparent 2.2px),
+    linear-gradient(177deg,#B39B80,#A99177 58%,#9B8368);
+  background-size:74px 68px,92px 84px,66px 78px,104px 96px,58px 62px,100% 100%;
+}
+.doma::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.4;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' seed='3'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .36 0 0 0 0 .29 0 0 0 0 .2 .8 .4 .2 0 -.48'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23d)'/%3E%3C/svg%3E");
+}
+.doma-dk{background-color:var(--doma-dk);color:var(--washi-lt)}
+.doma-dk.doma{
+  background-image:
+    radial-gradient(circle at 22% 32%, rgba(255,248,236,.14) 0 2px, transparent 2.6px),
+    radial-gradient(circle at 71% 66%, rgba(255,248,236,.1) 0 2.4px, transparent 3px),
+    linear-gradient(177deg,#7A6650,#6F5C48 58%,#5F4E3C);
+  background-size:80px 74px,96px 88px,100% 100%;
+}
+
+/* ============================================================
+   材 03 — 釉薬（マット）
+   器に見える条件は「光沢」ではなく「縁に溜まって濃くなる」こと。
+   底に向かって濃くなる inset shadow が、この design の一手。
+   ============================================================ */
+.glaze{
+  position:relative;
+  color:var(--washi-lt);
+  border-radius:var(--r);
+  box-shadow:
+    inset 0 -18px 30px -16px rgba(0,0,0,.42),   /* 縁溜まり — 下に溜まる */
+    inset 0 16px 26px -18px rgba(255,255,255,.20),
+    inset 0 0 0 1px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+.glaze::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(120% 90% at 28% 10%, rgba(255,255,255,.15), rgba(255,255,255,0) 56%),
+    radial-gradient(90% 120% at 86% 94%, rgba(0,0,0,.20), rgba(0,0,0,0) 62%);
+}
+.glaze::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  opacity:.34;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='340'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.028 .034' numOctaves='4' seed='13'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .18 0 0 0 0 .16 0 0 0 0 .12 .9 .5 .2 0 -.55'/%3E%3C/filter%3E%3Crect width='340' height='340' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+.glaze>*{position:relative;z-index:1}
+.g-oribe{background-color:var(--oribe)}
+.g-ame{background-color:var(--ame)}
+.g-tetsu{background-color:var(--tetsu)}
+
+/* 材 04 — 籐 / 竹の編み目 */
+.ami{
+  position:relative;
+  background-color:var(--take);
+  background-image:
+    repeating-linear-gradient(45deg,  rgba(255,250,238,.24) 0 4px, rgba(90,68,40,.16) 4px 9px),
+    repeating-linear-gradient(-45deg, rgba(255,250,238,.16) 0 4px, rgba(90,68,40,.12) 4px 9px);
+}
+
+/* ============================================================
+   TYPE — 和文主導
+   ============================================================ */
+.dsp{font-family:var(--dsp);font-weight:900;line-height:1.34;letter-spacing:.005em;font-feature-settings:"palt" 1}
+.lat{font-family:var(--ui);letter-spacing:.02em}
+.mono{font-family:var(--mono);letter-spacing:.1em}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.lead{font-size:clamp(15px,1.5vw,16.5px);line-height:2.1}
+.muted{color:var(--sumi-soft)}
+
+.wrap{max-width:1280px;margin:0 auto;padding-inline:var(--pad)}
+section{position:relative}
+section[id]{scroll-margin-top:78px}   /* clear the sticky nav */
+.sec-pad{padding-block:clamp(56px,7.6vw,110px)}
+
+/* section head — 番号を器の高台みたいな円に置く */
+.head{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.head .no{
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--sumi);color:var(--washi-lt);
+}
+.head .nm{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase}
+.h2{
+  font-family:var(--dsp);font-weight:900;
+  font-size:clamp(25px,3.5vw,44px);line-height:1.4;letter-spacing:.004em;
+  font-feature-settings:"palt" 1;
+}
+.h2-lat{
+  font-family:var(--ui);font-weight:600;font-size:12.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--sumi-soft);
+  margin-top:12px;
+}
+
+/* ============================================================
+   BUTTONS — 器のかたち（角丸、押すとわずかに沈む）
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.65em;
+  min-height:52px;padding:0 26px;border-radius:999px;
+  font-family:var(--jp);font-size:15px;font-weight:700;
+  letter-spacing:.05em;cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn-oribe{
+  background:var(--oribe);color:var(--washi-lt);
+  box-shadow:inset 0 -10px 16px -10px rgba(0,0,0,.45), 0 2px 0 0 var(--oribe-dp);
+}
+.btn-oribe:hover{background:#647A59;transform:translateY(-1px);box-shadow:inset 0 -10px 16px -10px rgba(0,0,0,.45), 0 4px 0 0 var(--oribe-dp)}
+.btn-ame{
+  background:var(--ame);color:var(--washi-lt);
+  box-shadow:inset 0 -10px 16px -10px rgba(0,0,0,.45), 0 2px 0 0 var(--ame-dp);
+}
+.btn-ame:hover{background:#A85F27;transform:translateY(-1px);box-shadow:inset 0 -10px 16px -10px rgba(0,0,0,.45), 0 4px 0 0 var(--ame-dp)}
+.btn-line{background:transparent;color:var(--sumi);box-shadow:inset 0 0 0 2px rgba(38,34,31,.34)}
+.btn-line:hover{background:rgba(38,34,31,.07);box-shadow:inset 0 0 0 2px rgba(38,34,31,.6)}
+.btn-line.on-dark{color:var(--washi-lt);box-shadow:inset 0 0 0 2px rgba(250,246,236,.5)}
+.btn-line.on-dark:hover{background:rgba(250,246,236,.13);box-shadow:inset 0 0 0 2px var(--washi-lt)}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{position:sticky;top:0;z-index:60;box-shadow:0 1px 0 rgba(38,34,31,.14)}
+.nav-in{display:flex;align-items:center;gap:24px;min-height:66px}
+/* padding-block gives the logo a 44px tap target without moving it visually */
+.logo{display:flex;align-items:baseline;gap:.5em;font-family:var(--dsp);font-weight:900;font-size:22px;line-height:1;padding-block:11px}
+.logo i{font-family:var(--mono);font-style:normal;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sumi-soft)}
+.nav-links{display:flex;gap:6px;margin-left:auto;align-items:center}
+.nav-links a{
+  font-size:14px;font-weight:500;padding:9px 14px;border-radius:999px;
+  transition:background-color .18s ease;
+}
+.nav-links a:hover{background:rgba(38,34,31,.08)}
+.lang{display:flex;gap:6px;font-family:var(--mono);font-size:11px;color:var(--sumi-soft)}
+.lang b{color:var(--sumi)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:14px}
+.burger{display:none;width:46px;height:46px;align-items:center;justify-content:center;border-radius:50%}
+.burger span{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--sumi);box-shadow:0 -7px 0 var(--sumi),0 7px 0 var(--sumi)}
+
+/* ============================================================
+   HERO — 和文の見出しが主役
+   ============================================================ */
+.hero{padding-top:clamp(34px,5vw,66px);padding-bottom:clamp(34px,5vw,60px)}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,4vw,64px);align-items:center}
+.hero-grid>*{min-width:0}
+.hero h1{
+  font-family:var(--dsp);font-weight:900;
+  /* capped so the 10-character first line clears the column at every width —
+     和文 wraps anywhere, so an oversized clamp leaves 「で、」 stranded alone */
+  font-size:clamp(26px,3.7vw,50px);
+  line-height:1.44;letter-spacing:.004em;
+  font-feature-settings:"palt" 1;
+  margin:18px 0 0;
+}
+/* 御苑 の下に釉薬のひとはけ。背景グラデーションで描くので重ね順の問題が出ない
+   （擬似要素＋z-index:-1 だとセクションの地の下に潜って消える） */
+.hero h1 em{
+  font-style:normal;white-space:nowrap;
+  color:var(--oribe-dp);
+  background-image:linear-gradient(transparent 64%, rgba(92,112,82,.32) 64%, rgba(92,112,82,.32) 92%, transparent 92%);
+}
+.hero-lat{
+  font-family:var(--ui);font-weight:600;font-size:clamp(12px,1.2vw,14px);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sumi-soft);
+  margin-top:22px;
+}
+.hero-sub{margin-top:16px;max-width:30em;font-size:15.5px;line-height:2.1}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;border-radius:var(--r-lg)}
+.fig-cap{
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--sumi-soft);margin-top:11px;
+}
+
+/* ============================================================
+   TICKER + STATS
+   ============================================================ */
+.ticker{overflow:hidden;padding-block:12px}
+.ticker-track{display:flex;width:max-content;animation:roll 40s linear infinite}
+.ticker-track span{
+  display:flex;align-items:center;gap:38px;white-space:nowrap;
+  font-family:var(--dsp);font-weight:700;font-size:17px;letter-spacing:.04em;
+  padding-right:38px;
+}
+.ticker-track i{width:9px;height:9px;border-radius:50%;display:block;flex:none;background:var(--washi-lt);opacity:.7}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:clamp(26px,3vw,40px)}
+.stats div{
+  padding:20px 22px;border-radius:var(--r);
+  background:rgba(38,34,31,.05);
+  box-shadow:inset 0 0 0 1px rgba(38,34,31,.09);
+}
+.stats b{font-family:var(--dsp);font-weight:900;font-size:clamp(24px,2.6vw,34px);line-height:1.2;display:block}
+.stats small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sumi-soft);display:block;margin-top:5px}
+
+/* ============================================================
+   CONCEPT
+   ============================================================ */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);margin-top:36px;align-items:start}
+.concept-body p+p{margin-top:1.35em}
+.concept-lat{
+  font-family:var(--mono);font-size:11.5px;line-height:2;
+  color:var(--sumi-soft);margin-top:24px;padding-top:20px;
+  border-top:1px solid rgba(38,34,31,.18);
+}
+.plate{position:relative}
+.plate svg{width:100%;height:auto;border-radius:var(--r-lg)}
+.plate-tag{
+  display:inline-block;margin-top:11px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sumi-soft);
+}
+
+/* ============================================================
+   ROOMS — 一室ひと釉
+   ============================================================ */
+.rooms-list{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.room{
+  display:grid;grid-template-columns:auto 1.12fr .88fr;
+  gap:clamp(18px,3vw,44px);
+  padding:clamp(26px,3.4vw,44px);
+  align-items:start;
+}
+.room-no{
+  font-family:var(--mono);font-size:13px;font-weight:500;
+  width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;flex:none;
+  background:rgba(250,246,236,.16);
+  box-shadow:inset 0 0 0 1px rgba(250,246,236,.34);
+}
+.room-brand{font-family:var(--dsp);font-weight:900;font-size:clamp(19px,2.1vw,27px);line-height:1.32}
+.room-glaze{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.82;margin-top:9px}
+.room-jp{font-size:14.5px;line-height:2;margin-top:14px;max-width:34em}
+.room-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chip{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  padding:.42em .85em;border-radius:999px;
+  background:rgba(250,246,236,.18);box-shadow:inset 0 0 0 1px rgba(250,246,236,.4);
+}
+.spec{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.spec div{
+  padding:12px 15px;border-radius:10px;
+  background:rgba(250,246,236,.11);
+  box-shadow:inset 0 0 0 1px rgba(250,246,236,.2);
+}
+.spec dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
+.spec dd{font-family:var(--dsp);font-weight:700;font-size:16px;margin-top:3px}
+.room .btn{margin-top:18px}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.exp-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:38px}
+.exp-card{
+  padding:18px 18px 24px;border-radius:var(--r);
+  background:rgba(38,34,31,.045);
+  box-shadow:inset 0 0 0 1px rgba(38,34,31,.09);
+  transition:background-color .2s ease, transform .2s ease;
+}
+.exp-card:hover{background:rgba(38,34,31,.09);transform:translateY(-2px)}
+.exp-card .spot{width:100%;height:auto;border-radius:10px;margin-bottom:14px}
+.exp-card .n{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--sumi-soft)}
+.exp-card h3{font-family:var(--dsp);font-weight:900;font-size:17px;margin:7px 0 8px;line-height:1.4}
+.exp-card p{font-size:13px;line-height:1.95}
+.dist{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.dist span{
+  padding:11px 17px;border-radius:999px;
+  background:rgba(38,34,31,.05);box-shadow:inset 0 0 0 1px rgba(38,34,31,.11);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;white-space:nowrap;
+}
+.dist b{font-family:var(--dsp);font-weight:900;font-size:13.5px;margin-left:.5em}
+
+/* ============================================================
+   GLAZE SECTION — 三つの釉と、ひとつの土
+   ============================================================ */
+.glaze-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+.g-card{border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.g-bowl{height:170px;display:grid;place-items:center;padding:18px}
+.g-bowl svg{width:100%;height:100%}
+.g-meta{padding:20px 20px 24px;flex:1}
+.g-meta .hex{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em}
+.g-meta h3{font-family:var(--dsp);font-weight:900;font-size:20px;margin:8px 0 3px;line-height:1.35}
+.g-meta .role{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sumi-soft)}
+.g-meta p{font-size:13px;line-height:1.95;margin-top:12px}
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);margin-top:36px;align-items:start}
+.addr{font-size:15px;line-height:2.05;margin-top:20px}
+.addr .zip{font-family:var(--mono);font-size:12px;letter-spacing:.1em;display:block;color:var(--sumi-soft)}
+.routes{margin-top:24px;display:flex;flex-direction:column;gap:9px}
+.routes div{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-radius:var(--r);
+  background:rgba(38,34,31,.045);box-shadow:inset 0 0 0 1px rgba(38,34,31,.09);
+}
+.routes .line{font-size:14.5px;flex:1}
+.routes .min{font-family:var(--dsp);font-weight:900;font-size:22px;line-height:1}
+.routes .u{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sumi-soft)}
+.map svg{width:100%;height:auto;border-radius:var(--r-lg)}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{border-radius:var(--r-lg);overflow:hidden}
+.cta-in{display:grid;grid-template-columns:1.18fr .82fr;gap:clamp(28px,4vw,60px);align-items:end;padding:clamp(34px,5vw,72px)}
+.cta h2{font-family:var(--dsp);font-weight:900;font-size:clamp(24px,3.4vw,42px);line-height:1.42;margin-top:16px;font-feature-settings:"palt" 1}
+.cta p{font-size:15px;line-height:2.1;margin-top:20px;max-width:32em}
+.cta-btns{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.price b{font-family:var(--dsp);font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.15;display:block}
+.price small{font-family:var(--mono);font-size:11px;letter-spacing:.1em;display:block;margin-top:8px;opacity:.82}
+.price ul{list-style:none;margin-top:20px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;line-height:2.1;opacity:.9}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot-in{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px;padding-block:52px}
+.foot-in h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:13px}
+.foot-in ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-in a{font-size:13.5px}
+.foot-in a:hover{text-decoration:underline;text-underline-offset:3px}
+.foot-note{font-size:13px;line-height:2;margin-top:14px;max-width:26em;opacity:.88}
+.foot-bar{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-block:18px;border-top:1px solid rgba(250,246,236,.24);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.82;
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .hero-grid,.concept-grid,.loc-grid,.cta-in{grid-template-columns:1fr}
+  .hero-art{margin-top:8px}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .glaze-grid{grid-template-columns:repeat(2,1fr)}
+  .room{grid-template-columns:auto 1fr}
+  .room .spec-wrap{grid-column:1/-1}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .nav-links,.lang{display:none}
+  .burger{display:flex}
+  .logo i{display:none}
+  .nav .btn{margin-left:auto}
+  .stats{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .exp-grid,.glaze-grid{grid-template-columns:1fr}
+  /* stacked full-width, the 120×84 spot balloons to ~700px tall on a phone.
+     Turn each card into a row with a thumbnail instead. */
+  .exp-card{display:grid;grid-template-columns:92px 1fr;column-gap:15px;align-items:start}
+  .exp-card .spot{grid-row:1/span 3;margin-bottom:0;align-self:center}
+  .room{grid-template-columns:1fr;gap:16px}
+  .foot-in{grid-template-columns:1fr}
+  .dist span{flex:1 1 100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none}
+  .ticker-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ NAV -->
+<header class="nav washi">
+  <div class="wrap nav-in">
+    <a href="#" class="logo" aria-label="K3V Shinjuku Gyoen — ホーム">K3v<i>Shinjuku Gyoen</i></a>
+    <nav class="nav-links" aria-label="メインナビゲーション">
+      <a href="#concept">コンセプト</a>
+      <a href="#rooms">お部屋</a>
+      <a href="#experience">まちのこと</a>
+      <a href="#glaze">素材</a>
+      <a href="#location">アクセス</a>
+    </nav>
+    <div class="lang" aria-label="言語"><b>JA</b>/<span>EN</span>/<span>中文</span></div>
+    <a href="#book" class="btn btn-oribe">空室を見る
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" aria-label="メニューを開く"><span></span></button>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="hero washi" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
+
+    <div>
+      <p class="eyebrow" style="display:flex;align-items:center;gap:9px">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--oribe);display:block"></span>
+        03 Rooms — Shinjuku Gyoenmae, Tokyo
+      </p>
+
+      <h1 id="hero-h"><em>新宿御苑</em>のとなりで、<br>暮らすように過ごす。</h1>
+      <p class="hero-lat">Not just a stay. Live Tokyo beautifully.</p>
+
+      <p class="hero-sub">土間があって、器があって、窓の外に御苑の緑。<br>
+      家具ブランドごとに世界の違う、全3室の小さな家です。</p>
+
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-ame">公式サイトで予約
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#rooms" class="btn btn-line">3室を見る</a>
+      </div>
+    </div>
+
+    <figure class="hero-art">
+      <svg viewBox="0 0 640 500" role="img" aria-labelledby="art-t">
+        <title id="art-t">障子越しに御苑の緑が見える土間の玄関と、棚に並んだ三つの器のイラスト</title>
+        <defs>
+          <linearGradient id="doma-g" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#B39B80"/><stop offset="1" stop-color="#9B8368"/>
+          </linearGradient>
+          <filter id="grit"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="7"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 .36 0 0 0 0 .29 0 0 0 0 .2 .8 .4 .2 0 -.5"/></filter>
+        </defs>
+
+        <rect width="640" height="500" fill="#F2EDE1"/>
+
+        <!-- 障子 — 和紙のパネルと格子。庭の樹は紙越しにぼんやり透ける -->
+        <rect x="34" y="28" width="572" height="272" rx="6" fill="#FAF6EC"/>
+        <g opacity=".32">
+          <circle cx="176" cy="196" r="78" fill="#5C7052"/>
+          <circle cx="300" cy="172" r="96" fill="#5C7052"/>
+          <circle cx="430" cy="200" r="72" fill="#5C7052"/>
+          <circle cx="530" cy="216" r="52" fill="#5C7052"/>
+        </g>
+        <g stroke="#8B7355" stroke-width="5" fill="none">
+          <rect x="34" y="28" width="572" height="272" rx="6"/>
+          <path d="M177 28V300M320 28V300M463 28V300M34 119H606M34 210H606"/>
+        </g>
+
+        <!-- 三和土の床 -->
+        <rect x="0" y="300" width="640" height="200" fill="url(#doma-g)"/>
+        <rect x="0" y="300" width="640" height="200" filter="url(#grit)" opacity=".38" style="mix-blend-mode:multiply"/>
+        <!-- 障子から落ちる光 -->
+        <path d="M34 300 L606 300 L520 500 L0 500 Z" fill="#FAF6EC" opacity=".14"/>
+        <!-- 上がり框 -->
+        <rect x="0" y="300" width="640" height="13" fill="#6F5C48"/>
+
+        <!-- 三つの器。この design の主題なので、床に大きく置く -->
+        <!-- 01 織部 — 平鉢 -->
+        <g>
+          <path d="M78 392C78 452 104 464 152 464C200 464 226 452 226 392Z" fill="#5C7052"/>
+          <ellipse cx="152" cy="392" rx="74" ry="15" fill="#6B8060"/>
+          <ellipse cx="152" cy="392" rx="57" ry="10" fill="#3E4F36" opacity=".55"/>
+        </g>
+        <!-- 02 飴釉 — 深鉢に植栽 -->
+        <g>
+          <g fill="#5C7052">
+            <circle cx="292" cy="318" r="30"/><circle cx="336" cy="300" r="38"/><circle cx="372" cy="326" r="26"/>
+          </g>
+          <rect x="326" y="330" width="8" height="34" fill="#3A332C"/>
+          <path d="M272 356C272 448 292 464 330 464C368 464 388 448 388 356Z" fill="#9A5622"/>
+          <ellipse cx="330" cy="356" rx="58" ry="13" fill="#A8632C"/>
+          <ellipse cx="330" cy="356" rx="44" ry="9" fill="#5A2F10" opacity=".5"/>
+        </g>
+        <!-- 03 鉄釉 — 壺 -->
+        <g>
+          <path d="M446 400C446 456 468 466 500 466C532 466 554 456 554 400Z" fill="#3A332C"/>
+          <ellipse cx="500" cy="400" rx="54" ry="12" fill="#484037"/>
+          <ellipse cx="500" cy="400" rx="40" ry="8" fill="#1F1B17" opacity=".6"/>
+        </g>
+      </svg>
+      <figcaption class="fig-cap">
+        <span>Fig. 01 — 土間と、三つの釉</span>
+        <span>織部 · 飴釉 · 鉄釉</span>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ============================================================ TICKER -->
+<div class="ticker doma doma-dk" aria-hidden="true">
+  <div class="ticker-track">
+    <span>器と土間と、御苑の緑。<i></i>全3室<i></i>新宿御苑まで3分<i></i>公式サイトが最安<i></i>器と土間と、御苑の緑。<i></i>全3室<i></i>新宿御苑まで3分<i></i>公式サイトが最安<i></i></span>
+    <span>器と土間と、御苑の緑。<i></i>全3室<i></i>新宿御苑まで3分<i></i>公式サイトが最安<i></i>器と土間と、御苑の緑。<i></i>全3室<i></i>新宿御苑まで3分<i></i>公式サイトが最安<i></i></span>
+  </div>
+</div>
+
+<div class="washi">
+  <div class="wrap stats">
+    <div><b>3室</b><small>Rooms Only</small></div>
+    <div><b>3分</b><small>To Shinjuku Gyoen</small></div>
+    <div><b>8分</b><small>To Shinjuku Station</small></div>
+    <div><b>4名</b><small>Guests Max</small></div>
+  </div>
+</div>
+
+<!-- ============================================================ CONCEPT -->
+<section id="concept" class="kohiki sec-pad rv" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="head"><span class="no">01</span><span class="nm">Concept</span></div>
+    <h2 class="h2" id="c-h">三つの釉薬と、ひとつの土。</h2>
+    <p class="h2-lat">Three glazes, one clay</p>
+
+    <div class="concept-grid">
+      <div class="concept-body">
+        <p class="lead">新宿三丁目の喧騒から二本入ると、空気がすっとゆるむ。K3V SHINJUKU GYOEN は、その路地に建つ全3室の小さな家です。</p>
+        <p class="lead">玄関を開けると三和土の土間。棚には器が三つ、それぞれ釉薬が違います。部屋も同じで、家具ブランドごとに色と質感を変えました。同じ土から焼いたのに、窯から出すと違う顔をしている ── そんな3室です。</p>
+        <p class="lead">つるつるした高級感ではなく、手に持ったときに少しざらつく、あの感じを目指しました。毎日使うほうの器です。</p>
+        <p class="concept-lat">Three rooms fired from the same clay, finished in three different glazes. Matte, a little rough, made to be used every day — not the kind you keep in the cabinet.</p>
+      </div>
+
+      <figure class="plate">
+        <svg viewBox="0 0 560 420" role="img" aria-labelledby="p2-t">
+          <title id="p2-t">窓辺のソファと観葉植物、床に置かれた器のある室内のイラスト</title>
+          <rect width="560" height="420" fill="#FAF6EC"/>
+          <!-- 窓と庭 -->
+          <rect x="316" y="40" width="204" height="200" rx="6" fill="#EDE7D8"/>
+          <g opacity=".8">
+            <circle cx="378" cy="176" r="52" fill="#5C7052"/>
+            <circle cx="452" cy="158" r="64" fill="#5C7052"/>
+            <circle cx="504" cy="184" r="40" fill="#5C7052"/>
+          </g>
+          <g stroke="#8B7355" stroke-width="5" fill="none">
+            <rect x="316" y="40" width="204" height="200" rx="6"/>
+            <path d="M418 40V240M316 140H520"/>
+          </g>
+          <!-- 床 -->
+          <rect x="0" y="300" width="560" height="120" fill="#A99177"/>
+          <rect x="0" y="300" width="560" height="10" fill="#6F5C48"/>
+          <!-- ソファ -->
+          <g>
+            <rect x="52" y="216" width="240" height="46" rx="20" fill="#6F5C48"/>
+            <rect x="52" y="250" width="240" height="60" rx="14" fill="#7D6952"/>
+            <rect x="72" y="222" width="62" height="42" rx="14" fill="#5C7052"/>
+            <rect x="146" y="224" width="58" height="40" rx="14" fill="#9A5622"/>
+            <rect x="62" y="308" width="18" height="26" rx="6" fill="#3A332C"/>
+            <rect x="266" y="308" width="18" height="26" rx="6" fill="#3A332C"/>
+          </g>
+          <!-- 鉢と器 -->
+          <g>
+            <path d="M416 268c0 0 5 44 16 44h28c11 0 16-44 16-44z" fill="#9A5622"/>
+            <g fill="#5C7052"><circle cx="432" cy="244" r="21"/><circle cx="464" cy="234" r="26"/><circle cx="488" cy="250" r="18"/></g>
+          </g>
+          <path d="M330 334c0 0 3 24 9 24h16c6 0 9-24 9-24z" fill="#3A332C"/>
+          <ellipse cx="347" cy="334" rx="17" ry="4.5" fill="#484037"/>
+        </svg>
+        <figcaption class="plate-tag">Fig. 02 — Living / Room 01</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ROOMS -->
+<section id="rooms" class="washi sec-pad rv" aria-labelledby="r-h">
+  <div class="wrap">
+    <div class="head"><span class="no">02</span><span class="nm">Rooms</span></div>
+    <h2 class="h2" id="r-h">ドアを開けると、色が変わる。</h2>
+    <p class="h2-lat">Three rooms, three ways to live</p>
+    <p class="lead" style="margin-top:20px;max-width:38em">家具ブランドごとに世界観を変えた全3室。同じ建物なのに、部屋ごとに空気の質感が違います。</p>
+  </div>
+
+  <div class="wrap rooms-list">
+
+    <!-- ROOM 01 — 織部 -->
+    <article class="room glaze g-oribe">
+      <div class="room-no">01</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">unico ／ やわらかい北欧</h3>
+          <span class="chip">Now Open</span>
+        </div>
+        <p class="room-glaze">織部釉 · Oribe green · Natural Living</p>
+        <p class="room-jp">オークの家具と麻のファブリック。朝の光がいちばん長く入る部屋です。ベッドの脇には小さなワークデスク。窓辺には御苑と同じ色の鉢をひとつ。</p>
+        <a href="#book" class="btn btn-line on-dark">この部屋を見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>広さ</dt><dd>32㎡</dd></div>
+          <div><dt>定員</dt><dd>2–4名</dd></div>
+          <div><dt>ベッド</dt><dd>Double + Sofa</dd></div>
+          <div><dt>階</dt><dd>2F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ROOM 02 — 飴釉 -->
+    <article class="room glaze g-ame">
+      <div class="room-no">02</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">journal standard furniture ／ 使い込んだ質感</h3>
+          <span class="chip">Now Open</span>
+        </div>
+        <p class="room-glaze">飴釉 · Amber glaze · Urban Vintage</p>
+        <p class="room-jp">アイアンと古材、履き込んだインディゴのソファ。夜がいちばん似合う部屋。灯りを落とすと、外の新宿がちょうどよく遠くなります。</p>
+        <a href="#book" class="btn btn-line on-dark">この部屋を見る
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>広さ</dt><dd>34㎡</dd></div>
+          <div><dt>定員</dt><dd>2–4名</dd></div>
+          <div><dt>ベッド</dt><dd>Queen + Sofa</dd></div>
+          <div><dt>階</dt><dd>3F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ROOM 03 — 鉄釉 -->
+    <article class="room glaze g-tetsu">
+      <div class="room-no">03</div>
+      <div>
+        <div class="room-top">
+          <h3 class="room-brand">crash gate ／ 骨太なインダストリアル</h3>
+          <span class="chip">Coming Soon</span>
+        </div>
+        <p class="room-glaze">鉄釉 · Iron glaze · Industrial Modern</p>
+        <p class="room-jp">アイアンと無垢材のコントラストで組み上げる3室目。いま、いちばん骨太な部屋をつくっています。オープンは追ってお知らせします。</p>
+        <a href="#book" class="btn btn-line on-dark">オープンを知らせる
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="spec-wrap">
+        <dl class="spec">
+          <div><dt>広さ</dt><dd>準備中</dd></div>
+          <div><dt>定員</dt><dd>準備中</dd></div>
+          <div><dt>オープン</dt><dd>2026 —</dd></div>
+          <div><dt>階</dt><dd>4F</dd></div>
+        </dl>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================ EXPERIENCE -->
+<section id="experience" class="kohiki sec-pad rv" aria-labelledby="e-h">
+  <div class="wrap">
+    <div class="head"><span class="no">03</span><span class="nm">Neighbourhood</span></div>
+    <h2 class="h2" id="e-h">玄関を出たら、もう滞在。</h2>
+    <p class="h2-lat">Step out — the city is the lobby</p>
+    <p class="lead" style="margin-top:20px;max-width:38em">御苑の芝生、路地裏の喫茶店、深夜のうどん。まちのほうが、部屋より広いリビングです。</p>
+
+    <div class="exp-grid">
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#FAF6EC"/>
+          <circle cx="44" cy="40" r="26" fill="#5C7052"/><circle cx="76" cy="48" r="20" fill="#5C7052"/>
+          <rect x="0" y="66" width="120" height="18" fill="#A99177"/>
+          <rect x="42" y="60" width="5" height="10" fill="#3A332C"/>
+        </svg>
+        <span class="n">01</span>
+        <h3>御苑</h3>
+        <p>徒歩3分。朝いちの芝生はほぼ貸切です。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#FAF6EC"/>
+          <path d="M34 34c0 0 4 30 14 30h20c10 0 14-30 14-30z" fill="#9A5622"/>
+          <ellipse cx="58" cy="34" rx="24" ry="6" fill="#A8632C"/>
+          <path d="M82 42h10a8 8 0 010 16h-8" fill="none" stroke="#9A5622" stroke-width="5"/>
+          <rect x="24" y="66" width="72" height="7" rx="3" fill="#8B7355"/>
+          <path d="M48 20c0 5-5 5-5 10M62 18c0 5-5 5-5 10" stroke="#A99177" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="n">02</span>
+        <h3>喫茶店</h3>
+        <p>昭和から続く喫茶店が、まだ何軒も残っています。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#FAF6EC"/>
+          <rect x="32" y="12" width="56" height="60" rx="10" fill="#6F5C48"/>
+          <circle cx="60" cy="46" r="17" fill="#FAF6EC"/>
+          <circle cx="60" cy="46" r="10" fill="#5C7052"/>
+          <rect x="40" y="20" width="12" height="6" rx="3" fill="#9A5622"/>
+        </svg>
+        <span class="n">03</span>
+        <h3>洗濯機</h3>
+        <p>洗濯機は部屋にも。長く居るほど、旅が生活になります。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#FAF6EC"/>
+          <rect x="14" y="26" width="28" height="46" rx="4" fill="#6F5C48"/>
+          <rect x="50" y="14" width="24" height="58" rx="4" fill="#9A5622"/>
+          <rect x="82" y="34" width="24" height="38" rx="4" fill="#3A332C"/>
+          <g fill="#FAF6EC" opacity=".72"><rect x="20" y="34" width="7" height="7" rx="2"/><rect x="30" y="34" width="7" height="7" rx="2"/><rect x="20" y="48" width="7" height="7" rx="2"/></g>
+          <circle cx="62" cy="28" r="6" fill="#F2EDE1"/>
+        </svg>
+        <span class="n">04</span>
+        <h3>横丁</h3>
+        <p>新宿三丁目の路地。深夜1時でも灯りが残っている。</p>
+      </article>
+      <article class="exp-card">
+        <svg class="spot" viewBox="0 0 120 84" aria-hidden="true">
+          <rect width="120" height="84" fill="#FAF6EC"/>
+          <circle cx="88" cy="24" r="15" fill="#9A5622"/>
+          <rect x="10" y="38" width="20" height="34" rx="4" fill="#6F5C48"/>
+          <rect x="38" y="26" width="17" height="46" rx="4" fill="#6F5C48"/>
+          <circle cx="76" cy="58" r="18" fill="#5C7052"/>
+          <path d="M0 20h120" stroke="#A99177" stroke-width="2.5"/>
+        </svg>
+        <span class="n">05</span>
+        <h3>空</h3>
+        <p>電線と高層ビルと木。東京らしい風景がぜんぶある。</p>
+      </article>
+    </div>
+
+    <div class="dist">
+      <span>新宿御苑<b>3分</b></span>
+      <span>伊勢丹<b>9分</b></span>
+      <span>ゴールデン街<b>12分</b></span>
+      <span>思い出横丁<b>14分</b></span>
+      <span>代々木公園<b>18分</b></span>
+      <span>羽田<b>45分</b></span>
+      <span>成田<b>90分</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GLAZE -->
+<section id="glaze" class="washi sec-pad rv" aria-labelledby="g-h">
+  <div class="wrap">
+    <div class="head"><span class="no">04</span><span class="nm">Material</span></div>
+    <h2 class="h2" id="g-h">この家は、四つの素材でできています。</h2>
+    <p class="h2-lat">Three glazes and the clay under them</p>
+    <p class="lead" style="margin-top:20px;max-width:40em">手で触れられるものだけで世界観をつくりました。どれもマットで、少しざらつきます。</p>
+
+    <div class="glaze-grid">
+
+      <article class="g-card kohiki">
+        <div class="g-bowl glaze g-oribe" style="border-radius:0">
+          <svg viewBox="0 0 120 100" aria-hidden="true">
+            <path d="M20 30c0 0 8 52 24 52h32c16 0 24-52 24-52z" fill="rgba(250,246,236,.9)"/>
+            <ellipse cx="60" cy="30" rx="40" ry="10" fill="rgba(250,246,236,.62)"/>
+            <ellipse cx="60" cy="30" rx="30" ry="7" fill="rgba(38,34,31,.22)"/>
+          </svg>
+        </div>
+        <div class="g-meta">
+          <span class="hex" style="color:var(--oribe-dp)">#5C7052 · 織部釉</span>
+          <h3>織部</h3>
+          <span class="role">Room 01 — unico</span>
+          <p>御苑の芝と、窓辺の鉢。いちばん面積の広い釉です。深いのに重くならない緑。</p>
+        </div>
+      </article>
+
+      <article class="g-card kohiki">
+        <div class="g-bowl glaze g-ame" style="border-radius:0">
+          <svg viewBox="0 0 120 100" aria-hidden="true">
+            <path d="M26 26c0 0 6 56 22 56h24c16 0 22-56 22-56z" fill="rgba(250,246,236,.9)"/>
+            <ellipse cx="60" cy="26" rx="34" ry="9" fill="rgba(250,246,236,.62)"/>
+            <ellipse cx="60" cy="26" rx="25" ry="6" fill="rgba(38,34,31,.22)"/>
+          </svg>
+        </div>
+        <div class="g-meta">
+          <span class="hex" style="color:var(--ame-dp)">#9A5622 · 飴釉</span>
+          <h3>飴</h3>
+          <span class="role">Room 02 — journal standard</span>
+          <p>使い込んだ革、錆びたアイアン、夕方の光。時間が経つほど良くなるものの色。</p>
+        </div>
+      </article>
+
+      <article class="g-card kohiki">
+        <div class="g-bowl glaze g-tetsu" style="border-radius:0">
+          <svg viewBox="0 0 120 100" aria-hidden="true">
+            <path d="M24 34c0 0 10 48 24 48h24c14 0 24-48 24-48z" fill="rgba(250,246,236,.88)"/>
+            <ellipse cx="60" cy="34" rx="36" ry="9" fill="rgba(250,246,236,.6)"/>
+            <ellipse cx="60" cy="34" rx="27" ry="6" fill="rgba(38,34,31,.24)"/>
+          </svg>
+        </div>
+        <div class="g-meta">
+          <span class="hex" style="color:var(--sumi)">#3A332C · 鉄釉</span>
+          <h3>鉄</h3>
+          <span class="role">Room 03 — crash gate</span>
+          <p>アイアンと影。黒というより、焼き締まった鉄の色です。3室でいちばん骨太。</p>
+        </div>
+      </article>
+
+      <article class="g-card kohiki">
+        <div class="g-bowl doma" style="border-radius:0">
+          <!-- 器ではないので、器のかたちを描かない。骨材の見える床の一片 -->
+          <svg viewBox="0 0 120 100" aria-hidden="true">
+            <path d="M10 40h100v34a8 8 0 01-8 8H18a8 8 0 01-8-8z" fill="rgba(38,34,31,.26)"/>
+            <path d="M10 40h100v6H10z" fill="rgba(250,246,236,.34)"/>
+            <g>
+              <circle cx="32" cy="58" r="4.4" fill="rgba(250,246,236,.5)"/>
+              <circle cx="58" cy="70" r="3.6" fill="rgba(38,34,31,.36)"/>
+              <circle cx="80" cy="55" r="5" fill="rgba(250,246,236,.4)"/>
+              <circle cx="97" cy="70" r="3.2" fill="rgba(38,34,31,.32)"/>
+              <circle cx="44" cy="74" r="2.6" fill="rgba(250,246,236,.36)"/>
+              <circle cx="68" cy="52" r="2.4" fill="rgba(38,34,31,.3)"/>
+            </g>
+          </svg>
+        </div>
+        <div class="g-meta">
+          <span class="hex" style="color:var(--doma-dk)">#A99177 · 三和土</span>
+          <h3>土間</h3>
+          <span class="role">玄関 · 共用部</span>
+          <p>三つの釉の下にある土。骨材が見える荒い床で、靴のまま入れます。</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LOCATION -->
+<section id="location" class="kohiki sec-pad rv" aria-labelledby="l-h">
+  <div class="wrap">
+    <div class="head"><span class="no">05</span><span class="nm">Location &amp; Access</span></div>
+    <h2 class="h2" id="l-h">大木戸門まで、歩いて3分。</h2>
+    <p class="h2-lat">Three minutes from the garden gate</p>
+
+    <div class="loc-grid">
+      <div>
+        <p class="addr">
+          <span class="zip">〒160-0022</span>
+          東京都新宿区新宿1丁目 ×-×-×<br>
+          K3V SHINJUKU GYOEN
+        </p>
+        <div class="routes">
+          <div><span class="line">丸ノ内線 新宿御苑前</span><span class="min">3</span><span class="u">min</span></div>
+          <div><span class="line">副都心線 新宿三丁目</span><span class="min">7</span><span class="u">min</span></div>
+          <div><span class="line">JR 新宿駅 東南口</span><span class="min">8</span><span class="u">min</span></div>
+          <div><span class="line">新宿御苑 大木戸門</span><span class="min">3</span><span class="u">min</span></div>
+        </div>
+      </div>
+
+      <figure class="map">
+        <svg viewBox="0 0 560 420" role="img" aria-labelledby="m-t">
+          <title id="m-t">新宿御苑と新宿三丁目、K3Vの位置を示した略地図</title>
+          <rect width="560" height="420" fill="#FAF6EC"/>
+          <path d="M296 92 h240 v256 h-198 c-30 0 -42 -22 -42 -52 z" fill="#5C7052" opacity=".82"/>
+          <g stroke="#A99177" stroke-width="14" fill="none" stroke-linecap="round">
+            <path d="M0 152 H560"/><path d="M0 306 H560"/><path d="M190 0 V420"/><path d="M96 0 V420"/>
+          </g>
+          <rect x="106" y="200" width="68" height="68" rx="10" fill="#9A5622"/>
+          <circle cx="140" cy="234" r="10" fill="#FAF6EC"/>
+          <g fill="#26221F" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.4">
+            <text x="106" y="190">K3V — HERE</text>
+            <text x="12" y="336">SHINJUKU 3-CHOME</text>
+          </g>
+          <text x="326" y="78" fill="#3E4F36" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.4">SHINJUKU GYOEN</text>
+        </svg>
+        <figcaption class="plate-tag">Fig. 03 — Neighbourhood</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CTA -->
+<section id="book" class="washi" style="padding-block:clamp(40px,5vw,72px)" aria-labelledby="b-h">
+  <div class="wrap">
+    <div class="cta glaze g-tetsu">
+      <div class="cta-in">
+        <div>
+          <p class="eyebrow">Direct Booking — Best Rate Guaranteed</p>
+          <h2 id="b-h">公式サイトからが、いちばんお得です。</h2>
+          <p>OTA手数料のぶんは、そのまま宿泊料に還元しています。空室状況もこちらがいちばん早く反映されます。</p>
+          <div class="cta-btns">
+            <a href="#" class="btn btn-ame">空室を見る
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#" class="btn btn-line on-dark">質問する</a>
+          </div>
+        </div>
+        <div class="price">
+          <b>¥18,000</b>
+          <small>1泊 / 2名〜</small>
+          <ul>
+            <li>チェックイン 16:00 — アウト 11:00</li>
+            <li>セルフチェックイン / Wi-Fi 無料</li>
+            <li>全室に洗濯乾燥機</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="doma doma-dk">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <a href="#" class="logo" style="color:var(--washi-lt)">K3v<i style="color:rgba(250,246,236,.6)">Shinjuku Gyoen</i></a>
+        <p class="foot-note">新宿御苑のすぐそばで、東京を暮らすように滞在する。家具ブランドごとにコンセプトが異なる、全3室のデザイナーズ民泊。</p>
+      </div>
+      <nav aria-label="お部屋">
+        <h4>Rooms</h4>
+        <ul>
+          <li><a href="#rooms">Room 01 — unico</a></li>
+          <li><a href="#rooms">Room 02 — journal standard</a></li>
+          <li><a href="#rooms">Room 03 — crash gate</a></li>
+          <li><a href="#book">空室を見る</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ハウス">
+        <h4>House</h4>
+        <ul>
+          <li><a href="#concept">コンセプト</a></li>
+          <li><a href="#glaze">素材</a></li>
+          <li><a href="#experience">まちのこと</a></li>
+          <li><a href="#location">アクセス</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="インフォメーション">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#">ハウスルール</a></li>
+          <li><a href="#">よくある質問</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">住宅宿泊事業法 表示</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 K3V Shinjuku Gyoen</span>
+      <span>Doma Ceramic — 織部 · 飴釉 · 鉄釉 on 和紙</span>
+      <span>Mock 10 — Top Page</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.06 });
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

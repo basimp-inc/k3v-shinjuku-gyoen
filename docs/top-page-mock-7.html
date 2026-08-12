@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K3V SHINJUKU GYOEN — TOP PAGE MOCK 07 / WOOD × DENIM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   K3V SHINJUKU GYOEN — MOCK 07
+   WOOD × DENIM BLUE × FOREST GREEN × DARK SHADOW
+   ============================================================ */
+
+:root{
+  /* 01 DENIM ---------------------------------------- */
+  --denim:#1B3A57;
+  --denim-dk:#122739;
+  --denim-md:#24496b;
+  --denim-lt:#3d6a92;
+  --denim-fade:#7d9ab3;
+  /* 02 WOOD ----------------------------------------- */
+  --wood:#6B4A32;
+  --wood-dk:#4a3222;
+  --wood-lt:#8f6743;
+  --wood-pale:#c0a181;
+  /* 03 FOREST --------------------------------------- */
+  --forest:#1F3A2E;
+  --forest-lt:#33553F;
+  --forest-pale:#7fa07f;
+  /* 04 SHADOW --------------------------------------- */
+  --shadow:#2B2620;
+  --shadow-soft:rgba(43,38,32,.55);
+  /* neutrals / thread ------------------------------- */
+  --paper:#E4DACA;
+  --paper-lt:#EFE8DA;
+  --paper-dk:#D3C6B0;
+  --chalk:#F3EEE3;
+  --thread:#C8783A;          /* denim stitching — hairline accent only */
+  --rivet:#B99B6A;
+
+  --dsp:'Instrument Serif',Georgia,serif;
+  --ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --jp:'Zen Kaku Gothic New','Hiragino Sans',sans-serif;
+
+  --pad:clamp(18px,4.4vw,64px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--shadow);
+  font-family:var(--ui);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   MATERIALS
+   ============================================================ */
+
+/* --- denim twill: 63° warp threads, uneven indigo, worn highs --- */
+.mat-denim{
+  position:relative;
+  background-color:var(--denim);
+  background-image:
+    repeating-linear-gradient(63deg, rgba(255,255,255,.075) 0 1px, rgba(255,255,255,0) 1px 3px),
+    repeating-linear-gradient(63deg, rgba(0,0,0,.20) 0 1px, rgba(0,0,0,0) 1px 4px),
+    repeating-linear-gradient(153deg, rgba(255,255,255,.035) 0 1px, rgba(0,0,0,.05) 1px 3px),
+    radial-gradient(140% 90% at 12% -10%, rgba(122,168,205,.30), rgba(122,168,205,0) 62%),
+    radial-gradient(120% 100% at 90% 110%, rgba(6,17,28,.60), rgba(6,17,28,0) 58%),
+    linear-gradient(178deg,#22456a 0%,#1B3A57 42%,#152f47 100%);
+  background-size:auto,auto,auto,100% 100%,100% 100%,100% 100%;
+  color:var(--chalk);
+}
+.mat-denim::before{
+  content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' seed='11'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+/* worn / abraded denim (lighter, faded knees) */
+.mat-denim.worn{
+  background-image:
+    repeating-linear-gradient(63deg, rgba(255,255,255,.11) 0 1px, rgba(255,255,255,0) 1px 3px),
+    repeating-linear-gradient(63deg, rgba(0,0,0,.16) 0 1px, rgba(0,0,0,0) 1px 4px),
+    radial-gradient(60% 55% at 30% 40%, rgba(190,214,232,.28), rgba(190,214,232,0) 70%),
+    radial-gradient(70% 60% at 80% 80%, rgba(9,22,34,.5), rgba(9,22,34,0) 65%),
+    linear-gradient(170deg,#2b5479,#1B3A57);
+}
+
+/* --- wood: stretched grain turbulence over warm brown --- */
+.mat-wood{
+  position:relative;
+  background-color:var(--wood);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.38' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.32'/%3E%3C/filter%3E%3Crect width='700' height='420' filter='url(%23w)'/%3E%3C/svg%3E"),
+    linear-gradient(184deg,#7a563b,#6B4A32 55%,#573b27);
+  background-size:700px 420px,100% 100%;
+  color:var(--chalk);
+}
+.mat-wood.vertical{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='700'%3E%3Cfilter id='w2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.38 0.006' numOctaves='4' seed='9'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.32'/%3E%3C/filter%3E%3Crect width='420' height='700' filter='url(%23w2)'/%3E%3C/svg%3E"),
+    linear-gradient(92deg,#7a563b,#6B4A32 55%,#573b27);
+  background-size:420px 700px,100% 100%;
+}
+
+/* --- aged paper --- */
+.mat-paper{
+  position:relative;
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(90% 60% at 15% 0%, rgba(255,255,255,.5), rgba(255,255,255,0) 60%),
+    radial-gradient(80% 70% at 100% 100%, rgba(107,74,50,.13), rgba(107,74,50,0) 60%);
+}
+.mat-paper::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' seed='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)' opacity='.42'/%3E%3C/svg%3E");
+}
+
+/* --- forest --- */
+.mat-forest{
+  position:relative;color:var(--chalk);
+  background-color:var(--forest);
+  background-image:
+    radial-gradient(100% 70% at 80% 0%, rgba(88,132,96,.34), rgba(88,132,96,0) 60%),
+    radial-gradient(90% 80% at 0% 100%, rgba(9,20,14,.6), rgba(9,20,14,0) 60%),
+    linear-gradient(175deg,#254435,#1F3A2E 60%,#152a20);
+}
+.mat-forest::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='6'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* --- shadow / warm black --- */
+.mat-shadow{
+  position:relative;color:var(--paper);
+  background-color:var(--shadow);
+  background-image:
+    radial-gradient(80% 60% at 20% 0%, rgba(107,74,50,.30), rgba(107,74,50,0) 62%),
+    linear-gradient(180deg,#332c25,#2B2620 60%,#1e1a16);
+}
+.mat-shadow::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' seed='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23s)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* --- orange stitch line (single hairline accent) --- */
+.stitch{
+  position:relative;
+}
+.stitch::after{
+  content:"";position:absolute;left:0;right:0;height:1px;
+  background:repeating-linear-gradient(90deg,var(--thread) 0 7px, transparent 7px 13px);
+  opacity:.85;
+}
+.stitch.top::after{top:6px}
+.stitch.bottom::after{bottom:6px}
+.stitch-v{
+  position:absolute;top:0;bottom:0;width:1px;
+  background:repeating-linear-gradient(180deg,var(--thread) 0 7px, transparent 7px 13px);
+  opacity:.7;
+}
+
+/* fixed film grain over the whole page */
+.grain{
+  position:fixed;inset:0;z-index:900;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' seed='17'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   TYPE
+   ============================================================ */
+.dsp{font-family:var(--dsp);font-weight:400;line-height:.92;letter-spacing:-.012em}
+.dsp-it{font-family:var(--dsp);font-style:italic;font-weight:400;letter-spacing:-.005em}
+.head{
+  font-family:var(--ui);font-weight:800;text-transform:uppercase;
+  line-height:.86;letter-spacing:-.035em;
+}
+.lab{font-family:var(--ui);font-weight:700;font-size:.6875rem;letter-spacing:.26em;text-transform:uppercase}
+.mono{font-family:var(--mono);font-size:.75rem;letter-spacing:.04em}
+.mono-s{font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase}
+.jp{font-family:var(--jp);font-weight:400;line-height:2;letter-spacing:.045em;font-feature-settings:"palt" 1}
+.jp-b{font-family:var(--jp);font-weight:700;letter-spacing:.06em;font-feature-settings:"palt" 1}
+
+.rule{height:1px;background:currentColor;opacity:.22}
+
+/* index numeral used as an architectural element */
+.num{
+  font-family:var(--dsp);font-weight:400;line-height:.72;letter-spacing:-.04em;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;gap:12px;white-space:nowrap;
+  font-family:var(--ui);font-weight:700;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:15px 24px;border:1px solid currentColor;position:relative;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1),background .25s ease,color .25s ease;
+}
+.btn .arw{transition:transform .3s cubic-bezier(.2,.8,.3,1)}
+.btn:hover .arw{transform:translateX(5px)}
+.btn-book{
+  background:var(--thread);border-color:var(--thread);color:#1a1410;
+  box-shadow:4px 4px 0 rgba(43,38,32,.55);
+}
+.btn-book:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(43,38,32,.65)}
+.btn-wood{background:var(--wood);border-color:var(--wood-lt);color:var(--chalk);box-shadow:4px 4px 0 rgba(43,38,32,.4)}
+.btn-wood:hover{transform:translate(-2px,-2px)}
+.btn-ghost{background:transparent}
+.btn-ghost:hover{background:currentColor}
+.btn-ghost:hover span{color:var(--denim)}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--pad);height:78px;
+  color:var(--chalk);
+  transition:height .35s ease,background-color .35s ease,box-shadow .35s ease;
+}
+.nav::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:100%;z-index:-1;
+  background:linear-gradient(180deg,rgba(18,39,57,.92),rgba(18,39,57,.18) 70%,transparent);
+  transition:opacity .35s ease;
+}
+.nav.solid{height:64px;background-color:rgba(18,39,57,.96);box-shadow:0 1px 0 rgba(200,120,58,.5),0 18px 40px -24px rgba(0,0,0,.8);backdrop-filter:blur(6px)}
+.nav.solid::after{opacity:0}
+.brand{display:flex;align-items:baseline;gap:12px}
+.brand .k{font-family:var(--ui);font-weight:800;font-size:1.32rem;letter-spacing:.02em}
+.brand .k em{font-family:var(--dsp);font-style:italic;font-weight:400;letter-spacing:0}
+.brand .sub{font-family:var(--mono);font-size:.5625rem;letter-spacing:.28em;opacity:.72;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;
+  position:relative;padding:4px 0;opacity:.86;transition:opacity .2s ease;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--thread);
+  transition:right .3s cubic-bezier(.2,.8,.3,1);
+}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{right:0}
+.nav-right{display:flex;align-items:center;gap:18px}
+.lang{display:flex;gap:8px;font-family:var(--mono);font-size:.6875rem;opacity:.8}
+.lang b{color:var(--thread);font-weight:500}
+.nav .btn{padding:11px 18px;font-size:.6875rem}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;margin-right:-8px;background:none;border:0;cursor:pointer}
+.burger i{display:block;width:22px;height:1.5px;background:var(--chalk)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.hero-media{
+  position:absolute;top:0;right:0;bottom:0;width:64%;
+  clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);
+}
+.hero-media svg{width:100%;height:100%;object-fit:cover}
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(96deg,var(--denim-dk) 0%,rgba(18,39,57,.96) 26%,rgba(18,39,57,.55) 46%,rgba(18,39,57,.08) 66%,rgba(18,39,57,.35) 100%);
+}
+.hero-veil2{position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,32,47,.85) 0%,rgba(15,32,47,0) 42%)}
+/* twill woven back over the veil so the left half reads as fabric, not flat UI blue */
+.hero-tex{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(63deg, rgba(190,214,232,.10) 0 1px, rgba(190,214,232,0) 1px 3px),
+    repeating-linear-gradient(63deg, rgba(4,12,20,.22) 0 1px, rgba(4,12,20,0) 1px 4px),
+    repeating-linear-gradient(153deg, rgba(190,214,232,.045) 0 1px, rgba(0,0,0,.05) 1px 3px);
+  -webkit-mask-image:linear-gradient(96deg,#000 0%,rgba(0,0,0,.92) 30%,rgba(0,0,0,.25) 52%,transparent 66%);
+  mask-image:linear-gradient(96deg,#000 0%,rgba(0,0,0,.92) 30%,rgba(0,0,0,.25) 52%,transparent 66%);
+}
+.hero-tex::after{
+  content:"";position:absolute;inset:0;mix-blend-mode:overlay;opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='hn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' seed='11'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23hn)' opacity='.6'/%3E%3C/svg%3E");
+}
+.hero-inner{
+  position:relative;z-index:3;flex:1;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);
+  align-items:center;gap:40px;
+  padding:120px var(--pad) 0;
+}
+.hero-edge{
+  position:absolute;left:calc(var(--pad) - 26px);top:0;bottom:0;width:26px;z-index:4;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-edge span{
+  writing-mode:vertical-rl;font-family:var(--mono);font-size:.5625rem;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--denim-fade);white-space:nowrap;
+}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:26px;color:var(--denim-fade)}
+.eyebrow .dot{width:6px;height:6px;background:var(--thread);border-radius:50%;flex:none}
+h1{margin:0}
+.h1-a{
+  font-family:var(--ui);font-weight:800;text-transform:uppercase;
+  font-size:clamp(3.1rem,9.4vw,8.4rem);line-height:.82;letter-spacing:-.045em;
+  color:var(--chalk);
+}
+.h1-a .thin{font-weight:400;letter-spacing:-.02em;color:var(--denim-fade)}
+.h1-b{
+  display:block;font-family:var(--dsp);font-style:italic;font-weight:400;
+  font-size:clamp(2rem,5.6vw,4.9rem);line-height:1;letter-spacing:-.015em;
+  color:var(--rivet);margin-top:.06em;padding-left:.06em;
+}
+.hero-lead{
+  max-width:34ch;margin-top:30px;color:rgba(243,238,227,.82);
+  font-size:.9375rem;line-height:1.85;
+}
+.hero-lead .jp{font-size:.875rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;align-items:center}
+
+/* wood brand plate — the three furniture brands */
+.plate{
+  position:relative;padding:22px 24px 20px;max-width:330px;justify-self:end;align-self:end;
+  margin-bottom:clamp(30px,7vh,80px);
+  box-shadow:10px 12px 0 rgba(18,26,20,.42), inset 0 1px 0 rgba(255,255,255,.14);
+}
+.plate .lab{color:var(--wood-pale);display:block;margin-bottom:14px}
+.plate ul{list-style:none;display:grid;gap:11px}
+.plate li{display:flex;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(243,238,227,.16)}
+.plate li:last-child{border-bottom:0;padding-bottom:0}
+.plate li .n{font-family:var(--mono);font-size:.625rem;color:var(--thread);flex:none;letter-spacing:.1em}
+.plate li .t{font-family:var(--ui);font-weight:700;font-size:.8125rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.35}
+.plate li .t small{display:block;font-family:var(--mono);font-weight:400;font-size:.5625rem;letter-spacing:.16em;opacity:.62;text-transform:uppercase;margin-top:3px}
+.plate .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--rivet);box-shadow:inset 0 -1px 1px rgba(0,0,0,.5)}
+.plate .rivet.a{top:9px;left:9px}.plate .rivet.b{top:9px;right:9px}
+.plate .rivet.c{bottom:9px;left:9px}.plate .rivet.d{bottom:9px;right:9px}
+
+/* hero vertical jp copy on the image */
+.hero-vjp{
+  position:absolute;right:calc(var(--pad) + 4px);top:26vh;z-index:4;
+  writing-mode:vertical-rl;font-family:var(--jp);font-weight:500;
+  font-size:clamp(.8rem,1.1vw,.95rem);letter-spacing:.34em;line-height:1.9;
+  color:rgba(243,238,227,.9);text-shadow:0 2px 20px rgba(10,20,30,.9);
+}
+.hero-vjp::before{content:"";position:absolute;top:-42px;left:50%;width:1px;height:32px;background:var(--thread)}
+
+/* fact bar */
+.factbar{
+  position:relative;z-index:5;display:flex;align-items:stretch;flex-wrap:wrap;
+  border-top:1px solid rgba(243,238,227,.2);
+  background:rgba(11,25,38,.55);backdrop-filter:blur(3px);
+}
+.factbar .f{
+  flex:1 1 auto;min-width:180px;padding:16px var(--pad);
+  display:flex;align-items:center;gap:12px;color:var(--chalk);
+  border-right:1px solid rgba(243,238,227,.14);
+}
+.factbar .f:last-child{border-right:0;flex:0 0 auto}
+.factbar .f b{font-family:var(--ui);font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.factbar .f span{font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.scrollcue{display:flex;align-items:center;gap:10px;color:var(--thread)}
+.scrollcue i{display:block;width:34px;height:1px;background:var(--thread);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleX(.4);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
+
+/* ============================================================
+   TICKER
+   ============================================================ */
+.ticker{overflow:hidden;border-top:1px solid rgba(0,0,0,.25);border-bottom:1px solid rgba(0,0,0,.25)}
+.ticker-in{display:flex;gap:0;width:max-content;animation:slide 46s linear infinite}
+.ticker span{
+  display:inline-flex;align-items:center;gap:26px;padding:13px 26px;white-space:nowrap;
+  font-family:var(--ui);font-weight:700;font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(243,238,227,.9);
+}
+.ticker span em{font-family:var(--dsp);font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;font-size:1.05rem;color:var(--rivet)}
+.ticker i{width:6px;height:6px;background:var(--thread);border-radius:50%;display:block}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+section{position:relative}
+.wrap{position:relative;z-index:2;padding:clamp(72px,11vw,150px) var(--pad)}
+.sec-idx{
+  display:flex;align-items:baseline;gap:16px;margin-bottom:34px;
+}
+.sec-idx .n{font-family:var(--mono);font-size:.625rem;letter-spacing:.2em;color:var(--thread)}
+.sec-idx .l{font-family:var(--ui);font-weight:700;font-size:.6875rem;letter-spacing:.26em;text-transform:uppercase}
+.sec-idx .line{flex:1;height:1px;background:currentColor;opacity:.2}
+
+/* ============================================================
+   CONCEPT
+   ============================================================ */
+.concept-grid{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,34px);align-items:start;
+}
+.concept-left{grid-column:1/7;grid-row:1;position:relative;z-index:3}
+.concept-h{position:relative;z-index:3}
+.concept-h .kicker{color:var(--wood);margin-bottom:20px;display:block}
+.concept-h h2{
+  font-family:var(--ui);font-weight:800;text-transform:uppercase;
+  font-size:clamp(2.3rem,6.4vw,5.4rem);line-height:.84;letter-spacing:-.045em;color:var(--shadow);
+}
+.concept-h h2 em{
+  display:block;font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;
+  letter-spacing:-.01em;color:var(--wood);font-size:.86em;line-height:1;
+}
+.concept-body{max-width:46ch;margin-top:clamp(34px,5vw,64px)}
+.concept-body p+p{margin-top:18px}
+.concept-body .jp{font-size:.9375rem;color:rgba(43,38,32,.86)}
+.concept-body .en{font-family:var(--mono);font-size:.75rem;line-height:2;letter-spacing:.03em;color:rgba(43,38,32,.6);margin-top:22px;padding-top:20px;border-top:1px solid rgba(43,38,32,.18)}
+.concept-img{grid-column:7/13;grid-row:1;position:relative;margin-top:-40px;align-self:start}
+.concept-img .ph{aspect-ratio:4/5}
+.concept-img .cap{
+  position:absolute;right:20px;bottom:-30px;z-index:4;
+  padding:14px 18px;max-width:250px;box-shadow:8px 8px 0 rgba(43,38,32,.2);
+}
+.concept-sm{
+  position:absolute;left:clamp(-104px,-6.4vw,-28px);bottom:-44px;
+  width:clamp(120px,15vw,206px);z-index:4;
+  box-shadow:14px 16px 0 rgba(43,38,32,.24);
+}
+.concept-sm .ph{aspect-ratio:1/1}
+/* material words row */
+.matwords{
+  grid-column:1/13;grid-row:2;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:clamp(50px,7vw,90px);
+  background:rgba(43,38,32,.2);border:1px solid rgba(43,38,32,.2);
+}
+.matwords > div{background:var(--paper);padding:22px 18px 24px;position:relative;overflow:hidden}
+.matwords .sw{width:100%;height:58px;margin-bottom:16px;position:relative;overflow:hidden}
+.matwords b{display:block;font-family:var(--ui);font-weight:800;font-size:1rem;letter-spacing:.04em;text-transform:uppercase}
+.matwords > div > span{display:block;font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55;margin-top:5px}
+
+/* ============================================================
+   PHOTO FRAME
+   ============================================================ */
+.ph{position:relative;overflow:hidden;background:var(--denim-dk)}
+.ph svg{width:100%;height:100%;display:block}
+.ph::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='ph'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='5'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23ph)'/%3E%3C/svg%3E");
+}
+.ph::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  box-shadow:inset 0 0 90px rgba(20,14,10,.42);
+}
+.ph-label{
+  position:absolute;left:0;bottom:0;z-index:3;
+  padding:8px 12px;background:var(--shadow);color:var(--paper);
+  font-family:var(--mono);font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;
+}
+
+/* ============================================================
+   ROOMS
+   ============================================================ */
+.rooms{background:var(--shadow)}
+.rooms .wrap{padding-bottom:clamp(60px,9vw,120px)}
+.rooms .sec-idx{color:var(--paper)}
+.rooms-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:clamp(40px,6vw,70px)}
+.rooms-head h2{grid-column:1/8;color:var(--paper);font-family:var(--ui);font-weight:800;text-transform:uppercase;font-size:clamp(2.1rem,5.4vw,4.4rem);line-height:.86;letter-spacing:-.04em}
+.rooms-head h2 em{font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;color:var(--wood-pale);letter-spacing:-.01em}
+.rooms-head p{grid-column:9/13;color:rgba(228,218,202,.66);font-size:.875rem;line-height:1.95}
+
+.room{
+  display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,32px);
+  align-items:center;padding:clamp(34px,5vw,58px) 0;border-top:1px solid rgba(228,218,202,.16);
+}
+.room:last-of-type{border-bottom:1px solid rgba(228,218,202,.16)}
+.room .rm-img{grid-column:1/8;position:relative}
+.room .rm-img .ph{aspect-ratio:16/10}
+.room .rm-txt{grid-column:8/13;position:relative}
+.room.flip .rm-img{grid-column:6/13;order:2}
+.room.flip .rm-txt{grid-column:1/6;order:1}
+.rm-no{
+  position:absolute;top:-.28em;left:-.06em;z-index:1;
+  font-family:var(--dsp);font-size:clamp(6rem,13vw,12rem);line-height:.7;
+  color:rgba(228,218,202,.085);pointer-events:none;
+}
+.rm-txt .inner{position:relative;z-index:2}
+.rm-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.rm-brand .tag{
+  font-family:var(--mono);font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:4px 9px;border:1px solid rgba(228,218,202,.32);color:rgba(228,218,202,.75);
+}
+.rm-brand .tag.soon{border-color:var(--forest-pale);color:var(--forest-pale)}
+.rm-txt h3{
+  color:var(--paper);font-family:var(--ui);font-weight:800;text-transform:uppercase;
+  font-size:clamp(1.35rem,2.5vw,2.1rem);line-height:.98;letter-spacing:-.025em;
+}
+.rm-txt h3 em{
+  display:block;font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;
+  color:var(--wood-pale);font-size:.82em;letter-spacing:-.005em;margin-top:.14em;
+}
+.rm-txt .jp{color:rgba(228,218,202,.68);font-size:.8125rem;margin-top:16px;line-height:1.95;max-width:38ch}
+.rm-meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(228,218,202,.16)}
+.rm-meta div{display:flex;flex-direction:column;gap:2px}
+.rm-meta span{font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(228,218,202,.45)}
+.rm-meta b{font-family:var(--ui);font-weight:700;font-size:.8125rem;letter-spacing:.03em;color:var(--paper)}
+.rm-link{
+  display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+  font-family:var(--ui);font-weight:700;font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--thread);padding-bottom:5px;border-bottom:1px solid rgba(200,120,58,.45);
+}
+.rm-link:hover{border-bottom-color:var(--thread)}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+.exp .wrap{padding-bottom:clamp(60px,8vw,110px)}
+.exp-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.exp-head h2{grid-column:1/9;font-family:var(--ui);font-weight:800;text-transform:uppercase;font-size:clamp(2.1rem,5.6vw,4.6rem);line-height:.86;letter-spacing:-.04em;color:var(--chalk)}
+.exp-head h2 em{font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;color:var(--forest-pale);letter-spacing:-.01em}
+.exp-head p{grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(243,238,227,.62)}
+.exp-rail{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,26px);
+  margin-top:clamp(38px,5vw,64px);align-items:end;
+}
+.exp-card{position:relative}
+.exp-card .ph{aspect-ratio:3/4}
+.exp-card:nth-child(2){margin-bottom:clamp(24px,4vw,64px)}
+.exp-card:nth-child(3){margin-bottom:clamp(-4px,1vw,10px)}
+.exp-card:nth-child(4){margin-bottom:clamp(38px,6vw,96px)}
+.exp-card .meta{display:flex;align-items:baseline;gap:10px;margin-top:14px}
+.exp-card .meta .n{font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;color:var(--forest-pale)}
+.exp-card h4{font-family:var(--ui);font-weight:700;font-size:.9375rem;letter-spacing:.01em;color:var(--chalk);text-transform:uppercase}
+.exp-card p{font-family:var(--jp);font-size:.75rem;line-height:1.9;color:rgba(243,238,227,.6);margin-top:7px}
+.exp-strip{
+  margin-top:clamp(46px,6vw,80px);display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;
+  padding-top:22px;border-top:1px solid rgba(243,238,227,.2);
+}
+.exp-strip .k{font-family:var(--mono);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,238,227,.55)}
+
+/* ============================================================
+   MATERIAL
+   ============================================================ */
+.material .wrap{padding-top:clamp(70px,10vw,140px)}
+.mt-head{max-width:52ch;margin-bottom:clamp(40px,5vw,66px)}
+.mt-head h2{font-family:var(--ui);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,5vw,4rem);line-height:.88;letter-spacing:-.04em;color:var(--paper)}
+.mt-head h2 em{font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;color:var(--rivet)}
+.mt-head p{margin-top:20px;font-size:.875rem;line-height:1.95;color:rgba(228,218,202,.6)}
+.mt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,22px)}
+.mt-cell{position:relative;overflow:hidden;min-height:clamp(220px,30vw,380px);display:flex;flex-direction:column;justify-content:flex-end}
+.mt-cell .mt-body{position:relative;z-index:3;padding:20px}
+.mt-cell .n{font-family:var(--mono);font-size:.5625rem;letter-spacing:.2em;opacity:.7}
+.mt-cell b{display:block;font-family:var(--ui);font-weight:800;font-size:clamp(1.05rem,1.7vw,1.5rem);letter-spacing:-.01em;text-transform:uppercase;margin-top:6px}
+.mt-cell em{display:block;font-family:var(--dsp);font-style:italic;font-size:.95rem;opacity:.8;margin-top:2px}
+.mt-cell p{font-family:var(--jp);font-size:.6875rem;line-height:1.85;opacity:.72;margin-top:12px}
+.mt-cell .hex{position:absolute;top:14px;right:14px;z-index:3;font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;opacity:.6}
+.mt-cell .grad{position:absolute;inset:0;z-index:2;background:linear-gradient(0deg,rgba(10,8,6,.85),rgba(10,8,6,0) 62%)}
+
+/* ============================================================
+   LOCATION
+   ============================================================ */
+.loc{background:var(--paper-lt)}
+.loc-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,36px);align-items:stretch}
+.loc-map{grid-column:1/8;position:relative;min-height:clamp(300px,42vw,540px);overflow:hidden}
+.loc-map svg{width:100%;height:100%;position:absolute;inset:0}
+.loc-map .pin{
+  position:absolute;left:36%;top:54%;z-index:4;transform:translate(-50%,-100%);
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
+.loc-map .pin .bub{
+  background:var(--thread);color:#1a1410;padding:7px 11px;
+  font-family:var(--ui);font-weight:800;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;
+  box-shadow:3px 3px 0 rgba(43,38,32,.5);white-space:nowrap;
+}
+.loc-map .pin .stem{width:1px;height:26px;background:var(--thread)}
+.loc-map .pin .dot{width:9px;height:9px;border-radius:50%;background:var(--thread);box-shadow:0 0 0 5px rgba(200,120,58,.28)}
+.loc-info{grid-column:8/13;display:flex;flex-direction:column}
+.loc-info h2{font-family:var(--ui);font-weight:800;text-transform:uppercase;font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:.88;letter-spacing:-.04em;color:var(--shadow)}
+.loc-info h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;color:var(--denim);font-size:.92em;margin-top:.06em}
+.loc-info .addr{margin-top:22px;font-family:var(--jp);font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.78)}
+.acc{margin-top:26px;border-top:1px solid rgba(43,38,32,.2)}
+.acc li{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(43,38,32,.14)}
+.acc li .p{display:flex;align-items:center;gap:11px}
+.acc li .ln{width:10px;height:10px;border-radius:50%;flex:none;border:2.5px solid var(--denim)}
+.acc li .ln.m{border-color:var(--forest)}
+.acc li .ln.j{border-color:var(--wood)}
+.acc li b{font-family:var(--ui);font-weight:700;font-size:.8125rem;letter-spacing:.02em}
+.acc li span{font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;color:rgba(43,38,32,.6)}
+.acc li i{font-family:var(--ui);font-style:normal;font-weight:800;font-size:.9375rem;letter-spacing:-.01em}
+.acc li i small{font-family:var(--mono);font-weight:400;font-size:.625rem;letter-spacing:.1em;opacity:.6;margin-left:3px}
+.loc-hoods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
+.loc-hoods .h{position:relative;overflow:hidden;aspect-ratio:16/10}
+.loc-hoods .h .t{position:absolute;left:9px;bottom:8px;z-index:3;font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk);text-shadow:0 1px 6px rgba(0,0,0,.7)}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta{overflow:hidden}
+.cta .wrap{padding-top:clamp(80px,11vw,150px);padding-bottom:clamp(80px,11vw,150px)}
+.cta-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(20px,3vw,40px);align-items:end}
+.cta-l{grid-column:1/9}
+.cta-l .lab{color:var(--denim-fade);display:block;margin-bottom:24px}
+.cta-l h2{
+  font-family:var(--ui);font-weight:800;text-transform:uppercase;
+  font-size:clamp(2.4rem,7.4vw,6.6rem);line-height:.83;letter-spacing:-.048em;color:var(--chalk);
+}
+.cta-l h2 em{
+  display:block;font-family:var(--dsp);font-style:italic;font-weight:400;text-transform:none;
+  color:var(--rivet);font-size:.7em;letter-spacing:-.01em;margin-top:.08em;
+}
+.cta-r{grid-column:9/13;padding-bottom:8px}
+.cta-r p{font-family:var(--jp);font-size:.8125rem;line-height:2;color:rgba(243,238,227,.72)}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+.cta-note{margin-top:22px;font-family:var(--mono);font-size:.625rem;letter-spacing:.12em;line-height:1.9;color:rgba(243,238,227,.5);text-transform:uppercase}
+.cta-price{
+  display:inline-flex;align-items:baseline;gap:8px;margin-top:30px;
+  padding-top:18px;border-top:1px solid rgba(243,238,227,.24);
+}
+.cta-price b{font-family:var(--ui);font-weight:800;font-size:1.7rem;letter-spacing:-.02em;color:var(--chalk)}
+.cta-price span{font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--denim-fade)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--shadow);color:var(--paper)}
+.ft{padding:clamp(46px,6vw,74px) var(--pad) 0;display:grid;grid-template-columns:repeat(12,1fr);gap:26px}
+.ft-brand{grid-column:1/5}
+.ft-brand .k{font-family:var(--ui);font-weight:800;font-size:1.5rem;letter-spacing:.02em}
+.ft-brand .k em{font-family:var(--dsp);font-style:italic;font-weight:400}
+.ft-brand p{margin-top:14px;font-family:var(--jp);font-size:.75rem;line-height:1.95;color:rgba(228,218,202,.55);max-width:30ch}
+.ft-col{grid-column:span 2}
+.ft-col h5{font-family:var(--mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--thread);margin-bottom:14px}
+.ft-col a{display:block;font-size:.8125rem;padding:5px 0;color:rgba(228,218,202,.78)}
+.ft-col a:hover{color:var(--paper)}
+.ft-bot{
+  margin-top:clamp(40px,5vw,64px);padding:18px var(--pad);border-top:1px solid rgba(228,218,202,.16);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(228,218,202,.45);
+}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.09s}.rv.d2{transition-delay:.18s}.rv.d3{transition-delay:.27s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.ticker-in{animation:none}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .concept-left{grid-column:1/7;grid-row:1}
+  .concept-img{grid-column:7/13;grid-row:1;margin-top:0}
+  .concept-sm{display:none}
+  .exp-rail{grid-template-columns:repeat(2,1fr)}
+  .exp-card:nth-child(n){margin-bottom:0}
+  .mt-grid{grid-template-columns:repeat(2,1fr)}
+  .loc-map{grid-column:1/13;min-height:340px}
+  .loc-info{grid-column:1/13}
+}
+@media (max-width:860px){
+  .nav-links,.nav .lang{display:none}
+  .burger{display:flex}
+  .hero-media{width:100%;clip-path:none;opacity:.9}
+  .hero-inner{grid-template-columns:1fr;align-items:end;padding-top:130px;padding-bottom:26px}
+  .hero-veil{background:linear-gradient(180deg,rgba(18,39,57,.9) 0%,rgba(18,39,57,.5) 34%,rgba(18,39,57,.88) 72%,rgba(15,32,47,.97) 100%)}
+  .hero-edge{display:none}
+  .hero-vjp{display:none}
+  .plate{justify-self:start;max-width:none;width:100%;margin-top:34px;margin-bottom:0}
+  .factbar .f{min-width:50%;border-right:0;border-top:1px solid rgba(243,238,227,.12);padding:13px var(--pad)}
+  .rooms-head h2,.exp-head h2{grid-column:1/13}
+  .rooms-head p,.exp-head p{grid-column:1/13}
+  .room .rm-img,.room .rm-txt,.room.flip .rm-img,.room.flip .rm-txt{grid-column:1/13}
+  .room .rm-img{order:1}.room .rm-txt{order:2;margin-top:22px}
+  .room.flip .rm-img{order:1}.room.flip .rm-txt{order:2}
+  .concept-left,.concept-img,.matwords{grid-column:1/13;grid-row:auto}
+  .concept-img{margin-top:32px}
+  .concept-img .cap{right:0;bottom:-16px}
+  .matwords{grid-template-columns:repeat(2,1fr)}
+  .cta-l,.cta-r{grid-column:1/13}
+  .cta-r{margin-top:30px}
+  .ft-brand{grid-column:1/13}
+  .ft-col{grid-column:span 4}
+}
+@media (max-width:600px){
+  .nav{height:64px}
+  .brand .sub{display:none}
+  .nav .btn{padding:9px 12px;font-size:.5625rem;letter-spacing:.14em;gap:8px}
+  .nav .btn .arw{display:none}
+  .nav-right{gap:10px}
+}
+@media (max-width:520px){
+  .exp-rail{grid-template-columns:1fr}
+  .mt-grid{grid-template-columns:1fr}
+  .matwords{grid-template-columns:1fr}
+  .loc-hoods{grid-template-columns:1fr}
+  .ft-col{grid-column:span 6}
+  .factbar .f{min-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ============================================================ NAV -->
+<header class="nav" id="nav">
+  <a href="#" class="brand">
+    <span class="k">K3<em>v</em></span>
+    <span class="sub">Shinjuku&nbsp;Gyoen</span>
+  </a>
+  <nav class="nav-links">
+    <a href="#concept">Stay</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#experience">Experience</a>
+    <a href="#material">Material</a>
+    <a href="#location">Location</a>
+    <a href="#access">Access</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang"><b>JA</b><span>/</span><span>EN</span><span>/</span><span>中文</span></div>
+    <a href="#book" class="btn btn-book"><span>Book Now</span><span class="arw">→</span></a>
+    <button class="burger" aria-label="menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<!-- ============================================================ HERO -->
+<section class="hero mat-denim">
+  <div class="hero-media">
+    <!-- 木の格子 × 夕暮れの新宿 -->
+    <svg viewBox="0 0 900 1100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="新宿御苑前の木造ファサード">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2f5f88"/><stop offset=".45" stop-color="#3d6a92"/>
+          <stop offset=".78" stop-color="#7d8fa0"/><stop offset="1" stop-color="#b0967c"/>
+        </linearGradient>
+        <linearGradient id="woodg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#4a3222"/><stop offset=".35" stop-color="#7a563b"/>
+          <stop offset=".7" stop-color="#6B4A32"/><stop offset="1" stop-color="#3d2a1c"/>
+        </linearGradient>
+        <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#f0c98d"/><stop offset="1" stop-color="#c8783a"/>
+        </linearGradient>
+        <filter id="soft"><feGaussianBlur stdDeviation="16"/></filter>
+      </defs>
+
+      <rect width="900" height="1100" fill="url(#sky)"/>
+      <!-- 遠景の東京 -->
+      <g fill="#1f4463" opacity=".85">
+        <rect x="0" y="300" width="90" height="330"/><rect x="86" y="360" width="58" height="270"/>
+        <rect x="150" y="250" width="74" height="380"/><rect x="230" y="330" width="46" height="300"/>
+        <rect x="282" y="200" width="96" height="430"/><rect x="386" y="300" width="60" height="330"/>
+        <rect x="452" y="356" width="88" height="274"/><rect x="548" y="268" width="52" height="362"/>
+        <rect x="606" y="332" width="104" height="298"/><rect x="716" y="238" width="70" height="392"/>
+        <rect x="792" y="322" width="108" height="308"/>
+      </g>
+      <g fill="#e8c98f" opacity=".5">
+        <rect x="300" y="230" width="7" height="9"/><rect x="316" y="230" width="7" height="9"/>
+        <rect x="300" y="256" width="7" height="9"/><rect x="340" y="256" width="7" height="9"/>
+        <rect x="734" y="268" width="7" height="9"/><rect x="750" y="292" width="7" height="9"/>
+        <rect x="176" y="286" width="7" height="9"/><rect x="196" y="318" width="7" height="9"/>
+        <rect x="628" y="366" width="7" height="9"/><rect x="656" y="400" width="7" height="9"/>
+      </g>
+      <!-- 街の靄 -->
+      <ellipse cx="450" cy="640" rx="600" ry="90" fill="#c2a184" opacity=".22" filter="url(#soft)"/>
+
+      <!-- 建物本体（木の面） -->
+      <rect x="0" y="560" width="900" height="540" fill="url(#woodg)"/>
+      <!-- 縦格子 -->
+      <g>
+        <rect x="0" y="560" width="900" height="16" fill="#3d2a1c" opacity=".8"/>
+        <g fill="#3d2a1c" opacity=".55">
+          <rect x="24" y="576" width="9" height="524"/><rect x="72" y="576" width="9" height="524"/>
+          <rect x="120" y="576" width="9" height="524"/><rect x="168" y="576" width="9" height="524"/>
+          <rect x="216" y="576" width="9" height="524"/><rect x="264" y="576" width="9" height="524"/>
+          <rect x="648" y="576" width="9" height="524"/><rect x="696" y="576" width="9" height="524"/>
+          <rect x="744" y="576" width="9" height="524"/><rect x="792" y="576" width="9" height="524"/>
+          <rect x="840" y="576" width="9" height="524"/><rect x="888" y="576" width="9" height="524"/>
+        </g>
+        <g fill="#a67c52" opacity=".3">
+          <rect x="34" y="576" width="3" height="524"/><rect x="82" y="576" width="3" height="524"/>
+          <rect x="130" y="576" width="3" height="524"/><rect x="178" y="576" width="3" height="524"/>
+          <rect x="226" y="576" width="3" height="524"/><rect x="274" y="576" width="3" height="524"/>
+          <rect x="658" y="576" width="3" height="524"/><rect x="706" y="576" width="3" height="524"/>
+          <rect x="754" y="576" width="3" height="524"/><rect x="802" y="576" width="3" height="524"/>
+          <rect x="850" y="576" width="3" height="524"/><rect x="898" y="576" width="3" height="524"/>
+        </g>
+      </g>
+
+      <!-- 光る窓（障子グリッド） -->
+      <g>
+        <rect x="300" y="612" width="330" height="300" fill="#2B2620"/>
+        <rect x="312" y="624" width="306" height="276" fill="url(#glow)" opacity=".92"/>
+        <g stroke="#4a3222" stroke-width="7" opacity=".85">
+          <line x1="414" y1="624" x2="414" y2="900"/><line x1="516" y1="624" x2="516" y2="900"/>
+          <line x1="312" y1="716" x2="618" y2="716"/><line x1="312" y1="808" x2="618" y2="808"/>
+        </g>
+        <!-- 室内のシルエット -->
+        <g fill="#4a3222" opacity=".5">
+          <rect x="330" y="836" width="66" height="64" rx="6"/>
+          <rect x="540" y="800" width="14" height="100"/>
+          <circle cx="470" cy="676" r="17"/>
+          <rect x="466" y="624" width="8" height="38"/>
+        </g>
+        <rect x="300" y="612" width="330" height="300" fill="none" stroke="#2B2620" stroke-width="12"/>
+      </g>
+      <!-- 窓からの光 -->
+      <ellipse cx="465" cy="930" rx="220" ry="60" fill="#e8c98f" opacity=".18" filter="url(#soft)"/>
+
+      <!-- のれん -->
+      <g>
+        <rect x="330" y="930" width="270" height="14" fill="#3d2a1c"/>
+        <path d="M334 944h80v130h-80z" fill="#1B3A57"/>
+        <path d="M424 944h80v146h-80z" fill="#16334d"/>
+        <path d="M514 944h80v134h-80z" fill="#1B3A57"/>
+        <g fill="#E4DACA" opacity=".9">
+          <rect x="352" y="984" width="44" height="7"/><rect x="352" y="1002" width="44" height="7"/>
+          <rect x="446" y="984" width="36" height="7"/><rect x="446" y="1002" width="18" height="7"/>
+          <rect x="532" y="984" width="44" height="7"/>
+        </g>
+      </g>
+
+      <!-- 植栽 -->
+      <g fill="#1F3A2E">
+        <ellipse cx="118" cy="1010" rx="104" ry="72"/>
+        <ellipse cx="196" cy="1050" rx="86" ry="56"/>
+        <ellipse cx="46" cy="1058" rx="80" ry="52"/>
+      </g>
+      <g fill="#33553F" opacity=".85">
+        <ellipse cx="96" cy="986" rx="46" ry="30"/><ellipse cx="180" cy="1026" rx="38" ry="24"/>
+      </g>
+      <g fill="#1F3A2E">
+        <ellipse cx="818" cy="1030" rx="96" ry="62"/><ellipse cx="736" cy="1064" rx="70" ry="44"/>
+      </g>
+      <g fill="#33553F" opacity=".7"><ellipse cx="836" cy="1010" rx="40" ry="26"/></g>
+
+      <!-- 提灯 -->
+      <g>
+        <line x1="700" y1="576" x2="700" y2="640" stroke="#3d2a1c" stroke-width="4"/>
+        <ellipse cx="700" cy="672" rx="26" ry="34" fill="#e8c98f" opacity=".95"/>
+        <g stroke="#c8783a" stroke-width="2" opacity=".5">
+          <line x1="676" y1="660" x2="724" y2="660"/><line x1="674" y1="672" x2="726" y2="672"/>
+          <line x1="676" y1="684" x2="724" y2="684"/>
+        </g>
+        <circle cx="700" cy="700" r="30" fill="#e8c98f" opacity=".14" filter="url(#soft)"/>
+      </g>
+
+      <!-- 影 -->
+      <rect x="0" y="560" width="900" height="540" fill="url(#shd)"/>
+      <defs>
+        <linearGradient id="shd" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2B2620" stop-opacity=".38"/>
+          <stop offset=".4" stop-color="#2B2620" stop-opacity="0"/>
+          <stop offset="1" stop-color="#2B2620" stop-opacity=".55"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <div class="hero-veil"></div>
+  <div class="hero-veil2"></div>
+  <div class="hero-tex"></div>
+
+  <div class="hero-edge"><span>Est. 2026 — Shinjuku, Tokyo</span></div>
+  <div class="stitch-v" style="left:calc(var(--pad) - 14px);z-index:5"></div>
+
+  <div class="hero-vjp">新宿御苑のすぐそばで、東京を暮らすように。</div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow rv">
+        <span class="dot"></span>
+        <span class="mono-s">03 Rooms — Shinjuku Gyoenmae, Tokyo</span>
+      </div>
+      <h1 class="rv d1">
+        <span class="h1-a">Not Just<br><span class="thin">A</span> Stay.</span>
+        <span class="h1-b">Live Tokyo Beautifully.</span>
+      </h1>
+      <div class="hero-lead rv d2">
+        <p class="jp">木とデニム、そして御苑の緑。<br>新宿のど真ん中で、暮らすように過ごす3室。</p>
+      </div>
+      <div class="hero-cta rv d3">
+        <a href="#book" class="btn btn-book"><span>Book Direct</span><span class="arw">→</span></a>
+        <a href="#rooms" class="btn btn-ghost" style="color:var(--chalk)"><span>See The Rooms</span></a>
+      </div>
+    </div>
+
+    <div class="plate mat-wood rv d2">
+      <span class="rivet a"></span><span class="rivet b"></span><span class="rivet c"></span><span class="rivet d"></span>
+      <span class="lab">Three Rooms / Three Brands</span>
+      <ul>
+        <li><span class="n">01</span><span class="t">unico<small>Natural Living</small></span></li>
+        <li><span class="n">02</span><span class="t">Journal Standard Furniture<small>Urban Vintage</small></span></li>
+        <li><span class="n">03</span><span class="t">Crash Gate<small>Industrial Modern</small></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="factbar">
+    <div class="f"><b>03</b><span>Rooms Only</span></div>
+    <div class="f"><b>3 min</b><span>To Shinjuku Gyoen</span></div>
+    <div class="f"><b>8 min</b><span>To Shinjuku Station</span></div>
+    <div class="f"><b>4 pax</b><span>Max Per Room</span></div>
+    <div class="f"><div class="scrollcue"><i></i><span class="mono-s">Scroll</span></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ TICKER -->
+<div class="ticker mat-shadow">
+  <div class="ticker-in">
+    <span>Wood <i></i> Denim <i></i> Forest <i></i> Shadow <i></i> <em>Cheap Chic Tokyo</em> <i></i></span>
+    <span>Wood <i></i> Denim <i></i> Forest <i></i> Shadow <i></i> <em>Cheap Chic Tokyo</em> <i></i></span>
+    <span>Wood <i></i> Denim <i></i> Forest <i></i> Shadow <i></i> <em>Cheap Chic Tokyo</em> <i></i></span>
+    <span>Wood <i></i> Denim <i></i> Forest <i></i> Shadow <i></i> <em>Cheap Chic Tokyo</em> <i></i></span>
+  </div>
+</div>
+
+<!-- ============================================================ CONCEPT -->
+<section id="concept" class="mat-paper">
+  <div class="wrap">
+    <div class="sec-idx rv"><span class="n">01</span><span class="l">Concept</span><span class="line"></span></div>
+    <div class="concept-grid">
+
+      <div class="concept-left">
+      <div class="concept-h rv">
+        <span class="lab kicker">Stay Different in Shinjuku</span>
+        <h2>Wood, Denim<br>&amp; A Park<em>next door.</em></h2>
+      </div>
+
+      <div class="concept-body rv d1">
+        <p class="jp">新宿三丁目の喧騒を二本入ると、急に空気がゆるむ。K3V SHINJUKU GYOEN は、そんな路地に建つ全3室の小さな家です。</p>
+        <p class="jp">床は無垢の木、ソファにはデニム。窓の外には御苑の樹々。ホテルの整った気持ちよさではなく、「この部屋に住んでみたい」と思う気持ちよさを目指しました。</p>
+        <p class="en">A three-room house between the noise of Shinjuku and the quiet of the garden. Solid timber, indigo denim, warm shadow — built to be lived in, not checked into.</p>
+      </div>
+      </div>
+
+      <div class="concept-img rv d1">
+        <div class="ph">
+          <!-- 木の床とデニムのソファ -->
+          <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="無垢の木とデニムのリビング">
+            <defs>
+              <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#efe8da"/><stop offset="1" stop-color="#d3c6b0"/>
+              </linearGradient>
+              <linearGradient id="flr" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8f6743"/><stop offset="1" stop-color="#5b3f2a"/>
+              </linearGradient>
+              <linearGradient id="dnm" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#3d6a92"/><stop offset="1" stop-color="#1B3A57"/>
+              </linearGradient>
+              <filter id="sf2"><feGaussianBlur stdDeviation="22"/></filter>
+            </defs>
+            <rect width="800" height="1000" fill="url(#wall)"/>
+            <!-- 窓と光 -->
+            <rect x="60" y="90" width="330" height="430" fill="#eef4f7"/>
+            <g stroke="#6B4A32" stroke-width="9"><line x1="225" y1="90" x2="225" y2="520"/><line x1="60" y1="300" x2="390" y2="300"/></g>
+            <rect x="60" y="90" width="330" height="430" fill="none" stroke="#6B4A32" stroke-width="16"/>
+            <g fill="#33553F" opacity=".55">
+              <ellipse cx="130" cy="210" rx="70" ry="52"/><ellipse cx="300" cy="180" rx="58" ry="44"/>
+              <ellipse cx="330" cy="420" rx="66" ry="48"/>
+            </g>
+            <!-- 差し込む光 -->
+            <path d="M60 520 L390 520 L640 780 L200 780 Z" fill="#fff3dd" opacity=".4" filter="url(#sf2)"/>
+            <!-- 床 -->
+            <rect x="0" y="700" width="800" height="300" fill="url(#flr)"/>
+            <g stroke="#3d2a1c" stroke-width="2" opacity=".45">
+              <line x1="0" y1="742" x2="800" y2="742"/><line x1="0" y1="792" x2="800" y2="792"/>
+              <line x1="0" y1="852" x2="800" y2="852"/><line x1="0" y1="922" x2="800" y2="922"/>
+              <line x1="180" y1="700" x2="150" y2="1000"/><line x1="480" y1="700" x2="520" y2="1000"/>
+            </g>
+            <!-- デニムソファ -->
+            <g>
+              <rect x="120" y="560" width="470" height="150" rx="14" fill="url(#dnm)"/>
+              <rect x="120" y="640" width="470" height="112" rx="16" fill="#24496b"/>
+              <rect x="150" y="596" width="190" height="56" rx="10" fill="#2c5478"/>
+              <rect x="360" y="590" width="190" height="62" rx="10" fill="#31608a"/>
+              <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".8">
+                <line x1="128" y1="652" x2="582" y2="652"/><line x1="128" y1="742" x2="582" y2="742"/>
+              </g>
+              <rect x="140" y="752" width="16" height="42" fill="#4a3222"/>
+              <rect x="556" y="752" width="16" height="42" fill="#4a3222"/>
+            </g>
+            <!-- ローテーブルと植物 -->
+            <g>
+              <rect x="250" y="828" width="270" height="16" rx="4" fill="#6B4A32"/>
+              <rect x="268" y="844" width="12" height="60" fill="#4a3222"/>
+              <rect x="490" y="844" width="12" height="60" fill="#4a3222"/>
+              <rect x="330" y="806" width="60" height="22" rx="3" fill="#E4DACA"/>
+              <circle cx="440" cy="816" r="14" fill="#2B2620"/>
+            </g>
+            <g>
+              <rect x="640" y="770" width="76" height="86" rx="6" fill="#8f6743"/>
+              <g fill="#1F3A2E"><ellipse cx="678" cy="712" rx="66" ry="52"/><ellipse cx="636" cy="748" rx="40" ry="30"/><ellipse cx="722" cy="742" rx="36" ry="26"/></g>
+              <g fill="#33553F" opacity=".8"><ellipse cx="664" cy="690" rx="30" ry="22"/></g>
+            </g>
+            <!-- 影 -->
+            <ellipse cx="360" cy="800" rx="300" ry="34" fill="#2B2620" opacity=".22" filter="url(#sf2)"/>
+          </svg>
+          <span class="ph-label">Living / Room 01</span>
+        </div>
+        <div class="cap mat-denim rv d2">
+          <span class="mono-s" style="color:var(--rivet)">Material No.01</span>
+          <p style="font-family:var(--jp);font-size:.75rem;line-height:1.85;color:rgba(243,238,227,.88);margin-top:7px">
+            座ると少し沈む、履き込んだデニムみたいなソファ。
+          </p>
+        </div>
+
+        <div class="concept-sm rv d3">
+        <div class="ph">
+          <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="御苑の樹">
+            <rect width="400" height="400" fill="#1F3A2E"/>
+            <g fill="#33553F"><ellipse cx="120" cy="130" rx="130" ry="100"/><ellipse cx="290" cy="90" rx="110" ry="86"/><ellipse cx="230" cy="210" rx="140" ry="96"/></g>
+            <g fill="#4a3222"><rect x="176" y="230" width="26" height="170"/><rect x="300" y="250" width="18" height="150"/></g>
+            <g fill="#7fa07f" opacity=".55"><ellipse cx="96" cy="96" rx="52" ry="38"/><ellipse cx="300" cy="60" rx="44" ry="30"/></g>
+            <rect y="330" width="400" height="70" fill="#152a20"/>
+            <g stroke="#7fa07f" stroke-width="2" opacity=".25"><line x1="0" y1="352" x2="400" y2="340"/><line x1="0" y1="378" x2="400" y2="366"/></g>
+          </svg>
+          <span class="ph-label">Shinjuku Gyoen</span>
+        </div>
+        </div>
+      </div>
+
+      <div class="matwords rv d2">
+        <div>
+          <div class="sw mat-denim"></div>
+          <b>Denim</b><span>#1B3A57 — Fabric</span>
+        </div>
+        <div>
+          <div class="sw mat-wood"></div>
+          <b>Wood</b><span>#6B4A32 — Structure</span>
+        </div>
+        <div>
+          <div class="sw mat-forest"></div>
+          <b>Forest</b><span>#1F3A2E — Garden</span>
+        </div>
+        <div>
+          <div class="sw mat-shadow"></div>
+          <b>Shadow</b><span>#2B2620 — Depth</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ROOMS -->
+<section id="rooms" class="rooms">
+  <div class="wrap">
+    <div class="sec-idx rv" style="color:var(--paper)"><span class="n">02</span><span class="l">Rooms</span><span class="line"></span></div>
+    <div class="rooms-head">
+      <h2 class="rv">Three Rooms.<br><em>Three ways to live here.</em></h2>
+      <p class="rv d1">家具ブランドごとに世界観を変えた全3室。<br>同じ建物なのに、泊まるたび違う暮らしが始まります。</p>
+    </div>
+
+    <!-- ROOM 01 -->
+    <article class="room rv">
+      <div class="rm-img">
+        <div class="ph">
+          <svg viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="unico ルーム">
+            <defs>
+              <linearGradient id="r1w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1ebde"/><stop offset="1" stop-color="#ded2bd"/></linearGradient>
+              <linearGradient id="r1f" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c7250"/><stop offset="1" stop-color="#6B4A32"/></linearGradient>
+              <filter id="b1"><feGaussianBlur stdDeviation="18"/></filter>
+            </defs>
+            <rect width="1000" height="620" fill="url(#r1w)"/>
+            <rect x="600" y="60" width="330" height="330" fill="#eaf1f4"/>
+            <rect x="600" y="60" width="330" height="330" fill="none" stroke="#6B4A32" stroke-width="14"/>
+            <line x1="765" y1="60" x2="765" y2="390" stroke="#6B4A32" stroke-width="8"/>
+            <g fill="#33553F" opacity=".5"><ellipse cx="680" cy="150" rx="66" ry="48"/><ellipse cx="860" cy="300" rx="70" ry="52"/></g>
+            <path d="M600 390 L930 390 L1000 560 L560 560 Z" fill="#fff5e2" opacity=".45" filter="url(#b1)"/>
+            <rect y="440" width="1000" height="180" fill="url(#r1f)"/>
+            <g stroke="#4a3222" stroke-width="2" opacity=".4"><line x1="0" y1="482" x2="1000" y2="482"/><line x1="0" y1="530" x2="1000" y2="530"/><line x1="300" y1="440" x2="270" y2="620"/><line x1="700" y1="440" x2="740" y2="620"/></g>
+            <!-- ベッド -->
+            <g>
+              <rect x="80" y="330" width="420" height="26" rx="6" fill="#8f6743"/>
+              <rect x="80" y="356" width="420" height="96" rx="8" fill="#E4DACA"/>
+              <rect x="80" y="430" width="420" height="40" rx="6" fill="#1B3A57"/>
+              <rect x="110" y="322" width="120" height="46" rx="10" fill="#F3EEE3"/>
+              <rect x="244" y="322" width="120" height="46" rx="10" fill="#F3EEE3"/>
+              <rect x="96" y="470" width="14" height="34" fill="#4a3222"/><rect x="470" y="470" width="14" height="34" fill="#4a3222"/>
+              <rect x="80" y="240" width="420" height="96" rx="8" fill="#a37b58"/>
+              <g stroke="#7a563b" stroke-width="3" opacity=".6"><line x1="160" y1="240" x2="160" y2="336"/><line x1="250" y1="240" x2="250" y2="336"/><line x1="340" y1="240" x2="340" y2="336"/><line x1="424" y1="240" x2="424" y2="336"/></g>
+            </g>
+            <!-- ペンダントライト -->
+            <g><line x1="560" y1="0" x2="560" y2="150" stroke="#2B2620" stroke-width="3"/>
+              <path d="M520 150 h80 l-16 46 h-48 z" fill="#6B4A32"/>
+              <circle cx="560" cy="206" r="10" fill="#f0c98d"/>
+              <circle cx="560" cy="206" r="40" fill="#f0c98d" opacity=".2" filter="url(#b1)"/></g>
+            <!-- 植物 -->
+            <g><rect x="900" y="420" width="60" height="70" rx="5" fill="#8f6743"/>
+              <g fill="#1F3A2E"><ellipse cx="930" cy="378" rx="54" ry="40"/><ellipse cx="898" cy="404" rx="32" ry="24"/></g></g>
+            <ellipse cx="300" cy="510" rx="260" ry="26" fill="#2B2620" opacity=".2" filter="url(#b1)"/>
+          </svg>
+          <span class="ph-label">Room 01 / unico</span>
+        </div>
+      </div>
+      <div class="rm-txt">
+        <span class="rm-no">01</span>
+        <div class="inner">
+          <div class="rm-brand"><span class="tag">unico</span><span class="tag">Now Open</span></div>
+          <h3>Natural<br>Living<em>やわらかい北欧</em></h3>
+          <p class="jp">木の質感とファブリックの温度。朝の光がいちばん長く入る部屋です。ベッドの脇には小さなワークデスク。</p>
+          <div class="rm-meta">
+            <div><span>Size</span><b>32㎡</b></div>
+            <div><span>Guests</span><b>2–4</b></div>
+            <div><span>Bed</span><b>Double + Sofa</b></div>
+            <div><span>Floor</span><b>2F</b></div>
+          </div>
+          <a href="#" class="rm-link"><span>View Room 01</span><span>→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ROOM 02 -->
+    <article class="room flip rv">
+      <div class="rm-img">
+        <div class="ph">
+          <svg viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="JOURNAL STANDARD FURNITURE ルーム">
+            <defs>
+              <linearGradient id="r2w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3f34"/><stop offset="1" stop-color="#2B2620"/></linearGradient>
+              <linearGradient id="r2d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c5478"/><stop offset="1" stop-color="#152f47"/></linearGradient>
+              <filter id="b2"><feGaussianBlur stdDeviation="18"/></filter>
+            </defs>
+            <rect width="1000" height="620" fill="url(#r2w)"/>
+            <!-- 壁のレンガ目地 -->
+            <g stroke="#5e5044" stroke-width="2" opacity=".5">
+              <line x1="0" y1="80" x2="1000" y2="80"/><line x1="0" y1="150" x2="1000" y2="150"/>
+              <line x1="0" y1="220" x2="1000" y2="220"/><line x1="0" y1="290" x2="1000" y2="290"/>
+              <line x1="0" y1="360" x2="1000" y2="360"/>
+            </g>
+            <!-- 窓 -->
+            <rect x="70" y="70" width="250" height="300" fill="#20364a"/>
+            <rect x="70" y="70" width="250" height="300" fill="none" stroke="#1a1510" stroke-width="12"/>
+            <g stroke="#1a1510" stroke-width="7"><line x1="195" y1="70" x2="195" y2="370"/><line x1="70" y1="220" x2="320" y2="220"/></g>
+            <g fill="#e8c98f" opacity=".5"><rect x="96" y="110" width="10" height="14"/><rect x="130" y="140" width="10" height="14"/><rect x="240" y="120" width="10" height="14"/><rect x="270" y="266" width="10" height="14"/></g>
+            <!-- 床 -->
+            <rect y="440" width="1000" height="180" fill="#5b3f2a"/>
+            <g stroke="#3d2a1c" stroke-width="2" opacity=".5"><line x1="0" y1="490" x2="1000" y2="490"/><line x1="0" y1="546" x2="1000" y2="546"/><line x1="420" y1="440" x2="390" y2="620"/><line x1="760" y1="440" x2="800" y2="620"/></g>
+            <!-- ラグ -->
+            <g><rect x="330" y="470" width="520" height="120" rx="4" fill="#1F3A2E" opacity=".85"/>
+              <g stroke="#7fa07f" stroke-width="2" opacity=".3"><line x1="330" y1="500" x2="850" y2="500"/><line x1="330" y1="560" x2="850" y2="560"/></g></g>
+            <!-- デニムソファ -->
+            <g>
+              <rect x="400" y="300" width="430" height="126" rx="12" fill="url(#r2d)"/>
+              <rect x="400" y="372" width="430" height="102" rx="14" fill="#1B3A57"/>
+              <rect x="426" y="332" width="176" height="50" rx="9" fill="#31608a"/>
+              <rect x="620" y="326" width="176" height="56" rx="9" fill="#3d6a92"/>
+              <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".85"><line x1="408" y1="382" x2="822" y2="382"/><line x1="408" y1="464" x2="822" y2="464"/></g>
+              <rect x="418" y="474" width="14" height="36" fill="#2B2620"/><rect x="798" y="474" width="14" height="36" fill="#2B2620"/>
+            </g>
+            <!-- 鉄脚テーブル -->
+            <g><rect x="470" y="524" width="230" height="12" rx="3" fill="#6B4A32"/>
+              <g stroke="#2B2620" stroke-width="7"><line x1="492" y1="536" x2="482" y2="590"/><line x1="678" y1="536" x2="688" y2="590"/></g>
+              <rect x="530" y="504" width="46" height="20" rx="2" fill="#E4DACA"/></g>
+            <!-- ペンダント -->
+            <g><line x1="880" y1="0" x2="880" y2="120" stroke="#1a1510" stroke-width="3"/>
+              <path d="M834 120 h92 l-22 54 h-48 z" fill="#2B2620"/>
+              <circle cx="880" cy="186" r="12" fill="#f0c98d"/>
+              <circle cx="880" cy="190" r="60" fill="#f0c98d" opacity=".16" filter="url(#b2)"/></g>
+            <!-- ポスター -->
+            <g><rect x="620" y="90" width="120" height="160" fill="#E4DACA"/><rect x="636" y="112" width="88" height="94" fill="#1B3A57"/><rect x="636" y="216" width="56" height="8" fill="#2B2620"/></g>
+            <ellipse cx="600" cy="520" rx="300" ry="32" fill="#000" opacity=".3" filter="url(#b2)"/>
+          </svg>
+          <span class="ph-label">Room 02 / journal standard furniture</span>
+        </div>
+      </div>
+      <div class="rm-txt">
+        <span class="rm-no">02</span>
+        <div class="inner">
+          <div class="rm-brand"><span class="tag">journal standard furniture</span><span class="tag">Now Open</span></div>
+          <h3>Urban<br>Vintage<em>使い込んだ質感</em></h3>
+          <p class="jp">アイアンと古材、履き込んだデニムのソファ。夜がいちばん似合う部屋。灯りを落とすと、外の新宿がちょうどよく遠くなります。</p>
+          <div class="rm-meta">
+            <div><span>Size</span><b>34㎡</b></div>
+            <div><span>Guests</span><b>2–4</b></div>
+            <div><span>Bed</span><b>Queen + Sofa</b></div>
+            <div><span>Floor</span><b>3F</b></div>
+          </div>
+          <a href="#" class="rm-link"><span>View Room 02</span><span>→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ROOM 03 -->
+    <article class="room rv">
+      <div class="rm-img">
+        <div class="ph">
+          <svg viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="CRASH GATE ルーム（準備中）">
+            <defs><filter id="b3"><feGaussianBlur stdDeviation="20"/></filter>
+              <linearGradient id="r3w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3128"/><stop offset="1" stop-color="#221e19"/></linearGradient></defs>
+            <rect width="1000" height="620" fill="url(#r3w)"/>
+            <!-- 鉄骨フレーム -->
+            <g stroke="#1a1510" stroke-width="10" opacity=".9">
+              <line x1="180" y1="0" x2="180" y2="620"/><line x1="820" y1="0" x2="820" y2="620"/>
+              <line x1="0" y1="120" x2="1000" y2="120"/>
+            </g>
+            <g stroke="#4a4038" stroke-width="4" opacity=".8">
+              <line x1="180" y1="120" x2="820" y2="430"/><line x1="820" y1="120" x2="180" y2="430"/>
+            </g>
+            <!-- 大窓 -->
+            <rect x="220" y="150" width="560" height="250" fill="#16283a"/>
+            <g stroke="#0f1a26" stroke-width="8"><line x1="400" y1="150" x2="400" y2="400"/><line x1="600" y1="150" x2="600" y2="400"/><line x1="220" y1="278" x2="780" y2="278"/></g>
+            <g fill="#c8783a" opacity=".45"><rect x="250" y="190" width="12" height="16"/><rect x="300" y="230" width="12" height="16"/><rect x="640" y="200" width="12" height="16"/><rect x="700" y="320" width="12" height="16"/></g>
+            <!-- 床 -->
+            <rect y="440" width="1000" height="180" fill="#4a3222"/>
+            <g stroke="#2B2620" stroke-width="2" opacity=".55"><line x1="0" y1="496" x2="1000" y2="496"/><line x1="0" y1="556" x2="1000" y2="556"/></g>
+            <!-- 家具シルエット -->
+            <g fill="#2B2620" opacity=".85">
+              <rect x="250" y="380" width="200" height="90" rx="5"/>
+              <rect x="560" y="360" width="230" height="110" rx="5"/>
+            </g>
+            <g stroke="#6B4A32" stroke-width="6" opacity=".7">
+              <line x1="270" y1="470" x2="270" y2="510"/><line x1="430" y1="470" x2="430" y2="510"/>
+              <line x1="580" y1="470" x2="580" y2="516"/><line x1="770" y1="470" x2="770" y2="516"/>
+            </g>
+            <!-- 工事シート感のストライプ -->
+            <g opacity=".14">
+              <rect width="1000" height="620" fill="url(#stp)"/>
+              <defs><pattern id="stp" width="46" height="46" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="23" height="46" fill="#E4DACA"/></pattern></defs>
+            </g>
+            <ellipse cx="500" cy="300" rx="400" ry="200" fill="#000" opacity=".35" filter="url(#b3)"/>
+          </svg>
+          <span class="ph-label">Room 03 / crash gate — in preparation</span>
+        </div>
+      </div>
+      <div class="rm-txt">
+        <span class="rm-no">03</span>
+        <div class="inner">
+          <div class="rm-brand"><span class="tag">crash gate</span><span class="tag soon">Coming Soon</span></div>
+          <h3>Industrial<br>Modern<em>準備中</em></h3>
+          <p class="jp">アイアンと無垢材のコントラストで組み上げる3室目。いま、いちばん骨太な部屋をつくっています。オープンは追ってお知らせします。</p>
+          <div class="rm-meta">
+            <div><span>Size</span><b>TBA</b></div>
+            <div><span>Guests</span><b>TBA</b></div>
+            <div><span>Open</span><b>2026 —</b></div>
+          </div>
+          <a href="#" class="rm-link"><span>Get Notified</span><span>→</span></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================ EXPERIENCE -->
+<section id="experience" class="exp mat-forest">
+  <div class="wrap">
+    <div class="sec-idx rv" style="color:var(--chalk)"><span class="n">03</span><span class="l">Experience</span><span class="line"></span></div>
+    <div class="exp-head">
+      <h2 class="rv">Step out.<br><em>The city is the lobby.</em></h2>
+      <p class="rv d1">御苑の芝生、路地裏の喫茶店、深夜のうどん。<br>玄関を出た瞬間から、滞在は始まっています。</p>
+    </div>
+
+    <div class="exp-rail">
+      <!-- 01 GYOEN -->
+      <div class="exp-card rv">
+        <div class="ph">
+          <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="新宿御苑">
+            <defs><linearGradient id="e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb0c9"/><stop offset="1" stop-color="#d8dcc9"/></linearGradient></defs>
+            <rect width="600" height="800" fill="url(#e1)"/>
+            <g fill="#1f4463" opacity=".35"><rect x="20" y="80" width="60" height="200"/><rect x="470" y="40" width="80" height="240"/><rect x="380" y="120" width="46" height="160"/></g>
+            <g fill="#1F3A2E"><ellipse cx="140" cy="270" rx="150" ry="120"/><ellipse cx="430" cy="230" rx="170" ry="130"/><ellipse cx="290" cy="330" rx="180" ry="120"/></g>
+            <g fill="#33553F" opacity=".85"><ellipse cx="110" cy="220" rx="70" ry="52"/><ellipse cx="450" cy="180" rx="80" ry="56"/></g>
+            <g fill="#4a3222"><rect x="126" y="360" width="30" height="180"/><rect x="418" y="330" width="24" height="210"/></g>
+            <rect y="470" width="600" height="330" fill="#3f6b46"/>
+            <path d="M0 640 Q300 560 600 636 L600 800 L0 800 Z" fill="#4f7d52"/>
+            <g stroke="#2c5033" stroke-width="3" opacity=".4"><path d="M0 700 Q300 640 600 706"/><path d="M0 748 Q300 690 600 754"/></g>
+            <!-- 人影 -->
+            <g fill="#1F3A2E" opacity=".8"><ellipse cx="200" cy="690" rx="34" ry="12"/><rect x="186" y="630" width="14" height="60" rx="6"/><circle cx="193" cy="620" r="11"/>
+              <ellipse cx="248" cy="700" rx="30" ry="11"/><rect x="238" y="646" width="12" height="54" rx="6"/><circle cx="244" cy="638" r="10"/></g>
+          </svg>
+        </div>
+        <div class="meta"><span class="n">01</span><h4>Gyoen</h4></div>
+        <p>徒歩3分。朝いちの芝生はほぼ貸切です。</p>
+      </div>
+
+      <!-- 02 STREET -->
+      <div class="exp-card rv d1">
+        <div class="ph">
+          <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="新宿の路地">
+            <rect width="600" height="800" fill="#152230"/>
+            <g fill="#1f3448"><rect x="0" y="0" width="200" height="800"/><rect x="400" y="0" width="200" height="800"/></g>
+            <g fill="#0e1a26"><rect x="200" y="0" width="200" height="560"/></g>
+            <!-- 縦看板 -->
+            <g>
+              <rect x="40" y="120" width="52" height="230" fill="#C8783A"/>
+              <g fill="#2B2620"><rect x="56" y="146" width="20" height="20"/><rect x="56" y="184" width="20" height="20"/><rect x="56" y="222" width="20" height="20"/><rect x="56" y="260" width="20" height="20"/></g>
+              <rect x="500" y="70" width="46" height="290" fill="#1F3A2E"/>
+              <g fill="#e8c98f"><rect x="514" y="100" width="18" height="18"/><rect x="514" y="136" width="18" height="18"/><rect x="514" y="172" width="18" height="18"/></g>
+              <rect x="440" y="400" width="120" height="40" fill="#E4DACA"/>
+            </g>
+            <!-- 提灯 -->
+            <g fill="#e8c98f"><ellipse cx="150" cy="430" rx="22" ry="28"/><ellipse cx="210" cy="450" rx="20" ry="26"/><ellipse cx="270" cy="428" rx="22" ry="28"/></g>
+            <g stroke="#c8783a" stroke-width="2" opacity=".5"><line x1="128" y1="430" x2="292" y2="418"/></g>
+            <!-- 濡れた路面 -->
+            <rect y="560" width="600" height="240" fill="#0a1420"/>
+            <g opacity=".45" fill="#e8c98f"><rect x="140" y="580" width="18" height="180"/><rect x="204" y="580" width="14" height="150"/><rect x="264" y="580" width="18" height="190"/></g>
+            <g opacity=".3" fill="#C8783A"><rect x="52" y="580" width="30" height="210"/></g>
+            <!-- 人 -->
+            <g fill="#050c14"><rect x="330" y="470" width="26" height="120" rx="12"/><circle cx="343" cy="456" r="18"/></g>
+          </svg>
+        </div>
+        <div class="meta"><span class="n">02</span><h4>Yokocho</h4></div>
+        <p>新宿三丁目の路地。深夜1時でも灯りが残っている。</p>
+      </div>
+
+      <!-- 03 COFFEE -->
+      <div class="exp-card rv d2">
+        <div class="ph">
+          <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="喫茶店">
+            <rect width="600" height="800" fill="#E4DACA"/>
+            <rect y="0" width="600" height="360" fill="#6B4A32"/>
+            <g stroke="#4a3222" stroke-width="3" opacity=".5"><line x1="0" y1="96" x2="600" y2="96"/><line x1="0" y1="196" x2="600" y2="196"/><line x1="0" y1="288" x2="600" y2="288"/></g>
+            <!-- 棚のカップ -->
+            <g fill="#E4DACA"><rect x="60" y="46" width="40" height="46" rx="5"/><rect x="130" y="52" width="34" height="40" rx="5"/><rect x="200" y="42" width="44" height="50" rx="5"/></g>
+            <g fill="#1B3A57"><rect x="300" y="140" width="52" height="54" rx="4"/><rect x="380" y="146" width="44" height="48" rx="4"/></g>
+            <g fill="#1F3A2E"><rect x="470" y="132" width="60" height="62" rx="6"/></g>
+            <!-- カウンター -->
+            <rect y="360" width="600" height="60" fill="#8f6743"/>
+            <rect y="420" width="600" height="380" fill="#d3c6b0"/>
+            <!-- カップとケトル -->
+            <g>
+              <ellipse cx="200" cy="520" rx="96" ry="26" fill="#c2b49c"/>
+              <path d="M140 470 h120 l-14 60 h-92 z" fill="#F3EEE3"/>
+              <ellipse cx="200" cy="470" rx="60" ry="16" fill="#4a3222"/>
+              <path d="M262 486 q34 14 0 32" stroke="#F3EEE3" stroke-width="10" fill="none"/>
+            </g>
+            <g>
+              <rect x="380" y="430" width="120" height="110" rx="10" fill="#2B2620"/>
+              <path d="M500 460 q40 30 0 60" stroke="#2B2620" stroke-width="10" fill="none"/>
+              <rect x="416" y="404" width="48" height="26" rx="6" fill="#2B2620"/>
+            </g>
+            <!-- 湯気 -->
+            <g stroke="#F3EEE3" stroke-width="5" fill="none" opacity=".55" stroke-linecap="round">
+              <path d="M186 440 q-14 -26 6 -44 q18 -18 4 -40"/>
+              <path d="M216 446 q-14 -22 6 -40"/>
+            </g>
+            <rect y="700" width="600" height="100" fill="#6B4A32"/>
+          </svg>
+        </div>
+        <div class="meta"><span class="n">03</span><h4>Kissa</h4></div>
+        <p>昭和から続く喫茶店が、まだ何軒も残っています。</p>
+      </div>
+
+      <!-- 04 ARCHITECTURE -->
+      <div class="exp-card rv d3">
+        <div class="ph">
+          <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="東京の建築">
+            <defs><linearGradient id="e4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d6a92"/><stop offset="1" stop-color="#c2a184"/></linearGradient></defs>
+            <rect width="600" height="800" fill="url(#e4)"/>
+            <g fill="#152f47"><rect x="0" y="240" width="150" height="560"/><rect x="160" y="150" width="120" height="650"/><rect x="300" y="320" width="90" height="480"/><rect x="410" y="200" width="190" height="600"/></g>
+            <g fill="#1B3A57" opacity=".9"><rect x="120" y="380" width="60" height="420"/><rect x="380" y="440" width="60" height="360"/></g>
+            <g fill="#e8c98f" opacity=".55">
+              <rect x="182" y="200" width="14" height="20"/><rect x="214" y="200" width="14" height="20"/><rect x="246" y="236" width="14" height="20"/>
+              <rect x="182" y="272" width="14" height="20"/><rect x="214" y="308" width="14" height="20"/>
+              <rect x="440" y="250" width="14" height="20"/><rect x="482" y="250" width="14" height="20"/><rect x="524" y="286" width="14" height="20"/>
+              <rect x="440" y="322" width="14" height="20"/><rect x="566" y="358" width="14" height="20"/>
+              <rect x="30" y="300" width="14" height="20"/><rect x="72" y="340" width="14" height="20"/>
+            </g>
+            <!-- 電線 -->
+            <g stroke="#0e1a26" stroke-width="3" fill="none" opacity=".8">
+              <path d="M0 140 Q300 200 600 130"/><path d="M0 176 Q300 240 600 168"/>
+            </g>
+            <g fill="#2B2620"><rect x="286" y="90" width="12" height="150"/><rect x="256" y="106" width="72" height="8"/><rect x="262" y="134" width="60" height="8"/></g>
+            <!-- 木 -->
+            <g fill="#1F3A2E"><ellipse cx="70" cy="700" rx="90" ry="66"/><ellipse cx="540" cy="740" rx="80" ry="56"/></g>
+          </svg>
+        </div>
+        <div class="meta"><span class="n">04</span><h4>Skyline</h4></div>
+        <p>電線と高層ビルと木。東京らしい風景がぜんぶある。</p>
+      </div>
+    </div>
+
+    <div class="exp-strip rv">
+      <span class="k">Shinjuku Gyoen 3min</span>
+      <span class="k">Isetan 9min</span>
+      <span class="k">Golden Gai 12min</span>
+      <span class="k">Omoide Yokocho 14min</span>
+      <span class="k">Yoyogi Park 18min</span>
+      <span class="k">Haneda 45min</span>
+      <span class="k">Narita 90min</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MATERIAL -->
+<section id="material" class="material mat-shadow">
+  <div class="wrap">
+    <div class="sec-idx rv" style="color:var(--paper)"><span class="n">04</span><span class="l">Material</span><span class="line"></span></div>
+    <div class="mt-head">
+      <h2 class="rv">Four Materials.<br><em>One house.</em></h2>
+      <p class="rv d1">この建物は、たった4つの素材でできています。手で触れられるものだけで、世界観をつくりました。</p>
+    </div>
+
+    <div class="mt-grid">
+      <div class="mt-cell mat-denim rv">
+        <span class="hex">#1B3A57</span><span class="grad"></span>
+        <div class="mt-body">
+          <span class="n">Material 01</span>
+          <b>Denim</b><em>indigo, worn</em>
+          <p>ソファ、カーテン、ベッドスロー。触れる面はすべて、洗うほど良くなる布に。</p>
+        </div>
+      </div>
+      <div class="mt-cell mat-wood vertical rv d1">
+        <span class="hex">#6B4A32</span><span class="grad"></span>
+        <div class="mt-body">
+          <span class="n">Material 02</span>
+          <b>Wood</b><em>solid, warm</em>
+          <p>床・柱・建具。節も色ムラもそのまま活かした無垢材を使っています。</p>
+        </div>
+      </div>
+      <div class="mt-cell mat-forest rv d2">
+        <span class="hex">#1F3A2E</span><span class="grad"></span>
+        <div class="mt-body">
+          <span class="n">Material 03</span>
+          <b>Forest</b><em>the garden</em>
+          <p>窓辺の鉢、玄関の植栽、そして御苑。緑は室内にも少しずつ引き込みます。</p>
+        </div>
+      </div>
+      <div class="mt-cell rv d3" style="background:#1a1613">
+        <span class="hex" style="color:var(--paper);opacity:.5">#2B2620</span>
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;z-index:1" aria-hidden="true">
+          <rect width="400" height="500" fill="#2B2620"/>
+          <g opacity=".5"><rect x="40" y="0" width="26" height="500" fill="#3f372e"/><rect x="140" y="0" width="26" height="500" fill="#3f372e"/><rect x="240" y="0" width="26" height="500" fill="#3f372e"/><rect x="340" y="0" width="26" height="500" fill="#3f372e"/></g>
+          <g opacity=".85"><path d="M0 0 L400 0 L400 500 L0 500 Z" fill="url(#shdw)"/>
+            <defs><linearGradient id="shdw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8c98f" stop-opacity=".22"/><stop offset=".45" stop-color="#2B2620" stop-opacity=".2"/><stop offset="1" stop-color="#0d0b09" stop-opacity=".8"/></linearGradient></defs></g>
+          <g opacity=".5" fill="#0d0b09"><path d="M60 120 L220 60 L300 200 L120 280 Z"/><path d="M180 340 L360 300 L400 440 L200 480 Z"/></g>
+        </svg>
+        <span class="grad"></span>
+        <div class="mt-body">
+          <span class="n">Material 04</span>
+          <b>Shadow</b><em>and light</em>
+          <p>格子から落ちる影も、素材のひとつ。時間で表情が変わる部屋です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LOCATION -->
+<section id="location" class="loc">
+  <div class="wrap">
+    <div class="sec-idx rv"><span class="n">05</span><span class="l">Location &amp; Access</span><span class="line"></span></div>
+    <div class="loc-grid">
+
+      <div class="loc-map rv" id="access">
+        <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="新宿御苑周辺図">
+          <rect width="900" height="700" fill="#E4DACA"/>
+          <!-- 御苑 -->
+          <path d="M470 250 q120 -60 250 10 q80 60 60 190 q-30 150 -220 160 q-180 10 -210 -140 q-24 -140 120 -220 Z" fill="#1F3A2E" opacity=".9"/>
+          <g fill="#33553F" opacity=".7"><ellipse cx="620" cy="360" rx="80" ry="56"/><ellipse cx="720" cy="480" rx="60" ry="44"/><ellipse cx="540" cy="470" rx="66" ry="46"/></g>
+          <!-- 街区 -->
+          <g fill="#d3c6b0">
+            <rect x="30" y="60" width="150" height="120"/><rect x="200" y="60" width="120" height="120"/>
+            <rect x="340" y="60" width="180" height="90"/><rect x="30" y="200" width="150" height="140"/>
+            <rect x="200" y="200" width="120" height="140"/><rect x="340" y="170" width="100" height="170"/>
+            <rect x="30" y="360" width="110" height="130"/><rect x="160" y="360" width="160" height="130"/>
+            <rect x="30" y="510" width="150" height="150"/><rect x="200" y="510" width="140" height="150"/>
+            <rect x="360" y="510" width="120" height="150"/>
+          </g>
+          <!-- 道路 -->
+          <g stroke="#F3EEE3" stroke-width="18" stroke-linecap="square">
+            <line x1="0" y1="192" x2="900" y2="192"/><line x1="0" y1="350" x2="900" y2="350"/>
+            <line x1="0" y1="500" x2="900" y2="500"/>
+            <line x1="190" y1="0" x2="190" y2="700"/><line x1="330" y1="0" x2="330" y2="700"/>
+            <line x1="490" y1="0" x2="490" y2="700"/>
+          </g>
+          <g stroke="#c2b49c" stroke-width="1.5" stroke-dasharray="6 8">
+            <line x1="0" y1="192" x2="900" y2="192"/><line x1="330" y1="0" x2="330" y2="700"/>
+          </g>
+          <!-- 甲州街道っぽい太い道 -->
+          <g><line x1="0" y1="640" x2="900" y2="600" stroke="#c2b49c" stroke-width="26"/>
+            <line x1="0" y1="640" x2="900" y2="600" stroke="#F3EEE3" stroke-width="18"/></g>
+          <!-- 鉄道 -->
+          <g><line x1="0" y1="96" x2="900" y2="66" stroke="#2B2620" stroke-width="7"/>
+            <line x1="0" y1="96" x2="900" y2="66" stroke="#E4DACA" stroke-width="3" stroke-dasharray="10 10"/></g>
+          <!-- 駅 -->
+          <g>
+            <rect x="96" y="60" width="70" height="34" rx="4" fill="#1B3A57"/>
+            <text x="131" y="83" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#F3EEE3">JR</text>
+            <circle cx="470" cy="330" r="11" fill="#F3EEE3" stroke="#1F3A2E" stroke-width="5"/>
+            <text x="470" y="308" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2B2620" letter-spacing="1">GYOENMAE</text>
+            <circle cx="196" cy="500" r="10" fill="#F3EEE3" stroke="#6B4A32" stroke-width="5"/>
+            <text x="196" y="478" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2B2620" letter-spacing="1">SHINJUKU 3</text>
+          </g>
+          <text x="600" y="452" font-family="Instrument Serif, serif" font-style="italic" font-size="36" fill="#E4DACA" opacity=".9">Shinjuku Gyoen</text>
+          <text x="600" y="484" font-family="IBM Plex Mono, monospace" font-size="12" fill="#7fa07f" letter-spacing="3">58.3 HA OF QUIET</text>
+          <!-- 徒歩ルート -->
+          <path d="M366 386 L470 386 L470 340" fill="none" stroke="#C8783A" stroke-width="3" stroke-dasharray="7 8"/>
+        </svg>
+        <div class="pin">
+          <span class="bub">K3V — Here</span>
+          <span class="stem"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="loc-info">
+        <h2 class="rv">Two minutes<em>from the gate.</em></h2>
+        <p class="addr rv d1">
+          〒160-0022<br>
+          東京都新宿区新宿1丁目 ×-×-×<br>
+          K3V SHINJUKU GYOEN
+        </p>
+        <ul class="acc rv d1">
+          <li><span class="p"><span class="ln m"></span><b>丸ノ内線 新宿御苑前</b></span><i>3<small>min</small></i></li>
+          <li><span class="p"><span class="ln"></span><b>副都心線 新宿三丁目</b></span><i>7<small>min</small></i></li>
+          <li><span class="p"><span class="ln j"></span><b>JR 新宿駅 東南口</b></span><i>8<small>min</small></i></li>
+          <li><span class="p"><span class="ln m"></span><b>新宿御苑 大木戸門</b></span><i>3<small>min</small></i></li>
+        </ul>
+        <div class="loc-hoods rv d2">
+          <div class="h">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="250" fill="#1B3A57"/>
+              <g fill="#152f47"><rect x="0" y="80" width="90" height="170"/><rect x="110" y="40" width="70" height="210"/><rect x="200" y="110" width="60" height="140"/><rect x="280" y="60" width="120" height="190"/></g>
+              <g fill="#e8c98f" opacity=".55"><rect x="126" y="70" width="10" height="14"/><rect x="152" y="100" width="10" height="14"/><rect x="304" y="90" width="10" height="14"/><rect x="352" y="130" width="10" height="14"/></g>
+              <g fill="#1F3A2E"><ellipse cx="50" cy="230" rx="70" ry="40"/></g>
+            </svg>
+            <span class="t">Shinjuku 3-chome</span>
+          </div>
+          <div class="h">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="250" fill="#33553F"/>
+              <g fill="#1F3A2E"><ellipse cx="90" cy="90" rx="120" ry="86"/><ellipse cx="300" cy="70" rx="130" ry="80"/></g>
+              <rect y="160" width="400" height="90" fill="#4f7d52"/>
+              <g fill="#4a3222"><rect x="80" y="140" width="20" height="60"/><rect x="290" y="130" width="16" height="60"/></g>
+              <path d="M0 210 Q200 176 400 214 L400 250 L0 250 Z" fill="#3f6b46"/>
+            </svg>
+            <span class="t">Gyoen Ogido Gate</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CTA -->
+<section id="book" class="cta mat-denim">
+  <div class="stitch top" style="position:absolute;top:0;left:0;right:0;height:14px;z-index:5"></div>
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="cta-l">
+        <span class="lab rv">Direct Booking — Best Rate Guaranteed</span>
+        <h2 class="rv d1">Stay in the<br>heart of Tokyo.<em>Live it beautifully.</em></h2>
+      </div>
+      <div class="cta-r">
+        <p class="rv d1">公式サイトからのご予約が、いちばんお得です。OTA手数料のぶん、そのまま宿泊料に還元しています。</p>
+        <div class="cta-actions rv d2">
+          <a href="#" class="btn btn-book"><span>Book Your Stay</span><span class="arw">→</span></a>
+          <a href="#" class="btn btn-ghost" style="color:var(--chalk)"><span>Ask a Question</span></a>
+        </div>
+        <div class="cta-price rv d2">
+          <b>¥18,000</b><span>/ night — from, 2 guests</span>
+        </div>
+        <p class="cta-note rv d3">Check-in 16:00 — Check-out 11:00<br>Self check-in / Free Wi-Fi / Washer &amp; Dryer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-brand">
+      <div class="k">K3<em>v</em> SHINJUKU GYOEN</div>
+      <p>新宿御苑のすぐそばで、東京を暮らすように滞在する。家具ブランドごとにコンセプトが異なる、全3室のデザイナーズ民泊。</p>
+    </div>
+    <div class="ft-col">
+      <h5>Stay</h5>
+      <a href="#rooms">Room 01 — unico</a>
+      <a href="#rooms">Room 02 — journal standard</a>
+      <a href="#rooms">Room 03 — crash gate</a>
+      <a href="#book">Book Direct</a>
+    </div>
+    <div class="ft-col">
+      <h5>House</h5>
+      <a href="#concept">Concept</a>
+      <a href="#material">Material</a>
+      <a href="#experience">Experience</a>
+      <a href="#location">Access</a>
+    </div>
+    <div class="ft-col">
+      <h5>Info</h5>
+      <a href="#">House Rules</a>
+      <a href="#">FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">住宅宿泊事業法 表示</a>
+    </div>
+    <div class="ft-col">
+      <h5>Follow</h5>
+      <a href="#">Instagram</a>
+      <a href="#">Airbnb</a>
+      <a href="#">Booking.com</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 K3V Shinjuku Gyoen</span>
+    <span>Wood × Denim × Forest × Shadow</span>
+    <span>Mock 07 — Top Page</span>
+  </div>
+</footer>
+
+<script>
+// nav solidify
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('solid', window.scrollY > 80);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+// reveal
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

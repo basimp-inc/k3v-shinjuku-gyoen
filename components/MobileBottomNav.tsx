@@ -122,6 +122,7 @@ export default function MobileBottomNav() {
 
   return (
     <nav
+      data-chrome="current"
       className="fixed inset-x-0 bottom-0 z-50 lg:hidden"
       aria-label="Mobile navigation"
     >

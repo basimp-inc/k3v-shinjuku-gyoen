@@ -45,6 +45,7 @@ export default function NavClient({ locale, links, ctaLabel }: NavClientProps) {
 
   return (
     <header
+      data-chrome='current'
       className={`sticky top-0 z-50 w-full bg-(--color-bg)/85 backdrop-blur-md transition-transform duration-300 ${
         hidden ? "-translate-y-full" : "translate-y-0"
       }`}
