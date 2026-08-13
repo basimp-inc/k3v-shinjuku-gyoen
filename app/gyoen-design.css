@@ -66,6 +66,13 @@
 
   --gy-grain: none;
 
+  /* The gutter .wrap leaves. The full-bleed bands (nav, hero ledge) line their
+     content up with this instead of carrying their own 4vw padding, which put
+     the logo and the walk times 11px left of every other element on the page.
+     The percentage resolves against the band's own width, so it only belongs
+     on edge-to-edge elements. */
+  --edge: max(16px, calc((100% - min(1320px, 92vw)) / 2));
+
   --dsp: "Fraunces", "Times New Roman", serif;
   --ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --gjp: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
@@ -360,7 +367,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px clamp(16px, 4vw, 40px);
+    padding: 18px var(--edge);
     transition:
       background 0.35s,
       backdrop-filter 0.35s,
@@ -536,7 +543,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px 28px;
-    padding: clamp(14px, 2vw, 20px) clamp(16px, 4vw, 40px);
+    padding: clamp(14px, 2vw, 20px) var(--edge);
     color: var(--cream);
     position: relative;
     z-index: 2;
@@ -639,8 +646,12 @@
     font-size: 0.8125rem;
     color: var(--green);
   }
+  /* Pinned to the second row so it sits beside the body/aside pair. Left to
+     auto-placement it lands on a third row of its own, which leaves a void the
+     width of nine columns beside it and an empty left column above it. */
   .concept-fig {
     grid-column: 1/4;
+    grid-row: 2;
     margin-top: clamp(26px, 4vw, 46px);
     position: relative;
   }
@@ -749,8 +760,12 @@
     -webkit-text-stroke-color: var(--wood-rose-hi);
   }
 
+  /* ROOM 03 closes the section on the deep ground its type was written for —
+     every colour below (cream h3, sky jpsub, cream/78% body) assumes a dark
+     surface, so without this the whole room reads at ~1.2:1 on the paper. */
   .r03 {
     padding: clamp(30px, 5vw, 60px) clamp(20px, 4vw, 54px);
+    background: var(--green-deep);
     color: var(--cream);
     margin-bottom: 0;
   }
@@ -822,11 +837,13 @@
     width: 100%;
     height: auto;
   }
+  /* 10px sky at 0.6 on the deep green sat around 3:1 — the smallest type on the
+     page was also the faintest. Same weight the ledge captions carry. */
   .loc .mapnote {
     font-family: var(--gmono);
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     letter-spacing: 0.1em;
-    color: rgb(169 195 214 / 0.6);
+    color: rgb(169 195 214 / 0.82);
     margin-top: 12px;
   }
   .walk {
@@ -864,8 +881,17 @@
     background: var(--paper);
     overflow: hidden;
   }
+  /* The Amenities .wrap is not a grid, so the source mock's column span never
+     applied and the lead ran the full 1178px measure — twice as long a line as
+     every other lead on the page. Capped as a block so label, display line,
+     subhead and lead all share one edge. */
   .exp-head {
-    grid-column: 1/6;
+    max-width: 42em;
+  }
+  /* .hero and .loc give their lead 22–30px off the heading; this one had only
+     its leading, so heading and lead ran together as one block. */
+  .exp-head .jp-lead {
+    margin-top: 22px;
   }
   .exp-head h2 {
     color: var(--green);
@@ -1085,6 +1111,9 @@
     .concept-fig {
       grid-column: 1/13;
     }
+    .concept-fig {
+      grid-row: auto;
+    }
     .r01 .fig,
     .r01 .meta,
     .r02 .fig,
@@ -1149,7 +1178,13 @@
       flex: 0 0 auto;
     }
     .exp-head {
-      grid-column: 1/13;
+      max-width: none;
+    }
+    /* space-between on a wrapped row strands the third walk time alone on a
+       second line with a full column gap beside it */
+    .ledge-inner {
+      justify-content: flex-start;
+      gap: 8px 22px;
     }
     .m1,
     .m2,

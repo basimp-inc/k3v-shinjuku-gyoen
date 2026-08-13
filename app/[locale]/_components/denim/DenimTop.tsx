@@ -418,7 +418,9 @@ export default async function DenimTop() {
                     {r.tag}
                   </span>
                   <h3 className="dsp">{r.subtitle}</h3>
-                  <p className="jp jp-s" style={{ color: "var(--ink-soft)", maxWidth: "34ch" }}>
+                  {/* 48ch, not 34: `ch` is the half-width "0" in the JP face,
+                      so 34 gave 17 Japanese characters in a 424px column */}
+                  <p className="jp jp-s" style={{ color: "var(--ink-soft)", maxWidth: "48ch" }}>
                     {r.text}
                   </p>
                   <Link className="btn-ghost" href={`/rooms/${r.slug}`} style={{ color: "var(--green-deep)" }}>

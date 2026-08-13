@@ -377,8 +377,11 @@ export default async function GyoenTop() {
             </div>
             <div className="wrap grid" style={{ width: "100%" }}>
               <div className="numwrap num-out">02</div>
+              {/* The rosewood panel starts at 30%, so this copy sits on the
+                  paper, not on the wood — sky (#a9c3d6) would read at ~1.5:1.
+                  Same pairing ROOM 01 uses on the same ground. */}
               <div className="meta">
-                <p className="mono" style={{ color: "var(--sky)" }}>
+                <p className="mono" style={{ color: "var(--sky-deep)" }}>
                   {rooms[1]?.name}
                 </p>
                 <h3 className="dsp">{rooms[1]?.subtitle}</h3>
@@ -386,7 +389,7 @@ export default async function GyoenTop() {
                 <p className="desc">{rooms[1]?.text}</p>
                 <Link
                   className="btn-ghost"
-                  style={{ color: "var(--sky)", alignSelf: "flex-start" }}
+                  style={{ color: "var(--green)", alignSelf: "flex-start" }}
                   href={`/rooms/${rooms[1]?.slug}`}
                 >
                   {rooms[1]?.cta}

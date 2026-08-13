@@ -31,14 +31,38 @@
    =========================================================================== */
 .doma-top {
   /* Hero — the canonical headline is two full 和文 sentences, longer than the
-     short display line the source mock was set for, so the display size steps
-     down to keep it to the two lines the copy is written as. */
+     short display line the source mock was set for, so the display size is
+     capped at the largest value that still keeps the copy to the two lines it
+     is written as: 42px against the 614px hero column, 24px at 375px. Those
+     two numbers are measured, not chosen — one step up wraps at either end. */
   .hero h1 {
-    font-size: clamp(24px, 3vw, 39px);
+    font-size: clamp(24px, 3.3vw, 42px);
+  }
+  /* The section heads sit a step below the hero. At the source mock's 44px they
+     outsized the h1, so the page's most important line was also its smallest
+     display line. */
+  .h2 {
+    font-size: clamp(23px, 2.9vw, 36px);
+  }
+  /* …and the hero's supporting line matches the section leads rather than
+     sitting a point under them. */
+  .hero-sub {
+    font-size: 16.5px;
   }
   .mock-lead {
     margin-top: 20px;
     max-width: 40em;
+  }
+
+  /* The clay ticker is this design's seam between 和紙 and 粉引, so it has to
+     BE the seam: the hero's bottom padding moves onto the grid above it, which
+     also buys the CTA row clearance it did not have (the primary button's
+     bottom edge and the strip's top edge were the same pixel). */
+  .hero {
+    padding-bottom: 0;
+  }
+  .hero-grid {
+    padding-bottom: clamp(38px, 4.6vw, 64px);
   }
 
   /* PrimeLocation — the canonical stat value is a whole phrase ("徒歩6分"),
@@ -46,6 +70,19 @@
   .routes-plain .min {
     font-size: 19px;
     letter-spacing: 0.01em;
+  }
+
+  /* Both two-column blocks (PrimeLocation, Access) pair a short list against a
+     tall figure — 182px of routes beside a 411px plate. Top-aligned that left a
+     dead quarter-column under the list; centred, the difference reads as
+     framing. The leading margins go with it: each list is the first thing in
+     its column now, so the 24px the source mock used to clear preceding copy
+     only skewed the centring. */
+  .loc-grid {
+    align-items: center;
+  }
+  .routes {
+    margin-top: 0;
   }
 
   /* PrimeLocation — the four neighbourhood spots */
@@ -115,17 +152,26 @@
   .room-3col .room-jp {
     max-width: 40em;
   }
+  /* Centring the row suits the action, but it left the 高台 numeral floating
+     level with the description instead of with the room it numbers. It aligns
+     to the brand line; the -4px centres the 44px disc on the 36px cap line. */
+  .room-3col .room-no {
+    align-self: start;
+    margin-top: -4px;
+  }
   .room-go .btn {
     margin-top: 0;
     white-space: nowrap;
   }
+  /* clear of the 16px that separates one stripe from the next, so the section
+     action does not read as a fourth room */
   .mock-viewall {
-    margin-top: 26px;
+    margin-top: 34px;
   }
 
   /* Access */
   .mock-details {
-    margin-top: 24px;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -202,6 +248,13 @@
       flex-wrap: wrap;
       row-gap: 2px;
     }
+    /* Wrapped, the two hero actions came out at two different widths with the
+       primary the narrower of the pair — the hierarchy read backwards. Stacked
+       full-width they read as a deliberate pair, and both clear 52px of tap
+       target on their own line. */
+    .hero-cta .btn {
+      flex: 1 0 100%;
+    }
   }
 }
 
@@ -252,14 +305,18 @@
     letter-spacing: 0;
     text-transform: none;
   }
+  /* The clamp minimums are set against the 15px lead, not scaled down from the
+     desktop size: at the old 17px/16px floors the 和文 subhead and the body
+     copy read as the same rank on a phone, which is where most of this page is
+     seen. The maxima are unchanged, so the desktop composition is untouched. */
   .hero h1 {
-    font-size: clamp(17px, 1.9vw, 25px);
+    font-size: clamp(20px, 1.9vw, 25px);
     line-height: 1.8;
     margin-top: 24px;
     max-width: 28em;
   }
   .h2 {
-    font-size: clamp(16px, 1.7vw, 22px);
+    font-size: clamp(19px, 1.7vw, 22px);
     line-height: 1.8;
     margin-top: 14px;
     max-width: 32em;
@@ -283,10 +340,42 @@
     align-items: start;
   }
 
-  /* PrimeLocation */
+  /* Section rhythm. The source mock's 132px block padding doubles to 264px of
+     paper at every seam — more air than a design whose whole argument is a
+     printed sheet can carry, and the direction for this project warns that
+     余白の取りすぎ is what tips a page into looking like a luxury hotel. Tightened
+     enough to close the holes, not so far that the seams stop reading. */
+  .sec-pad {
+    padding-block: clamp(56px, 7.4vw, 108px);
+  }
+
+  /* PrimeLocation — the canonical stat value is a whole phrase ("徒歩6分"), not
+     the number/unit pair the source mock split into .min + .u */
   .routes-plain .min {
     font-family: var(--dsp);
     font-size: 19px;
+  }
+  /* The routes list is the left half of .loc-grid, so its own 30px top margin
+     started it below the illustration it sits beside — a visible misalignment
+     on desktop and a doubled gap once the grid stacks on mobile. */
+  .loc-grid .routes-plain {
+    margin-top: 0;
+  }
+  .routes-plain div {
+    padding-block: 18px;
+  }
+  /* The illustration is 4:3, so at a full half of the container it stood 439px
+     tall next to a 160px list — that difference reads as a hole rather than as
+     white space. Capping it keeps the figure flush to the container edge while
+     bringing the two columns within one paragraph of each other. Only while
+     .loc-grid is actually two columns: below 1080 it stacks, and a capped,
+     right-pinned figure would strand a band of paper beside it. */
+  @media (min-width: 1081px) {
+    .plate {
+      width: 100%;
+      max-width: 480px;
+      justify-self: end;
+    }
   }
   .exp-grid-4 {
     grid-template-columns: repeat(4, 1fr);
@@ -350,12 +439,32 @@
     margin-top: 18px;
   }
   .mock-viewall {
-    margin-top: 40px;
+    margin-top: 52px;
+  }
+
+  /* Renovated — the overprint swatch is the point of the section, but at the
+     source mock's 190px it took more than half of a card that carries no
+     content on it, so three flat slabs outweighed the text they belong to.
+     Sized to sit as a printed patch above its caption instead. */
+  .ink-swatch {
+    height: 132px;
   }
 
   /* Access */
+  /* The map is the taller column by ~200px. Stretching the left column and
+     dropping the booking CTA to its foot closes that hole and puts the CTA on
+     the same line as the bottom trim of the map. */
+  .loc-grid:has(.map) {
+    align-items: stretch;
+  }
+  .loc-grid:has(.map) > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .mock-details {
     margin-top: 26px;
+    margin-bottom: 28px;
     display: grid;
     gap: 2px;
   }
@@ -377,10 +486,10 @@
     margin-top: 5px;
   }
   .mock-access-cta {
-    margin-top: 28px;
+    margin-top: auto;
   }
   .mock-map {
-    aspect-ratio: 4 / 3.4;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     box-shadow: 0 0 0 2px var(--ink);
   }
@@ -405,8 +514,11 @@
     .ink-grid {
       grid-template-columns: 1fr;
     }
+    /* Two, not three: eight items over three columns leave the last row a
+       cell short, and on a tiled list that empty cell reads as a dropped
+       item rather than as the end of the list. */
     .mock-ami {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     .room {
       grid-template-columns: auto 1fr;
@@ -421,8 +533,30 @@
     }
   }
   @media (max-width: 560px) {
+    /* Two up, not one. At full width each spot became a ~380px tall card for a
+       label and a walking time, which made PrimeLocation the longest scroll on
+       the page for its thinnest content. */
     .exp-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .exp-card {
+      padding: 20px 16px 22px;
+    }
+    .exp-card h3 {
+      font-size: 15px;
+    }
+    /* One up, not two: at two columns 「コーヒーメーカー」 broke with a single
+       ー on the second line. A checklist row is full width anyway. */
+    .mock-ami {
       grid-template-columns: 1fr;
+    }
+    /* The two hero actions wrapped to their own lines at unrelated widths,
+       which read as a mistake rather than as a stack. */
+    .hero-cta .btn {
+      flex: 1 1 100%;
+    }
+    .ink-swatch {
+      height: 104px;
     }
     .room {
       grid-template-columns: 1fr;
@@ -485,6 +619,38 @@
   .mhead .mock-dsp {
     color: var(--ecru);
   }
+  /* .mock-dsp is a <p>, and .mhead p / .ehead p / .rhead p — which set the lead
+     paragraph — match it at the same specificity and win on order. Left alone,
+     the display line collapsed to lead size (14px) in Renovated, Amenities and
+     Rooms, and in the two 12-column heads it was also pulled into the right-hand
+     column where the lead lives. Restating it at head scope puts the line back
+     at the head of the left column, as it already is in Hero, PrimeLocation and
+     Access. */
+  .mhead .mock-dsp,
+  .ehead .mock-dsp,
+  .rhead .mock-dsp {
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    margin-top: 0;
+  }
+  .ehead .mock-dsp,
+  .rhead .mock-dsp {
+    color: var(--indigo);
+    grid-column: 1 / 8;
+    grid-row: 1;
+  }
+  /* the Japanese heading is the display line's subhead, so it takes the row
+     below it; the lead spans both rows and keeps its bottom alignment */
+  .ehead h2,
+  .rhead h2 {
+    grid-row: 2;
+  }
+  .ehead > p:not(.mock-dsp),
+  .rhead > p:not(.mock-dsp) {
+    grid-row: 1 / 3;
+    align-self: end;
+  }
   .h1,
   .c-head h2,
   .rhead h2,
@@ -518,6 +684,25 @@
     letter-spacing: 0.02em;
   }
 
+  /* Hero — the chip is a label above a value, but both spans are inline, so
+     "ROOM 01 — 03" and the brand list ran together on one line and the .t
+     margin-top the source mock set was inert. */
+  .hero-chip .n,
+  .hero-chip .t {
+    display: block;
+  }
+  /* Hero — the two actions sit side by side inside the patch and the longer
+     label makes the secondary the wider of the pair. A full-strength border
+     let it read as a peer of the primary; softening it restores the order
+     without touching either label. */
+  .patch .btn-line {
+    border-color: rgba(237, 242, 247, 0.42);
+  }
+  .patch .btn-line:hover {
+    border-color: rgba(237, 242, 247, 0.78);
+    background: rgba(237, 242, 247, 0.08);
+  }
+
   /* PrimeLocation — the walk-time list carries a whole phrase, not a bare
      numeral with a unit, so it steps down from the display size. */
   .acc i {
@@ -529,8 +714,30 @@
   .acc {
     margin-top: 26px;
   }
+  /* PrimeLocation — the six/six split gave the portrait plate the same width as
+     the text column, so it ran ~310px past the bottom of the walk-time list and
+     left a hole beside it. Seven/five keeps the plate portrait, closes most of
+     the gap, and gives the copy and the list the extra width. */
+  .c-left {
+    grid-column: 1 / 8;
+  }
+  .c-fig {
+    grid-column: 8 / 13;
+  }
+  /* the rows are label-left / time-right, so across the full seven columns the
+     pair drifted too far apart to read as one line */
+  .c-left .acc {
+    max-width: 34em;
+  }
   .rail-x {
     margin-top: clamp(40px, 5vw, 68px);
+  }
+  /* the four neighbourhood cards overran the text column by ~40px at desktop
+     widths, so the last one was clipped by the viewport and the rail read as a
+     broken grid rather than a scroller. At 300px they land inside the column;
+     narrower viewports still scroll, which is what the rail is for. */
+  .card {
+    flex-basis: clamp(228px, 25vw, 300px);
   }
   .card p {
     font-family: var(--mono);
@@ -542,6 +749,12 @@
   /* Renovated — three cloths instead of the source mock's four */
   .samples-3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  /* the source mock spaced the sample title off the swatch with a .hex line
+     that the canonical content has no data for, so the title was sitting 3px
+     under the cloth */
+  .sample b {
+    margin-top: 14px;
   }
   .sample p {
     margin-top: 8px;
@@ -592,7 +805,14 @@
     letter-spacing: 0;
   }
 
-  /* Rooms */
+  /* Rooms — the outlined index numeral is meant to cross the seam between the
+     picture and the raw-denim panel, but its near-white stroke only reads on
+     the panel: everything hanging over the light ground and the illustration
+     disappeared, so the glyph looked chopped off. A mid-tone stroke reads on
+     both sides of the seam, which is what the crossing was for. */
+  .band .no {
+    -webkit-text-stroke-color: var(--indigo-fade);
+  }
   .mock-viewall-wrap {
     padding-block: clamp(34px, 4.4vw, 60px);
   }
@@ -608,9 +828,11 @@
     height: 100%;
     border: 0;
   }
+  /* wide enough for the longest value ("東京都新宿区（詳細はお問い合わせください）")
+     to hold one line — at 60% it wrapped to a two-character orphan */
   .mock-detail-value {
     text-align: right;
-    max-width: 60%;
+    max-width: 68%;
   }
   .mock-access-cta {
     margin-top: 26px;
@@ -629,8 +851,35 @@
     .mock-ami {
       grid-template-columns: repeat(2, 1fr);
     }
-    .mock-detail-value {
-      max-width: 55%;
+    /* PrimeLocation stacks here, so the seven/five split above has to let go */
+    .c-left,
+    .c-fig {
+      grid-column: 1 / 13;
+    }
+    .c-left .acc {
+      max-width: none;
+    }
+    /* the heads are single-column here, so the display line spans the width and
+       every part takes its own row again */
+    .ehead .mock-dsp,
+    .rhead .mock-dsp {
+      grid-column: 1 / 13;
+    }
+    .ehead .mock-dsp,
+    .rhead .mock-dsp,
+    .ehead h2,
+    .rhead h2,
+    .ehead > p:not(.mock-dsp),
+    .rhead > p:not(.mock-dsp) {
+      grid-row: auto;
+    }
+    /* the stacked band puts the numeral over the bottom of the picture, where
+       the room-name stamp already sits at the left; it moves to the free side
+       so the two stop overlapping */
+    .band .no,
+    .band.rev .no {
+      left: auto;
+      right: 16px;
     }
   }
   @media (max-width: 600px) {
@@ -639,6 +888,17 @@
     }
     .acc li {
       align-items: flex-start;
+    }
+    /* Access — the values are whole phrases, and holding them to a right-hand
+       half-column broke them into two lines with a one-character orphan. At
+       this width the label leads and the value takes the row under it. */
+    .linfo .acc li {
+      flex-direction: column;
+      gap: 5px;
+    }
+    .mock-detail-value {
+      text-align: left;
+      max-width: 100%;
     }
   }
 }
@@ -682,7 +942,26 @@
     color: var(--chalk);
     margin-top: 18px;
   }
-  .mt-head .mock-dsp {
+  /* The source stylesheet's `.mt-head p`, `.exp-head p` and `.rooms-head p`
+     out-specify `.mock-dsp`, which collapsed the display line to body size in
+     Renovated / Amenities / Rooms — and, in the two grid heads, dropped it into
+     the right-hand description column. Restated at head level so all six
+     sections open the same way: number → display line → 和文サブヘッド. */
+  .mt-head .mock-dsp,
+  .exp-head .mock-dsp,
+  .rooms-head .mock-dsp {
+    font-size: clamp(1.85rem, 4.4vw, 3.7rem);
+    line-height: 0.98;
+    letter-spacing: -0.012em;
+    margin-top: 14px;
+  }
+  /* …and given a row of its own above the heading/description pair. */
+  .exp-head .mock-dsp,
+  .rooms-head .mock-dsp {
+    grid-column: 1 / 13;
+  }
+  .mt-head .mock-dsp,
+  .rooms-head .mock-dsp {
     color: var(--paper);
   }
   .h1-a,
@@ -709,6 +988,25 @@
     text-transform: none;
     letter-spacing: 0.01em;
   }
+  /* .h1-a is a <span>, so the shared heading rule above — margin-top, max-width
+     — was inert on it and the hero subhead sat flush against the display
+     line's box. Every other section's subhead is a block-level h2. */
+  .h1-a {
+    display: block;
+  }
+  /* Measures. `ch` is the width of the Latin "0", so a `ch` cap on Japanese
+     copy comes out ~40% narrower than the number suggests: the hero lead ran
+     six lines at 292px inside a 688px column, the room copy four at 249px
+     inside 529px. `em` is the honest unit for 和文 here. */
+  .hero-lead {
+    max-width: 29em;
+  }
+  .rm-txt .jp {
+    max-width: 33em;
+  }
+  .mt-head {
+    max-width: 40em;
+  }
   /* .rm-txt h3 keeps Archivo: the room names are Latin in every locale */
   .exp-card h4 {
     font-size: 0.9375rem;
@@ -723,15 +1021,35 @@
   .concept-img {
     margin-top: 0;
   }
+  /* The source mock's 4/5 plate ran 800px tall against ~300px of copy, leaving
+     half the left column empty. Square keeps the plate reading as a plate —
+     and keeps the whole window in frame — at a height the copy can hold. */
+  .concept-img .ph {
+    aspect-ratio: 1 / 1;
+  }
+  .concept-body {
+    max-width: 30em;
+    margin-top: clamp(40px, 6vw, 86px);
+  }
   .exp-rail {
     margin-top: clamp(44px, 6vw, 80px);
+  }
+  /* The rail sits on paper here, not on the source mock's dark Experience
+     band: chalk place names landed at ~1.1:1. The ordinal keeps the thread
+     accent every other index on the page uses; the walk time is content, so it
+     takes a colour you can actually read. */
+  .exp-card h4 {
+    color: var(--shadow);
+  }
+  .exp-card .meta .n {
+    color: var(--thread);
   }
   .exp-card p {
     font-family: var(--mono);
     font-size: 0.625rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--thread);
+    color: var(--wood);
   }
 
   /* Renovated — three materials rather than the source mock's four */
@@ -750,6 +1068,22 @@
     font-size: 0.5625rem;
     letter-spacing: 0.2em;
     opacity: 0.75;
+  }
+
+  /* Amenities is the one canonical section that reuses .exp-head, and those
+     colours were authored for the source mock's dark Experience band. On this
+     section's paper ground the heading and description landed at ~1.1:1 —
+     legible only as a ghost. Re-grounded for paper; the em line moves from
+     forest-pale (2.3:1) to forest, which is the same green a shade deeper. */
+  #tb-amenities .exp-head h2,
+  #tb-amenities .exp-head .mock-dsp {
+    color: var(--shadow);
+  }
+  #tb-amenities .exp-head h2 em {
+    color: var(--forest);
+  }
+  #tb-amenities .exp-head p {
+    color: rgba(43, 38, 32, 0.7);
   }
 
   /* Amenities — a ruled stock list, not cards */
@@ -855,6 +1189,21 @@
     .mock-ami {
       grid-template-columns: 1fr;
     }
+    /* Stacked, the two hero buttons wrapped to two ragged left-aligned widths
+       (145px over 187px). Full width reads as a deliberate pair; the fill vs
+       outline still carries the primary/secondary hierarchy. */
+    .hero-cta .btn {
+      flex: 1 1 100%;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 520px) {
+    /* The source stylesheet drops the rail to one column here, which turns four
+       one-line facts into four 450px-tall portraits and ~2000px of scrolling.
+       Two up keeps the section scannable at phone width. */
+    .exp-rail {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
@@ -909,16 +1258,23 @@
   .hero h1 .l2 {
     padding-left: 0;
   }
+  /* The Japanese subhead is the line that carries the message in the default
+     locale, so it has to outrank the lead below it. At 1.2rem/1.9 against a
+     1.06rem lead the two read as one undifferentiated block. */
   .hero h1,
   .c-text h2,
   .rooms-head h2,
   .exp-head h2,
   .loc .txt h2,
   .cta-body h2 {
-    max-width: 34em;
-    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-    line-height: 1.9;
-    margin-top: 14px;
+    max-width: 30em;
+    /* The floor is set against the 0.95rem mobile lead rather than scaled down
+       from the desktop size — at 1.05rem the subhead and the body copy read as
+       the same rank on a phone. The maximum is unchanged, so the desktop
+       composition is untouched. */
+    font-size: clamp(1.2rem, 1.7vw, 1.35rem);
+    line-height: 1.78;
+    margin-top: 16px;
   }
   .c-text h2 em,
   .rooms-head h2 em,
@@ -934,6 +1290,54 @@
     font-size: clamp(1.3rem, 2.2vw, 1.9rem);
   }
 
+  /* ---- measure ----------------------------------------------------------
+     The source mock sized every paragraph in `ch`, which is the width of "0".
+     In the JP face that glyph is half-width, so a `36ch` measure that reads as
+     36 characters of English collapses to 18 characters of Japanese: tall,
+     narrow slabs of copy with one- and two-character last lines, sitting in
+     columns twice their width. Widening into the 44–56ch band keeps English
+     inside a comfortable 44–56 characters AND gives Japanese 22–28 — one value
+     that is right in every locale. */
+  .hero-foot .lead {
+    max-width: 52ch;
+  }
+  .loc .txt .jp {
+    max-width: 48ch;
+  }
+  .c-text .body {
+    max-width: 56ch;
+  }
+  .rooms-head .r {
+    max-width: 44ch;
+  }
+  /* The head block was the binding constraint on its own lead: 56ch broke a
+     45-character sentence 23/20/2, leaving a two-character last line. Opened up
+     enough for the lead to land on the 。 it is written around. */
+  .exp-head {
+    max-width: 72ch;
+  }
+  .exp-head .it {
+    max-width: 30em;
+  }
+  .cta-body .jp {
+    max-width: 52ch;
+  }
+  /* Fraunces italic has no 和文 glyphs, so the browser synthesises the slant on
+     a gothic fallback — a machine-skewed Japanese lead. Latin locales keep the
+     real italic the design is built on. */
+  &:is(:lang(ja), :lang(zh)) .exp-head .it {
+    font-family: var(--jp);
+    font-style: normal;
+    line-height: 1.85;
+    letter-spacing: 0.03em;
+  }
+
+  /* Hero — the selvedge rail's rotated label sat 1px off the lead paragraph's
+     left edge, which reads as a collision rather than a margin note. */
+  .rail {
+    left: max(12px, 1.4vw);
+  }
+
   /* PrimeLocation — walk times as a list, the shops as staggered scenes */
   .walks li {
     padding-block: 12px;
@@ -941,6 +1345,42 @@
   .mock-nearby {
     grid-column: 1 / 13;
     margin-top: clamp(46px, 6vw, 84px);
+  }
+  /* Four walk-time facts were carrying 1,450px of illustration — scenes taller
+     than the location photograph they follow, which inverted the section's
+     hierarchy. Narrower tracks and shallower crops keep the staggered rhythm
+     the design is built on at roughly a third less height, and give the tiny
+     captions an image width they can hold. (min-width guard: this file loads
+     after denim-design.css, so an unguarded rule would also beat its ≤900px
+     single-column stack.) */
+  @media (min-width: 901px) {
+    .mock-nearby .m1 {
+      grid-column: 1 / 5;
+    }
+    .mock-nearby .m1 .shot {
+      aspect-ratio: 4 / 4.2;
+    }
+    .mock-nearby .m2 {
+      grid-column: 7 / 11;
+      margin-top: clamp(30px, 5vw, 72px);
+    }
+    .mock-nearby .m2 .shot {
+      aspect-ratio: 4 / 3;
+    }
+    .mock-nearby .m3 {
+      grid-column: 2 / 6;
+      margin-top: clamp(20px, 3vw, 44px);
+    }
+    .mock-nearby .m3 .shot {
+      aspect-ratio: 4 / 3.1;
+    }
+    .mock-nearby .m4 {
+      grid-column: 8 / 12;
+      margin-top: clamp(12px, 2vw, 30px);
+    }
+    .mock-nearby .m4 .shot {
+      aspect-ratio: 4 / 3.6;
+    }
   }
   .mock-nearby .cap .x span {
     color: rgba(251, 250, 245, 0.9);
@@ -955,6 +1395,18 @@
   }
   .c-cols .item p {
     font-family: var(--jp);
+  }
+  /* The left stack (image + care label) ran 999px against 525px of text, so the
+     bottom-right quarter of the section was empty. A shallower crop and a text
+     column that starts nearer the stack's middle turn that hole into a
+     deliberate offset. */
+  .c-visual .shot {
+    aspect-ratio: 3 / 3.4;
+  }
+  @media (min-width: 901px) {
+    .c-text {
+      padding-top: clamp(20px, 7vw, 104px);
+    }
   }
 
   /* Amenities — woven tags */
@@ -999,9 +1451,58 @@
   .mock-viewall {
     margin-top: clamp(46px, 6vw, 80px);
   }
+  /* ROOM 02 and 03 put the caption to the LEFT of the photograph, but the
+     figure comes first in the DOM — grid auto-placement never walks backwards,
+     so both captions were dropping to a second row and leaving a half-page of
+     empty ground beside the image. `align-items: end` on room 02 only makes
+     sense with the two in one row, so this restores the intended composition
+     rather than inventing a new one. */
+  @media (min-width: 981px) {
+    .room-02 .shot,
+    .room-02 .meta,
+    .room-03 .shot,
+    .room-03 .meta {
+      grid-row: 1;
+    }
+    /* With the caption back in row 1, room 02's outlined numeral — pinned to
+       the bottom-left for a row that used to be empty there — now printed
+       straight through the paragraph. Top-left mirrors room 01 and fills the
+       tall gap above the caption instead. */
+    .room-02 .idx {
+      top: -0.28em;
+      bottom: auto;
+    }
+    /* 4/4.6 was drawn for a row the caption had fallen out of; beside a
+       216px caption it left the left half hollow. Still the portrait crop of
+       the three, just not by 750px. */
+    .room-02 .shot {
+      aspect-ratio: 4 / 4;
+    }
+    /* Rooms 01 and 02 hang the woven patch over the photograph; room 03 had no
+       rule at all, so its patch sat in the flow as a stray block above the row
+       and pushed everything down 74px. */
+    .room-03 .patch-wrap {
+      position: absolute;
+      left: calc(41.66% + 22px);
+      bottom: 26px;
+      z-index: 3;
+    }
+  }
+  /* .btn-ghost is inline-flex, but inside the column-flex caption it stretched
+     to the full track — a 424px rule under the paragraph rather than a link. */
+  .room .meta .btn-ghost {
+    align-self: flex-start;
+  }
 
   /* Access — the live map sits in the stitched frame the source mock drew an
      illustrated map into. */
+  /* The canonical Access column is far taller than the source mock's CTA copy,
+     so centring left the detail list floating in the middle of the section with
+     400px of green above and below it. Aligned to the top it reads as the
+     second column of one block. */
+  .cta .g12 {
+    align-items: start;
+  }
   .mock-mapbox {
     margin-top: clamp(26px, 3.4vw, 40px);
     max-width: 560px;
@@ -1100,16 +1601,20 @@
     font-size: clamp(2.1rem, 5.4vw, 4.6rem);
     margin-top: 12px;
   }
+  /* The Japanese heading is the line that actually carries the message for the
+     default locale, so it has to outrank the lead beneath it. At 1.2rem/1.9
+     against a 1.06rem/1.95 lead the two were the same texture and the section
+     read as four undifferentiated lines. */
   .hero h1,
   .concept h2,
   .rooms-head h2,
   .exp-head h2,
   .loc h2,
   .cta-body h2 {
-    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-    line-height: 1.9;
-    margin-top: 14px;
-    max-width: 34em;
+    font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+    line-height: 1.72;
+    margin-top: 16px;
+    max-width: 28em;
   }
   .hero h1 em,
   .concept h2 em,
