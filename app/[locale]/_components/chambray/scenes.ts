@@ -10,140 +10,186 @@
 export const HERO = String.raw`
 <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
-              <linearGradient id="wc-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#EDF2F7"/><stop offset=".55" stop-color="#DCE7F0"/><stop offset="1" stop-color="#C6D6E4"/>
+              <linearGradient id="wc-hwall" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E6E1D5"/>
               </linearGradient>
-              <!-- 縁側の床。日に焼けて白茶けた無垢材で、上に置くものは
-                   すべて濃い木でとる。床と家具が同系色で溶ける問題の解。 -->
-              <linearGradient id="wc-wd" x1="0" y1="0" x2="1" y2="0">
+              <!-- ベッド背面の壁パネル。深い緑ではなく、日の当たった
+                   オリーブ〜若草でとる。明るい床に対して沈ませない。 -->
+              <linearGradient id="wc-holv" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#A6B978"/><stop offset="1" stop-color="#7F9551"/>
+              </linearGradient>
+              <!-- 床はライトオークの無垢材。上に置く家具はすべて濃い木で
+                   とる。床と天板が同系色で溶ける問題の解。 -->
+              <linearGradient id="wc-hfl" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0" stop-color="#C9B896"/><stop offset=".4" stop-color="#E7DDC5"/>
                 <stop offset=".75" stop-color="#D9CCAD"/><stop offset="1" stop-color="#C2B08E"/>
               </linearGradient>
-              <linearGradient id="wc-shoji" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#FBFAF6"/><stop offset="1" stop-color="#E8E9E2"/>
+              <linearGradient id="wc-htbl" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#D9C098"/><stop offset=".55" stop-color="#C2A377"/><stop offset="1" stop-color="#A9895E"/>
               </linearGradient>
-              <filter id="wc-bl"><feGaussianBlur stdDeviation="18"/></filter>
+              <!-- 白黒の杉綾ラグ。一枚の柄で敷いて、床の木目と喧嘩させない -->
+              <pattern id="wc-hhb" width="36" height="20" patternUnits="userSpaceOnUse">
+                <rect width="36" height="20" fill="#F2EFE8"/>
+                <path d="M-9 20 L9 0 L27 20 L45 0" fill="none" stroke="#2B2620" stroke-width="5.5" opacity=".78"/>
+              </pattern>
+              <filter id="wc-hbl"><feGaussianBlur stdDeviation="18"/></filter>
             </defs>
 
-            <rect width="800" height="1000" fill="url(#wc-sky)"/>
-            <!-- 霞んだ新宿のビル -->
-            <g fill="#A6BED4" opacity=".55">
-              <rect x="20" y="150" width="70" height="300"/><rect x="104" y="210" width="46" height="240"/>
-              <rect x="470" y="120" width="92" height="330"/><rect x="576" y="196" width="54" height="254"/>
-              <rect x="646" y="150" width="120" height="300"/>
-            </g>
-            <g fill="#C6D6E4" opacity=".7"><rect x="160" y="250" width="56" height="200"/><rect x="410" y="270" width="42" height="180"/></g>
+            <!-- 天井と白い壁 -->
+            <rect width="800" height="1000" fill="url(#wc-hwall)"/>
+            <rect width="800" height="112" fill="#FCFAF5"/>
+            <line x1="0" y1="112" x2="800" y2="112" stroke="#DED8CA" stroke-width="3"/>
 
-            <!-- 御苑の樹 -->
-            <g fill="#74994A" opacity=".92">
-              <ellipse cx="120" cy="420" rx="150" ry="104"/><ellipse cx="330" cy="392" rx="128" ry="92"/>
-              <ellipse cx="600" cy="410" rx="146" ry="96"/>
-            </g>
-            <g fill="#B0CC80" opacity=".5"><ellipse cx="96" cy="372" rx="66" ry="44"/><ellipse cx="336" cy="348" rx="54" ry="36"/><ellipse cx="620" cy="366" rx="60" ry="38"/></g>
-            <rect y="470" width="800" height="60" fill="#4C6E31" opacity=".85"/>
+            <!-- ベッドの背にまわしたオリーブの壁 -->
+            <rect x="276" y="128" width="472" height="432" fill="url(#wc-holv)"/>
+            <rect x="276" y="128" width="472" height="7" fill="#6F8544" opacity=".7"/>
 
-            <!-- 縁側の床（白茶けた無垢材） -->
-            <rect y="530" width="800" height="470" fill="url(#wc-wd)"/>
-            <g stroke="#A8977A" stroke-width="2" opacity=".65">
-              <line x1="0" y1="596" x2="800" y2="596"/><line x1="0" y1="672" x2="800" y2="672"/>
-              <line x1="0" y1="762" x2="800" y2="762"/><line x1="0" y1="868" x2="800" y2="868"/>
+            <!-- 柱の向こうにもう一台。シングルのデイベッド -->
+            <g>
+              <rect x="16" y="342" width="212" height="66" rx="6" fill="#B08A63"/>
+              <g stroke="#8F6743" stroke-width="3" opacity=".7">
+                <line x1="70" y1="342" x2="70" y2="408"/><line x1="124" y1="342" x2="124" y2="408"/><line x1="178" y1="342" x2="178" y2="408"/>
+              </g>
+              <rect x="40" y="366" width="118" height="44" rx="10" fill="#FBFAF6"/>
+              <rect x="16" y="408" width="212" height="74" rx="7" fill="#F7F5EF"/>
+              <rect x="16" y="452" width="212" height="30" rx="6" fill="#E9E4D6"/>
+              <rect x="16" y="482" width="212" height="18" rx="4" fill="#8F6743"/>
+              <rect x="30" y="500" width="14" height="60" fill="#6B4A32"/><rect x="196" y="500" width="14" height="60" fill="#6B4A32"/>
+            </g>
+
+            <!-- 白い柱。部屋はこれで奥と手前に分かれている -->
+            <g>
+              <rect x="212" y="112" width="86" height="448" fill="#FBFAF6"/>
+              <rect x="212" y="112" width="10" height="448" fill="#FFFFFF" opacity=".85"/>
+              <rect x="284" y="112" width="14" height="448" fill="#E3DED2"/>
+              <rect x="298" y="128" width="20" height="432" fill="#2B2620" opacity=".13"/>
+              <rect x="748" y="112" width="52" height="448" fill="#FBFAF6"/>
+              <rect x="748" y="112" width="12" height="448" fill="#E3DED2"/>
+            </g>
+
+            <!-- 床（ライトオーク） -->
+            <rect y="560" width="800" height="440" fill="url(#wc-hfl)"/>
+            <g stroke="#A8977A" stroke-width="2" opacity=".6">
+              <line x1="0" y1="626" x2="800" y2="626"/><line x1="0" y1="704" x2="800" y2="704"/>
+              <line x1="0" y1="796" x2="800" y2="796"/><line x1="0" y1="902" x2="800" y2="902"/>
+              <line x1="250" y1="560" x2="214" y2="1000"/><line x1="560" y1="560" x2="600" y2="1000"/>
             </g>
             <!-- 朝日。日陰を敷いてから金色の帯を置き、柱の影を落とす。
-                 白い床に白を重ねても光にならないので金色でとる -->
-            <rect y="530" width="800" height="470" fill="#6B4A32" opacity=".18"/>
-            <path d="M120 530 L420 530 L620 1000 L200 1000 Z" fill="#FFE0A2" opacity=".6"/>
-            <path d="M165 530 L385 530 L565 1000 L250 1000 Z" fill="#FFF1CE" opacity=".5"/>
-            <path d="M356 530 L398 530 L478 1000 L436 1000 Z" fill="#7A5A38" opacity=".28"/>
-            <ellipse cx="270" cy="538" rx="180" ry="30" fill="#FFE9B8" opacity=".5" filter="url(#wc-bl)"/>
-            <!-- 床の見切り。濃い木で床の面を締める -->
-            <rect y="530" width="800" height="10" fill="#6B4A32" opacity=".7"/>
+                 明るい床に白を重ねても光にならないので金色でとる -->
+            <rect y="560" width="800" height="440" fill="#6B4A32" opacity=".18"/>
+            <path d="M96 560 L432 560 L604 1000 L188 1000 Z" fill="#FFE0A2" opacity=".6"/>
+            <path d="M142 560 L390 560 L546 1000 L242 1000 Z" fill="#FFF1CE" opacity=".5"/>
+            <path d="M226 560 L302 560 L404 1000 L316 1000 Z" fill="#7A5A38" opacity=".26"/>
+            <ellipse cx="252" cy="568" rx="190" ry="30" fill="#FFE9B8" opacity=".5" filter="url(#wc-hbl)"/>
+            <!-- 壁と床の見切り -->
+            <rect y="560" width="800" height="10" fill="#6B4A32" opacity=".6"/>
 
-            <!-- 障子 -->
+            <!-- 杉綾のラグ -->
             <g>
-              <rect x="430" y="120" width="330" height="410" fill="url(#wc-shoji)"/>
-              <g stroke="#6B4A32" stroke-width="7" opacity=".9">
-                <line x1="540" y1="120" x2="540" y2="530"/><line x1="650" y1="120" x2="650" y2="530"/>
-                <line x1="430" y1="258" x2="760" y2="258"/><line x1="430" y1="396" x2="760" y2="396"/>
-              </g>
-              <rect x="430" y="120" width="330" height="410" fill="none" stroke="#4A3222" stroke-width="14"/>
-              <g fill="#74994A" opacity=".18"><ellipse cx="500" cy="200" rx="42" ry="30"/><ellipse cx="700" cy="440" rx="48" ry="32"/></g>
+              <rect x="300" y="566" width="500" height="100" rx="3" fill="url(#wc-hhb)"/>
+              <rect x="300" y="566" width="500" height="100" rx="3" fill="none" stroke="#2B2620" stroke-width="3" opacity=".4"/>
+              <rect x="300" y="566" width="500" height="100" rx="3" fill="#FFE0A2" opacity=".13"/>
             </g>
 
-            <!-- 木の柱 -->
-            <rect x="356" y="60" width="42" height="470" fill="#4A3222"/>
-            <rect x="366" y="60" width="10" height="470" fill="#A0774F" opacity=".4"/>
-            <rect x="0" y="60" width="800" height="34" fill="#4A3222"/>
-
-            <!-- のれん（藍） -->
+            <!-- 四本柱のベッド。奥の柱を先に立て、寝具を挟んで
+                 手前の柱を重ねると、framework の奥行きが出る -->
             <g>
-              <rect x="60" y="94" width="270" height="12" fill="#3E2A1C"/>
-              <path d="M64 106h82v168H64z" fill="#1B3A57"/>
-              <path d="M150 106h82v186h-82z" fill="#16334D"/>
-              <path d="M236 106h82v172h-82z" fill="#1B3A57"/>
-              <g fill="#DEE8F1" opacity=".92">
-                <rect x="84" y="160" width="42" height="7"/><rect x="84" y="178" width="42" height="7"/>
-                <rect x="172" y="160" width="34" height="7"/><rect x="172" y="178" width="18" height="7"/>
-                <rect x="256" y="160" width="42" height="7"/>
+              <rect x="346" y="190" width="340" height="14" fill="#8F6743"/>
+              <rect x="352" y="196" width="15" height="344" fill="#8F6743"/><rect x="664" y="196" width="15" height="344" fill="#8F6743"/>
+              <!-- ヘッドボードと枕 -->
+              <rect x="350" y="308" width="328" height="84" rx="5" fill="#B08A63"/>
+              <g stroke="#8F6743" stroke-width="3" opacity=".65">
+                <line x1="432" y1="308" x2="432" y2="392"/><line x1="514" y1="308" x2="514" y2="392"/><line x1="596" y1="308" x2="596" y2="392"/>
               </g>
+              <rect x="366" y="344" width="140" height="60" rx="12" fill="#FBFAF6"/>
+              <rect x="518" y="340" width="140" height="64" rx="12" fill="#F2EFE8"/>
+              <!-- 白い掛け布団 -->
+              <rect x="336" y="398" width="356" height="116" rx="8" fill="#F7F5EF"/>
+              <rect x="336" y="470" width="356" height="44" rx="6" fill="#E9E4D6"/>
+              <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".85"><line x1="344" y1="480" x2="684" y2="480"/></g>
+              <g stroke="#DAD4C6" stroke-width="2" opacity=".9"><line x1="336" y1="424" x2="692" y2="424"/></g>
+              <rect x="336" y="512" width="356" height="22" rx="4" fill="#8F6743"/>
+              <rect x="344" y="534" width="340" height="8" fill="#6B4A32"/>
+              <!-- 手前の柱と天井の桁 -->
+              <rect x="314" y="200" width="396" height="18" fill="#B08A63"/>
+              <rect x="314" y="216" width="396" height="6" fill="#8F6743"/>
+              <rect x="322" y="200" width="22" height="392" fill="#B08A63"/><rect x="326" y="200" width="6" height="392" fill="#C6A886" opacity=".6"/>
+              <rect x="680" y="200" width="22" height="392" fill="#B08A63"/><rect x="684" y="200" width="6" height="392" fill="#C6A886" opacity=".6"/>
             </g>
 
-            <!-- 物干し：シャンブレーのシャツ -->
+            <!-- 1. グレーファブリックに木の肘のアームチェア -->
             <g>
-              <line x1="398" y1="150" x2="800" y2="168" stroke="#2B2620" stroke-width="3"/>
-              <g transform="translate(560 168) rotate(2)">
-                <path d="M0 0 L64 0 L84 26 L70 40 L64 30 L64 128 L0 128 L0 30 L-6 40 L-20 26 Z" fill="#C6D6E4"/>
-                <path d="M0 0 L64 0 L84 26 L70 40 L64 30 L64 128 L0 128 L0 30 L-6 40 L-20 26 Z" fill="none" stroke="#8FA9BF" stroke-width="2"/>
-                <line x1="32" y1="4" x2="32" y2="128" stroke="#A6BED4" stroke-width="2"/>
-                <g stroke="#C8783A" stroke-width="1.6" stroke-dasharray="5 5" opacity=".8">
-                  <line x1="6" y1="12" x2="6" y2="124"/><line x1="58" y1="12" x2="58" y2="124"/>
-                </g>
-              </g>
-              <rect x="556" y="160" width="8" height="16" rx="3" fill="#2B2620"/>
-              <rect x="628" y="164" width="8" height="16" rx="3" fill="#2B2620"/>
+              <rect x="44" y="588" width="156" height="92" rx="16" fill="#D9D6CB"/>
+              <rect x="44" y="588" width="156" height="18" rx="9" fill="#C5C1B4"/>
+              <rect x="36" y="668" width="172" height="48" rx="13" fill="#E4E1D6"/>
+              <g fill="#8F6743"><rect x="28" y="640" width="16" height="58" rx="8"/><rect x="200" y="640" width="16" height="58" rx="8"/></g>
+              <g stroke="#8F6743" stroke-width="11" stroke-linecap="round"><line x1="58" y1="716" x2="44" y2="792"/><line x1="186" y1="716" x2="200" y2="792"/></g>
             </g>
 
-            <!-- 松の盆栽。段に分かれた葉張りで「松」と分かる形に -->
+            <!-- 4. ベッド寄りの、木のスピンドルチェア -->
             <g>
-              <ellipse cx="150" cy="742" rx="88" ry="14" fill="#2B2620" opacity=".18" filter="url(#wc-bl)"/>
-              <rect x="88" y="726" width="126" height="9" rx="3" fill="#4A3222"/>
-              <rect x="100" y="668" width="102" height="58" rx="5" fill="#3A322A"/>
-              <rect x="94" y="662" width="114" height="14" rx="4" fill="#4B4137"/>
-              <path d="M150 668 q-16-34 -26-58 q-4-12 8-16" fill="none" stroke="#4A3222" stroke-width="9" stroke-linecap="round"/>
-              <path d="M138 604 q18-10 40-18" fill="none" stroke="#4A3222" stroke-width="7" stroke-linecap="round"/>
-              <g fill="#4C6E31">
-                <ellipse cx="112" cy="606" rx="60" ry="19"/>
-                <ellipse cx="180" cy="582" rx="48" ry="16"/>
-                <ellipse cx="132" cy="550" rx="42" ry="14"/>
+              <rect x="546" y="580" width="152" height="15" rx="7" fill="#C6A886"/>
+              <g stroke="#C6A886" stroke-width="6" stroke-linecap="round">
+                <line x1="562" y1="595" x2="566" y2="666"/><line x1="592" y1="595" x2="594" y2="666"/>
+                <line x1="622" y1="595" x2="622" y2="666"/><line x1="652" y1="595" x2="650" y2="666"/>
+                <line x1="682" y1="595" x2="678" y2="666"/>
               </g>
-              <g fill="#74994A">
-                <ellipse cx="106" cy="600" rx="44" ry="11"/>
-                <ellipse cx="176" cy="577" rx="34" ry="9"/>
-                <ellipse cx="128" cy="545" rx="30" ry="8"/>
-              </g>
-              <g fill="#B0CC80" opacity=".75">
-                <ellipse cx="98" cy="596" rx="24" ry="6"/><ellipse cx="170" cy="573" rx="18" ry="5"/><ellipse cx="122" cy="542" rx="16" ry="4"/>
-              </g>
+              <rect x="542" y="660" width="160" height="22" rx="9" fill="#C6A886"/>
+              <g stroke="#B08A63" stroke-width="9" stroke-linecap="round"><line x1="560" y1="682" x2="540" y2="772"/><line x1="686" y1="682" x2="706" y2="772"/></g>
             </g>
 
-            <!-- 苔玉。丸い苔に細い草が数本 -->
+            <!-- 丸い木のテーブル。木目の出たライトオークで、
+                 同じ椅子は一脚もない -->
             <g>
-              <ellipse cx="272" cy="742" rx="46" ry="10" fill="#2B2620" opacity=".16"/>
-              <ellipse cx="272" cy="736" rx="44" ry="9" fill="#3A322A"/>
-              <circle cx="272" cy="708" r="32" fill="#4C6E31"/>
-              <path d="M240 708a32 32 0 0 1 34-31 30 30 0 0 0-22 31z" fill="#74994A"/>
-              <g fill="#B0CC80" opacity=".85">
-                <circle cx="258" cy="694" r="6"/><circle cx="284" cy="700" r="4.5"/><circle cx="266" cy="720" r="4"/><circle cx="288" cy="718" r="3"/>
+              <ellipse cx="326" cy="800" rx="210" ry="26" fill="#2B2620" opacity=".2" filter="url(#wc-hbl)"/>
+              <g stroke="#8F6743" stroke-width="15" stroke-linecap="round">
+                <line x1="212" y1="740" x2="176" y2="836"/><line x1="440" y1="740" x2="476" y2="836"/><line x1="326" y1="752" x2="326" y2="848"/>
               </g>
-              <g fill="none" stroke="#74994A" stroke-width="3.5" stroke-linecap="round">
-                <path d="M266 680 q-8-26 4-42"/><path d="M278 678 q10-22 24-30"/><path d="M272 678 q2-20 -6-32"/>
+              <ellipse cx="326" cy="730" rx="198" ry="56" fill="#A9895E"/>
+              <ellipse cx="326" cy="716" rx="198" ry="56" fill="url(#wc-htbl)"/>
+              <g fill="none" stroke="#B4956A" stroke-width="2.5" opacity=".6">
+                <ellipse cx="318" cy="714" rx="150" ry="40"/><ellipse cx="312" cy="712" rx="98" ry="25"/><ellipse cx="308" cy="710" rx="48" ry="11"/>
+              </g>
+              <!-- 読みかけと、コーヒーと、摘んできた枝。手前の椅子の
+                   背が横切らない、天板の奥半分にまとめてある -->
+              <rect x="284" y="684" width="78" height="24" rx="3" fill="#F2EFE8"/>
+              <rect x="284" y="684" width="78" height="7" rx="3" fill="#C6D6E4"/>
+              <g><rect x="380" y="680" width="34" height="32" rx="4" fill="#FBFAF6"/><path d="M414 688 q16 8 0 16" fill="none" stroke="#FBFAF6" stroke-width="6"/></g>
+              <g>
+                <rect x="438" y="678" width="30" height="38" rx="4" fill="#DEE8F1"/>
+                <g fill="none" stroke="#74994A" stroke-width="4" stroke-linecap="round"><path d="M449 678 q-7-26 3-42"/><path d="M456 678 q10-20 24-28"/></g>
+                <g fill="#B0CC80" opacity=".85"><circle cx="450" cy="640" r="6"/><circle cx="478" cy="652" r="5"/></g>
               </g>
             </g>
 
-            <!-- 脱いだ草履。ここから先は靴を脱いで上がる -->
-            <g fill="#2B2620" opacity=".8">
-              <rect x="300" y="800" width="72" height="34" rx="17"/><rect x="392" y="812" width="72" height="34" rx="17"/>
+            <!-- 2. 黒いワイヤー脚に白いクッション。背から肘までは一本の
+                 曲げ木。天板を横切るので、他の木より一段濃い色でとる -->
+            <g>
+              <path d="M106 768 L106 722 q90-48 180 0 L286 768" fill="none" stroke="#8F6743" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="100" y="752" width="192" height="54" rx="15" fill="#F4F1E8"/>
+              <rect x="100" y="784" width="192" height="24" rx="12" fill="#E1DDD1"/>
+              <g stroke="#2B2620" stroke-width="7" stroke-linecap="round" fill="none">
+                <path d="M120 808 L94 906"/><path d="M272 808 L298 906"/>
+                <path d="M120 808 L298 906"/><path d="M272 808 L94 906"/>
+                <path d="M104 858 L288 858"/>
+              </g>
             </g>
-            <ellipse cx="360" cy="850" rx="180" ry="26" fill="#2B2620" opacity=".16" filter="url(#wc-bl)"/>
+
+            <!-- 3. クリームの張り椅子。脚は木 -->
+            <g>
+              <path d="M366 754 q76-34 152 0 l6 58 q-84-26 -164 0z" fill="#EFE9DA"/>
+              <rect x="352" y="804" width="182" height="50" rx="14" fill="#E6DFCD"/>
+              <g stroke="#B08A63" stroke-width="11" stroke-linecap="round"><line x1="372" y1="854" x2="352" y2="944"/><line x1="514" y1="854" x2="534" y2="944"/></g>
+            </g>
+
+            <!-- 右手前、ダークティールのベンチソファ -->
+            <g>
+              <rect x="596" y="778" width="228" height="56" rx="16" fill="#1B3A57"/>
+              <rect x="588" y="826" width="244" height="72" rx="18" fill="#2C5779"/>
+              <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".85"><line x1="600" y1="840" x2="820" y2="840"/></g>
+              <rect x="588" y="888" width="244" height="26" rx="10" fill="#16334D"/>
+              <g fill="#6B4A32"><rect x="610" y="912" width="16" height="48" rx="4"/><rect x="792" y="912" width="16" height="48" rx="4"/></g>
+            </g>
           </svg>
 `;
 
