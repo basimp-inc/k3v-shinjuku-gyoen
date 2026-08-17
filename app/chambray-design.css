@@ -1,8 +1,8 @@
 /* ---------------------------------------------------------------------------
    REVIEW-ONLY alternative TOP page design ("Washed Chambray").
 
-   The fifth entry of the 配色プレビュー switcher. Like Gyoen Green, Denim Sakura
-   and Timber Indigo — and unlike the palette-only themes — this swaps the entire
+   The second entry of the 配色プレビュー switcher. Like Gyoen Green — and unlike
+   the palette-only themes — this swaps the entire
    TOP page: layout, typography, materials and chrome.
 
    Mechanism: every design is rendered into the DOM and CSS decides which one is
@@ -62,10 +62,14 @@
   --wood-dk:#4A3222;
   --wood-lt:#8F6743;
   --wood-pale:#C6A886;
-  /* 03 FOREST -------------------------------------------- */
-  --forest:#1F3A2E;
-  --forest-lt:#33553F;
-  --forest-pale:#7FA07F;
+  /* 03 FOREST — 御苑の新緑。深い青緑ではなく、そら豆〜黄緑の
+     日向の緑で。上品さは彩度ではなく明度差で持たせている ---- */
+  --forest:#4C6E31;
+  --forest-lt:#74994A;
+  --forest-pale:#B0CC80;
+  /* 明るいシャンブレー地に緑の文字を置くとき専用。--forest のままだと
+     見出しの細いウェイトで 4.5:1 を割る（3.95:1）ので一段落とす */
+  --forest-ink:#3E5C28;
   /* 04 SHADOW -------------------------------------------- */
   --shadow:#2B2620;
   /* thread / paper --------------------------------------- */
@@ -157,8 +161,8 @@ background:var(--cham);
   position:relative;color:var(--ecru);
   background-color:var(--forest);
   background-image:
-    radial-gradient(100% 70% at 78% 0%, rgba(127,160,127,.30), rgba(127,160,127,0) 58%),
-    linear-gradient(174deg,#27462F,#1F3A2E 58%,#16291F);
+    radial-gradient(100% 70% at 78% 0%, rgba(176,204,128,.30), rgba(176,204,128,0) 58%),
+    linear-gradient(174deg,#5C8239,#4C6E31 58%,#3A5525);
   }
   .mat-shadow {
   position:relative;color:var(--ecru);
@@ -565,7 +569,7 @@ background:var(--cham);
   }
   .ehead h2 {grid-column:1/8;font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:.84;color:var(--indigo)
   }
-  .ehead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--forest);font-size:.46em;margin-top:.14em;line-height:1.2
+  .ehead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--forest-ink);font-size:.46em;margin-top:.14em;line-height:1.2
   }
   .ehead p {grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.7)
   }

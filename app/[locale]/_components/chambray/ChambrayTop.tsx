@@ -4,12 +4,16 @@ import { Link } from "@/i18n/navigation";
 import ChambrayBehaviour from "./ChambrayBehaviour";
 import * as S from "./scenes";
 import {
+  MockConvenience,
+  MockFacilities,
   MockMap,
+  type MockConvenienceItem,
   type MockDetail,
   type MockItem,
   type MockNearby,
   type MockPoint,
   type MockRoom,
+  type MockRoomFacility,
   type MockStat,
 } from "../mockShared";
 
@@ -67,6 +71,9 @@ export default async function ChambrayTop() {
   const amenityItems = ame.raw("items") as MockItem[];
   const rooms = rm.raw("items") as MockRoom[];
   const details = acc.raw("details") as MockDetail[];
+  const convItems = loc.raw("convenience.items") as MockConvenienceItem[];
+  const facRooms = ame.raw("facilities.rooms") as MockRoomFacility[];
+  const facCommon = ame.raw("facilities.common") as MockItem[];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
@@ -257,8 +264,10 @@ export default async function ChambrayTop() {
             </div>
           </div>
 
-          {/* 近所 — the signature horizontal rail */}
-          <div className="rail-x rv d2">
+          {/* 近所 — the signature horizontal rail. `data-rail` is read by
+              ChambrayBehaviour: "auto" turns it into a slow autoplay carousel
+              for the A/B the client asked for. */}
+          <div className="rail-x rv d2" data-wc-rail-track="">
             {nearby.map((n, i) => (
               <article className="card" key={n.label}>
                 <Scene svg={nearbyScenes[i % nearbyScenes.length]} />
@@ -270,6 +279,13 @@ export default async function ChambrayTop() {
               </article>
             ))}
           </div>
+
+          <MockConvenience
+            eyebrow={loc("convenience.eyebrow")}
+            heading={loc("convenience.heading")}
+            text={loc("convenience.text")}
+            items={convItems}
+          />
         </div>
       </section>
 
@@ -334,6 +350,15 @@ export default async function ChambrayTop() {
               </li>
             ))}
           </ul>
+
+          <MockFacilities
+            heading={ame("facilities.heading")}
+            text={ame("facilities.text")}
+            roomLabel={ame("facilities.roomLabel")}
+            rooms={facRooms}
+            commonHeading={ame("facilities.commonHeading")}
+            common={facCommon}
+          />
 
           <p className="walkline mock-note rv d2">{ame("note")}</p>
         </div>

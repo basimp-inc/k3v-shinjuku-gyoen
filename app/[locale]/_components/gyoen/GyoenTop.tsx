@@ -4,12 +4,16 @@ import { Link } from "@/i18n/navigation";
 import { GYOEN_SVG_DEFS } from "./defs";
 import GyoenBehaviour from "./GyoenBehaviour";
 import {
+  MockConvenience,
+  MockFacilities,
   MockMap,
+  type MockConvenienceItem,
   type MockDetail,
   type MockItem,
   type MockNearby,
   type MockPoint,
   type MockRoom,
+  type MockRoomFacility,
   type MockStat,
 } from "../mockShared";
 
@@ -55,6 +59,9 @@ export default async function GyoenTop() {
   const amenityItems = ame.raw("items") as MockItem[];
   const rooms = rm.raw("items") as MockRoom[];
   const details = acc.raw("details") as MockDetail[];
+  const convItems = loc.raw("convenience.items") as MockConvenienceItem[];
+  const facRooms = ame.raw("facilities.rooms") as MockRoomFacility[];
+  const facCommon = ame.raw("facilities.common") as MockItem[];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
@@ -205,6 +212,14 @@ export default async function GyoenTop() {
             <p className="mapnote">{acc("mapCaption")}</p>
           </div>
         </div>
+        <div className="wrap">
+          <MockConvenience
+            eyebrow={loc("convenience.eyebrow")}
+            heading={loc("convenience.heading")}
+            text={loc("convenience.text")}
+            items={convItems}
+          />
+        </div>
       </section>
 
       {/* ===================== 3. RENOVATED ===================== */}
@@ -312,6 +327,15 @@ export default async function GyoenTop() {
               </li>
             ))}
           </ul>
+
+          <MockFacilities
+            heading={ame("facilities.heading")}
+            text={ame("facilities.text")}
+            roomLabel={ame("facilities.roomLabel")}
+            rooms={facRooms}
+            commonHeading={ame("facilities.commonHeading")}
+            common={facCommon}
+          />
 
           <p className="jp mock-note">{ame("note")}</p>
         </div>
