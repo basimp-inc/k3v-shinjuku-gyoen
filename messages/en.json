@@ -339,7 +339,7 @@
     "details": [
       {
         "label": "Address",
-        "value": "Shinjuku, Tokyo (details on request)"
+        "value": "1-19-6 Shinjuku, Shinjuku-ku, Tokyo 160-0022"
       },
       {
         "label": "Nearest station",
@@ -358,7 +358,7 @@
     "tagline": "Not Just a Stay. Live Tokyo Beautifully. A 3-room design apartment stay steps away from Shinjuku Gyoen.",
     "contactCta": "Ask about availability & reservations",
     "copyrightName": "K3V SHINJUKU GYOEN",
-    "address": "Shinjuku, Tokyo (details on request)"
+    "address": "1-19-6 Shinjuku, Shinjuku-ku, Tokyo 160-0022"
   },
   "localeSwitcher": {
     "label": "Language",
@@ -814,8 +814,8 @@
       "secondary": "Contact us →"
     },
     "footer": {
-      "addr1": "1-x-x Shinjuku, Shinjuku-ku",
-      "addr2": "Tokyo, Japan",
+      "addr1": "1-19-6 Shinjuku, Shinjuku-ku",
+      "addr2": "Tokyo 160-0022, Japan",
       "roomsHeading": "Rooms",
       "stayHeading": "Stay",
       "contactHeading": "Contact",
@@ -996,7 +996,7 @@
     "location": {
       "idx": "Location & Access",
       "addr1": "〒160-0022",
-      "addr2": "1-x-x Shinjuku, Shinjuku-ku, Tokyo",
+      "addr2": "1-19-6 Shinjuku, Shinjuku-ku, Tokyo",
       "addr3": "K3V SHINJUKU GYOEN",
       "a1": "Marunouchi Line — Shinjuku-gyoenmae",
       "a1Min": "3",

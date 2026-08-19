@@ -339,7 +339,7 @@
     "details": [
       {
         "label": "地址",
-        "value": "东京都新宿区（详情请咨询）"
+        "value": "东京都新宿区新宿1丁目19-6（邮编160-0022）"
       },
       {
         "label": "最近车站",
@@ -358,7 +358,7 @@
     "tagline": "Not Just a Stay. Live Tokyo Beautifully. 紧邻新宿御苑、共3间客房的设计师民泊。",
     "contactCta": "咨询空房与预订事宜",
     "copyrightName": "K3V SHINJUKU GYOEN",
-    "address": "东京都新宿区（详情请咨询）"
+    "address": "东京都新宿区新宿1丁目19-6（邮编160-0022）"
   },
   "localeSwitcher": {
     "label": "语言",
@@ -814,8 +814,8 @@
       "secondary": "联系我们 →"
     },
     "footer": {
-      "addr1": "东京都新宿区新宿1-x-x",
-      "addr2": "Shinjuku-ku, Tokyo",
+      "addr1": "〒160-0022",
+      "addr2": "东京都新宿区新宿1丁目19-6",
       "roomsHeading": "Rooms",
       "stayHeading": "Stay",
       "contactHeading": "Contact",
@@ -996,7 +996,7 @@
     "location": {
       "idx": "位置与交通",
       "addr1": "〒160-0022",
-      "addr2": "东京都新宿区新宿1丁目 ×-×-×",
+      "addr2": "东京都新宿区新宿1丁目19-6",
       "addr3": "K3V SHINJUKU GYOEN",
       "a1": "丸之内线 新宿御苑前",
       "a1Min": "3",
