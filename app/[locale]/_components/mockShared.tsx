@@ -15,7 +15,7 @@
 
 /** Same address the production Access section uses, so every design pins the
  *  same point on the same map. */
-export const MOCK_ADDRESS = "東京都新宿区大久保２丁目２";
+export const MOCK_ADDRESS = "東京都新宿区新宿１丁目１９−６";
 
 export const MOCK_MAP_SRC = `https://www.google.com/maps?q=${encodeURIComponent(
   MOCK_ADDRESS
