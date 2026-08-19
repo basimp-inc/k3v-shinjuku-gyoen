@@ -8,7 +8,7 @@ type Detail = {
   value: string;
 };
 
-const ADDRESS = "東京都新宿区大久保２丁目２";
+const ADDRESS = "東京都新宿区新宿１丁目１９−６";
 const MAP_EMBED_SRC = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}&output=embed`;
 
 export default async function Access() {
