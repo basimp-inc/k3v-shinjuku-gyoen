@@ -21,7 +21,7 @@ src = (ROOT / "docs/top-page-mock-8.html").read_text()
 # below fails loudly if a scene is added or removed rather than silently
 # shifting every name by one.
 SCENE_NAMES = [
-    "HERO",      # 朝の縁側：木の柱、障子、藍ののれん、干したシャツ
+    "HERO",      # 朝の部屋：四本柱のベッド、シアー越しの朝日、丸テーブルと4脚の椅子
     "LIVING",    # 昼のリビング：木の床とシャンブレーのソファ
     "GYOEN_SQ",  # 御苑の樹（小さな正方形）
     "ROOM1", "ROOM2", "ROOM3",

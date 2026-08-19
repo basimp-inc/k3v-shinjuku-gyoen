@@ -16,7 +16,7 @@ ROOT = pathlib.Path("/Users/apple/workbench/k3v-shinjuku-gyoen")
 DISPLAY = {
     "hero": {"titleA": "Live", "titleB": "Tokyo", "titleOut": "Beautifully.",
              "sub": "Washed, worn, and three minutes from the garden.",
-             "side": "Est. 2026 — Shinjuku, Tokyo", "stamp": "Engawa / Morning"},
+             "side": "Est. 2026 — Shinjuku, Tokyo", "stamp": "Room 01 / Morning"},
     "ticker": {"w1": "Wood", "w2": "Denim", "w3": "Forest", "w4": "Shadow", "em": "Washed in Tokyo"},
     "concept": {"titleA": "Cut from", "titleB": "one cloth", "titleEm": "— wood, denim, and a park.",
                 "stamp": "Living / Room 01"},
