@@ -1,0 +1,14 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 900"  aria-hidden="true">
+          <!-- ROOM 03 だけは描き起こしのイラストを画像アセットで持つ。
+               外側の <svg> は残す：docs/gen-chambray-assets.py が mock 内の
+               <svg> ブロックをちょうど15個数える前提なので、<img> に置き換えると
+               生成が落ちる。この形なら .ph / .scene の CSS もコンポーネントも
+               変えずに済み、slice の切り抜き挙動もそのまま効く。
+               viewBox は原画と同じ 4:3。内側の <image> にも slice を掛けて、
+               差し替え画像の比率が多少ずれても歪まないようにしてある。
+               外枠だけ xMidYMax（下寄せ）にしてある：desktop は .pic が 1.334 で
+               4:3 とほぼ一致するため切り抜きゼロだが、モバイルの 16:10 では縦が
+               16.7% 落ちる。中央寄せだと靴が切れる一方、上は天井でほぼ無地なので、
+               下を固定して上を捨てる方が失うものが少ない。 -->
+          <image href="/rooms/room03.webp" x="0" y="0" width="1200" height="900" preserveAspectRatio="xMidYMid slice"/>
+        </svg>

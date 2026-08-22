@@ -1,0 +1,7 @@
+# pnpm 11 は build script を持つ依存に明示の許可を要求する。
+# ここに列挙しないと `pnpm install` が ERR_PNPM_IGNORED_BUILDS で落ちる。
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  sharp: true
+  unrs-resolver: true

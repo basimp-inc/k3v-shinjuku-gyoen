@@ -57,11 +57,9 @@
   --indigo-dp:#12283C;
   --indigo-mid:#2C5779;
   --indigo-fade:#6E8FAC;
-  /* 02 WOOD ---------------------------------------------- */
-  --wood:#6B4A32;
-  --wood-dk:#4A3222;
-  --wood-lt:#8F6743;
-  --wood-pale:#C6A886;
+  /* 02 WOOD — 値は app/wood.css（全デザイン共通の1つのウッド）が持つ。
+     ウォルナット #6B4A32 は 2026-08-21 の「色柄を統一」で廃止。
+     明るい地に置く文字には --wood ではなく --wood-ink を使うこと ---- */
   /* 03 FOREST — 御苑の新緑。深い青緑ではなく、そら豆〜黄緑の
      日向の緑で。上品さは彩度ではなく明度差で持たせている ---- */
   --forest:#4C6E31;
@@ -143,20 +141,8 @@ background:var(--cham);
   content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' seed='5'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23r)' opacity='.55'/%3E%3C/svg%3E");
   }
-  .mat-wood {
-  position:relative;color:var(--ecru);
-  background-color:var(--wood);
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.4' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.34'/%3E%3C/filter%3E%3Crect width='700' height='420' filter='url(%23w)'/%3E%3C/svg%3E"),
-    linear-gradient(184deg,#7E5B3E,#6B4A32 55%,#553A26);
-  background-size:700px 420px,100% 100%;
-  }
-  .mat-wood.v {
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='700'%3E%3Cfilter id='w2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4 0.006' numOctaves='4' seed='9'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.34'/%3E%3C/filter%3E%3Crect width='420' height='700' filter='url(%23w2)'/%3E%3C/svg%3E"),
-    linear-gradient(92deg,#7E5B3E,#6B4A32 55%,#553A26);
-  background-size:420px 700px,100% 100%;
-  }
+  /* .mat-wood / .mat-wood.v の面は app/wood.css に移動（全デザイン共通）。
+     ここに残すと詠み順で上書き合戦になるだけなので、色も柄も持たせない。 */
   .mat-forest {
   position:relative;color:var(--ecru);
   background-color:var(--forest);
@@ -307,7 +293,7 @@ background:var(--cham);
   }
   .h1-sub {
   display:block;margin-top:.18em;max-width:19ch;
-  font-family:var(--dsp);font-style:italic;font-weight:300;color:var(--wood);
+  font-family:var(--dsp);font-style:italic;font-weight:300;color:var(--wood-ink);
   font-size:clamp(1.15rem,2.25vw,1.95rem);line-height:1.28;letter-spacing:-.005em;
   }
   /* the patch: a raw-denim block sewn onto the washed ground */
@@ -434,11 +420,11 @@ background:var(--cham);
   }
   .c-head {
   }
-  .c-head .kick {color:var(--wood);display:block;margin-bottom:18px
+  .c-head .kick {color:var(--wood-ink);display:block;margin-bottom:18px
   }
   .c-head h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:.84;color:var(--indigo)
   }
-  .c-head h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.52em;line-height:1.15;margin-top:.16em;letter-spacing:-.01em
+  .c-head h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;line-height:1.15;margin-top:.16em;letter-spacing:-.01em
   }
   .c-copy {margin-top:clamp(26px,3vw,42px);max-width:44ch
   }
@@ -497,6 +483,35 @@ background:var(--cham);
   position:absolute;left:0;bottom:0;z-index:3;padding:7px 11px;background:var(--indigo);color:var(--cham-pale);
   font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;
   }
+  /* ROOM 01's picture is a 2-slide carousel — the confirmed room, and the
+     same room in morning light — switched by radio inputs, no JS required */
+  .s-radio {position:absolute;width:1px;height:1px;opacity:0;pointer-events:none
+  }
+  .s-radio:nth-of-type(1):focus-visible ~ .s-dots label:first-child,
+  .s-radio:nth-of-type(2):focus-visible ~ .s-dots label:last-child {
+  outline:2px solid var(--thread);outline-offset:2px;
+  }
+  .pic .ph.s0 {opacity:1
+  }
+  .pic .ph.s1 {opacity:0
+  }
+  .pic .ph.s0,.pic .ph.s1 {transition:opacity .6s ease
+  }
+  .pic:has(.s-radio:nth-of-type(2):checked) .ph.s0 {opacity:0
+  }
+  .pic:has(.s-radio:nth-of-type(2):checked) .ph.s1 {opacity:1
+  }
+  .s-dots {position:absolute;right:16px;bottom:16px;z-index:4;display:flex;gap:8px
+  }
+  .s-dots label {display:block;width:8px;height:8px;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.15);transition:background .2s ease;
+  }
+  .s-dots label:first-child {background:#FFFFFF
+  }
+  .pic:has(.s-radio:nth-of-type(2):checked) .s-dots label:first-child {background:rgba(255,255,255,.55)
+  }
+  .pic:has(.s-radio:nth-of-type(2):checked) .s-dots label:last-child {background:#FFFFFF
+  }
   /* ============================================================
    ROOMS — full-bleed bands, number crossing the seam
    ============================================================ */
@@ -506,7 +521,7 @@ background:var(--cham);
   }
   .rhead h2 {grid-column:1/8;font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:.84;color:var(--indigo)
   }
-  .rhead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.46em;line-height:1.2;margin-top:.14em
+  .rhead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.46em;line-height:1.2;margin-top:.14em
   }
   .rhead p {grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.7)
   }
@@ -656,7 +671,7 @@ background:var(--cham);
   }
   .linfo h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.1rem,3.8vw,3.3rem);line-height:.88;color:var(--indigo)
   }
-  .linfo h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.52em;margin-top:.1em
+  .linfo h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;margin-top:.1em
   }
   .linfo .addr {margin-top:20px;font-family:var(--jp);font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.78)
   }
@@ -670,7 +685,7 @@ background:var(--cham);
   }
   .acc .ln.g {border-color:var(--forest)
   }
-  .acc .ln.w {border-color:var(--wood)
+  .acc .ln.w {border-color:var(--wood-ink)
   }
   .acc b {font-family:var(--ui);font-weight:600;font-size:.8125rem
   }

@@ -2,16 +2,20 @@
 
 import { useEffect } from "react";
 
-import { wireAutoRail } from "./autoRail";
+import { wireAutoRail } from "../chambray/autoRail";
 
 /**
- * Client-side behaviour for the review-only "Washed Chambray" design:
+ * Client-side behaviour for the review-only "Chambray Gyoen" design:
  * the nav's scrolled state, the scroll reveals, and the neighbourhood rail's
- * auto display (shared with Chambray Gyoen — see ./autoRail.ts).
+ * auto display.
  *
- * Everything is scoped to the .chambray-top subtree, and the whole subtree is
- * display:none unless the theme is active — so when it is not on screen this
- * only costs one querySelector.
+ * Trimmed copy of ../chambray/ChambrayBehaviour.tsx — the rail itself is the
+ * one shared implementation in ../chambray/autoRail.ts, so both designs present
+ * the neighbourhood the same way.
+ *
+ * Everything is scoped to the .chambray-gyoen-top subtree, and the whole
+ * subtree is display:none unless the theme is active — so when it is not on
+ * screen this only costs one querySelector.
  *
  * That display:none is also why the observer is (re)wired from a MutationObserver
  * on <html data-theme> rather than once on mount: a hidden element generates no
@@ -20,9 +24,9 @@ import { wireAutoRail } from "./autoRail";
  * sections. Wiring it the moment the subtree gains layout makes the observer
  * deliver its initial callbacks against the real viewport.
  */
-export default function ChambrayBehaviour() {
+export default function ChambrayGyoenBehaviour() {
   useEffect(() => {
-    const root = document.querySelector<HTMLElement>(".chambray-top");
+    const root = document.querySelector<HTMLElement>(".chambray-gyoen-top");
     if (!root) return;
 
     const nav = root.querySelector<HTMLElement>(".nav");

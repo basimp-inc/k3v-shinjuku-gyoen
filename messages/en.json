@@ -682,7 +682,7 @@
       "titleB": "on the other.",
       "swatchGreen": "GYOEN GREEN",
       "swatchDenim": "DENIM SKY",
-      "swatchWood": "OAK / ROSEWOOD",
+      "swatchWood": "WOOD",
       "specRoomsValue": "3",
       "specEstValue": "2026",
       "quoteA": "“Not just a stay.",
@@ -1047,7 +1047,8 @@
       "fo3": "Booking.com",
       "copyright": "© 2026 K3V Shinjuku Gyoen",
       "brand": "K3V Shinjuku Gyoen",
-      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow"
+      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
+      "creditGyoen": "Chambray Gyoen — Green × Denim × Wood × Brick"
     },
     "display": {
       "hero": "Stay Steps Away.",

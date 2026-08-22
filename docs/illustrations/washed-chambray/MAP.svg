@@ -1,0 +1,53 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 700"  aria-hidden="true">
+          <defs>
+            <linearGradient id="wc-cloth" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#E4EDF4"/><stop offset="1" stop-color="#C6D6E4"/>
+            </linearGradient>
+          </defs>
+          <rect width="900" height="700" fill="url(#wc-cloth)"/>
+          <g opacity=".5">
+            <rect width="900" height="700" fill="none"/>
+            <g stroke="#FFFFFF" stroke-width="1" opacity=".6">
+              <path d="M-100 0 L900 630" /><path d="M-100 60 L900 690"/><path d="M-100 120 L900 750"/>
+              <path d="M-100 -60 L900 570"/><path d="M-100 -120 L900 510"/>
+            </g>
+          </g>
+          <!-- 街区（薄い当て布） -->
+          <g fill="#FFFFFF" opacity=".42">
+            <rect x="30" y="60" width="150" height="120"/><rect x="200" y="60" width="120" height="120"/>
+            <rect x="340" y="60" width="180" height="92"/><rect x="30" y="200" width="150" height="140"/>
+            <rect x="200" y="200" width="120" height="140"/><rect x="340" y="172" width="100" height="168"/>
+            <rect x="30" y="360" width="110" height="130"/><rect x="160" y="360" width="160" height="130"/>
+            <rect x="30" y="512" width="150" height="150"/><rect x="200" y="512" width="140" height="150"/>
+            <rect x="360" y="512" width="120" height="150"/>
+          </g>
+          <!-- 御苑＝フォレストのアップリケ -->
+          <path d="M470 250 q120 -60 250 10 q80 60 60 190 q-30 150 -220 160 q-180 10 -210 -140 q-24 -140 120 -220 Z" fill="#4C6E31"/>
+          <path d="M470 250 q120 -60 250 10 q80 60 60 190 q-30 150 -220 160 q-180 10 -210 -140 q-24 -140 120 -220 Z"
+                fill="none" stroke="#B0CC80" stroke-width="2" stroke-dasharray="7 6" opacity=".8"/>
+          <g fill="#74994A" opacity=".8"><ellipse cx="620" cy="360" rx="82" ry="56"/><ellipse cx="722" cy="482" rx="60" ry="44"/><ellipse cx="540" cy="474" rx="66" ry="46"/></g>
+          <!-- 道＝ステッチ -->
+          <g stroke="#1B3A57" stroke-width="2.4" stroke-dasharray="9 7" opacity=".55" fill="none">
+            <line x1="0" y1="192" x2="900" y2="192"/><line x1="0" y1="350" x2="900" y2="350"/>
+            <line x1="0" y1="500" x2="900" y2="500"/>
+            <line x1="190" y1="0" x2="190" y2="700"/><line x1="330" y1="0" x2="330" y2="700"/>
+            <line x1="490" y1="0" x2="490" y2="700"/>
+          </g>
+          <!-- 甲州街道：太いステッチ -->
+          <line x1="0" y1="640" x2="900" y2="600" stroke="#1B3A57" stroke-width="5" stroke-dasharray="14 9" opacity=".5"/>
+          <!-- 鉄道 -->
+          <g><line x1="0" y1="96" x2="900" y2="66" stroke="#2B2620" stroke-width="6"/>
+            <line x1="0" y1="96" x2="900" y2="66" stroke="#E4EDF4" stroke-width="2.5" stroke-dasharray="10 10"/></g>
+          <!-- 駅 -->
+          <rect x="96" y="60" width="70" height="34" rx="3" fill="#2B2620"/>
+          <text x="131" y="83" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#EDF2F7">JR</text>
+          <circle cx="470" cy="330" r="11" fill="#EDF2F7" stroke="#4C6E31" stroke-width="5"/>
+          <text x="470" y="306" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#EDF2F7" letter-spacing="1">GYOENMAE</text>
+          <circle cx="196" cy="500" r="10" fill="#EDF2F7" stroke="#6B4A32" stroke-width="5"/>
+          <text x="196" y="478" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2B2620" letter-spacing="1">SHINJUKU 3</text>
+          <!-- 御苑の名前（刺繍） -->
+          <text x="596" y="452" font-family="Newsreader, serif" font-style="italic" font-size="38" fill="#DEE8F1">Shinjuku Gyoen</text>
+          <text x="598" y="484" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B0CC80" letter-spacing="3">58.3 HA OF QUIET</text>
+          <!-- 徒歩ルート -->
+          <path d="M340 392 L470 392 L470 342" fill="none" stroke="#C8783A" stroke-width="3" stroke-dasharray="7 7"/>
+        </svg>

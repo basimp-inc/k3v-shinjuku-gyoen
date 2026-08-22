@@ -1,10 +1,17 @@
 @import "tailwindcss";
-/* REVIEW-ONLY alternative TOP page designs (entries 2–7 of the switcher) */
+/* REVIEW-ONLY alternative TOP page designs (entries 2–4 of the switcher) */
 @import "./gyoen-design.css";
 @import "./chambray-design.css";
+@import "./chambray-gyoen-design.css";
 /* Layouts for the canonical six sections those six designs all share.
    Imported last so it can narrow the generated stylesheets above. */
 @import "./mock-structure.css";
+
+/* 素材（ウッド／緑）は全デザイン共通で、色の最終決定権を持つ。デザインシート
+   と mock-structure.css のどちらより後に読むこと —— 順番を上げると .mock-* の
+   クリーム文字が勝ってしまい、明るい地の上に白文字が残る。 */
+@import "./wood.css";
+@import "./green.css";
 
 /* ---------------------------------------------------------------------------
    Colour tokens.
@@ -207,6 +214,62 @@
   background-image:
     repeating-linear-gradient(63deg, rgb(255 255 255 / 0.6) 0 1px, transparent 1px 3px),
     repeating-linear-gradient(63deg, rgb(27 58 87 / 0.06) 0 1px, transparent 1px 4px);
+}
+
+/* chambray-gyoen — green-gyoen × washed-chambray の統合案（2026-08-19 パレット承認）。
+   洗いを一段強くしたシャンブレー地に、新宿御苑の新緑（そら豆〜黄緑）・明るいオーク・
+   レンガを小面積で効かせる。黒・濃紺・濃茶は不使用 — 最暗色はデニムインク
+   #33526E（L*≈34）で、メリハリは明度差ではなく彩度差と面積比で作る。
+
+   TOPページは app/chambray-gyoen-design.css がまるごと差し替えるので、ここで
+   効くのは下層ページとプレビュー用スウォッチだけ。 */
+[data-theme="chambray-gyoen"] {
+  --color-bg: #edf2f7;
+  --color-bg-card: #dee8f1;
+  --color-bg-card-deep: #c6d6e4;
+  --color-cream: #f2efe8;
+
+  --color-text: #3f5261;
+  --color-text-soft: #56687a;
+
+  /* accent は洗いのかかったデニムインク、accent2 はレンガ */
+  --color-accent: #3a5e7d;
+  --color-accent-dark: #33526e;
+  --color-accent2: #c97b4f;
+  --color-accent2-dark: #ad5d33;
+
+  --color-line: #bccfdd;
+  --color-line-strong: #6f93b0;
+  --color-line-on-dark: #47688a;
+
+  --color-on-dark-soft: #edf2f7;
+  --color-on-dark-muted: #a7bccd;
+
+  /* 新緑レンジ — 深緑は使わない（最深 #5f8437） */
+  --color-moss-from: #93b23e;
+  --color-moss-to: #74994a;
+  --color-leaf: #83a94d;
+  --color-leaf-dark: #5f8437;
+
+  --color-glow: #fbf3d8;
+  --color-glow-soft: #f2efe8;
+  --color-sky-mid: #c9dce8;
+  --color-floor: #c9a26e;
+  --color-skyline: #8fa9bf;
+  --color-terracotta-dark: #ad5d33;
+  --color-object-dark: #33526e;
+
+  --color-shadow: 63 82 97;
+}
+
+/* Same 63° weave as washed-chambray, fainter — the ground is a wash lighter */
+[data-theme="chambray-gyoen"] #renovated,
+[data-theme="chambray-gyoen"] #rooms,
+[data-theme="chambray-gyoen"] #reviews,
+[data-theme="chambray-gyoen"] #access {
+  background-image:
+    repeating-linear-gradient(63deg, rgb(255 255 255 / 0.6) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(63deg, rgb(58 94 125 / 0.05) 0 1px, transparent 1px 4px);
 }
 
 @theme inline {

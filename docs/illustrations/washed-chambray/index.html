@@ -1,395 +1,16 @@
-/* Auto-extracted verbatim from docs/top-page-mock-8.html, with every SVG id
-   namespaced `wc-`: the Gyoen Green and Denim Sakura designs sit in the same
-   document and generic ids (#sky, #wall, #glow, #soft) would collide.
-
-   Kept as raw strings and injected with dangerouslySetInnerHTML: this is static
-   authored markup, and hand-converting several hundred SVG attributes to JSX
-   casing would only add transcription risk.
-   Re-run docs/gen-chambray-assets.py if the mock changes. */
-
-export const HERO = String.raw`
-<svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs>
-              <linearGradient id="wc-sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#EDF2F7"/><stop offset=".55" stop-color="#DCE7F0"/><stop offset="1" stop-color="#C6D6E4"/>
-              </linearGradient>
-              <linearGradient id="wc-wd" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#AC5F27"/><stop offset=".4" stop-color="#E0A063"/>
-                <stop offset=".75" stop-color="#CC8043"/><stop offset="1" stop-color="#8C481E"/>
-              </linearGradient>
-              <linearGradient id="wc-shoji" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#FBFAF6"/><stop offset="1" stop-color="#E8E9E2"/>
-              </linearGradient>
-              <filter id="wc-bl"><feGaussianBlur stdDeviation="18"/></filter>
-            </defs>
-
-            <rect width="800" height="1000" fill="url(#wc-sky)"/>
-            <!-- 霞んだ新宿のビル -->
-            <g fill="#A6BED4" opacity=".55">
-              <rect x="20" y="150" width="70" height="300"/><rect x="104" y="210" width="46" height="240"/>
-              <rect x="470" y="120" width="92" height="330"/><rect x="576" y="196" width="54" height="254"/>
-              <rect x="646" y="150" width="120" height="300"/>
-            </g>
-            <g fill="#C6D6E4" opacity=".7"><rect x="160" y="250" width="56" height="200"/><rect x="410" y="270" width="42" height="180"/></g>
-
-            <!-- 御苑の樹 -->
-            <g fill="#33553F" opacity=".92">
-              <ellipse cx="120" cy="420" rx="150" ry="104"/><ellipse cx="330" cy="392" rx="128" ry="92"/>
-              <ellipse cx="600" cy="410" rx="146" ry="96"/>
-            </g>
-            <g fill="#7FA07F" opacity=".5"><ellipse cx="96" cy="372" rx="66" ry="44"/><ellipse cx="336" cy="348" rx="54" ry="36"/><ellipse cx="620" cy="366" rx="60" ry="38"/></g>
-            <rect y="470" width="800" height="60" fill="#1F3A2E" opacity=".85"/>
-
-            <!-- 縁側の床（木） -->
-            <rect y="530" width="800" height="470" fill="url(#wc-wd)"/>
-            <g stroke="#3E2A1C" stroke-width="2" opacity=".5">
-              <line x1="0" y1="596" x2="800" y2="596"/><line x1="0" y1="672" x2="800" y2="672"/>
-              <line x1="0" y1="762" x2="800" y2="762"/><line x1="0" y1="868" x2="800" y2="868"/>
-            </g>
-            <!-- 朝日の帯 -->
-            <path d="M120 530 L420 530 L620 1000 L200 1000 Z" fill="#FFF6E2" opacity=".42" filter="url(#wc-bl)"/>
-
-            <!-- 障子 -->
-            <g>
-              <rect x="430" y="120" width="330" height="410" fill="url(#wc-shoji)"/>
-              <g stroke="#6B4A32" stroke-width="7" opacity=".9">
-                <line x1="540" y1="120" x2="540" y2="530"/><line x1="650" y1="120" x2="650" y2="530"/>
-                <line x1="430" y1="258" x2="760" y2="258"/><line x1="430" y1="396" x2="760" y2="396"/>
-              </g>
-              <rect x="430" y="120" width="330" height="410" fill="none" stroke="#4A3222" stroke-width="14"/>
-              <g fill="#33553F" opacity=".18"><ellipse cx="500" cy="200" rx="42" ry="30"/><ellipse cx="700" cy="440" rx="48" ry="32"/></g>
-            </g>
-
-            <!-- 木の柱 -->
-            <rect x="356" y="60" width="42" height="470" fill="#4A3222"/>
-            <rect x="366" y="60" width="10" height="470" fill="#A0774F" opacity=".4"/>
-            <rect x="0" y="60" width="800" height="34" fill="#4A3222"/>
-
-            <!-- のれん（藍） -->
-            <g>
-              <rect x="60" y="94" width="270" height="12" fill="#3E2A1C"/>
-              <path d="M64 106h82v168H64z" fill="#1B3A57"/>
-              <path d="M150 106h82v186h-82z" fill="#16334D"/>
-              <path d="M236 106h82v172h-82z" fill="#1B3A57"/>
-              <g fill="#DEE8F1" opacity=".92">
-                <rect x="84" y="160" width="42" height="7"/><rect x="84" y="178" width="42" height="7"/>
-                <rect x="172" y="160" width="34" height="7"/><rect x="172" y="178" width="18" height="7"/>
-                <rect x="256" y="160" width="42" height="7"/>
-              </g>
-            </g>
-
-            <!-- 物干し：シャンブレーのシャツ -->
-            <g>
-              <line x1="398" y1="150" x2="800" y2="168" stroke="#2B2620" stroke-width="3"/>
-              <g transform="translate(560 168) rotate(2)">
-                <path d="M0 0 L64 0 L84 26 L70 40 L64 30 L64 128 L0 128 L0 30 L-6 40 L-20 26 Z" fill="#C6D6E4"/>
-                <path d="M0 0 L64 0 L84 26 L70 40 L64 30 L64 128 L0 128 L0 30 L-6 40 L-20 26 Z" fill="none" stroke="#8FA9BF" stroke-width="2"/>
-                <line x1="32" y1="4" x2="32" y2="128" stroke="#A6BED4" stroke-width="2"/>
-                <g stroke="#C8783A" stroke-width="1.6" stroke-dasharray="5 5" opacity=".8">
-                  <line x1="6" y1="12" x2="6" y2="124"/><line x1="58" y1="12" x2="58" y2="124"/>
-                </g>
-              </g>
-              <rect x="556" y="160" width="8" height="16" rx="3" fill="#2B2620"/>
-              <rect x="628" y="164" width="8" height="16" rx="3" fill="#2B2620"/>
-            </g>
-
-            <!-- 鉢と草履 -->
-            <g>
-              <rect x="96" y="640" width="86" height="92" rx="6" fill="#8F6743"/>
-              <g fill="#1F3A2E"><ellipse cx="140" cy="580" rx="74" ry="56"/><ellipse cx="94" cy="616" rx="44" ry="32"/><ellipse cx="188" cy="610" rx="40" ry="28"/></g>
-              <g fill="#33553F" opacity=".8"><ellipse cx="124" cy="556" rx="34" ry="24"/></g>
-            </g>
-            <g fill="#2B2620" opacity=".8">
-              <rect x="300" y="800" width="72" height="34" rx="17"/><rect x="392" y="812" width="72" height="34" rx="17"/>
-            </g>
-            <ellipse cx="360" cy="850" rx="180" ry="26" fill="#2B2620" opacity=".16" filter="url(#wc-bl)"/>
-          </svg>
-`;
-
-export const LIVING = String.raw`
-<svg viewBox="0 0 800 960" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <defs>
-                <linearGradient id="wc-wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F4EE"/><stop offset="1" stop-color="#E4E0D6"/></linearGradient>
-                <!-- 床は白茶けた無垢材。家具はすべて濃い木でとるので、
-                     天板と床がひと続きに見えていた問題が解ける -->
-                <linearGradient id="wc-fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9DFC8"/><stop offset="1" stop-color="#C7B693"/></linearGradient>
-                <linearGradient id="wc-ch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#A6BED4"/></linearGradient>
-                <filter id="wc-bl2"><feGaussianBlur stdDeviation="24"/></filter>
-              </defs>
-              <rect width="800" height="960" fill="url(#wc-wl)"/>
-              <!-- 窓 -->
-              <rect x="70" y="70" width="380" height="440" fill="#EFF5F8"/>
-              <g stroke="#6B4A32" stroke-width="8"><line x1="260" y1="70" x2="260" y2="510"/><line x1="70" y1="290" x2="450" y2="290"/></g>
-              <rect x="70" y="70" width="380" height="440" fill="none" stroke="#6B4A32" stroke-width="15"/>
-              <!-- 窓の外の緑。塊は中間の緑で置き、明るい黄緑は差し色に回す -->
-              <g fill="#74994A" opacity=".8"><ellipse cx="150" cy="190" rx="76" ry="54"/><ellipse cx="360" cy="164" rx="62" ry="46"/><ellipse cx="380" cy="420" rx="70" ry="50"/></g>
-              <g fill="#4C6E31" opacity=".5"><ellipse cx="190" cy="230" rx="52" ry="36"/></g>
-              <g fill="#B0CC80" opacity=".85"><ellipse cx="128" cy="164" rx="38" ry="24"/><ellipse cx="346" cy="146" rx="30" ry="19"/><ellipse cx="364" cy="400" rx="34" ry="21"/></g>
-              <!-- 壁に回り込む光 -->
-              <path d="M77 510 L443 510 L591 680 L164 680 Z" fill="#FFE9B8" opacity=".38" filter="url(#wc-bl2)"/>
-              <!-- 床 -->
-              <rect y="680" width="800" height="280" fill="url(#wc-fl)"/>
-              <g stroke="#A8977A" stroke-width="2" opacity=".6">
-                <line x1="0" y1="726" x2="800" y2="726"/><line x1="0" y1="790" x2="800" y2="790"/><line x1="0" y1="872" x2="800" y2="872"/>
-                <line x1="220" y1="680" x2="188" y2="960"/><line x1="540" y1="680" x2="580" y2="960"/>
-              </g>
-              <!-- Room 01 と同じ作り。日陰を敷いてから金色の光だまりを置き、
-                   窓の桟の影を横切らせる -->
-              <rect y="680" width="800" height="280" fill="#6B4A32" opacity=".2"/>
-              <path d="M164 680 L591 680 L822 960 L318 960 Z" fill="#FFE0A2" opacity=".62"/>
-              <path d="M215 680 L555 680 L760 960 L370 960 Z" fill="#FFF1CE" opacity=".5"/>
-              <g fill="#7A5A38" opacity=".32">
-                <path d="M370 680 L384 680 L579 960 L561 960 Z"/>
-                <path d="M200 745 L645 745 L664 768 L212 768 Z"/>
-              </g>
-              <ellipse cx="378" cy="686" rx="215" ry="34" fill="#FFE9B8" opacity=".5" filter="url(#wc-bl2)"/>
-              <g fill="#FFFDF4" opacity=".38"><path d="M300 690 L338 690 L505 950 L462 950 Z"/></g>
-              <!-- 壁と床の見切り -->
-              <rect y="680" width="800" height="9" fill="#6B4A32" opacity=".55"/>
-              <!-- シャンブレーのソファ -->
-              <g>
-                <rect x="120" y="540" width="480" height="150" rx="14" fill="url(#wc-ch)"/>
-                <rect x="120" y="622" width="480" height="112" rx="16" fill="#B8CCDE"/>
-                <rect x="152" y="576" width="196" height="56" rx="10" fill="#EDF2F7"/>
-                <rect x="368" y="570" width="196" height="62" rx="10" fill="#D3E0EB"/>
-                <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".9">
-                  <line x1="128" y1="634" x2="592" y2="634"/><line x1="128" y1="724" x2="592" y2="724"/>
-                </g>
-                <rect x="142" y="734" width="16" height="42" fill="#4A3222"/><rect x="566" y="734" width="16" height="42" fill="#4A3222"/>
-              </g>
-              <!-- 低いテーブル。濃いウォルナットで、白茶けた床から確実に浮かす -->
-              <g>
-                <ellipse cx="390" cy="884" rx="160" ry="18" fill="#2B2620" opacity=".22" filter="url(#wc-bl2)"/>
-                <rect x="250" y="808" width="280" height="16" rx="4" fill="#5A3D28"/>
-                <rect x="250" y="806" width="280" height="5" rx="2" fill="#8F6743"/>
-                <rect x="256" y="824" width="268" height="9" fill="#3F2A1B"/>
-                <rect x="270" y="833" width="12" height="50" fill="#3F2A1B"/><rect x="500" y="833" width="12" height="50" fill="#3F2A1B"/>
-                <rect x="332" y="784" width="62" height="24" rx="3" fill="#F2EFE8"/>
-                <circle cx="448" cy="796" r="14" fill="#2B2620"/>
-                <!-- 天板の上の苔玉 -->
-                <g>
-                  <ellipse cx="286" cy="806" rx="22" ry="5" fill="#2B2620" opacity=".3"/>
-                  <ellipse cx="286" cy="800" rx="21" ry="5" fill="#3A322A"/>
-                  <circle cx="286" cy="784" r="17" fill="#4C6E31"/>
-                  <path d="M269 784a17 17 0 0 1 18-17 16 16 0 0 0-12 17z" fill="#74994A"/>
-                  <g fill="#B0CC80" opacity=".85"><circle cx="279" cy="776" r="3.4"/><circle cx="293" cy="780" r="2.6"/><circle cx="284" cy="791" r="2.2"/></g>
-                  <g fill="none" stroke="#74994A" stroke-width="2.4" stroke-linecap="round">
-                    <path d="M282 768 q-4-14 2-22"/><path d="M290 767 q6-12 14-16"/>
-                  </g>
-                </g>
-              </g>
-              <!-- 窓辺の松。低く広く仕立てた盆栽。
-                   slice で右が切られても鉢が欠けないよう内側に寄せてある -->
-              <g transform="translate(-28 0)">
-                <ellipse cx="694" cy="846" rx="76" ry="13" fill="#2B2620" opacity=".2" filter="url(#wc-bl2)"/>
-                <rect x="636" y="832" width="116" height="8" rx="3" fill="#4A3222"/>
-                <rect x="652" y="778" width="84" height="54" rx="5" fill="#3A322A"/>
-                <rect x="646" y="772" width="96" height="13" rx="4" fill="#4B4137"/>
-                <path d="M694 778 q-14-30 -22-52 q-3-11 8-14" fill="none" stroke="#4A3222" stroke-width="8" stroke-linecap="round"/>
-                <path d="M684 720 q16-9 36-15" fill="none" stroke="#4A3222" stroke-width="6" stroke-linecap="round"/>
-                <g fill="#4C6E31">
-                  <ellipse cx="660" cy="722" rx="52" ry="17"/><ellipse cx="722" cy="700" rx="42" ry="14"/><ellipse cx="678" cy="672" rx="36" ry="12"/>
-                </g>
-                <g fill="#74994A">
-                  <ellipse cx="655" cy="717" rx="38" ry="10"/><ellipse cx="718" cy="696" rx="30" ry="8"/><ellipse cx="675" cy="668" rx="26" ry="7"/>
-                </g>
-                <g fill="#B0CC80" opacity=".75">
-                  <ellipse cx="648" cy="713" rx="21" ry="5"/><ellipse cx="713" cy="693" rx="16" ry="4"/><ellipse cx="670" cy="665" rx="14" ry="4"/>
-                </g>
-              </g>
-            </svg>
-`;
-
-export const GYOEN_SQ = String.raw`
-<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="400" fill="#74994A"/>
-              <g fill="#4C6E31"><ellipse cx="110" cy="150" rx="140" ry="106"/><ellipse cx="300" cy="110" rx="118" ry="88"/><ellipse cx="230" cy="240" rx="150" ry="98"/></g>
-              <g fill="#B0CC80" opacity=".6"><ellipse cx="98" cy="106" rx="54" ry="38"/><ellipse cx="306" cy="76" rx="46" ry="30"/></g>
-              <g fill="#4A3222"><rect x="176" y="252" width="26" height="148"/><rect x="300" y="268" width="18" height="132"/></g>
-              <rect y="352" width="400" height="48" fill="#3A5525"/>
-            </svg>
-`;
-
-export const ROOM1 = String.raw`
-<svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="wc-r1w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E9E3D6"/></linearGradient>
-            <!-- 掃き出し窓。朝いちばんの逆光なので、上は白く抜いて
-                 下にいくほど暖色に寄せる。光源そのものを画にする -->
-            <linearGradient id="wc-r1gl" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F4F8FA"/><stop offset=".5" stop-color="#FBF3E2"/><stop offset="1" stop-color="#FFEDC8"/>
-            </linearGradient>
-            <!-- 縦に連なる帯のシアー。杉綾の織り柄は細い糸目で示す -->
-            <pattern id="wc-r1cur" width="38" height="26" patternUnits="userSpaceOnUse">
-              <rect width="38" height="26" fill="#DCE7EE" opacity=".4"/>
-              <rect x="2" width="30" height="26" fill="#C3D2DC" opacity=".46"/>
-              <path d="M2 26 L10 13 L18 26 M18 26 L26 13 L34 26" fill="none" stroke="#8FA9BF" stroke-width="1.4" opacity=".4"/>
-              <rect x="33" width="4" height="26" fill="#5E7382" opacity=".42"/>
-            </pattern>
-            <!-- 床は木ではなく、目の詰まった濃いグレーのループカーペット。
-                 この部屋でいちばん暗い面なので、光はここでいちばん効く -->
-            <pattern id="wc-r1cp" width="12" height="8" patternUnits="userSpaceOnUse">
-              <rect width="12" height="8" fill="#3D3833"/>
-              <rect width="6" height="4" fill="#4C463F"/><rect x="6" y="4" width="6" height="4" fill="#4C463F"/>
-              <rect y="7" width="12" height="1" fill="#2B2620"/>
-            </pattern>
-            <!-- 白地に細いストライプの寝具 -->
-            <pattern id="wc-r1bd" width="13" height="8" patternUnits="userSpaceOnUse">
-              <rect width="13" height="8" fill="#FAF8F3"/>
-              <rect width="4" height="8" fill="#F4F1E9"/>
-            </pattern>
-            <filter id="wc-b1"><feGaussianBlur stdDeviation="22"/></filter>
-          </defs>
-
-          <!-- 天井と壁 -->
-          <rect width="1000" height="700" fill="url(#wc-r1w)"/>
-          <rect width="1000" height="96" fill="#FCFAF5"/>
-          <rect y="93" width="1000" height="4" fill="#E0DACC"/>
-          <!-- 丸型のシーリングライト。slice で上が切られるので
-               モバイル幅（y 37 から）に収まる高さに置く -->
-          <ellipse cx="392" cy="68" rx="132" ry="50" fill="#FFF1CE" opacity=".4" filter="url(#wc-b1)"/>
-          <ellipse cx="392" cy="64" rx="78" ry="27" fill="#FFFDF4"/>
-          <ellipse cx="392" cy="60" rx="58" ry="17" fill="#FFFFFF"/>
-
-          <!-- 壁掛けエアコン -->
-          <g>
-            <rect x="40" y="150" width="158" height="34" rx="7" fill="#FBFAF6"/>
-            <rect x="40" y="176" width="158" height="16" rx="6" fill="#E9E4D8"/>
-            <rect x="50" y="192" width="138" height="6" rx="3" fill="#D6D0C2"/>
-            <path d="M58 198 q-16 28 -8 58" fill="none" stroke="#E3DED2" stroke-width="6"/>
-          </g>
-
-          <!-- 壁いっぱいの掃き出し窓 -->
-          <g>
-            <rect x="212" y="140" width="648" height="400" fill="url(#wc-r1gl)"/>
-            <!-- 向かいの建物。シアー越しなので輪郭だけ残す -->
-            <g fill="#B6C6D4" opacity=".5">
-              <rect x="626" y="192" width="148" height="348"/><rect x="786" y="240" width="74" height="300"/>
-              <rect x="234" y="256" width="92" height="284"/>
-            </g>
-            <g fill="#FFFFFF" opacity=".4">
-              <rect x="644" y="226" width="26" height="34"/><rect x="690" y="226" width="26" height="34"/>
-              <rect x="644" y="292" width="26" height="34"/><rect x="736" y="292" width="26" height="34"/>
-            </g>
-            <!-- バルコニーの手すり -->
-            <g fill="#D8D2C4" opacity=".5"><rect x="212" y="446" width="648" height="11"/><rect x="212" y="498" width="648" height="11"/></g>
-            <!-- 引き戸の框。シアーの下に沈ませる -->
-            <g fill="#3B4A54">
-              <rect x="532" y="140" width="28" height="400"/>
-              <rect x="212" y="140" width="18" height="400"/><rect x="842" y="140" width="18" height="400"/>
-            </g>
-            <!-- シアーカーテン -->
-            <rect x="212" y="162" width="648" height="378" fill="url(#wc-r1cur)"/>
-            <!-- カーテンレールのヘッダー -->
-            <rect x="212" y="140" width="648" height="26" fill="#2F3E48"/>
-            <rect x="212" y="140" width="648" height="7" fill="#4A5D6B" opacity=".85"/>
-            <rect x="212" y="140" width="648" height="400" fill="none" stroke="#59686F" stroke-width="4"/>
-          </g>
-
-          <!-- カーペット -->
-          <rect y="540" width="1000" height="160" fill="url(#wc-r1cp)"/>
-          <rect y="540" width="1000" height="7" fill="#241F1A" opacity=".7"/>
-
-          <!-- 右手の作り付けクローゼット -->
-          <g>
-            <rect x="866" y="96" width="134" height="470" fill="#FBFAF6"/>
-            <rect x="866" y="96" width="11" height="470" fill="#E3DED2"/>
-            <rect x="929" y="104" width="7" height="454" fill="#EBE6DA"/>
-            <rect x="866" y="96" width="134" height="470" fill="none" stroke="#DED8CA" stroke-width="3"/>
-            <rect x="918" y="318" width="8" height="46" rx="4" fill="#C9C2B2"/>
-          </g>
-
-          <!-- カーテン越しの朝日。濃いカーペットの上でいちばん強く出る -->
-          <g>
-            <path d="M236 166 L444 166 L112 700 L-96 700 Z" fill="#FFE7B4" opacity=".26"/>
-            <path d="M420 166 L640 166 L470 700 L212 700 Z" fill="#FFF1CE" opacity=".28"/>
-            <path d="M652 168 L824 168 L768 700 L544 700 Z" fill="#FFE7B4" opacity=".22"/>
-            <path d="M296 172 L340 172 L58 700 L-14 700 Z" fill="#FFFDF4" opacity=".34"/>
-            <path d="M724 176 L764 176 L648 700 L578 700 Z" fill="#FFFDF4" opacity=".3"/>
-          </g>
-          <!-- 窓ぎわの照り返し -->
-          <ellipse cx="536" cy="548" rx="380" ry="36" fill="#FFE9B8" opacity=".42" filter="url(#wc-b1)"/>
-
-          <!-- 奥のベッド。シングル寄りの細いほう -->
-          <g>
-            <rect x="54" y="368" width="212" height="66" rx="5" fill="#C6A886"/>
-            <g stroke="#B08A63" stroke-width="3" opacity=".6"><line x1="108" y1="368" x2="108" y2="434"/><line x1="162" y1="368" x2="162" y2="434"/><line x1="216" y1="368" x2="216" y2="434"/></g>
-            <rect x="54" y="368" width="212" height="6" rx="3" fill="#FFE9B8" opacity=".7"/>
-            <rect x="74" y="400" width="130" height="44" rx="11" fill="#FBFAF6"/>
-            <!-- 黄土色×グレーのカラーブロック -->
-            <g>
-              <rect x="112" y="392" width="74" height="58" rx="4" fill="#EFEAE0"/>
-              <rect x="112" y="392" width="25" height="58" fill="#E3C578"/>
-              <rect x="137" y="422" width="49" height="28" fill="#CBB19B"/>
-              <rect x="137" y="392" width="49" height="30" fill="#DAD6CC"/>
-              <rect x="112" y="392" width="74" height="58" rx="4" fill="none" stroke="#D6D0C2" stroke-width="2"/>
-            </g>
-            <path d="M52 434 L268 434 L256 700 L14 700 Z" fill="url(#wc-r1bd)"/>
-            <path d="M52 434 L268 434 L266 466 L50 466 Z" fill="#FFFFFF" opacity=".55"/>
-            <!-- 掛け布団のたるみ。縦のストライプと別の線で厚みを出す -->
-            <g fill="none" stroke="#EBE6DA" stroke-width="4" opacity=".9">
-              <path d="M104 470 L92 700"/><path d="M214 470 L222 700"/>
-            </g>
-            <path d="M14 700 L18 636 L260 636 L256 700 Z" fill="#E4DFD2" opacity=".45"/>
-            <path d="M52 434 L268 434 L256 700 L14 700 Z" fill="none" stroke="#D8D2C4" stroke-width="2.5"/>
-          </g>
-
-          <!-- ベッドの間に落ちる影。2台が別々のベッドに見える手当て -->
-          <path d="M268 436 L302 436 L280 700 L250 700 Z" fill="#241F1A" opacity=".35" filter="url(#wc-b1)"/>
-
-          <!-- 手前のベッド。幅の広いほう -->
-          <g>
-            <rect x="306" y="376" width="420" height="74" rx="5" fill="#C6A886"/>
-            <g stroke="#B08A63" stroke-width="3" opacity=".6"><line x1="411" y1="376" x2="411" y2="450"/><line x1="516" y1="376" x2="516" y2="450"/><line x1="621" y1="376" x2="621" y2="450"/></g>
-            <rect x="306" y="376" width="420" height="6" rx="3" fill="#FFE9B8" opacity=".75"/>
-            <rect x="324" y="408" width="150" height="52" rx="12" fill="#FBFAF6"/>
-            <rect x="480" y="406" width="150" height="54" rx="12" fill="#F4F1E8"/>
-            <rect x="632" y="410" width="88" height="50" rx="12" fill="#FBFAF6"/>
-            <!-- キャンプ道具のニットクッション -->
-            <g>
-              <rect x="364" y="388" width="98" height="86" rx="5" fill="#B9C2CE"/>
-              <g stroke="#8B97A6" stroke-width="2" opacity=".5"><line x1="364" y1="416" x2="462" y2="416"/><line x1="364" y1="446" x2="462" y2="446"/></g>
-              <path d="M395 424 l13-26 13 26z" fill="#3E6B49"/>
-              <path d="M380 450 q10-18 20 0 q-10 8 -20 0z" fill="#C8783A"/>
-              <ellipse cx="433" cy="450" rx="17" ry="11" fill="#6E7A87"/><rect x="425" y="446" width="16" height="7" fill="#3A4450"/>
-              <g stroke="#8B97A6" stroke-width="3" stroke-linecap="round" opacity=".8">
-                <line x1="364" y1="392" x2="358" y2="386"/><line x1="364" y1="418" x2="358" y2="414"/><line x1="364" y1="444" x2="358" y2="442"/>
-              </g>
-            </g>
-            <!-- アイスクリームのニットクッション -->
-            <g>
-              <rect x="504" y="390" width="94" height="84" rx="5" fill="#2F6B52"/>
-              <path d="M529 428 l11 30 11-30z" fill="#E0B77E"/>
-              <ellipse cx="540" cy="424" rx="15" ry="12" fill="#FBFAF6"/>
-              <circle cx="540" cy="410" r="5" fill="#C8783A"/>
-              <path d="M562 430 l12 28 12-28z" fill="#E0B77E"/>
-              <ellipse cx="574" cy="424" rx="16" ry="13" fill="#DEE8F1"/>
-              <g fill="#C8783A"><circle cx="566" cy="420" r="3"/><circle cx="582" cy="424" r="3"/></g>
-              <rect x="504" y="390" width="94" height="84" rx="5" fill="none" stroke="#245542" stroke-width="3"/>
-            </g>
-            <path d="M302 450 L734 450 L768 700 L274 700 Z" fill="url(#wc-r1bd)"/>
-            <path d="M302 450 L734 450 L739 486 L298 486 Z" fill="#FFFFFF" opacity=".6"/>
-            <!-- 掛け布団のたるみ -->
-            <g fill="none" stroke="#EBE6DA" stroke-width="5" opacity=".9">
-              <path d="M394 490 L376 700"/><path d="M528 490 L524 700"/><path d="M660 490 L678 700"/>
-            </g>
-            <path d="M274 700 L280 630 L757 630 L768 700 Z" fill="#E4DFD2" opacity=".4"/>
-            <path d="M734 450 L768 700 L736 700 L706 452 Z" fill="#FFE9B8" opacity=".35"/>
-            <path d="M302 450 L734 450 L768 700 L274 700 Z" fill="none" stroke="#D8D2C4" stroke-width="2.5"/>
-          </g>
-
-          <!-- ベッドの上まで届く、やわらかい光 -->
-          <g>
-            <path d="M236 166 L444 166 L112 700 L-96 700 Z" fill="#FFE0A2" opacity=".11"/>
-            <path d="M652 168 L824 168 L768 700 L544 700 Z" fill="#FFE0A2" opacity=".1"/>
-            <path d="M296 172 L340 172 L58 700 L-14 700 Z" fill="#FFF8E6" opacity=".16"/>
-            <path d="M724 176 L764 176 L648 700 L578 700 Z" fill="#FFF8E6" opacity=".14"/>
-          </g>
-        </svg>
-`;
-
-export const ROOM1_MORNING = String.raw`
-<svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<meta charset="utf-8"><title>Washed Chambray — illustrations</title>
+<style>
+body{margin:0;padding:32px;background:#f3ece1;font-family:"Zen Maru Gothic",system-ui,sans-serif;color:#4a3a2a}
+h1{font-size:20px;margin:0 0 4px}p.lead{margin:0 0 28px;font-size:13px;opacity:.75}
+.grid{display:grid;gap:28px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+figure{margin:0}.frame{position:relative;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.frame svg{width:100%;height:100%;display:block}
+figcaption{padding:8px 2px;font-size:12px;line-height:1.6;display:flex;flex-direction:column}
+figcaption b{font-size:13px}figcaption span{opacity:.8}figcaption em{opacity:.5;font-style:normal;font-size:11px}
+</style>
+<h1>Washed Chambray — イラスト全15点</h1>
+<p class="lead">app/[locale]/_components/chambray/scenes.ts より抽出（id は wc- 名前空間付き）。ROOM 03 のみラスター画像。</p>
+<div class="grid"><figure><div class="frame" style="aspect-ratio:800/1000"><svg viewBox="0 0 800 1000"  aria-hidden="true">
             <defs>
               <linearGradient id="wc-hwall" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E6E1D5"/>
@@ -666,11 +287,120 @@ export const ROOM1_MORNING = String.raw`
               <path d="M224 184 L258 184 L26 1000 L-52 1000 Z" fill="#FFF8E6" opacity=".1"/>
               <path d="M562 186 L596 186 L570 1000 L494 1000 Z" fill="#FFF8E6" opacity=".09"/>
             </g>
-          </svg>
-`;
-
-export const ROOM2 = String.raw`
-<svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>HERO.svg</b><span>HERO — 朝の部屋（四本柱ベッド/丸テーブル）</span><em>viewBox 0 0 800 1000</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:800/960"><svg viewBox="0 0 800 960"  aria-hidden="true">
+              <defs>
+                <linearGradient id="wc-wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F4EE"/><stop offset="1" stop-color="#E4E0D6"/></linearGradient>
+                <!-- 床は白茶けた無垢材。家具はすべて濃い木でとるので、
+                     天板と床がひと続きに見えていた問題が解ける -->
+                <linearGradient id="wc-fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9DFC8"/><stop offset="1" stop-color="#C7B693"/></linearGradient>
+                <linearGradient id="wc-ch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#A6BED4"/></linearGradient>
+                <filter id="wc-bl2"><feGaussianBlur stdDeviation="24"/></filter>
+              </defs>
+              <rect width="800" height="960" fill="url(#wc-wl)"/>
+              <!-- 窓 -->
+              <rect x="70" y="70" width="380" height="440" fill="#EFF5F8"/>
+              <g stroke="#6B4A32" stroke-width="8"><line x1="260" y1="70" x2="260" y2="510"/><line x1="70" y1="290" x2="450" y2="290"/></g>
+              <rect x="70" y="70" width="380" height="440" fill="none" stroke="#6B4A32" stroke-width="15"/>
+              <!-- 窓の外の緑。塊は中間の緑で置き、明るい黄緑は差し色に回す -->
+              <g fill="#74994A" opacity=".8"><ellipse cx="150" cy="190" rx="76" ry="54"/><ellipse cx="360" cy="164" rx="62" ry="46"/><ellipse cx="380" cy="420" rx="70" ry="50"/></g>
+              <g fill="#4C6E31" opacity=".5"><ellipse cx="190" cy="230" rx="52" ry="36"/></g>
+              <g fill="#B0CC80" opacity=".85"><ellipse cx="128" cy="164" rx="38" ry="24"/><ellipse cx="346" cy="146" rx="30" ry="19"/><ellipse cx="364" cy="400" rx="34" ry="21"/></g>
+              <!-- 壁に回り込む光 -->
+              <path d="M77 510 L443 510 L591 680 L164 680 Z" fill="#FFE9B8" opacity=".38" filter="url(#wc-bl2)"/>
+              <!-- 床 -->
+              <rect y="680" width="800" height="280" fill="url(#wc-fl)"/>
+              <g stroke="#A8977A" stroke-width="2" opacity=".6">
+                <line x1="0" y1="726" x2="800" y2="726"/><line x1="0" y1="790" x2="800" y2="790"/><line x1="0" y1="872" x2="800" y2="872"/>
+                <line x1="220" y1="680" x2="188" y2="960"/><line x1="540" y1="680" x2="580" y2="960"/>
+              </g>
+              <!-- Room 01 と同じ作り。日陰を敷いてから金色の光だまりを置き、
+                   窓の桟の影を横切らせる -->
+              <rect y="680" width="800" height="280" fill="#6B4A32" opacity=".2"/>
+              <path d="M164 680 L591 680 L822 960 L318 960 Z" fill="#FFE0A2" opacity=".62"/>
+              <path d="M215 680 L555 680 L760 960 L370 960 Z" fill="#FFF1CE" opacity=".5"/>
+              <g fill="#7A5A38" opacity=".32">
+                <path d="M370 680 L384 680 L579 960 L561 960 Z"/>
+                <path d="M200 745 L645 745 L664 768 L212 768 Z"/>
+              </g>
+              <ellipse cx="378" cy="686" rx="215" ry="34" fill="#FFE9B8" opacity=".5" filter="url(#wc-bl2)"/>
+              <g fill="#FFFDF4" opacity=".38"><path d="M300 690 L338 690 L505 950 L462 950 Z"/></g>
+              <!-- 壁と床の見切り -->
+              <rect y="680" width="800" height="9" fill="#6B4A32" opacity=".55"/>
+              <!-- シャンブレーのソファ -->
+              <g>
+                <rect x="120" y="540" width="480" height="150" rx="14" fill="url(#wc-ch)"/>
+                <rect x="120" y="622" width="480" height="112" rx="16" fill="#B8CCDE"/>
+                <rect x="152" y="576" width="196" height="56" rx="10" fill="#EDF2F7"/>
+                <rect x="368" y="570" width="196" height="62" rx="10" fill="#D3E0EB"/>
+                <g stroke="#C8783A" stroke-width="2.5" stroke-dasharray="8 7" opacity=".9">
+                  <line x1="128" y1="634" x2="592" y2="634"/><line x1="128" y1="724" x2="592" y2="724"/>
+                </g>
+                <rect x="142" y="734" width="16" height="42" fill="#4A3222"/><rect x="566" y="734" width="16" height="42" fill="#4A3222"/>
+              </g>
+              <!-- 低いテーブル。濃いウォルナットで、白茶けた床から確実に浮かす -->
+              <g>
+                <ellipse cx="390" cy="884" rx="160" ry="18" fill="#2B2620" opacity=".22" filter="url(#wc-bl2)"/>
+                <rect x="250" y="808" width="280" height="16" rx="4" fill="#5A3D28"/>
+                <rect x="250" y="806" width="280" height="5" rx="2" fill="#8F6743"/>
+                <rect x="256" y="824" width="268" height="9" fill="#3F2A1B"/>
+                <rect x="270" y="833" width="12" height="50" fill="#3F2A1B"/><rect x="500" y="833" width="12" height="50" fill="#3F2A1B"/>
+                <rect x="332" y="784" width="62" height="24" rx="3" fill="#F2EFE8"/>
+                <circle cx="448" cy="796" r="14" fill="#2B2620"/>
+                <!-- 天板の上の苔玉 -->
+                <g>
+                  <ellipse cx="286" cy="806" rx="22" ry="5" fill="#2B2620" opacity=".3"/>
+                  <ellipse cx="286" cy="800" rx="21" ry="5" fill="#3A322A"/>
+                  <circle cx="286" cy="784" r="17" fill="#4C6E31"/>
+                  <path d="M269 784a17 17 0 0 1 18-17 16 16 0 0 0-12 17z" fill="#74994A"/>
+                  <g fill="#B0CC80" opacity=".85"><circle cx="279" cy="776" r="3.4"/><circle cx="293" cy="780" r="2.6"/><circle cx="284" cy="791" r="2.2"/></g>
+                  <g fill="none" stroke="#74994A" stroke-width="2.4" stroke-linecap="round">
+                    <path d="M282 768 q-4-14 2-22"/><path d="M290 767 q6-12 14-16"/>
+                  </g>
+                </g>
+              </g>
+              <!-- 窓辺の松。低く広く仕立てた盆栽。
+                   slice で右が切られても鉢が欠けないよう内側に寄せてある -->
+              <g transform="translate(-28 0)">
+                <ellipse cx="694" cy="846" rx="76" ry="13" fill="#2B2620" opacity=".2" filter="url(#wc-bl2)"/>
+                <rect x="636" y="832" width="116" height="8" rx="3" fill="#4A3222"/>
+                <rect x="652" y="778" width="84" height="54" rx="5" fill="#3A322A"/>
+                <rect x="646" y="772" width="96" height="13" rx="4" fill="#4B4137"/>
+                <path d="M694 778 q-14-30 -22-52 q-3-11 8-14" fill="none" stroke="#4A3222" stroke-width="8" stroke-linecap="round"/>
+                <path d="M684 720 q16-9 36-15" fill="none" stroke="#4A3222" stroke-width="6" stroke-linecap="round"/>
+                <g fill="#4C6E31">
+                  <ellipse cx="660" cy="722" rx="52" ry="17"/><ellipse cx="722" cy="700" rx="42" ry="14"/><ellipse cx="678" cy="672" rx="36" ry="12"/>
+                </g>
+                <g fill="#74994A">
+                  <ellipse cx="655" cy="717" rx="38" ry="10"/><ellipse cx="718" cy="696" rx="30" ry="8"/><ellipse cx="675" cy="668" rx="26" ry="7"/>
+                </g>
+                <g fill="#B0CC80" opacity=".75">
+                  <ellipse cx="648" cy="713" rx="21" ry="5"/><ellipse cx="713" cy="693" rx="16" ry="4"/><ellipse cx="670" cy="665" rx="14" ry="4"/>
+                </g>
+              </g>
+            </svg></div><figcaption><b>LIVING.svg</b><span>LIVING — 昼のリビング（木床×シャンブレーのソファ）</span><em>viewBox 0 0 800 960</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:400/400"><svg viewBox="0 0 400 400"  aria-hidden="true">
+              <rect width="400" height="400" fill="#74994A"/>
+              <g fill="#4C6E31"><ellipse cx="110" cy="150" rx="140" ry="106"/><ellipse cx="300" cy="110" rx="118" ry="88"/><ellipse cx="230" cy="240" rx="150" ry="98"/></g>
+              <g fill="#B0CC80" opacity=".6"><ellipse cx="98" cy="106" rx="54" ry="38"/><ellipse cx="306" cy="76" rx="46" ry="30"/></g>
+              <g fill="#4A3222"><rect x="176" y="252" width="26" height="148"/><rect x="300" y="268" width="18" height="132"/></g>
+              <rect y="352" width="400" height="48" fill="#3A5525"/>
+            </svg></div><figcaption><b>GYOEN_SQ.svg</b><span>GYOEN_SQ — 御苑の樹（正方形）</span><em>viewBox 0 0 400 400</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:1000/700"><svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <!-- ROOM 03 だけは描き起こしのイラストを画像アセットで持つ。
+               外側の <svg> は残す：docs/gen-chambray-assets.py が mock 内の
+               <svg> ブロックをちょうど15個数える前提なので、<img> に置き換えると
+               生成が落ちる。この形なら .ph / .scene の CSS もコンポーネントも
+               変えずに済み、slice の切り抜き挙動もそのまま効く。
+               viewBox は原画と同じ 4:3。内側の <image> にも slice を掛けて、
+               差し替え画像の比率が多少ずれても歪まないようにしてある。
+               外枠だけ xMidYMax（下寄せ）にしてある：desktop は .pic が 1.334 で
+               4:3 とほぼ一致するため切り抜きゼロだが、モバイルの 16:10 では縦が
+               16.7% 落ちる。中央寄せだと靴が切れる一方、上は天井でほぼ無地なので、
+               下を固定して上を捨てる方が失うものが少ない。 -->
+          <image href="/rooms/room03.webp" x="0" y="0" width="1200" height="900" preserveAspectRatio="xMidYMid slice"/>
+        </svg></div><figcaption><b>ROOM1.svg</b><span>ROOM 01 — UNICO / Natural Living</span><em>viewBox 0 0 1000 700</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:1000/700"><svg viewBox="0 0 1000 700"  aria-hidden="true">
           <defs>
             <linearGradient id="wc-r2w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F3EC"/><stop offset="1" stop-color="#E7E1D4"/></linearGradient>
             <!-- バルコニーの掃き出し窓。ROOM 01 のような朝の逆光ではなく、
@@ -968,28 +698,436 @@ export const ROOM2 = String.raw`
             <path d="M790 206 L1000 206 L884 700 L472 700 Z" fill="#FFF0D2" opacity=".06"/>
             <path d="M802 210 L898 210 L690 700 L494 700 Z" fill="#FFFAEC" opacity=".06"/>
           </g>
-        </svg>
-`;
+        </svg></div><figcaption><b>ROOM2.svg</b><span>ROOM 02 — JOURNAL STANDARD FURNITURE / Urban Vintage</span><em>viewBox 0 0 1000 700</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:1200/900"><svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <!-- 打ち放しコンクリート。型枠パネル（900×1800）の継ぎ目と P コン跡
+                 だけをパターンに入れる。この2つは現実に規則正しいので繰り返して
+                 よいが、打ち肌のムラは繰り返すと壁紙に見えるので、パターンには
+                 入れず下で一度だけ手置きする -->
+            <pattern id="wc-r3cc" width="186" height="372" patternUnits="userSpaceOnUse">
+              <rect width="186" height="372" fill="#B8B5AE"/>
+              <rect x="183" width="3" height="372" fill="#A09D96" opacity=".5"/>
+              <rect x="183" width="1" height="372" fill="#C8C5BD" opacity=".45"/>
+              <!-- 打ち継ぎ。縦の継ぎ目より一段はっきり出る。躯体の水平は
+                   ここで決まるので、この線が絵の水平の基準にもなる -->
+              <rect y="367" width="186" height="4" fill="#96938C" opacity=".6"/>
+              <rect y="371" width="186" height="2" fill="#CBC8C0" opacity=".55"/>
+              <!-- P コン跡。窪みなので、庇になる左上が暗く、光の当たる
+                   右下の内壁が明るい。逆にすると出っ張りに見える -->
+              <g>
+                <circle cx="46"  cy="93"  r="4.6" fill="#A4A19A"/><circle cx="46.8"  cy="93.9"  r="3.8" fill="#C2BFB7"/>
+                <circle cx="140" cy="93"  r="4.6" fill="#A4A19A"/><circle cx="140.8" cy="93.9"  r="3.8" fill="#C2BFB7"/>
+                <circle cx="46"  cy="279" r="4.6" fill="#A4A19A"/><circle cx="46.8"  cy="279.9" r="3.8" fill="#C2BFB7"/>
+                <circle cx="140" cy="279" r="4.6" fill="#A4A19A"/><circle cx="140.8" cy="279.9" r="3.8" fill="#C2BFB7"/>
+              </g>
+              <rect width="186" height="372" fill="url(#wc-r3pg)"/>
+            </pattern>
+            <!-- 床は木でもカーペットでもなく、金鏝仕上げのモルタル。ROOM 01/02
+                 と同じ「この部屋でいちばん暗い面」という役割は引き継ぎつつ、
+                 材料だけを替えている。影は空の色を拾うので青に寄せた地 -->
+            <pattern id="wc-r3fl" width="332" height="212" patternUnits="userSpaceOnUse">
+              <rect width="332" height="212" fill="#464B50"/>
+              <g fill="#4E545A" opacity=".8">
+                <path d="M-30 40 C 46 14, 118 46, 186 28 C 244 12, 300 36, 362 20 L362 74 C 296 92, 240 66, 178 80 C 108 96, 42 74, -30 92 Z"/>
+                <path d="M-30 150 C 40 132, 96 160, 156 148 C 214 136, 268 158, 362 140 L362 186 C 274 204, 216 182, 158 192 C 92 204, 34 186, -30 198 Z"/>
+              </g>
+              <g fill="#3D4247" opacity=".62">
+                <path d="M-30 100 C 48 82, 112 110, 176 94 C 240 78, 296 100, 362 84 L362 116 C 290 132, 238 112, 178 124 C 110 138, 38 116, -30 130 Z"/>
+                <path d="M186 -16 C 240 -2, 292 20, 362 6 L362 -26 L186 -26 Z"/>
+                <path d="M-30 -6 C 20 6, 74 -8, 120 4 L120 26 C 66 14, 18 28, -30 18 Z"/>
+              </g>
+            </pattern>
+            <!-- 寝具。ROOM 01/02 と同じ織り・同じ組み立ての生地で、値だけ
+                 一段冷やしてある。3部屋を家族に見せている糸はここ -->
+            <pattern id="wc-r3bd" width="13" height="8" patternUnits="userSpaceOnUse">
+              <rect width="13" height="8" fill="#F6F5F1"/>
+              <rect width="4" height="8" fill="#EBE9E2"/>
+            </pattern>
+            <!-- 低い西日。逆光なので、上は空の白、下へ行くほど太陽の側に寄る -->
+            <linearGradient id="wc-r3gl" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#D6E4EE"/><stop offset=".42" stop-color="#EFEDE0"/><stop offset=".82" stop-color="#FFDD9A"/><stop offset="1" stop-color="#FFCE79"/>
+            </linearGradient>
+            <!-- 壁の環境光。窓側は暖色、離れるほど暗く「青く」なる。
+                 暗部が青に回るのは影が空の色を拾うからで、この設計の地
+                 （シャンブレーの青）がそのまま環境光になっている -->
+            <radialGradient id="wc-r3amb" cx=".24" cy=".42" r="1.02">
+              <stop offset="0" stop-color="#FFF2D2" stop-opacity=".34"/>
+              <stop offset=".26" stop-color="#FFF2D2" stop-opacity=".14"/>
+              <stop offset=".48" stop-color="#8E939A" stop-opacity=".10"/>
+              <stop offset=".74" stop-color="#767D86" stop-opacity=".30"/>
+              <stop offset="1" stop-color="#5F676F" stop-opacity=".52"/>
+            </radialGradient>
+            <!-- 天井スラブが壁に落とす影 -->
+            <linearGradient id="wc-r3cs" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6B737C" stop-opacity=".4"/><stop offset="1" stop-color="#6B737C" stop-opacity="0"/>
+            </linearGradient>
+            <!-- 床の空気遠近。壁ぎわほど彩度が落ちて地に溶ける -->
+            <linearGradient id="wc-r3fa" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8A9099" stop-opacity=".34"/><stop offset=".5" stop-color="#8A9099" stop-opacity="0"/>
+            </linearGradient>
+            <!-- 床の四隅を締める。中央だけが明るいと写真の周辺減光になる -->
+            <linearGradient id="wc-r3fv" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2E343A" stop-opacity=".5"/><stop offset=".22" stop-color="#2E343A" stop-opacity="0"/>
+              <stop offset=".78" stop-color="#2E343A" stop-opacity="0"/><stop offset="1" stop-color="#2E343A" stop-opacity=".45"/>
+            </linearGradient>
+            <!-- 打ち放しの垂れ跡。P コン跡から下へ落ちる薄い筋 -->
+            <linearGradient id="wc-r3st" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#A5A29B" stop-opacity=".42"/><stop offset="1" stop-color="#A5A29B" stop-opacity="0"/>
+            </linearGradient>
+            <!-- 型枠パネル1枚ごとの明暗。実物は板の当たりで1枚ずつ濃さが
+                 違い、下端に水が回って濃くなる。ここが無いと「継ぎ目を引いた
+                 平らな灰色」になる -->
+            <linearGradient id="wc-r3pg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFFFFF" stop-opacity=".08"/>
+              <stop offset=".5" stop-color="#FFFFFF" stop-opacity="0"/>
+              <stop offset="1" stop-color="#6B737C" stop-opacity=".14"/>
+            </linearGradient>
+            <!-- 黒皮鉄。平らな黒で塗ると板金ではなく色紙に見えるので、
+                 面ごとにわずかな明度差を持たせる -->
+            <linearGradient id="wc-r3mt" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#39434F"/><stop offset=".42" stop-color="#28313C"/><stop offset="1" stop-color="#1B2430"/>
+            </linearGradient>
+            <linearGradient id="wc-r3mtv" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#39434F"/><stop offset=".55" stop-color="#242D38"/><stop offset="1" stop-color="#1B2430"/>
+            </linearGradient>
+            <!-- ベッドは画面でいちばん窓から遠い。白い寝具をそのまま白で
+                 置くと、いちばん遠いものがいちばん明るくなって光の筋が負ける。
+                 奥へ行くほど冷たく落とす。モバイルではここに "03" の白抜き
+                 数字が重なるので、そちらの可読性もこの一枚で決まる -->
+            <linearGradient id="wc-r3bs" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#7E8B95" stop-opacity="0"/>
+              <stop offset=".4" stop-color="#7E8B95" stop-opacity=".1"/>
+              <stop offset="1" stop-color="#69767F" stop-opacity=".3"/>
+            </linearGradient>
+            <!-- 窓の光が壁の足もとへ跳ね返る -->
+            <linearGradient id="wc-r3bo" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stop-color="#FFE0A2" stop-opacity=".4"/><stop offset="1" stop-color="#FFE0A2" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="wc-b3"><feGaussianBlur stdDeviation="17"/></filter>
+            <filter id="wc-b3h"><feGaussianBlur stdDeviation="9"/></filter>
+            <!-- 床の光。手前ほど明るい。1枚ずつ塗り分けると、光ではなく
+                 敷いたものに見える -->
+            <linearGradient id="wc-r3lt" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#9E7020"/><stop offset=".55" stop-color="#B4832A"/><stop offset="1" stop-color="#C89434"/>
+            </linearGradient>
+          </defs>
 
-export const ROOM3 = String.raw`
-<svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-          <!-- ROOM 03 だけは描き起こしのイラストを画像アセットで持つ。
-               外側の <svg> は残す：docs/gen-chambray-assets.py が mock 内の
-               <svg> ブロックをちょうど15個数える前提なので、<img> に置き換えると
-               生成が落ちる。この形なら .ph / .scene の CSS もコンポーネントも
-               変えずに済み、slice の切り抜き挙動もそのまま効く。
-               viewBox は原画と同じ 4:3。内側の <image> にも slice を掛けて、
-               差し替え画像の比率が多少ずれても歪まないようにしてある。
-               外枠だけ xMidYMax（下寄せ）にしてある：desktop は .pic が 1.334 で
-               4:3 とほぼ一致するため切り抜きゼロだが、モバイルの 16:10 では縦が
-               16.7% 落ちる。中央寄せだと靴が切れる一方、上は天井でほぼ無地なので、
-               下を固定して上を捨てる方が失うものが少ない。 -->
-          <image href="/rooms/room03.webp" x="0" y="0" width="1200" height="900" preserveAspectRatio="xMidYMid slice"/>
-        </svg>
-`;
+          <!-- ===== 壁と天井 ================================================
+               正対のエレベーション。ROOM 01/02 が奥行きのある箱なのに対して、
+               この部屋だけは垂直線を全部画面と平行にしてある。硬さと余白は
+               ここで決まる -->
+          <rect width="1000" height="700" fill="url(#wc-r3cc)"/>
+          <!-- 打ち肌のムラ。型枠のあたり方・水の抜け方で1枚ごとに違うので、
+               繰り返さず一度だけ置く。ここが平らだと壁ではなく色面になる -->
+          <g opacity=".2">
+            <path d="M-80 30 C 100 -6, 260 78, 420 50 C 560 26, 660 96, 790 70 L790 200 C 646 234, 540 156, 400 184 C 244 216, 88 128, -80 168 Z" fill="#D3D0C8"/>
+            <path d="M420 120 C 590 84, 760 156, 920 128 C 1000 114, 1060 142, 1090 130 L1090 400 C 1010 424, 940 384, 862 398 C 720 424, 566 358, 420 392 Z" fill="#AEABA4"/>
+            <path d="M-80 236 C 40 214, 152 272, 268 246 L268 500 C 146 530, 42 472, -80 500 Z" fill="#D0CDC5"/>
+            <path d="M330 356 C 470 328, 600 380, 730 354 L730 560 C 596 588, 470 540, 330 570 Z" fill="#B2AFA8"/>
+            <path d="M640 -30 C 780 -58, 920 20, 1090 -14 L1090 130 C 906 164, 780 92, 640 124 Z" fill="#CFCCC4"/>
+          </g>
+          <!-- P コンからの垂れ跡。打ち放しの時間はここに出る -->
+          <g>
+            <rect x="530" y="98"  width="5" height="128" fill="url(#wc-r3st)"/>
+            <rect x="624" y="284" width="4" height="104" fill="url(#wc-r3st)"/>
+            <rect x="902" y="98"  width="5" height="146" fill="url(#wc-r3st)"/>
+            <rect x="344" y="470" width="4" height="58"  fill="url(#wc-r3st)"/>
+            <rect x="716" y="284" width="4" height="86"  fill="url(#wc-r3st)"/>
+          </g>
+          <!-- 環境光。窓から離れるほど暗く青い -->
+          <rect y="46" width="1000" height="486" fill="url(#wc-r3amb)"/>
+          <!-- 窓の光が床で跳ねて、壁の足もとを下から温める -->
+          <rect x="118" y="452" width="392" height="80" fill="url(#wc-r3bo)"/>
+          <!-- 天井スラブ。壁と同じ材料なので継ぎ目だけで分ける -->
+          <rect width="1000" height="46" fill="#D8D5CD"/>
+          <rect y="43" width="1000" height="3" fill="#A7A49D" opacity=".75"/>
+          <rect y="46" width="1000" height="28" fill="url(#wc-r3cs)"/>
 
-export const EXP_GYOEN = String.raw`
-<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <!-- ===== スチールサッシの窓 =======================================
+               逆光。低い西日なので、方立は空を背にした黒いシルエットになり、
+               縁からだけ光が回り込む。この部屋の鏡面（＝硬く小さく、ぼかさない
+               ハイライト）は、他の鉄が空の色を映して冷たいのに対して、ここだけは
+               太陽そのものを映すので暖色になる。反射する対象の色を取るという
+               同じ規則の、別の答えでしかない -->
+          <!-- 窓まわりの光のにじみ。画面で唯一のぼかしはここだけ -->
+          <ellipse cx="271" cy="268" rx="256" ry="200" fill="#FFEFC8" opacity=".38" filter="url(#wc-b3)"/>
+          <rect x="72" y="116" width="398" height="292" fill="url(#wc-r3gl)"/>
+          <!-- 向かいの街。逆光なので輪郭だけ、開口は取らない。ここに窓を
+               描くと街の説明になってしまい、光そのものが主役でなくなる -->
+          <g fill="#A6B8C9" opacity=".38">
+            <rect x="78"  y="204" width="86"  height="204"/><rect x="188" y="248" width="62" height="160"/>
+            <rect x="286" y="182" width="104" height="226"/><rect x="404" y="262" width="62" height="146"/>
+          </g>
+          <g fill="#9AACBE" opacity=".3">
+            <rect x="78" y="204" width="86" height="9"/><rect x="286" y="182" width="104" height="9"/>
+          </g>
+          <!-- 方立と無目。割りは 3:4:3 と 5:7 の不等分。均等に割ると製品の
+               カタログ写真になり、間が死ぬ -->
+          <g fill="#1B2430">
+            <rect x="66.5" y="110.5" width="409" height="11"/>
+            <rect x="66.5" y="402.5" width="409" height="11"/>
+            <rect x="66.5" y="110.5" width="11"  height="303"/>
+            <rect x="464.5" y="110.5" width="11" height="303"/>
+            <rect x="189" y="116" width="7" height="292"/>
+            <rect x="347" y="116" width="7" height="292"/>
+            <rect x="72"  y="235" width="398" height="7"/>
+          </g>
+          <!-- 逆光の回り込み。細く、硬く、ぼかさない -->
+          <g fill="#FFE0A2" opacity=".55">
+            <rect x="187.4" y="116" width="1.6" height="292"/><rect x="196" y="116" width="1.6" height="292"/>
+            <rect x="345.4" y="116" width="1.6" height="292"/><rect x="354" y="116" width="1.6" height="292"/>
+            <rect x="72" y="233.4" width="398" height="1.6"/><rect x="72" y="242" width="398" height="1.6"/>
+            <rect x="77.5" y="121.5" width="1.6" height="281"/><rect x="72" y="121.5" width="398" height="1.6"/>
+            <rect x="462.9" y="121.5" width="1.6" height="281"/>
+          </g>
+          <!-- 躯体の開口。コンクリートの小口が窓の左と上に見える -->
+          <g opacity=".5">
+            <rect x="60" y="104" width="6.5" height="316" fill="#8E8B85"/>
+            <rect x="60" y="104" width="422" height="6.5" fill="#9C9992"/>
+          </g>
+
+          <!-- ===== 露出配管 ================================================
+               2本並走。実際の露出配管はまず単独では走らないし、細い線が2本
+               並ぶほうが1本より「線」として効く。壁の空きに縦で落として、
+               窓とベッドのあいだの間を埋めずに締める -->
+          <g>
+            <rect x="546" y="46" width="7" height="424" fill="url(#wc-r3mtv)"/>
+            <rect x="566" y="46" width="7" height="424" fill="url(#wc-r3mtv)"/>
+            <rect x="546" y="46" width="1.8" height="424" fill="#BFD4E0" opacity=".4"/>
+            <rect x="566" y="46" width="1.8" height="424" fill="#BFD4E0" opacity=".4"/>
+            <!-- サドルバンド -->
+            <g fill="#2B3540">
+              <rect x="540" y="150" width="39" height="9" rx="2"/>
+              <rect x="540" y="286" width="39" height="9" rx="2"/>
+            </g>
+            <g fill="#BFD4E0" opacity=".32">
+              <rect x="540" y="150" width="39" height="1.6"/><rect x="540" y="286" width="39" height="1.6"/>
+            </g>
+            <!-- プルボックス -->
+            <rect x="530" y="466" width="59" height="42" fill="url(#wc-r3mt)"/>
+            <rect x="530" y="466" width="59" height="2" fill="#BFD4E0" opacity=".48"/>
+            <rect x="530" y="466" width="2" height="42" fill="#BFD4E0" opacity=".28"/>
+            <g fill="#4A5563"><circle cx="537" cy="473" r="2.4"/><circle cx="582" cy="473" r="2.4"/><circle cx="537" cy="501" r="2.4"/><circle cx="582" cy="501" r="2.4"/></g>
+            <!-- 壁への接地影。硬い光ではなく環境光の影なので、弱く青く -->
+            <g fill="#6B737C" opacity=".15">
+              <rect x="573" y="46" width="9" height="424"/><rect x="589" y="470" width="10" height="38"/>
+            </g>
+          </g>
+
+          <!-- ===== 真鍮のペンダント =========================================
+               画面でいちばん彩度の高い一点。面積は全体の 0.4% しかないが、
+               鉄と灰の中でここだけが暖色なので、視線はここで一度止まる。
+               日中なので灯していない。点けた絵にすると光源が2つになって、
+               床の光の筋が主役でなくなる -->
+          <g>
+            <rect x="770" y="46" width="3" height="252" fill="#1B2430"/>
+            <rect x="757" y="46" width="29" height="7" fill="#28313C"/>
+            <path d="M771.5 296 C 764 300, 748 322, 738 340 L805 340 C 795 322, 779 300, 771.5 296 Z" fill="#B8943F"/>
+            <path d="M771.5 296 C 764 300, 748 322, 738 340 L754 340 C 758 320, 766 302, 771.5 296 Z" fill="#E0C376" opacity=".85"/>
+            <path d="M779 300 C 786 312, 796 328, 805 340 L788 340 C 784 322, 781 308, 779 300 Z" fill="#87682D"/>
+            <ellipse cx="771.5" cy="340" rx="33.5" ry="5" fill="#96742F"/>
+            <ellipse cx="771.5" cy="339" rx="24" ry="3.2" fill="#5E4519"/>
+            <ellipse cx="758" cy="338.4" rx="7" ry="1.6" fill="#EBD289" opacity=".7"/>
+          </g>
+
+          <!-- ===== ヘッドボード ============================================
+               黒皮鉄の板を2枚、目地を通して壁に留めている。真鍮のボルトが
+               見えているのがこの部屋の作り方そのもの -->
+          <g>
+            <!-- 壁への影 -->
+            <rect x="686" y="384" width="16" height="150" fill="#6B737C" opacity=".3"/>
+            <rect x="700" y="380" width="300" height="154" fill="url(#wc-r3mt)"/>
+            <!-- 窓のうつり込み。鉄が鉄に見えるのは、映るものがあるとき -->
+            <path d="M700 392 L820 384 L806 458 L700 462 Z" fill="#5E6E7E" opacity=".2"/>
+            <path d="M706 400 L774 395 L762 448 L706 450 Z" fill="#8FA3B4" opacity=".13"/>
+            <rect x="700" y="426" width="300" height="14" fill="#48545F" opacity=".22"/>
+            <rect x="700" y="440" width="300" height="5" fill="#151C26" opacity=".3"/>
+            <rect x="700" y="380" width="300" height="2.4" fill="#BFD4E0" opacity=".55"/>
+            <rect x="700" y="380" width="2.4" height="154" fill="#BFD4E0" opacity=".28"/>
+            <!-- 目地 -->
+            <rect x="700" y="462" width="300" height="3" fill="#141B25"/>
+            <rect x="700" y="465" width="300" height="1.4" fill="#BFD4E0" opacity=".24"/>
+            <!-- 真鍮のボルト -->
+            <g>
+              <circle cx="730" cy="404" r="6" fill="#7C5F2A"/><circle cx="730" cy="402.8" r="4.6" fill="#B8943F"/><circle cx="728.4" cy="401.4" r="1.8" fill="#EBD289"/>
+              <circle cx="806" cy="404" r="6" fill="#7C5F2A"/><circle cx="806" cy="402.8" r="4.6" fill="#B8943F"/><circle cx="804.4" cy="401.4" r="1.8" fill="#EBD289"/>
+              <circle cx="882" cy="404" r="6" fill="#7C5F2A"/><circle cx="882" cy="402.8" r="4.6" fill="#B8943F"/><circle cx="880.4" cy="401.4" r="1.8" fill="#EBD289"/>
+              <circle cx="958" cy="404" r="6" fill="#7C5F2A"/><circle cx="958" cy="402.8" r="4.6" fill="#B8943F"/><circle cx="956.4" cy="401.4" r="1.8" fill="#EBD289"/>
+            </g>
+          </g>
+
+          <!-- ===== 床 ====================================================
+               壁と床の見切りは、定規で引いた直線にすると版下に見えるので
+               わずかにうねらせてある -->
+          <!-- ===== 窓の光が床に落ちる格子 ===================================
+               この絵の出来事はこれひとつ。低い西日が方立ごと床に落ちて、
+               6枚の平行四辺形になる。縁を硬いまま残すのが要点で、ぼかすと
+               ただの明るい床になり、部屋の性格が消える。
+
+               screen で重ねている。明るい色を通常のアルファで乗せると床の
+               上に不透明なタンの面が乗るだけで、ラグを敷いたようにしか
+               見えなかった。screen なら床の金鏝ムラが光の中にも透けて残り、
+               「同じ床の、光が当たっている部分」として読める。だから塗りは
+               見た目より暗い暖色にしてある（screen で持ち上がる前提の値）。
+               isolation:isolate は、この合成をイラストの中だけに閉じ込める
+               ため。無いとページ側の背景と混ざる -->
+          <g style="isolation:isolate">
+            <path d="M0 532 C 180 530.4, 360 533.2, 540 531.6 C 720 530.2, 880 533, 1000 531.4 L1000 700 L0 700 Z" fill="url(#wc-r3fl)"/>
+            <rect y="532" width="1000" height="168" fill="url(#wc-r3fv)"/>
+            <path d="M0 532 C 180 530.4, 360 533.2, 540 531.6 C 720 530.2, 880 533, 1000 531.4 L1000 544 C 880 545.6, 720 542.8, 540 544.2 C 360 545.8, 180 543, 0 544.6 Z" fill="#31373D" opacity=".85"/>
+            <rect y="532" width="1000" height="130" fill="url(#wc-r3fa)"/>
+            <g style="mix-blend-mode:screen">
+              <!-- 散乱光と、ガラス越しのにじみ。硬い格子だけだと切り絵になる -->
+              <path d="M-20 534 L500 534 L742 700 L60 700 Z" fill="#2A1E0C" filter="url(#wc-b3)"/>
+              <path d="M20 536 L444 536 L668 700 L124 700 Z" fill="#3E2C10" filter="url(#wc-b3h)"/>
+              <!-- 方立の影。実物のスチールサッシは 900 のガラスに 50 の方立で、
+                   比率にすると 3% ほどしかない。ここを太く取ると、光ではなく
+                   縁のある板を並べたものに見える——最初の版はそれで畳のように
+                   読めていた。桟が細いと、明るい面がひと続きの光として繋がる -->
+              <g fill="url(#wc-r3lt)">
+                <path d="M36 536 L147.9 536 L200.7 599.3 L76.1 599.3 Z"/>
+                <path d="M160.5 536 L305.5 536 L376.3 599.3 L214.8 599.3 Z"/>
+                <path d="M318.1 536 L430 536 L514.9 599.3 L390.3 599.3 Z"/>
+                <path d="M79.1 603.9 L204.6 603.9 L284.8 700 L140 700 Z"/>
+                <path d="M218.7 603.9 L381.4 603.9 L488.8 700 L301.2 700 Z"/>
+                <path d="M395.6 603.9 L521.1 603.9 L650 700 L505.2 700 Z"/>
+              </g>
+              <!-- 半影。影は遠くまで走るほど縁がゆるむので、手前の桟だけ
+                   弱い光で埋めておく -->
+              <g fill="#4A3512">
+                <path d="M204.6 603.9 L218.7 603.9 L301.2 700 L284.8 700 Z"/>
+                <path d="M381.4 603.9 L395.6 603.9 L505.2 700 L488.8 700 Z"/>
+                <path d="M76.1 599.3 L514.9 599.3 L521.1 603.9 L79.1 603.9 Z"/>
+              </g>
+            </g>
+            <!-- 鉢と架台の影。光の中に立っているものが影を落としていないと、
+                 明るい面はただの敷物に戻る。この影が格子を横切ることで、
+                 床の光がはじめて「床の上を走っている」ように読める -->
+            <g fill="#343A40" opacity=".6">
+              <path d="M50 566 L60 566 L102 622 L96 624 Z"/>
+              <path d="M116 566 L126 566 L168 618 L162 620 Z"/>
+              <path d="M56 566 L126 566 L136 578 L66 578 Z" opacity=".55"/>
+              <path d="M92 604 L158 598 L176 634 L106 640 Z"/>
+              <path d="M106 640 C 120 660, 134 680, 148 700 L124 700 C 114 680, 102 660, 94 646 Z"/>
+              <path d="M124 636 C 140 656, 158 678, 176 700 L154 700 C 140 678, 124 656, 112 638 Z"/>
+              <path d="M146 630 C 160 652, 176 676, 192 700 L174 700 C 160 676, 146 652, 134 632 Z"/>
+            </g>
+          </g>
+
+          <!-- ===== ベッド ==================================================
+               鉄の骨に載った、この絵で唯一やわらかい塊。硬い格子と、ほどけた
+               布。部屋の性格はこの対比が持っている。
+               白い布の陰は青に回してある（#FBFAF6 → #C4CACD → #A6B1B9）。
+               青い環境光の部屋にある白は、陰で必ず空の色を拾う。ここを
+               灰色のまま落とすと、布ではなく白い紙に見える -->
+          <g>
+            <!-- 床に落ちる影。窓から遠い側なので硬い影ではなく環境光の影 -->
+            <path d="M652 636 C 700 626, 764 622, 1000 620 L1000 700 L612 700 Z" fill="#2B3137" opacity=".9"/>
+            <!-- 鉄の骨。マットレスより一回り小さく、影のような隙間を残す -->
+            <path d="M656 640 L1000 632 L1000 690 L640 700 Z" fill="url(#wc-r3mt)"/>
+            <path d="M656 640 L1000 632 L1000 640 L656 648 Z" fill="#BFD4E0" opacity=".26"/>
+            <!-- マットレスの小口 -->
+            <path d="M652 626 L1000 618 L1000 640 L650 648 Z" fill="#C4CACD"/>
+            <path d="M652 626 L1000 618 L1000 624 L651 632 Z" fill="#DFE2E1"/>
+            <!-- シーツ。枕もとだけ見えている -->
+            <path d="M706 532 L1000 532 L1000 560 L694 566 Z" fill="url(#wc-r3bd)"/>
+            <path d="M706 532 L1000 532 L1000 540 L701 545 Z" fill="#D3D8DA" opacity=".7"/>
+            <!-- 掛け布団の本体 -->
+            <path d="M688 568 C 748 556, 832 550, 1000 552 L1000 622 L652 630 C 648 600, 666 582, 688 568 Z" fill="#E7E7E2"/>
+            <!-- 折り返し。いちばん明るい面はここ一箇所だけ -->
+            <path d="M688 568 C 748 556, 832 550, 1000 552 L1000 570 C 834 568, 752 574, 698 586 C 692 578, 688 573, 688 568 Z" fill="#FBFAF6"/>
+            <!-- 折り返しの下に潜る影。ここが無いと布が2枚の紙に見える -->
+            <path d="M698 586 C 752 574, 834 568, 1000 570 L1000 581 C 836 579, 754 585, 702 597 Z" fill="#C4CACD" opacity=".85"/>
+            <!-- 左端。奥へ回り込んで落ちる -->
+            <path d="M652 630 C 648 600, 666 582, 688 568 C 697 590, 700 614, 696 628 Z" fill="#C9CFD1"/>
+            <path d="M652 630 C 650 618, 654 604, 662 594 C 664 608, 664 620, 662 629 Z" fill="#A6B1B9" opacity=".8"/>
+            <!-- 皺の谷。稜線ではなく谷を描く。輪郭線は引かない -->
+            <g fill="#D4D8D7">
+              <path d="M786 600 C 796 608, 800 614, 800 624 L788 625 C 790 614, 788 606, 779 601 Z"/>
+              <path d="M888 596 C 897 604, 901 610, 901 620 L890 621 C 892 610, 890 602, 881 597 Z"/>
+              <path d="M962 594 C 970 602, 973 608, 973 618 L963 619 C 965 608, 963 600, 955 595 Z"/>
+            </g>
+            <!-- 枕。ヘッドボードにもたせかける -->
+            <g>
+              <path d="M726 486 C 754 476, 802 474, 830 482 C 838 502, 836 522, 826 536 L730 536 C 720 522, 718 500, 726 486 Z" fill="#E9EAE6"/>
+              <path d="M726 486 C 754 476, 802 474, 830 482 C 832 490, 833 498, 833 506 C 800 494, 756 496, 723 508 C 721 500, 722 492, 726 486 Z" fill="#FBFAF6"/>
+              <path d="M816 490 C 827 506, 830 522, 826 536 L804 536 C 811 520, 813 502, 808 488 Z" fill="#C4CACD" opacity=".8"/>
+              <path d="M848 484 C 878 474, 928 472, 956 480 C 964 500, 962 522, 952 536 L852 536 C 842 522, 840 498, 848 484 Z" fill="#E4E6E3"/>
+              <path d="M848 484 C 878 474, 928 472, 956 480 C 958 488, 959 496, 959 504 C 926 492, 880 494, 845 506 C 843 498, 844 490, 848 484 Z" fill="#F8F8F4"/>
+              <path d="M942 490 C 953 506, 956 522, 952 536 L932 536 C 939 520, 941 502, 936 488 Z" fill="#C4CACD" opacity=".7"/>
+              <!-- ヘッドボードが枕に落とす影 -->
+              <path d="M726 486 C 754 476, 802 474, 830 482 L830 491 C 802 483, 754 485, 727 495 Z" fill="#A6B1B9" opacity=".55"/>
+              <path d="M848 484 C 878 474, 928 472, 956 480 L956 489 C 928 481, 878 483, 849 493 Z" fill="#A6B1B9" opacity=".55"/>
+              <!-- 枕どうしの隙間 -->
+              <path d="M836 490 C 842 504, 843 522, 840 536 L832 536 C 836 520, 836 502, 831 490 Z" fill="#B4BEC3" opacity=".5"/>
+            </g>
+            <!-- 窓から遠いぶんの減光。寝具の白は白のまま塗らない -->
+            <path d="M700 466 L1000 466 L1000 652 L644 660 L648 620 L692 560 Z" fill="url(#wc-r3bs)"/>
+          </g>
+
+          <!-- ===== 窓ぎわの植物 ============================================
+               chambray-gyoen の植物と同じ組み立て。奥の葉ほど暗く青緑で
+               彩度が低く、手前ほど明るく黄に寄る。葉の中央の帯は葉身より
+               明るい——この明暗の反転が、あちらのヤツデでは葉脈が担って
+               いたもので、こちらの葉ではそのまま斑になる。
+               葉が直線的で硬いものを選んでいるので、鉄の部屋から浮かない -->
+          <g>
+            <!-- 黒皮鉄のスタンド -->
+            <ellipse cx="86" cy="568" rx="48" ry="7" fill="#2B3137" opacity=".8"/>
+            <g fill="url(#wc-r3mtv)">
+              <rect x="46" y="456" width="80" height="8"/>
+              <rect x="50" y="464" width="6" height="104"/><rect x="116" y="464" width="6" height="104"/>
+              <rect x="50" y="518" width="72" height="5"/>
+            </g>
+            <g fill="#BFD4E0" opacity=".34">
+              <rect x="46" y="456" width="80" height="1.8"/><rect x="50" y="464" width="1.6" height="104"/><rect x="116" y="464" width="1.6" height="104"/>
+            </g>
+            <!-- 葉。奥から手前へ4段。奥ほど暗く青緑で彩度が低く、手前ほど
+                 明るく黄に寄る。高さも幅も1枚ずつ変えてある。同じ形を並べると
+                 植物ではなくアイコンになる -->
+            <g fill="#56805A">
+              <path d="M55 452 C 48 428, 44 408, 44 390 C 52 408, 60 430, 61 452 Z"/>
+              <path d="M109 452 C 112 424, 118 400, 128 380 C 126 404, 120 428, 115 452 Z"/>
+            </g>
+            <g fill="#4F8341">
+              <path d="M63 452 C 55 407, 52 378, 54 352 C 62 378, 70 408, 69 452 Z"/>
+              <path d="M101 452 C 104 406, 110 374, 118 346 C 118 376, 114 410, 107 452 Z"/>
+            </g>
+            <g fill="#7FB94A">
+              <path d="M83 452 C 75 396, 78 364, 84 326 C 90 364, 97 396, 89 452 Z"/>
+              <path d="M71 452 C 64 414, 62 388, 68 364 C 76 388, 80 414, 77 452 Z"/>
+            </g>
+            <g fill="#9FC85A">
+              <path d="M93 452 C 95 418, 99 394, 106 372 C 107 396, 104 422, 99 452 Z"/>
+              <path d="M80 452 C 78 434, 79 420, 82 408 C 86 420, 87 434, 86 452 Z"/>
+            </g>
+            <!-- 斑。葉身より明るい帯。あちらのヤツデでは葉脈が担っていた
+                 明暗の反転が、この葉ではそのまま斑になる。ここを暗い緑で
+                 引くと、同じ形でも別の植物に見える -->
+            <g fill="#C4DE85" opacity=".6">
+              <path d="M84 444 C 80 398, 81.5 366, 84 336 C 87 366, 88 398, 87 444 Z"/>
+              <path d="M64.5 444 C 59 408, 57 382, 57.5 358 C 63 382, 68 410, 68 444 Z"/>
+              <path d="M104 444 C 106 408, 110 380, 115.5 354 C 115 382, 111 412, 107 444 Z"/>
+              <path d="M72.5 444 C 67.5 416, 66.5 392, 70 370 C 75.5 392, 78 416, 76 444 Z"/>
+              <path d="M95.5 444 C 96.5 420, 99 400, 104 380 C 104 402, 101 424, 98 444 Z"/>
+            </g>
+            <!-- 鏡面。葉面の3%ほど。小さく、硬い縁で、ぼかさない。
+                 やわらかい光沢にすると造花に見える。わずかに青いのは
+                 空を映しているから -->
+            <g fill="#E3F7F9" opacity=".5">
+              <path d="M86 404 C 84.5 380, 85 362, 86.5 344 C 88.5 362, 89 380, 88.5 404 Z"/>
+              <path d="M74.5 412 C 73.5 398, 74 386, 75.5 376 C 77 386, 77.5 398, 77 412 Z"/>
+            </g>
+            <!-- モルタルの鉢 -->
+            <path d="M60 452 L114 452 L110 498 L64 498 Z" fill="#A29F98"/>
+            <path d="M59 449 L115 449 L115 460 L59 460 Z" fill="#B5B2AB"/>
+            <path d="M100 452 L114 452 L110 498 L98 498 Z" fill="#8A8781" opacity=".85"/>
+            <path d="M60 452 L67 452 L65 498 L64 498 Z" fill="#C4C1BA" opacity=".55"/>
+            <path d="M100 449 L115 449 L115 460 L100 460 Z" fill="#9C9992" opacity=".7"/>
+          </g>
+        </svg></div><figcaption><b>ROOM3.svg</b><span>ROOM 03 — CRASH GATE / Industrial Modern（ラスター画像 room03.webp）</span><em>viewBox 0 0 1200 900</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:600/800"><svg viewBox="0 0 600 800"  aria-hidden="true">
             <defs><linearGradient id="wc-e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE7F0"/><stop offset="1" stop-color="#EDEEE0"/></linearGradient></defs>
             <rect width="600" height="800" fill="url(#wc-e1)"/>
             <g fill="#A6BED4" opacity=".5"><rect x="16" y="90" width="62" height="200"/><rect x="470" y="50" width="82" height="240"/><rect x="380" y="130" width="46" height="160"/></g>
@@ -1003,11 +1141,8 @@ export const EXP_GYOEN = String.raw`
             <g fill="#4C6E31" opacity=".7"><ellipse cx="210" cy="694" rx="34" ry="12"/><rect x="196" y="632" width="14" height="62" rx="7"/><circle cx="203" cy="622" r="11"/>
               <ellipse cx="258" cy="706" rx="30" ry="11"/><rect x="248" y="650" width="12" height="56" rx="6"/><circle cx="254" cy="642" r="10"/></g>
             <g fill="#C6D6E4" opacity=".8"><rect x="330" y="686" width="86" height="52" rx="6"/></g>
-          </svg>
-`;
-
-export const EXP_KISSA = String.raw`
-<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>EXP_GYOEN.svg</b><span>EXPERIENCE — 新宿御苑</span><em>viewBox 0 0 600 800</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:600/800"><svg viewBox="0 0 600 800"  aria-hidden="true">
             <rect width="600" height="800" fill="#EDE7DA"/>
             <rect y="0" width="600" height="330" fill="#6B4A32"/>
             <g stroke="#4A3222" stroke-width="3" opacity=".5"><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="186" x2="600" y2="186"/><line x1="0" y1="272" x2="600" y2="272"/></g>
@@ -1031,11 +1166,8 @@ export const EXP_KISSA = String.raw`
               <path d="M186 440q-14-26 6-44 18-18 4-40"/><path d="M216 446q-14-22 6-40"/>
             </g>
             <rect y="700" width="600" height="100" fill="#6B4A32"/>
-          </svg>
-`;
-
-export const EXP_LAUNDRY = String.raw`
-<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>EXP_KISSA.svg</b><span>EXPERIENCE — 喫茶</span><em>viewBox 0 0 600 800</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:600/800"><svg viewBox="0 0 600 800"  aria-hidden="true">
             <rect width="600" height="800" fill="#DEE8F1"/>
             <rect y="470" width="600" height="330" fill="#C6D6E4"/>
             <g stroke="#A6BED4" stroke-width="2"><line x1="0" y1="540" x2="600" y2="540"/><line x1="0" y1="620" x2="600" y2="620"/><line x1="0" y1="706" x2="600" y2="706"/></g>
@@ -1050,11 +1182,8 @@ export const EXP_LAUNDRY = String.raw`
             <g fill="#C6D6E4" opacity=".75"><circle cx="140" cy="300" r="18"/><circle cx="170" cy="326" r="13"/><circle cx="380" cy="586" r="16"/></g>
             <g fill="#C8783A"><rect x="72" y="200" width="34" height="8"/><rect x="310" y="200" width="34" height="8"/><rect x="72" y="490" width="34" height="8"/><rect x="310" y="490" width="34" height="8"/></g>
             <rect x="520" y="180" width="46" height="540" rx="6" fill="#6B4A32"/>
-          </svg>
-`;
-
-export const EXP_YOKOCHO = String.raw`
-<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>EXP_LAUNDRY.svg</b><span>EXPERIENCE — コインランドリー</span><em>viewBox 0 0 600 800</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:600/800"><svg viewBox="0 0 600 800"  aria-hidden="true">
             <rect width="600" height="800" fill="#16273A"/>
             <g fill="#1F3448"><rect x="0" width="200" height="800"/><rect x="400" width="200" height="800"/></g>
             <rect x="200" width="200" height="560" fill="#0E1A26"/>
@@ -1071,11 +1200,8 @@ export const EXP_YOKOCHO = String.raw`
             <g opacity=".45" fill="#F0D9A8"><rect x="140" y="580" width="18" height="180"/><rect x="204" y="580" width="14" height="150"/><rect x="264" y="580" width="18" height="190"/></g>
             <g opacity=".3" fill="#C8783A"><rect x="52" y="580" width="30" height="210"/></g>
             <g fill="#050C14"><rect x="330" y="470" width="26" height="120" rx="12"/><circle cx="343" cy="456" r="18"/></g>
-          </svg>
-`;
-
-export const EXP_SKYLINE = String.raw`
-<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>EXP_YOKOCHO.svg</b><span>EXPERIENCE — 横丁</span><em>viewBox 0 0 600 800</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:600/800"><svg viewBox="0 0 600 800"  aria-hidden="true">
             <defs><linearGradient id="wc-e5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#C6D6E4"/></linearGradient></defs>
             <rect width="600" height="800" fill="url(#wc-e5)"/>
             <g fill="#8FA9BF" opacity=".85"><rect x="0" y="260" width="150" height="540"/><rect x="160" y="170" width="120" height="630"/><rect x="300" y="330" width="90" height="470"/><rect x="410" y="220" width="190" height="580"/></g>
@@ -1089,22 +1215,16 @@ export const EXP_SKYLINE = String.raw`
             <g stroke="#2B2620" stroke-width="3" fill="none" opacity=".8"><path d="M0 150 Q300 210 600 140"/><path d="M0 186 Q300 250 600 178"/></g>
             <g fill="#2B2620"><rect x="286" y="100" width="12" height="150"/><rect x="256" y="116" width="72" height="8"/><rect x="262" y="144" width="60" height="8"/></g>
             <g fill="#4C6E31"><ellipse cx="70" cy="720" rx="92" ry="66"/><ellipse cx="540" cy="756" rx="82" ry="56"/></g>
-          </svg>
-`;
-
-export const SHADOW = String.raw`
-<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
+          </svg></div><figcaption><b>EXP_SKYLINE.svg</b><span>EXPERIENCE — スカイライン</span><em>viewBox 0 0 600 800</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:400/500"><svg viewBox="0 0 400 500"  aria-hidden="true">
             <rect width="400" height="500" fill="#2B2620"/>
             <g opacity=".5"><rect x="40" width="26" height="500" fill="#3F372E"/><rect x="140" width="26" height="500" fill="#3F372E"/><rect x="240" width="26" height="500" fill="#3F372E"/><rect x="340" width="26" height="500" fill="#3F372E"/></g>
             <defs><linearGradient id="wc-sd" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#F0D9A8" stop-opacity=".26"/><stop offset=".45" stop-color="#2B2620" stop-opacity=".2"/><stop offset="1" stop-color="#0D0B09" stop-opacity=".82"/></linearGradient></defs>
             <rect width="400" height="500" fill="url(#wc-sd)"/>
             <g opacity=".5" fill="#0D0B09"><path d="M60 120 L220 60 L300 200 L120 280 Z"/><path d="M180 340 L360 300 L400 440 L200 480 Z"/></g>
-          </svg>
-`;
-
-export const MAP = String.raw`
-<svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          </svg></div><figcaption><b>SHADOW.svg</b><span>MATERIAL 04 — 影</span><em>viewBox 0 0 400 500</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:900/700"><svg viewBox="0 0 900 700"  aria-hidden="true">
           <defs>
             <linearGradient id="wc-cloth" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#E4EDF4"/><stop offset="1" stop-color="#C6D6E4"/>
@@ -1156,26 +1276,19 @@ export const MAP = String.raw`
           <text x="598" y="484" font-family="IBM Plex Mono, monospace" font-size="12" fill="#B0CC80" letter-spacing="3">58.3 HA OF QUIET</text>
           <!-- 徒歩ルート -->
           <path d="M340 392 L470 392 L470 342" fill="none" stroke="#C8783A" stroke-width="3" stroke-dasharray="7 7"/>
-        </svg>
-`;
-
-export const HOOD_CITY = String.raw`
-<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        </svg></div><figcaption><b>MAP.svg</b><span>MAP — 周辺地図</span><em>viewBox 0 0 900 700</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:400/250"><svg viewBox="0 0 400 250"  aria-hidden="true">
               <rect width="400" height="250" fill="#C6D6E4"/>
               <g fill="#8FA9BF"><rect x="0" y="80" width="90" height="170"/><rect x="110" y="40" width="70" height="210"/><rect x="200" y="110" width="60" height="140"/><rect x="280" y="60" width="120" height="190"/></g>
               <g fill="#EDF2F7" opacity=".85"><rect x="126" y="70" width="10" height="14"/><rect x="152" y="100" width="10" height="14"/><rect x="304" y="90" width="10" height="14"/><rect x="352" y="130" width="10" height="14"/></g>
               <g fill="#4C6E31"><ellipse cx="50" cy="234" rx="70" ry="40"/></g>
               <rect y="238" width="400" height="12" fill="#6B4A32"/>
-            </svg>
-`;
-
-export const HOOD_PARK = String.raw`
-<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            </svg></div><figcaption><b>HOOD_CITY.svg</b><span>NEIGHBORHOOD — 街側</span><em>viewBox 0 0 400 250</em></figcaption></figure>
+<figure><div class="frame" style="aspect-ratio:400/250"><svg viewBox="0 0 400 250"  aria-hidden="true">
               <rect width="400" height="250" fill="#9CBF67"/>
               <g fill="#4C6E31"><ellipse cx="90" cy="86" rx="124" ry="88"/><ellipse cx="308" cy="66" rx="132" ry="82"/></g>
               <g fill="#74994A" opacity=".85"><ellipse cx="120" cy="60" rx="60" ry="40"/></g>
               <rect y="160" width="400" height="90" fill="#7CA24C"/>
               <g fill="#4A3222"><rect x="80" y="138" width="20" height="62"/><rect x="292" y="128" width="16" height="62"/></g>
               <path d="M0 210 Q200 176 400 214 L400 250 L0 250 Z" fill="#9CBF67"/>
-            </svg>
-`;
+            </svg></div><figcaption><b>HOOD_PARK.svg</b><span>NEIGHBORHOOD — 公園側</span><em>viewBox 0 0 400 250</em></figcaption></figure></div>

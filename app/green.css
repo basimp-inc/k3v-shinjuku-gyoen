@@ -1,0 +1,317 @@
+/* ===========================================================================
+   ONE GREEN — 全デザイン共通の緑（案A / 2026-08-21 クライアント確定）
+   ---------------------------------------------------------------------------
+   参考写真は目の細かいセージの織柄クロス #7BAA75。クライアント所見は
+
+     「gyoen green の構成・レイアウトは大変気に入っている。
+       ただし暗い・深い緑が高級感を演出してしまってダメ」
+
+   なので**レイアウトには一切触らず、色だけ**を明るい織柄クロスに寄せる。
+   ヒーロー・ナビを含む濃緑の"面"はすべてこのクロスになり、そこに乗っていた
+   クリームのセリフ体は**黒の太字**に反転する（黒はクロス上で 6.8:1）。
+   これは先にウッドで採った「中間色の地＋濃い文字」と同じ組み方で、素材の
+   扱いがサイト全体で揃う。
+
+   置き換え前に同居していた緑：
+     gyoen-green      #33502F / #22331F / #3F6238 / #93B23E
+     washed-chambray  #4C6E31 系（forest）
+     chambray-gyoen   #83A94D 系（forest）
+     footer 案3       #8FB68C（モケット）
+
+   読み込み順：app/globals.css で3つのデザインシートより**後**、wood.css の
+   となりに import すること。トークンも面も、詠み順だけで上書きしている。
+
+   ■ イラストには触っていない
+   scenes.ts / defs.ts の緑（--sc-* とヒーローの樹冠）は「今のまま」の指示な
+   ので対象外。ヒーローは樹冠イラストの上のスクリムだけを明るいセージのヴェ
+   ールに差し替えているので、イラスト自体は1色も動いていない。ヴェールは奥側
+   でも 0.62 までしか抜かない —— 元の 0.30 だと樹冠の最暗部（#1F3A2E）がその
+   まま出てしまい、まさに指摘された「暗い・深い緑」が画面右上に残る。
+
+   ■ 外すときは
+   1. このファイルを削除
+   2. app/globals.css の @import "./green.css" を削除
+   =========================================================================== */
+
+.chambray-top,
+.chambray-gyoen-top,
+.gyoen-top {
+  /* 参考写真から起こした1本のスケール。--gr が織柄クロスの地色そのもの */
+  --gr-pale: #dcead9;
+  --gr-lt: #a7cba1;
+  --gr: #7baa75;
+  --gr-mid: #5e8b58;
+  --gr-deep: #446540;
+
+  /* 文字用。--green-ink は「クロスの上の黒」、--green-ink-2 は「紙の上の緑」、
+     --green-accent は em などの大きい表示文字だけに使う深緑（AA大文字 3:1） */
+  --green-ink: #101710;
+  --green-ink-2: #3a5a35;
+  --green-accent: #2f4a2c;
+
+  /* 織柄。参考写真は目の細かいリネン織りで、読む距離ではほぼ平らに見え、
+     織り目だけがテクスチャとして出る。2px の硬いグラデーションはその縮尺で
+     タータンにモアレるので、織り目は布ノイズで作り、罫線は見えるか見えないか
+     の境目に置いている（案3モケットで採った作り方をそのまま共通化）。 */
+  --green-weave:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, rgba(40, 62, 38, 0.05) 1px 3px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.06) 0 1px, rgba(40, 62, 38, 0.06) 1px 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='lin'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85 .55' numOctaves='3' seed='31'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23lin)' opacity='.42'/%3E%3C/svg%3E");
+  /* 地のグラデーションは黒が 6.2:1 を割らない幅に収めてある */
+  --green-face: linear-gradient(176deg, #87b481, #7baa75 54%, #74a36e);
+  --green-face-size: auto, auto, 180px 180px, 100% 100%;
+}
+
+/* ===========================================================================
+   GYOEN GREEN — 濃緑をすべてクロスに置き換える（案A本体）
+   =========================================================================== */
+.gyoen-top {
+  /* 面のトークン。値だけ差し替え、使っている側は1行も動かしていない */
+  --green: #7baa75;
+  --green-deep: #6e9e68;
+  --green-mid: #8fb88a;
+  /* --grass は「明るい地の上のアクセント」だったが、地が明るくなったので
+     役割が反転する。面として使っていた箇所（ボタン）は下で個別に直す */
+  --grass: #2f4a2c;
+}
+
+/* --- 面 -------------------------------------------------------------------- */
+.gyoen-top .hero,
+.gyoen-top .r03,
+.gyoen-top .loc,
+.gyoen-top .cta,
+.gyoen-top .gfoot {
+  background-color: var(--gr);
+  background-image: var(--green-weave), var(--green-face);
+  background-size: var(--green-face-size);
+}
+
+/* --- ヒーロー ---------------------------------------------------------------
+   樹冠イラストはそのまま。上に乗っていた近黒のスクリム（#1E2A1C の 0.86）を
+   明るいセージのヴェールに差し替えるだけで、面が明るくなる。コピー側を濃く、
+   奥へ抜けるほど薄くする勾配は元のまま踏襲している。 */
+.gyoen-top .hero-scrim {
+  background:
+    linear-gradient(100deg, rgba(190, 214, 185, 0.93) 0%, rgba(190, 214, 185, 0.8) 42%, rgba(190, 214, 185, 0.62) 100%),
+    linear-gradient(0deg, rgba(190, 214, 185, 0.8), rgba(190, 214, 185, 0) 45%);
+}
+.gyoen-top .hero h1,
+.gyoen-top .hero-cta,
+.gyoen-top .hero-side {
+  color: var(--green-ink);
+}
+.gyoen-top .hero h1 {
+  font-weight: 800;
+}
+.gyoen-top .hero h1 em {
+  color: var(--green-accent);
+}
+.gyoen-top .hero .jp {
+  color: rgba(16, 23, 16, 0.88);
+  font-weight: 500;
+}
+.gyoen-top .hero-eyebrow,
+.gyoen-top .hero-side .big {
+  color: var(--green-ink);
+}
+.gyoen-top .hero-side p {
+  opacity: 0.78;
+}
+@media (max-width: 860px) {
+  /* 元のシートはここで「樹冠が明るくなるのでスクリムを濃くしてクリーム文字を
+     保たせる」処理をしていた。文字が黒になったので狙いは逆 —— 明るい側へ
+     振り切ってもコントラストは上がる。 */
+  .gyoen-top .hero-scrim {
+    background:
+      linear-gradient(0deg, rgba(190, 214, 185, 0.95) 24%, rgba(190, 214, 185, 0.8) 62%, rgba(190, 214, 185, 0.5)),
+      linear-gradient(100deg, rgba(190, 214, 185, 0.8), rgba(190, 214, 185, 0.42));
+  }
+}
+
+/* --- ナビ ------------------------------------------------------------------- */
+.gyoen-top .gnav {
+  color: var(--green-ink);
+}
+.gyoen-top .gnav.stuck {
+  background-color: rgba(123, 170, 117, 0.94);
+  background-image: var(--green-weave);
+}
+.gyoen-top .gnav ul a:hover,
+.gyoen-top .gnav .lang a[aria-current="true"],
+.gyoen-top .gfoot ul a:hover,
+.gyoen-top .btn-ghost:hover {
+  color: var(--green-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --- ボタン・チップ ---------------------------------------------------------
+   明るい面の上では、押せるものだけが濃い。ページ内で唯一の濃い緑になる。 */
+.gyoen-top .btn,
+.gyoen-top .btn.solid-green,
+.gyoen-top .gnav .book {
+  background: var(--green-accent);
+  color: #f2efe8;
+}
+.gyoen-top .btn:hover,
+.gyoen-top .btn.solid-green:hover,
+.gyoen-top .gnav .book:hover {
+  background: var(--green-ink);
+  color: #f2efe8;
+}
+.gyoen-top .chip {
+  color: var(--green-ink);
+}
+.gyoen-top .chip.on-dark {
+  background: rgba(255, 255, 255, 0.44);
+  color: var(--green-ink);
+  box-shadow: inset 0 0 0 1px rgba(16, 23, 16, 0.22);
+}
+.gyoen-top .chip .sq,
+.gyoen-top .dot,
+.gyoen-top .rule-lime {
+  background: var(--green-accent);
+}
+
+/* --- 紙の上の見出し ---------------------------------------------------------
+   ここは面ではなく文字なので、黒ではなく「明るいスケールの濃い側の緑」。
+   var(--green) を文字色に使っていた箇所が、面のトークン変更で紙の上に
+   出られなくなるのを受け止めている。 */
+.gyoen-top .concept .kicker .lab,
+.gyoen-top .concept h2,
+.gyoen-top .spec dd,
+.gyoen-top .rooms-head h2,
+.gyoen-top .room h3,
+.gyoen-top .exp-head h2 {
+  color: var(--green-ink-2);
+}
+.gyoen-top .num-out {
+  -webkit-text-stroke: 1.5px var(--gr-mid);
+}
+
+/* --- ROOM 03 / LOCATION / CTA / フッター ------------------------------------
+   元は「濃い地に書かれた型」（クリームの h3、スカイの jpsub、クリーム78%の
+   本文）。地が明るくなったので、全部を黒側へ倒し、階層は不透明度ではなく
+   太さと字送りで持たせる。 */
+.gyoen-top .r03,
+.gyoen-top .loc,
+.gyoen-top .cta,
+.gyoen-top .gfoot {
+  color: var(--green-ink);
+}
+.gyoen-top .r03 h3,
+.gyoen-top .loc h2,
+.gyoen-top .cta-body h2,
+.gyoen-top .gfoot .mark {
+  color: var(--green-ink);
+  font-weight: 800;
+}
+.gyoen-top .r03 h3 em,
+.gyoen-top .loc h2 em,
+.gyoen-top .cta-body h2 em {
+  color: var(--green-accent);
+}
+.gyoen-top .r03 .jpsub,
+.gyoen-top .loc .lab,
+.gyoen-top .gfoot h4 {
+  color: var(--green-ink);
+  font-weight: 700;
+}
+.gyoen-top .r03 .desc,
+.gyoen-top .loc .jp,
+.gyoen-top .cta-note,
+.gyoen-top .gfoot {
+  color: rgba(16, 23, 16, 0.86);
+}
+.gyoen-top .loc .mapnote {
+  color: rgba(16, 23, 16, 0.82);
+}
+.gyoen-top .walk div,
+.gyoen-top .walk div:last-child {
+  border-color: rgba(16, 23, 16, 0.26);
+}
+.gyoen-top .walk dd {
+  color: var(--green-ink);
+}
+.gyoen-top .walk dd b {
+  color: var(--green-ink);
+  font-weight: 700;
+}
+.gyoen-top .r03 .numwrap {
+  -webkit-text-stroke-color: rgba(16, 23, 16, 0.3);
+}
+.gyoen-top .gfoot .mark small {
+  opacity: 0.72;
+}
+
+/* --- ウッドの上に乗る文字 ---------------------------------------------------
+   .cta-wood のバッジと頭出しの徒歩分数はクロスではなくウッド（#CC8043）の上。
+   統一後のウッドも中間色なのでクリームは乗らない。 */
+.gyoen-top .cta-wood .badge {
+  color: #2b2620;
+}
+/* --wood-deep はウッドの上では 2.2:1 しかない。地と文字の役割を混ぜないため、
+   ラベルも数字と同じインクにして、階層は字送りとサイズで作る */
+.gyoen-top .cta-wood .badge .lab {
+  color: #2b2620;
+}
+.gyoen-top .ledge.wood.dark .ledge-inner span b {
+  color: var(--green-ink);
+}
+
+/* ===========================================================================
+   CHAMBRAY 2案 — forest 系を同じスケールへ
+   緑は面・図形・大型表示にしか使っていないデザインなので、値の載せ替えだけ。
+   =========================================================================== */
+.chambray-top {
+  --forest: #3f6339;
+  --forest-lt: #5e8b58;
+  --forest-pale: #a7cba1;
+  --forest-ink: #2c4529;
+}
+.chambray-gyoen-top {
+  --forest: #7baa75;
+  --forest-lt: #a7cba1;
+  --forest-pale: #dcead9;
+  --forest-deep: #5e8b58;
+}
+/* .mat-forest は素材見本。chambray-gyoen 側は地が中間色になるので、
+   見本のキャプションだけ黒に寄せる（washed 側は濃い地のままなので触らない） */
+.chambray-gyoen-top .mat-forest {
+  color: var(--green-ink);
+}
+
+/* --- 共通セクション（mock-structure.css の .mock-*）--------------------------
+   6セクションの中身は3デザインで共有しているので、gyoen-green のぶんだけを
+   ここで明るい地に合わせて直す。chambray 2案の同じクラスは濃い地のままなので
+   触らない（だからすべて .gyoen-top で囲ってある）。 */
+.gyoen-top .hero .mock-dsp,
+.gyoen-top .loc .mock-dsp,
+.gyoen-top .cta-body .mock-dsp {
+  color: var(--green-ink);
+  font-weight: 700;
+}
+/* 紙の上に出る同じクラスは、黒ではなく明るいスケールの濃い側の緑 */
+.gyoen-top .mock-dsp,
+.gyoen-top .spec dt,
+.gyoen-top .mock-ami .n,
+.gyoen-top .mock-fac-h,
+.gyoen-top .mock-fac-no,
+.gyoen-top .mock-fac-common li,
+.gyoen-top .mock-conv-list b {
+  color: var(--green-ink-2);
+}
+/* 24H NEIGHBOURHOOD は LOCATION の中＝クロスの上 */
+.gyoen-top .mock-conv {
+  border-top-color: rgba(16, 23, 16, 0.24);
+}
+.gyoen-top .mock-conv-eyebrow {
+  color: rgba(16, 23, 16, 0.78);
+}
+.gyoen-top .mock-conv-h {
+  color: var(--green-ink);
+  font-weight: 700;
+}
+.gyoen-top .mock-conv-lead {
+  color: rgba(16, 23, 16, 0.86);
+}

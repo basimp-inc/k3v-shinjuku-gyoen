@@ -554,134 +554,109 @@
    Two independent switches, both written on <html> by components/ThemeMock.tsx
    and carried in the URL so a link reproduces exactly what is on screen:
 
-     [data-wc-rail]    manual (default) | auto      — 近隣SHOPの横スライド
-     [data-wc-footer]  plaster (default) | wood | moquette — 最終セクションの地
+   最終セクションの地は当初 [data-wc-footer] で塗り壁/ウッド/モケットグリーンの
+   3案を比較していたが、2026-08-22 に**カジュアルなウッド調で確定**したため属性
+   ごと廃止（地と柄は app/wood.css の共通ウッド）。近隣SHOPの横スライドも同様に
+   [data-wc-rail] で手動/オートを比較していたが、2026-08-21 に**オートディスプレイ
+   で統一**が決まって廃止済み。下のルールはどちらも切り替えではなく、両デザイン
+   共通の既定になっている。
 
    These live at the top level rather than inside .chambray-top because they key
    off an ancestor attribute; everything they touch is still .chambray-top only.
 
-   The client's指摘 on the footer was 「色が重い／白字が細い」. All three grounds
-   answer it the same structural way: the ground goes light and the type goes
-   dark, so body copy clears 4.5:1 without thickening anything. Wood and moquette
-   follow the reference photos — honey oak (not the walnut the page had) and a
-   linen-weave sage, both mid-to-light so ink reads on them.
+   The client's指摘 on the footer was 「色が重い／白字が細い」. The ground answers
+   it structurally: it goes light and the type goes dark, so body copy clears
+   4.5:1 without thickening anything. 地と柄は app/wood.css の共通ウッド
+   （2026-08-21 に色柄を統一）で、中〜明るめの材なのでその上のインクが読める。
    =========================================================================== */
 
-/* --- 近隣SHOP：オートプレイ版 ---------------------------------------------
-   The manual rail keeps scroll-snap. Autoplay drives scrollLeft frame by frame
-   and mandatory snapping fights that — it drags the rail back to the nearest
-   card on every frame — so snapping is dropped in this mode only. */
-[data-wc-rail="auto"] .chambray-top .rail-x {
+/* --- 近隣SHOP：オートディスプレイ（Washed Chambray / Chambray Gyoen 共通） ---
+   The rail drifts on its own (app/[locale]/_components/chambray/autoRail.ts),
+   driving scrollLeft frame by frame — and mandatory snapping fights that, it
+   drags the rail back to the nearest card on every frame — so the snapping the
+   two design sheets set on .rail-x is dropped here, for both designs.
+
+   Both sheets are imported before this one, so these plain
+   `.chambray*-top .rail-x` selectors override them on source order alone; no
+   specificity padding needed. */
+.chambray-top .rail-x,
+.chambray-gyoen-top .rail-x {
   scroll-snap-type: none;
   scrollbar-width: none;
 }
-[data-wc-rail="auto"] .chambray-top .rail-x::-webkit-scrollbar {
+.chambray-top .rail-x::-webkit-scrollbar,
+.chambray-gyoen-top .rail-x::-webkit-scrollbar {
   height: 0;
 }
 /* the cloned run that makes the loop seamless — same cards, no second reading
    for a screen reader */
-[data-wc-rail="auto"] .chambray-top .rail-x .card[data-wc-clone] {
+.chambray-top .rail-x .card[data-wc-clone],
+.chambray-gyoen-top .rail-x .card[data-wc-clone] {
   pointer-events: none;
 }
 
-/* --- 最終セクション（footer）の地 ------------------------------------------
-   Common to all three: the type the client called too thin. Sizes go up a step
-   and the ink is the page's own shadow instead of a translucent white.
+/* --- 最終セクション（footer）の文字 ----------------------------------------
+   クライアント指摘は「色が重い／白字が細い」。地は app/wood.css の共通ウッド
+   （明るい中間色）なので、その上の文字は**濃く・太く**して解く。
 
-   No opacity dodges anywhere: on the two coloured grounds a .86 alpha put body
-   copy at 4.3:1 and the bottom rule at 3.3:1. Hierarchy is carried by size,
-   weight and letter-spacing instead, which is what was actually missing — the
-   old footer separated its levels by fading them out. */
+   インクは --shadow(#2B2620) より一段深い #221D18 を footer 専用に持つ。
+   ウッドは木目と板の継ぎ目で地の明るさが振れるので、素の面での数字ではなく
+   「一番暗いピクセルの上」で 4.5:1 を満たす側に置いた。実測（背景を合成して
+   全ピクセル走査）で最暗部 4.97:1 / 中央値 6.2:1 ——  --shadow のままだと
+   最暗部 4.46:1 で、wood.css のヴェールと合わせてようやくこの数字になる。
+
+   太らせ方は一律ではなく役割ごと：
+     ブランドマーク  デニムのまま（27px/700 の大文字なので 4.5:1 で足りる）
+     リード文        13px→14px / 400→500
+     カラム見出し    9px mono を 10px/700 に。9px の 400 は「細い」の本丸
+     リンク          14px / 500→600（タップ対象なので一番強く）
+     最下段          9px→10px / 600、罫線も 0.28→0.42 に濃く
+
+   透明度で階層を作るのは今回もやらない（旧実装が薄い白文字で階層を作って
+   いたのが「細い」の正体）。差はサイズ・ウェイト・字間だけでつけている。 */
 .chambray-top footer {
-  color: var(--shadow);
+  /* footer 専用の深いインク。他セクションの --shadow より暗いのは、
+     ここだけ地がウッド（明るい中間色）で、かつ小さい文字が多いから */
+  --ft-ink: #221d18;
+  color: var(--ft-ink);
 }
 .chambray-top .ft-brand .k {
   color: var(--indigo);
 }
 .chambray-top .ft-brand p {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 2;
-  color: var(--shadow);
+  color: var(--ft-ink);
   max-width: 32em;
 }
-/* the column labels are 9px uppercase mono — small text, so they take the ink
-   that clears 4.5:1 on all three grounds (indigo lands at 4.23 on the oak) */
+/* カラム見出しは 9px の大文字 mono。小さい文字ほどウェイトで効かせるので、
+   ここは 700 まで上げたうえで字間を少し詰める（太字にすると 0.2em は
+   バラけて逆に読みにくい） */
 .chambray-top .ft-col h5 {
-  color: var(--shadow);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ft-ink);
+  opacity: 1;
 }
 .chambray-top .ft-col a {
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--shadow);
+  font-weight: 600;
+  color: var(--ft-ink);
 }
+/* hover は色だけでなく下線も出す。濃いインク同士の色差は小さいので、
+   色の変化だけだと「押せる」ことが伝わりにくい */
 .chambray-top .ft-col a:hover {
   color: var(--indigo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .chambray-top .ft-bot {
-  border-top: 1px solid rgba(43, 38, 32, 0.28);
-  color: var(--shadow);
-}
-
-/* 案1 — 素材感のある塗り壁（default） */
-.chambray-top footer {
-  background-color: #efeae0;
-  background-image:
-    radial-gradient(120% 80% at 12% 0%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 58%),
-    radial-gradient(90% 70% at 100% 100%, rgba(107, 74, 50, 0.14), rgba(107, 74, 50, 0) 62%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' seed='23'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23p)' opacity='.5'/%3E%3C/svg%3E");
-  background-size:
-    100% 100%,
-    100% 100%,
-    220px 220px;
-}
-
-/* 案2 — カジュアルなウッド柄。参考写真のハニーオーク／チーク。板の継ぎ目を
-   はっきり見せて、艶ではなく木目で「気取らなさ」を出す */
-[data-wc-footer="wood"] .chambray-top footer {
-  background-color: #c89055;
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(90, 52, 20, 0.26) 0 2px,
-      rgba(255, 224, 184, 0.14) 2px 4px,
-      rgba(0, 0, 0, 0) 4px 232px
-    ),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='wo'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.007 0.42' numOctaves='4' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.34 0 0 0 0 0.20 0 0 0 0 0.08 0.85 0.4 0.2 0 -0.42'/%3E%3C/filter%3E%3Crect width='700' height='420' filter='url(%23wo)'/%3E%3C/svg%3E"),
-    linear-gradient(182deg, #d59c60, #c89055 52%, #b57e45);
-  background-size:
-    auto,
-    700px 420px,
-    100% 100%;
-}
-
-/* 案3 — モケットグリーン。参考写真は織り目のあるセージの壁紙なので、
-   起毛のベタ塗りではなく縦横の織り目で組む */
-[data-wc-footer="moquette"] .chambray-top footer {
-  background-color: #8fb68c;
-  /* The reference is a linen-weave wallcovering: at reading distance it is
-     almost flat, and the weave only shows up as texture. Hard 2px gradients
-     moiré into a tartan at that scale, so the weave is carried by fabric noise
-     with the ruled lines kept near the threshold of visibility. */
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.07) 0 1px,
-      rgba(46, 74, 44, 0.05) 1px 3px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.06) 0 1px,
-      rgba(46, 74, 44, 0.06) 1px 3px
-    ),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='lin'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85 .55' numOctaves='3' seed='31'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23lin)' opacity='.42'/%3E%3C/svg%3E"),
-    radial-gradient(110% 80% at 18% 0%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 62%),
-    linear-gradient(176deg, #9cc199, #8fb68c 54%, #7ea37c);
-  background-size:
-    auto,
-    auto,
-    180px 180px,
-    100% 100%,
-    100% 100%;
+  border-top: 1px solid rgba(34, 29, 24, 0.42);
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--ft-ink);
 }
 
 /* ===========================================================================
@@ -1046,9 +1021,8 @@
      from cream to the page's own ink — on a mid-light ground cream sat at about
      1.9:1, and the walk times are the one thing on the hero that has to be
      legible at a glance. */
-  .ledge.wood.dark {
-    background: #c89055;
-  }
+  /* 地と木目は app/wood.css の共通ウッド（.gyoen-top .ledge.wood.dark）。
+     ここは「ウォルナットの板イラストを消して文字を濃くする」構造だけ持つ。 */
   .ledge.wood.dark > svg.fill {
     /* the walnut symbol would repaint the plank over the new ground */
     display: none;
@@ -1056,25 +1030,475 @@
   .ledge.wood.dark > .sheen {
     background: linear-gradient(
       105deg,
-      rgba(255, 238, 214, 0.34),
-      rgba(120, 74, 30, 0.12) 58%,
-      rgba(120, 74, 30, 0.26)
+      rgba(255, 238, 214, 0.3),
+      rgba(140, 72, 30, 0.12) 58%,
+      rgba(140, 72, 30, 0.24)
     );
   }
   .ledge.wood.dark > .seams {
-    background: repeating-linear-gradient(
-      90deg,
-      rgba(92, 54, 20, 0.5) 0 2px,
-      rgba(255, 226, 188, 0.2) 2px 4px,
-      transparent 4px 164px
-    );
+    /* 継ぎ目は共通ウッドの --wood-seam と同じ刻み */
+    background: var(--wood-seam);
     opacity: 0.9;
   }
   .ledge.wood.dark .ledge-inner {
     color: var(--ink);
   }
-  .ledge.wood.dark .ledge-inner span b {
-    color: var(--green-deep);
+  /* .ledge.wood.dark .ledge-inner span b の緑は app/green.css が持つ
+     （統一後の --green-deep は明るいセージなのでウッドの上に乗らない） */
+
+  @media (max-width: 900px) {
+    .mock-fac-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    .mock-conv-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ===========================================================================
+   CHAMBRAY GYOEN — green-gyoen × washed-chambray の統合案
+   Washed Chambray's canonical section layouts, rescoped verbatim for the
+   .chambray-gyoen-top copy (see app/chambray-gyoen-design.css). Differences
+   from the .chambray-top block above:
+     * no .patch / .hero-chip rules here — those are defined directly in the
+       design stylesheet (app/chambray-gyoen-design.css), same as the base
+       .chambray-top design
+     * washed-chambray's ink/warm-black rgba() values move to this design's
+       stonewashed ink rgba(58,94,125,…) and slate rgba(63,82,97,…)
+     * the small green-ink labels (--forest-ink) go to --indigo — the approved
+       palette has no green dark enough for small text
+     * no footer restyle block — the design stylesheet ships the light
+       plaster footer directly
+   =========================================================================== */
+.chambray-gyoen-top {
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .ehead h2,
+  .mhead h2,
+  .linfo h2,
+  .card h4,
+  .sample b {
+    font-family: var(--jp);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  /* .band h3 is NOT in that list: the room names are Latin in every locale, so
+     they keep Barlow Condensed — the one place this design's display face can
+     do its job. */
+  .mock-dsp {
+    font-family: var(--cnd);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    color: var(--indigo);
+    margin-top: 14px;
+  }
+  .hero .mock-dsp {
+    font-size: clamp(2.4rem, 6.4vw, 5.6rem);
+    margin-top: 16px;
+  }
+  .mhead .mock-dsp {
+    color: var(--ecru);
+  }
+  .mhead .mock-dsp,
+  .ehead .mock-dsp,
+  .rhead .mock-dsp {
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    margin-top: 0;
+  }
+  .ehead .mock-dsp,
+  .rhead .mock-dsp {
+    color: var(--indigo);
+    grid-column: 1 / 8;
+    grid-row: 1;
+  }
+  .ehead h2,
+  .rhead h2 {
+    grid-row: 2;
+  }
+  .ehead > p:not(.mock-dsp),
+  .rhead > p:not(.mock-dsp) {
+    grid-row: 1 / 3;
+    align-self: end;
+  }
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .ehead h2,
+  .mhead h2,
+  .linfo h2 {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.85;
+    margin-top: 14px;
+    max-width: 34em;
+  }
+  .c-head h2 em,
+  .rhead h2 em,
+  .ehead h2 em,
+  .mhead h2 em,
+  .linfo h2 em {
+    font-family: var(--jp);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: none;
+  }
+  .card h4 {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+  .sample b {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* PrimeLocation — the walk-time list carries a whole phrase, not a bare
+     numeral with a unit, so it steps down from the display size. */
+  .acc i {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+  }
+  .acc {
+    margin-top: 26px;
+  }
+  .c-left {
+    grid-column: 1 / 8;
+  }
+  .c-fig {
+    grid-column: 8 / 13;
+  }
+  .c-left .acc {
+    max-width: 34em;
+  }
+  .rail-x {
+    margin-top: clamp(40px, 5vw, 68px);
+  }
+  .card {
+    flex-basis: clamp(228px, 25vw, 300px);
+  }
+  .card p {
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Renovated — three cloths instead of the source mock's four */
+  .samples-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sample b {
+    margin-top: 14px;
+  }
+  .sample p {
+    margin-top: 8px;
+  }
+
+  /* Amenities — every item a patch, stitched like the stitch rules */
+  .mock-ami {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(10px, 1.4vw, 18px);
+    margin-top: clamp(28px, 3.4vw, 44px);
+  }
+  .mock-ami li {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 11px;
+    padding: 17px 18px;
+    background: rgba(58, 94, 125, 0.07);
+    border: 1px solid rgba(58, 94, 125, 0.2);
+  }
+  .mock-ami .edge {
+    position: absolute;
+    inset: 5px;
+    border: 1px dashed rgba(58, 94, 125, 0.32);
+    pointer-events: none;
+  }
+  .mock-ami .n {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.16em;
+    color: var(--thread);
+    flex: none;
+  }
+  .mock-ami b {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+  .mock-note {
+    display: block;
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .mock-viewall-wrap {
+    padding-block: clamp(34px, 4.4vw, 60px);
+  }
+
+  /* Access — the live map replaces the illustrated one, so it fills .lmap */
+  .mock-map {
+    position: absolute;
+    inset: 0;
+  }
+  .mock-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .mock-detail-value {
+    text-align: right;
+    max-width: 68%;
+  }
+  .mock-access-cta {
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 1100px) {
+    .samples-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .mock-ami {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 880px) {
+    .mock-ami {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .c-left,
+    .c-fig {
+      grid-column: 1 / 13;
+    }
+    .c-left .acc {
+      max-width: none;
+    }
+    .ehead .mock-dsp,
+    .rhead .mock-dsp {
+      grid-column: 1 / 13;
+    }
+    .ehead .mock-dsp,
+    .rhead .mock-dsp,
+    .ehead h2,
+    .rhead h2,
+    .ehead > p:not(.mock-dsp),
+    .rhead > p:not(.mock-dsp) {
+      grid-row: auto;
+    }
+    .band .no,
+    .band.rev .no {
+      left: auto;
+      right: 16px;
+    }
+  }
+  @media (max-width: 600px) {
+    .samples-3 {
+      grid-template-columns: 1fr;
+    }
+    .acc li {
+      align-items: flex-start;
+    }
+    .linfo .acc li {
+      flex-direction: column;
+      gap: 5px;
+    }
+    .mock-detail-value {
+      text-align: left;
+      max-width: 100%;
+    }
+  }
+
+  /* --- 立地の利便性 — 「夜中でも買いに行ける」の側の主張 ------------------- */
+  .mock-conv {
+    margin-top: clamp(44px, 5.5vw, 78px);
+    padding-top: clamp(28px, 3.4vw, 44px);
+    border-top: 1px solid rgba(58, 94, 125, 0.22);
+  }
+  .mock-conv-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--indigo);
+  }
+  .mock-conv-h {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: var(--indigo);
+    margin-top: 12px;
+    max-width: 22em;
+  }
+  .mock-conv-lead {
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 2.1;
+    color: rgba(63, 82, 97, 0.95);
+    margin-top: 14px;
+    /* em, not ch — ch measures the Latin "0" and cuts 和文 ~40% short */
+    max-width: 34em;
+  }
+  .mock-conv-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2vw, 28px);
+    margin-top: clamp(26px, 3vw, 40px);
+  }
+  /* 背景は不透過。半透明のままだと、裏に来た植物が透けて本文が 3.26:1 まで
+     落ちる（実測）。装飾は本文の下に敷く方針なので、本文側の地で止める */
+  .mock-conv-list li {
+    position: relative;
+    padding: 18px 20px 20px;
+    background: #E7EDF3;
+    border: 1px dashed rgba(58, 94, 125, 0.3);
+  }
+  .mock-conv-list b {
+    display: block;
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--indigo);
+  }
+  .mock-conv-list p {
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.95;
+    color: rgba(63, 82, 97, 0.92);
+    margin-top: 8px;
+  }
+
+  /* --- 部屋ごとの設備（305 / 401 / 503） ---------------------------------- */
+  .mock-fac {
+    margin-top: clamp(40px, 5vw, 68px);
+    padding-top: clamp(26px, 3.2vw, 42px);
+    border-top: 1px solid rgba(58, 94, 125, 0.22);
+  }
+  .mock-fac-h {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: clamp(1.25rem, 2.3vw, 1.75rem);
+    line-height: 1.5;
+    color: var(--indigo);
+  }
+  .mock-fac-lead {
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 2.1;
+    color: rgba(63, 82, 97, 0.92);
+    margin-top: 12px;
+    max-width: 34em;
+  }
+  .mock-fac-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(14px, 1.8vw, 24px);
+    margin-top: clamp(24px, 3vw, 36px);
+  }
+  /* 同上。0.62 では通っていたが、より濃い植物が裏に来ると割れるので不透過に */
+  .mock-fac-room {
+    padding: 20px;
+    background: #F2EFE8;
+    border: 1px solid rgba(58, 94, 125, 0.2);
+  }
+  .mock-fac-room h4 {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(58, 94, 125, 0.18);
+  }
+  .mock-fac-lab {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.18em;
+    color: var(--thread);
+  }
+  .mock-fac-no {
+    font-family: var(--cnd);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--indigo);
+  }
+  .mock-fac-room ul {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .mock-fac-room li {
+    position: relative;
+    padding-left: 16px;
+    font-family: var(--jp);
+    font-size: 0.8125rem;
+    line-height: 1.85;
+    color: rgba(63, 82, 97, 0.95);
+  }
+  .mock-fac-room li + li {
+    margin-top: 7px;
+  }
+  .mock-fac-room li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 7px;
+    height: 1px;
+    background: var(--forest);
+  }
+  .mock-fac-common {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 18px;
+    margin-top: clamp(18px, 2.2vw, 26px);
+    padding-top: 16px;
+    border-top: 1px dashed rgba(58, 94, 125, 0.3);
+  }
+  .mock-fac-common > b {
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--indigo);
+  }
+  .mock-fac-common ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  .mock-fac-common li {
+    font-family: var(--jp);
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 7px 11px;
+    color: var(--indigo);
+    background: rgba(58, 94, 125, 0.08);
+    border: 1px solid rgba(58, 94, 125, 0.22);
   }
 
   @media (max-width: 900px) {

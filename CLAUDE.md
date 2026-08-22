@@ -28,6 +28,18 @@
 
 ROOM 02・03 のブランド名/世界観は要件定義書と概ね一致しているため活かせる。**施設名・立地・部屋数・ROOM 01・全体のブランドストーリーは要件定義書に合わせて書き換えが必要**。詳細は [TASK.md](TASK.md) の Phase 0 を参照。
 
+## ⚠️ washed-chambray Hero / ROOM 01 イラスト仕様（確定済み・勝手に戻さないこと）
+
+`app/[locale]/_components/chambray/scenes.ts` の `HERO` と `ROOM1_MORNING`、および washed-chambray・chambray-gyoen 両テーマの ROOM 01 写真は、2026-08-21 にクライアント指示で確定した仕様。**別セッション/別エージェントが「壊れている」と判断して元に戻すケースが実際に起きている。理由を確認せずに変更しないこと。**
+
+- **`HERO`**: 初期生成版（障子・のれん・鉢植え・シャンブレーのシャツを干した「朝の縁側」の情景、git コミット `1f3ea55` 時点の内容）を正とする。2026-08-17 に一度「確定した ROOM 01 実レイアウトに合わせる」目的で描き直されたが、クライアント判断で初期生成版へ戻すことが確定している。実レイアウト版のイラスト自体は破棄していない（次項）。
+- **`ROOM1_MORNING`**: 2026-08-17〜21 の間 `HERO` として使われていた「実レイアウト版」のイラストをそのまま退避した新規エクスポート。**`docs/top-page-mock-8.html` には存在しない、手動追加分**（`docs/gen-chambray-assets.py` の `SCENE_NAMES` にも意図的に含めていない — 詳細はそのスクリプト内のコメント参照）。
+- **ROOM 01 の写真**: `ChambrayTop.tsx` / `ChambrayGyoenTop.tsx` / `GyoenTop.tsx` の ROOM 01 は `ROOM1`（1枚目）と `ROOM1_MORNING`（2枚目）を切り替える2枚スライダー。ラジオ入力 + CSS `:has()` のみで動作し JS 不要。対応 CSS は `chambray-design.css` と `chambray-gyoen-design.css` 双方の `.ph .stamp` ルール直後（`.s-radio` / `.pic .ph.s0` / `.pic .ph.s1` / `.s-dots`）、および `gyoen-design.css` の末尾ブロック。
+
+**2026-08-22 追記 — gyoen-green もイラストを共有している**: クライアント指示「green gyoen のイラストは消し、chambray gyoen のものに統一」により `_components/gyoen/defs.ts` は削除済み。gyoen-green は室内・近所の絵を `chambray/scenes.ts` から、ヒーローの樹冠を `chambray-gyoen/defs.ts` の `#cg-canopy` から取り、描画時に id を `gy-` へ付け替えている。つまり `scenes.ts` は**3デザイン共有**。washed-chambray を消す場合でも `scenes.ts` は残すこと。
+
+**`docs/gen-chambray-assets.py` を再実行すると `scenes.ts` と `chambray-design.css` が丸ごと上書きされ、`ROOM1_MORNING` とスライダー用 CSS が消え、`HERO` も実レイアウト版に戻る**（`docs/top-page-mock-8.html` 側は未更新のため）。再実行が必要になった場合は、実行後にこの節の内容を手動で復元すること。
+
 ## クライアントのデザイン方針（最重要・全ページ共通）
 
 クライアント所見・希望（2026-08-05 確定）:

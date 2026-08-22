@@ -10,15 +10,6 @@ const base = {
   strokeLinejoin: "round" as const,
 };
 
-export function LeafIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...base}>
-      <path d="M5 19c8-1 12-6 13-13-8 1-13 5-13 13Z" />
-      <path d="M6.5 17.5C9 14 11 12 15.5 9.5" />
-    </svg>
-  );
-}
-
 export function CupIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>
@@ -147,14 +138,6 @@ export function DropletIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...base}>
       <path d="M12 3.5s6.5 7 6.5 11.3a6.5 6.5 0 1 1-13 0C5.5 10.5 12 3.5 12 3.5Z" />
-    </svg>
-  );
-}
-
-export function StarIcon({ className }: IconProps) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...base}>
-      <path d="m12 3.5 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.5Z" />
     </svg>
   );
 }

@@ -25,10 +25,15 @@
   --indigo-mid:#2C5779;
   --indigo-fade:#6E8FAC;
   /* 02 WOOD ---------------------------------------------- */
-  --wood:#6B4A32;
-  --wood-dk:#4A3222;
-  --wood-lt:#8F6743;
-  --wood-pale:#C6A886;
+  /* WOOD — 2026-08-21「色柄を統一」後の共通ウッド（参考写真の無垢材）。
+     本番は app/wood.css が単一の出どころ。ここはその写し */
+  --wood:#CC8043;
+  --wood-dk:#AC5F27;
+  --wood-lt:#E0A063;
+  --wood-deep:#8C481E;
+  --wood-pale:#F2DCC2;
+  --wood-ink:#84461B;
+  --wood-on:#2B2620;
   /* 03 FOREST — 御苑の新緑。深い青緑ではなく、そら豆〜黄緑の
      日向の緑で。上品さは彩度ではなく明度差で持たせている ---- */
   --forest:#4C6E31;
@@ -112,17 +117,18 @@ button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' seed='5'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23r)' opacity='.55'/%3E%3C/svg%3E");
 }
 .mat-wood{
-  position:relative;color:var(--ecru);
+  position:relative;color:var(--wood-on);
   background-color:var(--wood);
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006 0.4' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.34'/%3E%3C/filter%3E%3Crect width='700' height='420' filter='url(%23w)'/%3E%3C/svg%3E"),
-    linear-gradient(184deg,#7E5B3E,#6B4A32 55%,#553A26);
-  background-size:700px 420px,100% 100%;
+    repeating-linear-gradient(90deg,rgba(140,72,30,.3) 0 2px,rgba(255,228,194,.16) 2px 4px,rgba(0,0,0,0) 4px 218px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='wg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.009 0.55' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.42 0 0 0 0 0.21 0 0 0 0 0.07 0.85 0.4 0.2 0 -0.40'/%3E%3C/filter%3E%3Cg transform='rotate(-34 350 210)'%3E%3Crect x='-300' y='-300' width='1300' height='1020' filter='url(%23wg)'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(184deg,var(--wood-lt),var(--wood) 52%,#C67C3E);
+  background-size:auto,700px 420px,100% 100%;
 }
 .mat-wood.v{
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='700'%3E%3Cfilter id='w2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.4 0.006' numOctaves='4' seed='9'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.05 0.9 0.4 0.2 0 -0.34'/%3E%3C/filter%3E%3Crect width='420' height='700' filter='url(%23w2)'/%3E%3C/svg%3E"),
-    linear-gradient(92deg,#7E5B3E,#6B4A32 55%,#553A26);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='700'%3E%3Cfilter id='wgv'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.009 0.55' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.42 0 0 0 0 0.21 0 0 0 0 0.07 0.85 0.4 0.2 0 -0.40'/%3E%3C/filter%3E%3Cg transform='rotate(56 210 350)'%3E%3Crect x='-300' y='-300' width='1020' height='1300' filter='url(%23wgv)'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(94deg,var(--wood-lt),var(--wood) 52%,#C67C3E);
   background-size:420px 700px,100% 100%;
 }
 .mat-forest{
@@ -245,7 +251,7 @@ h1{margin:0}
 }
 .h1-sub{
   display:block;margin-top:.18em;max-width:19ch;
-  font-family:var(--dsp);font-style:italic;font-weight:300;color:var(--wood);
+  font-family:var(--dsp);font-style:italic;font-weight:300;color:var(--wood-ink);
   font-size:clamp(1.15rem,2.25vw,1.95rem);line-height:1.28;letter-spacing:-.005em;
 }
 /* the patch: a raw-denim block sewn onto the washed ground */
@@ -262,7 +268,7 @@ h1{margin:0}
 /* hero picture: wood-framed portrait, bleeding off the top */
 .hero-fig{position:relative;align-self:stretch;display:flex;align-items:center}
 .frame{
-  position:relative;width:100%;padding:12px;background:var(--wood);
+  position:relative;width:100%;padding:12px;background-color:var(--wood);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='420'%3E%3Cfilter id='wg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.009 0.55' numOctaves='4' seed='4'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.42 0 0 0 0 0.21 0 0 0 0 0.07 0.85 0.4 0.2 0 -0.40'/%3E%3C/filter%3E%3Cg transform='rotate(-34 350 210)'%3E%3Crect x='-300' y='-300' width='1300' height='1020' filter='url(%23wg)'/%3E%3C/g%3E%3C/svg%3E"),linear-gradient(184deg,var(--wood-lt),var(--wood) 52%,var(--wood-dk));background-size:700px 420px,100% 100%;
   box-shadow:0 26px 50px -34px rgba(19,40,60,.85);
 }
 .frame::after{content:"";position:absolute;inset:4px;border:1px solid rgba(0,0,0,.25);pointer-events:none}
@@ -299,12 +305,12 @@ h1{margin:0}
 }
 .rail .f{
   flex:1 1 auto;min-width:170px;padding:15px var(--pad);display:flex;align-items:baseline;gap:11px;
-  border-right:1px solid rgba(237,242,247,.18);color:var(--ecru);
+  border-right:1px solid rgba(60,30,10,.22);color:var(--wood-on);
 }
 .rail .f:last-child{border-right:0;flex:0 0 auto}
 .rail .f b{font-family:var(--cnd);font-weight:700;font-size:1.5rem;letter-spacing:.02em;line-height:1}
-.rail .f span{font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
-.cue{display:flex;align-items:center;gap:10px;color:var(--wood-pale)}
+.rail .f span{font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
+.cue{display:flex;align-items:center;gap:10px;color:var(--wood-on)}
 .cue i{display:block;width:32px;height:1px;background:currentColor;animation:sweep 2.2s ease-in-out infinite}
 @keyframes sweep{0%,100%{transform:scaleX(.35);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
 
@@ -344,9 +350,9 @@ section{position:relative}
    gap between the headline and the body text */
 .c-left{grid-column:1/7;grid-row:1}
 .c-head{}
-.c-head .kick{color:var(--wood);display:block;margin-bottom:18px}
+.c-head .kick{color:var(--wood-ink);display:block;margin-bottom:18px}
 .c-head h2{font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:.84;color:var(--indigo)}
-.c-head h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.52em;line-height:1.15;margin-top:.16em;letter-spacing:-.01em}
+.c-head h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;line-height:1.15;margin-top:.16em;letter-spacing:-.01em}
 .c-copy{margin-top:clamp(26px,3vw,42px);max-width:44ch}
 .c-copy p+p{margin-top:16px}
 .c-copy .jp{font-size:.9375rem;color:rgba(43,38,32,.86)}
@@ -394,7 +400,7 @@ section{position:relative}
 .rooms .wrap{padding-bottom:clamp(34px,5vw,60px)}
 .rhead{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
 .rhead h2{grid-column:1/8;font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:.84;color:var(--indigo)}
-.rhead h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.46em;line-height:1.2;margin-top:.14em}
+.rhead h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.46em;line-height:1.2;margin-top:.14em}
 .rhead p{grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.7)}
 
 .band{position:relative;display:grid;grid-template-columns:repeat(12,1fr);align-items:stretch;min-height:clamp(360px,44vw,560px)}
@@ -489,14 +495,14 @@ section{position:relative}
 .pin-k .dot{width:9px;height:9px;border-radius:50%;background:var(--thread);box-shadow:0 0 0 5px rgba(200,120,58,.25)}
 .linfo{grid-column:8/13;display:flex;flex-direction:column}
 .linfo h2{font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.1rem,3.8vw,3.3rem);line-height:.88;color:var(--indigo)}
-.linfo h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood);font-size:.52em;margin-top:.1em}
+.linfo h2 em{display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;margin-top:.1em}
 .linfo .addr{margin-top:20px;font-family:var(--jp);font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.78)}
 .acc{margin-top:24px;list-style:none;border-top:1px solid rgba(27,58,87,.26)}
 .acc li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(27,58,87,.16)}
 .acc .p{display:flex;align-items:center;gap:11px}
 .acc .ln{width:11px;height:11px;border-radius:50%;flex:none;border:2.5px solid var(--indigo)}
 .acc .ln.g{border-color:var(--forest)}
-.acc .ln.w{border-color:var(--wood)}
+.acc .ln.w{border-color:var(--wood-ink)}
 .acc b{font-family:var(--ui);font-weight:600;font-size:.8125rem}
 .acc i{font-family:var(--cnd);font-style:normal;font-weight:700;font-size:1.3rem;letter-spacing:.02em;color:var(--indigo)}
 .acc i small{font-family:var(--mono);font-weight:400;font-size:.5625rem;letter-spacing:.1em;opacity:.6;margin-left:3px}
@@ -1663,295 +1669,19 @@ footer{background:var(--shadow);color:var(--ecru)}
   <article class="band rv">
     <div class="pic">
       <div class="ph">
-        <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="crash gate の部屋。小上がりに白い寝具のベッドを3台並べ、段板の下をスーツケースと靴の置き場にしている">
-          <defs>
-            <filter id="b3"><feGaussianBlur stdDeviation="26"/></filter>
-            <filter id="b3s"><feGaussianBlur stdDeviation="9"/></filter>
-
-            <!-- 壁。写真どおり、絵も棚も掛かっていない塗り壁。ROOM 01・02 の
-                 クリームより灰に振って、この部屋の無機質さを地でつくる -->
-            <linearGradient id="r3w" x1=".12" y1="0" x2=".88" y2="1">
-              <stop offset="0" stop-color="#BCB5AA"/><stop offset=".42" stop-color="#D3CDC2"/><stop offset="1" stop-color="#A7A094"/>
-            </linearGradient>
-
-            <!-- 小上がりの段板。写真のウォルナット。窓のある右ほど明るい -->
-            <linearGradient id="r3d" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#5C3E27"/><stop offset=".55" stop-color="#845E3B"/><stop offset="1" stop-color="#A87F53"/>
-            </linearGradient>
-            <linearGradient id="r3ds" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#33220F"/><stop offset="1" stop-color="#5E4025"/>
-            </linearGradient>
-
-            <!-- 床。杢の入ったチャコールのタイルカーペット。写真でいちばん暗い面で、
-                 この絵のグレー／チャコールはここが支える -->
-            <pattern id="r3c" width="16" height="10" patternUnits="userSpaceOnUse">
-              <rect width="16" height="10" fill="#35322E"/>
-              <rect width="8" height="5" fill="#3F3B36"/><rect x="8" y="5" width="8" height="5" fill="#3F3B36"/>
-              <rect y="9" width="16" height="1" fill="#24221F"/>
-            </pattern>
-
-            <!-- 白い寝具。織り目はごく薄く、面としては白いまま残す -->
-            <pattern id="r3b" width="22" height="11" patternUnits="userSpaceOnUse">
-              <rect width="22" height="11" fill="#FCFBF8"/>
-              <rect width="3" height="11" fill="#F8F5EF"/>
-            </pattern>
-
-            <!-- 窓のレースカーテン。やわらかい縦ひだ越しの西日 -->
-            <linearGradient id="r3s" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#EFE6CE"/><stop offset=".08" stop-color="#FCF6E7"/>
-              <stop offset=".2" stop-color="#EDE3C8"/><stop offset=".32" stop-color="#FDF8EB"/>
-              <stop offset=".46" stop-color="#EEE4CA"/><stop offset=".58" stop-color="#FDF9EE"/>
-              <stop offset=".72" stop-color="#EFE5CC"/><stop offset=".84" stop-color="#FEFBF2"/>
-              <stop offset="1" stop-color="#EDE2C6"/>
-            </linearGradient>
-            <linearGradient id="r3g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FFFDF6" stop-opacity=".9"/><stop offset=".46" stop-color="#FFF3D6" stop-opacity=".38"/><stop offset="1" stop-color="#E8D6AE" stop-opacity=".22"/>
-            </linearGradient>
-
-            <!-- スーツケースの殻。写真は白〜生成りのハードケース3つ -->
-            <linearGradient id="r3k" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#F1ECE1"/><stop offset="1" stop-color="#CBC2B1"/>
-            </linearGradient>
-          </defs>
-
-          <rect width="1000" height="700" fill="url(#r3w)"/>
-
-          <!-- 天井。左手前で一段下がる -->
-          <path d="M0 0 L1000 0 L1000 74 L0 114 Z" fill="#EAE6DE"/>
-          <path d="M0 0 L268 0 L316 56 L0 68 Z" fill="#DCD7CC"/>
-          <path d="M268 0 L316 56 L0 68 L0 76 L324 64 Z" fill="#B5AEA2" opacity=".55"/>
-          <path d="M0 114 L1000 74 L1000 84 L0 124 Z" fill="#A9A296" opacity=".5"/>
-
-          <!-- 天井のダウンライト一灯 -->
-          <g>
-            <circle cx="352" cy="62" r="40" fill="#FFF6E0" opacity=".45" filter="url(#b3s)"/>
-            <circle cx="352" cy="62" r="13" fill="#FCF8EE" stroke="#A9A296" stroke-width="3"/>
-            <circle cx="352" cy="62" r="6" fill="#FFFDF6"/>
-          </g>
-
-          <!-- カーテンのひだ越しに、西日が壁を縞に切る -->
-          <g filter="url(#b3s)">
-            <g fill="#FDF4DE" opacity=".5">
-              <path d="M306 130 L378 126 L254 406 L178 406 Z"/>
-              <path d="M424 124 L476 122 L358 406 L306 406 Z"/>
-              <path d="M528 120 L566 118 L444 406 L406 406 Z"/>
-            </g>
-            <g fill="#807A6D" opacity=".1">
-              <path d="M378 126 L424 124 L306 406 L254 406 Z"/>
-              <path d="M476 122 L528 120 L406 406 L358 406 Z"/>
-            </g>
-          </g>
-          <!-- 窓から遠い左奥ほど、壁は沈む -->
-          <path d="M0 76 L200 70 L200 406 L0 406 Z" fill="#8F8879" opacity=".18" filter="url(#b3)"/>
-
-          <!-- 壁のコンセント。写真にある壁付けの造作はこれだけ -->
-          <g>
-            <rect x="556" y="330" width="27" height="36" rx="4" fill="#F3F1EB" stroke="#9E978B" stroke-width="2.5"/>
-            <g fill="#C2BBAF"><rect x="565" y="340" width="9" height="4" rx="2"/><rect x="565" y="352" width="9" height="4" rx="2"/></g>
-          </g>
-
-          <!-- 壁掛けのエアコン -->
-          <g>
-            <path d="M700 62 L954 44 Q968 43 968 56 L968 108 Q968 121 955 122 L712 140 Q698 141 698 128 L698 76 Q698 63 700 62 Z" fill="#F4F2EC" stroke="#6F6A5F" stroke-width="3.5"/>
-            <path d="M700 104 L967 86 L968 108 Q968 121 955 122 L712 140 Q698 141 698 128 Z" fill="#DFDACE"/>
-            <path d="M708 112 L960 94" stroke="#8B8478" stroke-width="5" opacity=".85"/>
-            <path d="M712 124 L956 106" stroke="#6F6A5F" stroke-width="3" opacity=".4"/>
-            <path d="M700 146 L964 128 L964 136 L702 154 Z" fill="#6E685C" opacity=".3" filter="url(#b3s)"/>
-          </g>
-
-          <!-- 窓。レースのひだ越しの西日で白く飛んでいる。黒い框とレールが、
-               この部屋にある数少ない金属 -->
-          <g>
-            <rect x="628" y="156" width="266" height="234" fill="url(#r3s)"/>
-            <rect x="628" y="156" width="266" height="234" fill="url(#r3g)"/>
-            <line x1="770" y1="156" x2="770" y2="390" stroke="#332F28" stroke-width="5" opacity=".28"/>
-            <rect x="628" y="372" width="266" height="18" fill="#332F28"/>
-            <rect x="628" y="372" width="266" height="5" fill="#5B564C"/>
-            <rect x="628" y="156" width="266" height="234" fill="none" stroke="#ECE7DD" stroke-width="13"/>
-            <rect x="628" y="156" width="266" height="234" fill="none" stroke="#6F6A5F" stroke-width="3.5"/>
-            <rect x="618" y="144" width="288" height="14" rx="5" fill="#2E2B25"/>
-          </g>
-
-          <!-- 右手前に返してくる白い壁。写真の右端の柱 -->
-          <g>
-            <path d="M894 106 L1000 92 L1000 470 L894 448 Z" fill="#EFEAE1"/>
-            <path d="M894 106 L924 102 L924 452 L894 448 Z" fill="#CFC8BC"/>
-            <path d="M894 106 L901 105 L901 449 L894 448 Z" fill="#948D80" opacity=".7"/>
-          </g>
-
-          <!-- 床。チャコールのタイルカーペット -->
-          <path d="M0 596 L1000 450 L1000 700 L0 700 Z" fill="url(#r3c)"/>
-          <path d="M0 596 L1000 450 L1000 458 L0 604 Z" fill="#211F1C"/>
-          <g stroke="#2A2724" stroke-width="2" opacity=".7">
-            <line x1="0" y1="656" x2="1000" y2="518"/>
-            <line x1="400" y1="700" x2="1000" y2="588"/>
-            <line x1="646" y1="472" x2="452" y2="700"/>
-            <line x1="912" y1="458" x2="828" y2="700"/>
-          </g>
-
-          <!-- 段板の下。ここがそのまま荷物置きになっている -->
-          <path d="M0 620 L1000 474 L1000 524 L0 684 Z" fill="#1A1815"/>
-          <g fill="#F0D296" opacity=".22" filter="url(#b3)">
-            <ellipse cx="720" cy="512" rx="200" ry="26"/><ellipse cx="300" cy="628" rx="180" ry="24"/>
-          </g>
-
-          <!-- 白いハードケース3つ。奥に向かって並ぶ -->
-          <g>
-            <g>
-              <path d="M468 556 L622 532 Q634 531 635 542 L639 592 Q640 604 629 606 L482 622 Q470 623 469 611 Z" fill="url(#r3k)" stroke="#4E4941" stroke-width="3.5"/>
-              <path d="M468 556 L622 532 Q634 531 635 542 L635 548 L470 572 Z" fill="#F6F2E8"/>
-              <g stroke="#B3AA98" stroke-width="2.5" opacity=".7">
-                <line x1="516" y1="558" x2="521" y2="618"/><line x1="566" y1="550" x2="571" y2="612"/>
-              </g>
-              <path d="M524 534 L574 527 L576 537 L526 544 Z" fill="#2A2825"/>
-              <g fill="#1E1C1A"><ellipse cx="490" cy="624" rx="12" ry="7"/><ellipse cx="616" cy="608" rx="12" ry="7"/></g>
-            </g>
-            <g>
-              <path d="M654 528 L784 510 Q795 509 796 519 L799 564 Q800 574 790 576 L666 590 Q655 591 654 581 Z" fill="url(#r3k)" stroke="#4E4941" stroke-width="3"/>
-              <path d="M654 528 L784 510 Q795 509 796 519 L796 524 L656 543 Z" fill="#F6F2E8"/>
-              <g stroke="#B3AA98" stroke-width="2.5" opacity=".65">
-                <line x1="694" y1="530" x2="698" y2="586"/><line x1="740" y1="523" x2="744" y2="580"/>
-              </g>
-              <path d="M702 512 L744 506 L746 515 L704 521 Z" fill="#2A2825"/>
-              <g fill="#1E1C1A"><ellipse cx="672" cy="592" rx="10" ry="6"/><ellipse cx="780" cy="578" rx="10" ry="6"/></g>
-            </g>
-            <g>
-              <path d="M812 500 L922 485 Q932 484 933 493 L935 530 Q936 539 927 541 L822 553 Q812 554 811 545 Z" fill="url(#r3k)" stroke="#4E4941" stroke-width="2.5"/>
-              <path d="M812 500 L922 485 Q932 484 933 493 L933 497 L814 513 Z" fill="#F6F2E8"/>
-              <g stroke="#B3AA98" stroke-width="2" opacity=".6">
-                <line x1="847" y1="502" x2="850" y2="550"/><line x1="886" y1="496" x2="889" y2="545"/>
-              </g>
-              <path d="M854 486 L892 481 L894 489 L856 494 Z" fill="#2A2825"/>
-              <g fill="#1E1C1A"><ellipse cx="828" cy="555" rx="9" ry="5.5"/><ellipse cx="919" cy="543" rx="9" ry="5.5"/></g>
-            </g>
-          </g>
-
-          <!-- 段板を受ける細い木の束 -->
-          <g>
-            <path d="M452 556 L470 553 L470 616 L452 618 Z" fill="#9A7247"/>
-            <path d="M452 556 L459 555 L459 617 L452 618 Z" fill="#5E4025"/>
-          </g>
-
-          <!-- 脱いだ靴。ここで靴を脱いで小上がりに上がる -->
-          <g>
-            <g transform="translate(126 626)">
-              <path d="M2 24 Q2 17 11 14 L38 5 Q48 1 58 1 L66 1 Q76 2 78 11 L80 24 Q80 27 74 27 L8 27 Q2 27 2 24 Z" fill="#F4F1E8" stroke="#4E4941" stroke-width="3"/>
-              <path d="M0 24 Q0 33 9 33 L74 33 Q82 33 82 25 L82 22 L0 22 Z" fill="#FBFAF5" stroke="#4E4941" stroke-width="3"/>
-              <g stroke="#B7AE9D" stroke-width="2.5"><line x1="30" y1="10" x2="38" y2="18"/><line x1="42" y1="6" x2="50" y2="15"/><line x1="54" y1="4" x2="61" y2="13"/></g>
-            </g>
-            <g transform="translate(190 615)">
-              <path d="M2 24 Q2 17 11 14 L38 5 Q48 1 58 1 L66 1 Q76 2 78 11 L80 24 Q80 27 74 27 L8 27 Q2 27 2 24 Z" fill="#EFEBE1" stroke="#4E4941" stroke-width="3"/>
-              <path d="M0 24 Q0 33 9 33 L74 33 Q82 33 82 25 L82 22 L0 22 Z" fill="#FBFAF5" stroke="#4E4941" stroke-width="3"/>
-              <g stroke="#B7AE9D" stroke-width="2.5"><line x1="30" y1="10" x2="38" y2="18"/><line x1="42" y1="6" x2="50" y2="15"/><line x1="54" y1="4" x2="61" y2="13"/></g>
-            </g>
-            <g transform="translate(292 601)">
-              <path d="M2 24 Q2 17 11 14 L38 5 Q48 1 58 1 L66 1 Q76 2 78 11 L80 24 Q80 27 74 27 L8 27 Q2 27 2 24 Z" fill="#615D57" stroke="#26241F" stroke-width="3"/>
-              <path d="M14 12 L40 4 Q50 1 58 1 L62 1 L64 15 L20 22 Z" fill="#8D8880"/>
-              <path d="M0 24 Q0 33 9 33 L74 33 Q82 33 82 25 L82 22 L0 22 Z" fill="#EDE9DF" stroke="#26241F" stroke-width="3"/>
-              <g stroke="#9E9A92" stroke-width="2.5"><line x1="30" y1="10" x2="38" y2="18"/><line x1="42" y1="6" x2="50" y2="15"/><line x1="54" y1="4" x2="61" y2="13"/></g>
-            </g>
-            <g transform="translate(356 591)">
-              <path d="M2 24 Q2 17 11 14 L38 5 Q48 1 58 1 L66 1 Q76 2 78 11 L80 24 Q80 27 74 27 L8 27 Q2 27 2 24 Z" fill="#615D57" stroke="#26241F" stroke-width="3"/>
-              <path d="M14 12 L40 4 Q50 1 58 1 L62 1 L64 15 L20 22 Z" fill="#8D8880"/>
-              <path d="M0 24 Q0 33 9 33 L74 33 Q82 33 82 25 L82 22 L0 22 Z" fill="#EDE9DF" stroke="#26241F" stroke-width="3"/>
-              <g stroke="#9E9A92" stroke-width="2.5"><line x1="30" y1="10" x2="38" y2="18"/><line x1="42" y1="6" x2="50" y2="15"/><line x1="54" y1="4" x2="61" y2="13"/></g>
-            </g>
-          </g>
-
-          <!-- 小上がり。無垢の段板と、そのまま荷物置きに抜けた段鼻 -->
-          <g>
-            <path d="M0 400 L1000 384 L1000 446 L0 592 Z" fill="url(#r3d)"/>
-            <path d="M0 400 L1000 384 L1000 392 L0 410 Z" fill="#3E2A18" opacity=".45"/>
-            <path d="M0 400 L1000 384" fill="none" stroke="#2A1B0C" stroke-width="3" opacity=".55"/>
-            <g stroke="#4A3120" stroke-width="2.5" opacity=".38">
-              <line x1="0" y1="448" x2="1000" y2="398"/>
-              <line x1="0" y1="500" x2="1000" y2="416"/>
-              <line x1="0" y1="548" x2="1000" y2="432"/>
-            </g>
-            <g stroke="#4A3120" stroke-width="2" opacity=".26">
-              <line x1="232" y1="396" x2="192" y2="562"/>
-              <line x1="616" y1="390" x2="590" y2="500"/>
-              <line x1="852" y1="386" x2="838" y2="464"/>
-            </g>
-            <path d="M0 592 L1000 446 L1000 476 L0 622 Z" fill="url(#r3ds)"/>
-            <path d="M0 592 L1000 446 L1000 458 L0 604 Z" fill="#B08153"/>
-            <path d="M0 592 L1000 446" fill="none" stroke="#2A1B0C" stroke-width="3.5"/>
-            <path d="M0 617 L1000 471 L1000 476 L0 622 Z" fill="#1B1006" opacity=".6"/>
-          </g>
-
-          <!-- 窓ぎわの1台。木の背板にもたれさせた枕と、足もとにたたんだ羽根ぶとん -->
-          <g>
-            <path d="M872 306 L968 294 L968 412 L882 424 Z" fill="#845E3B" stroke="#33220F" stroke-width="3"/>
-            <path d="M872 306 L968 294 L968 306 L872 318 Z" fill="#B08153"/>
-            <path d="M872 306 L886 305 L894 422 L882 424 Z" fill="#5C3E27"/>
-
-            <ellipse cx="820" cy="476" rx="196" ry="18" fill="#241A11" opacity=".32" filter="url(#b3)"/>
-            <path d="M642 442 L890 390 L968 400 L968 428 L700 466 Z" fill="url(#r3b)" stroke="#8A8376" stroke-width="3"/>
-            <path d="M642 442 L700 466 L702 492 L644 468 Z" fill="#E0DBCF" stroke="#8A8376" stroke-width="3"/>
-            <path d="M700 466 L968 428 L968 454 L702 492 Z" fill="#E6E1D6" stroke="#8A8376" stroke-width="3"/>
-            <path d="M700 466 L968 428 L968 436 L701 474 Z" fill="#C6C0B3"/>
-            <!-- 足もとにたたんだ羽根ぶとん。折り返しに敷きシーツがのぞく -->
-            <path d="M650 436 L806 402 Q824 398 828 414 L834 442 Q838 458 822 461 L676 488 Q660 491 656 476 L650 452 Z" fill="url(#r3b)" stroke="#8A8376" stroke-width="3"/>
-            <path d="M652 444 L810 410 Q822 407 825 418 L826 424 L656 458 Z" fill="#F2EEE5"/>
-            <path d="M664 462 Q744 445 824 429" fill="none" stroke="#D2CCBE" stroke-width="3"/>
-            <!-- 背板にもたせた枕 -->
-            <path d="M814 348 Q810 334 825 332 L912 319 Q927 317 930 331 L936 374 Q938 388 924 390 L834 404 Q820 406 817 392 Z" fill="#FCFBF8" stroke="#8A8376" stroke-width="3.5"/>
-            <path d="M828 342 Q870 332 918 328" fill="none" stroke="#D9D3C6" stroke-width="3"/>
-            <path d="M822 380 Q868 371 928 364" fill="none" stroke="#E6E1D5" stroke-width="2.5"/>
-          </g>
-
-          <!-- 奥の1台。壁ぎわに頭を寄せて、枕と掛けぶとんの端だけがこちらを向く -->
-          <g>
-            <ellipse cx="120" cy="406" rx="230" ry="14" fill="#241A11" opacity=".26" filter="url(#b3)"/>
-            <path d="M-40 344 L254 316 L272 366 L-40 394 Z" fill="url(#r3b)" stroke="#8A8376" stroke-width="3"/>
-            <path d="M-40 394 L272 366 L274 390 L-40 418 Z" fill="#E0DBCF" stroke="#8A8376" stroke-width="3"/>
-            <path d="M-40 394 L272 366 L272 375 L-40 403 Z" fill="#C6C0B3"/>
-            <path d="M130 330 L260 318 L272 366 L142 378 Z" fill="#F4F0E7" stroke="#8A8376" stroke-width="2.5"/>
-            <path d="M-30 300 Q-32 287 -16 285 L106 273 Q122 271 126 287 L136 322 Q140 336 124 338 L-6 350 Q-22 352 -26 338 Z" fill="#FCFBF8" stroke="#8A8376" stroke-width="3.5"/>
-            <path d="M-14 294 Q42 284 112 280" fill="none" stroke="#D9D3C6" stroke-width="3"/>
-            <path d="M-20 330 Q44 322 118 316" fill="none" stroke="#E6E1D5" stroke-width="2.5"/>
-          </g>
-
-          <!-- 手前の1台。写真でいちばん大きい、羽根ぶとんの山 -->
-          <g>
-            <ellipse cx="230" cy="578" rx="330" ry="20" fill="#241A11" opacity=".32" filter="url(#b3)"/>
-            <path d="M-40 402 L392 364 Q494 356 508 396 L520 442 L-40 508 Z" fill="url(#r3b)" stroke="#8A8376" stroke-width="3.5"/>
-            <path d="M-40 508 L520 442 L524 476 Q526 506 478 512 Q396 522 330 530 Q248 540 168 549 Q64 560 -40 568 Z" fill="#E6E1D6" stroke="#8A8376" stroke-width="3.5"/>
-            <path d="M-40 508 L520 442 L521 454 L-40 520 Z" fill="#CAC4B7"/>
-            <!-- 頭側の折り返し。掛けぶとんの下から敷きシーツがのぞく -->
-            <path d="M-40 396 L128 380 Q140 379 142 390 L148 424 L-40 444 Z" fill="#FDFCFA" stroke="#8A8376" stroke-width="3"/>
-            <g fill="none" stroke="#DFDACE" stroke-width="4" stroke-linecap="round" opacity=".95">
-              <path d="M10 434 Q172 411 348 393"/>
-              <path d="M60 476 Q252 448 452 424"/>
-            </g>
-            <g fill="none" stroke="#C2BCAE" stroke-width="2.5" stroke-linecap="round" opacity=".65">
-              <path d="M296 372 Q318 424 310 470"/>
-              <path d="M170 386 Q186 434 178 486"/>
-            </g>
-            <g fill="none" stroke="#C2BCAE" stroke-width="2.5" opacity=".45">
-              <path d="M60 514 L54 552"/><path d="M212 496 L206 537"/><path d="M368 478 L362 515"/>
-            </g>
-            <!-- カーテン越しの西日が、ふとんの上でも縞になる -->
-            <g filter="url(#b3s)">
-              <g fill="#FBEDCE" opacity=".5">
-                <path d="M110 386 L178 380 L256 508 L172 522 Z"/>
-                <path d="M254 372 L306 368 L390 484 L326 492 Z"/>
-              </g>
-              <g fill="#9C9486" opacity=".14">
-                <path d="M178 380 L254 374 L326 492 L256 508 Z"/>
-              </g>
-            </g>
-          </g>
-
-          <!-- 窓から入る西日。カーペットがいちばん暗い面なので、光は床でよく効く -->
-          <g>
-            <path d="M632 168 L892 168 L556 700 L104 700 Z" fill="#FFF3D6" opacity=".1"/>
-            <path d="M644 172 L738 170 L272 700 L74 700 Z" fill="#FFFAEC" opacity=".08"/>
-            <path d="M786 170 L884 168 L548 700 L326 700 Z" fill="#FFFAEC" opacity=".07"/>
-          </g>
-          <ellipse cx="890" cy="474" rx="170" ry="26" fill="#FFEFC8" opacity=".3" filter="url(#b3)"/>
-          <ellipse cx="30" cy="676" rx="300" ry="110" fill="#14120F" opacity=".24" filter="url(#b3)"/>
-          <ellipse cx="990" cy="686" rx="230" ry="90" fill="#14120F" opacity=".18" filter="url(#b3)"/>
+        <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMax slice" role="img" aria-label="crash gate の部屋。厚い一枚板の小上がりに白い寝具のベッドを3台置き、段板の下をスーツケースと靴の置き場にしている">
+          <!-- ROOM 03 だけは描き起こしのイラストを画像アセットで持つ。
+               外側の <svg> は残す：docs/gen-chambray-assets.py が mock 内の
+               <svg> ブロックをちょうど15個数える前提なので、<img> に置き換えると
+               生成が落ちる。この形なら .ph / .scene の CSS もコンポーネントも
+               変えずに済み、slice の切り抜き挙動もそのまま効く。
+               viewBox は原画と同じ 4:3。内側の <image> にも slice を掛けて、
+               差し替え画像の比率が多少ずれても歪まないようにしてある。
+               外枠だけ xMidYMax（下寄せ）にしてある：desktop は .pic が 1.334 で
+               4:3 とほぼ一致するため切り抜きゼロだが、モバイルの 16:10 では縦が
+               16.7% 落ちる。中央寄せだと靴が切れる一方、上は天井でほぼ無地なので、
+               下を固定して上を捨てる方が失うものが少ない。 -->
+          <image href="/rooms/room03.webp" x="0" y="0" width="1200" height="900" preserveAspectRatio="xMidYMid slice"/>
         </svg>
         <span class="stamp">Room 03 / crash gate — Koagari</span>
       </div>

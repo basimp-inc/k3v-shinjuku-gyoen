@@ -54,9 +54,9 @@
   --sky-deep: #58809e;
   --grass: #93b23e;
 
-  --wood-rose: #7a3f1f;
-  --wood-rose-hi: #9c5a2e;
-  --wood-walnut: #3e251a;
+  /* WOOD — 値は app/wood.css（全デザイン共通の1つのウッド）が持つ。
+     ローズウッド #7a3f1f / ウォルナット #3e251a は 2026-08-21 の
+     「色柄を統一」で廃止。明るい地に置く文字には --wood-ink を使う */
 
   --paper: #f2efe6;
   --paper-warm: #e9e4d6;
@@ -269,16 +269,13 @@
   .wood {
     position: relative;
     overflow: hidden;
-    background: var(--wood-rose);
+    /* 地と木目は app/wood.css */
   }
   .wood > svg.fill {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-  }
-  .wood.dark {
-    background: var(--wood-walnut);
   }
   .wood > .seams {
     position: absolute;
@@ -335,7 +332,7 @@
     overflow: hidden;
     background: var(--paper-warm);
   }
-  .fig > svg {
+  .fig svg {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -459,7 +456,7 @@
     inset: 0;
     overflow: hidden;
   }
-  .hero-vis > svg {
+  .hero-vis svg {
     width: 100%;
     height: 100%;
   }
@@ -584,7 +581,7 @@
   .concept h2 em {
     font-style: italic;
     font-weight: 300;
-    color: var(--wood-rose);
+    color: var(--wood-ink);
   }
   .concept .body {
     grid-column: 4/8;
@@ -696,7 +693,7 @@
   .room h3 em {
     font-style: italic;
     font-weight: 300;
-    color: var(--wood-rose);
+    color: var(--wood-ink);
   }
   .room .jpsub {
     font-family: var(--gjp);
@@ -757,7 +754,7 @@
   .r02 .numwrap {
     top: 0;
     left: 0;
-    -webkit-text-stroke-color: var(--wood-rose-hi);
+    -webkit-text-stroke-color: var(--wood-ink);
   }
 
   /* ROOM 03 closes the section on the deep ground its type was written for —
@@ -833,9 +830,13 @@
     grid-column: 6/13;
     position: relative;
   }
+  /* WC.LIVING は 800×960 の縦絵。列幅いっぱいで height:auto にすると縦に
+     伸びすぎるので、slice で 4:3 に切り抜く。 */
   .loc .mapbox svg {
     width: 100%;
+    aspect-ratio: 4/3;
     height: auto;
+    object-fit: cover;
   }
   /* 10px sky at 0.6 on the deep green sat around 3:1 — the smallest type on the
      page was also the faintest. Same weight the ledge captions carry. */
@@ -1208,4 +1209,79 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+}
+
+
+/* --- 差し込みイラストのための追加分（元デザインには無い） -----------------
+   イラストは washed-chambray / chambray-gyoen と共有の描き起こし SVG を
+   dangerouslySetInnerHTML で流し込んでいる。mock にはその受け皿の要素が
+   無いので、.scene を display:contents でレイアウトから外し、svg が
+   これまで通り .fig / .mapbox に対して寸法を解決できるようにする。 */
+.gyoen-top .scene {
+  display: contents;
+}
+
+/* ROOM 01 の写真は「確定した実レイアウト」と「朝の光」の2枚スライダー。
+   washed-chambray / chambray-gyoen と同じくラジオ + :has() だけで動く。 */
+.gyoen-top .fig .ph {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transition: opacity 0.6s ease;
+}
+.gyoen-top .fig .ph svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gyoen-top .s-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.gyoen-top .fig .ph.s0 {
+  opacity: 1;
+}
+.gyoen-top .fig .ph.s1 {
+  opacity: 0;
+}
+.gyoen-top .fig:has(.s-radio:nth-of-type(2):checked) .ph.s0 {
+  opacity: 0;
+}
+.gyoen-top .fig:has(.s-radio:nth-of-type(2):checked) .ph.s1 {
+  opacity: 1;
+}
+.gyoen-top .s-dots {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4;
+  display: flex;
+  gap: 8px;
+}
+.gyoen-top .s-dots label {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgb(255 255 255 / 0.55);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.15);
+  transition: background 0.2s ease;
+}
+.gyoen-top .s-dots label:first-child {
+  background: #ffffff;
+}
+.gyoen-top .fig:has(.s-radio:nth-of-type(2):checked) .s-dots label:first-child {
+  background: rgb(255 255 255 / 0.55);
+}
+.gyoen-top .fig:has(.s-radio:nth-of-type(2):checked) .s-dots label:last-child {
+  background: #ffffff;
+}
+.gyoen-top .s-radio:nth-of-type(1):focus-visible ~ .s-dots label:first-child,
+.gyoen-top .s-radio:nth-of-type(2):focus-visible ~ .s-dots label:last-child {
+  outline: 2px solid var(--grass);
+  outline-offset: 2px;
 }

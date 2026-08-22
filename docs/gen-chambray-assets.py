@@ -20,6 +20,19 @@ src = (ROOT / "docs/top-page-mock-8.html").read_text()
 # Named in document order. Keep this list in step with the mock: the assert
 # below fails loudly if a scene is added or removed rather than silently
 # shifting every name by one.
+#
+# !!! Running this script OVERWRITES scenes.ts and chambray-design.css whole. !!!
+# Two hand-added things this script does NOT know about will be silently lost:
+#   - scenes.ts's `ROOM1_MORNING` export (ROOM 01's 2nd carousel slide — the
+#     real-layout illustration that used to be `HERO` before 2026-08-21). It
+#     is not in this list on purpose: it isn't part of the mock.
+#   - chambray-design.css's `.s-radio` / `.pic .ph.s0` / `.pic .ph.s1` /
+#     `.s-dots` rules (the CSS-only slider), right after `.ph .stamp`.
+# It will also restore `HERO` to whatever docs/top-page-mock-8.html's HERO
+# <svg> currently contains, which is the pre-2026-08-21 "real room layout"
+# version, not the client-approved original — see CLAUDE.md.
+# If you must re-run this, restore both by hand afterward (see CLAUDE.md,
+# "washed-chambray Hero / ROOM 01 イラスト仕様").
 SCENE_NAMES = [
     "HERO",      # 朝の部屋：四本柱のベッド、シアー越しの朝日、丸テーブルと4脚の椅子
     "LIVING",    # 昼のリビング：木の床とシャンブレーのソファ

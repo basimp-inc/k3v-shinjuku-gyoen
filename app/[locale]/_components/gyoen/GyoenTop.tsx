@@ -1,8 +1,9 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
-import { GYOEN_SVG_DEFS } from "./defs";
 import GyoenBehaviour from "./GyoenBehaviour";
+import { CG_SVG_DEFS } from "../chambray-gyoen/defs";
+import * as WC from "../chambray/scenes";
 import {
   MockConvenience,
   MockFacilities,
@@ -38,10 +39,36 @@ import {
  * each break the grid a different way. The only design in the set where the
  * park — not the interior — leads.
  *
- * Section ids and SVG ids are gy-/sc- prefixed because the current design and
- * the other five alternatives are all still in the DOM (hidden) and already
- * own #rooms, #access and friends.
+ * Section ids and SVG ids are gy- prefixed because the current design and the
+ * other five alternatives are all still in the DOM (hidden) and already own
+ * #rooms, #access and friends.
+ *
+ * ILLUSTRATIONS (2026-08-22, クライアント指示「chambray gyoen のイラストに統一」):
+ * このデザインが持っていた抽象シーン（sc-canopy / sc-room-a|b|c / sc-entry ほか、
+ * ../gyoen/defs.ts）は全廃した。絵はすべて chambray-gyoen と同じものを使う——
+ * 室内・近所の描き起こしは ../chambray/scenes.ts、ヒーローの樹冠は
+ * ../chambray-gyoen/defs.ts の #cg-canopy。id は描画時に gy- へ付け替える
+ * （4デザインが同時に DOM にいるので、重複 id は先に来た方に解決してしまう）。
+ * washed-chambray / chambray-gyoen を消す場合は scenes.ts / defs.ts を消さず
+ * このディレクトリへ移すこと。
  */
+/** wc- / cg- → gy- id namespacing. Every `wc-`/`cg-` in the shared sources sits
+ *  in an id definition or reference (id="…", url(#…), href="#…"), and all four
+ *  designs are in the DOM at once — duplicate ids would resolve to whichever
+ *  copy comes first. */
+function gy(svg: string): string {
+  return svg.replaceAll("wc-", "gy-").replaceAll("cg-", "gy-");
+}
+
+/** The illustrated scenes are authored SVG, injected as-is. `.scene` is
+ *  display:contents so the svg still sizes against its frame. */
+function Scene({ svg, className }: { svg: string; className?: string }) {
+  const scene = <div className="scene" dangerouslySetInnerHTML={{ __html: gy(svg) }} />;
+  /* Only the stacked slides need a box of their own to fade against; every
+     other scene sits straight in its .fig / .mapbox frame. */
+  return className ? <div className={`ph ${className}`}>{scene}</div> : scene;
+}
+
 export default async function GyoenTop() {
   const t = await getTranslations("gyoen");
   const nav = await getTranslations("mockNav");
@@ -72,19 +99,19 @@ export default async function GyoenTop() {
     ["access", "#gy-access"],
   ] as const;
 
-  const roomSyms = ["sc-room-a", "sc-room-b", "sc-room-c"];
+  const roomScenes = [WC.ROOM1, WC.ROOM2, WC.ROOM3];
 
   return (
     <div className="gyoen-top" data-design="gyoen">
       <GyoenBehaviour />
 
-      {/* wood grains, grain filters and the illustrated scenes */}
+      {/* the canopy symbol + its filters, shared with Chambray Gyoen */}
       <svg
         width="0"
         height="0"
         aria-hidden="true"
         style={{ position: "absolute" }}
-        dangerouslySetInnerHTML={{ __html: GYOEN_SVG_DEFS }}
+        dangerouslySetInnerHTML={{ __html: gy(CG_SVG_DEFS) }}
       />
 
       {/* ===================== NAV ===================== */}
@@ -119,7 +146,7 @@ export default async function GyoenTop() {
       <section className="hero" id="gy-hero">
         <div className="hero-vis" aria-label={hero("illustrationAlt")}>
           <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 900">
-            <use href="#sc-canopy" />
+            <use href="#gy-canopy" />
           </svg>
           <div className="hero-scrim" />
           <div className="grain-l" />
@@ -157,9 +184,6 @@ export default async function GyoenTop() {
 
         {/* the walnut ledge that crops the canopy — the walk times, previewed */}
         <div className="ledge wood dark">
-          <svg className="fill" preserveAspectRatio="xMidYMid slice" viewBox="0 0 600 400">
-            <use href="#wood-walnut" />
-          </svg>
           <div className="seams" />
           <div className="sheen" />
           <div className="ledge-inner">
@@ -197,9 +221,7 @@ export default async function GyoenTop() {
             </dl>
           </div>
           <div className="mapbox">
-            <svg viewBox="0 0 900 620" aria-hidden="true">
-              <use href="#sc-entry" />
-            </svg>
+            <Scene svg={WC.LIVING} />
             <div className="mock-chiprow">
               {nearby.map((n) => (
                 <span className="chip on-dark" key={n.label}>
@@ -246,7 +268,7 @@ export default async function GyoenTop() {
           <div className="body">
             <p className="jp jp-lead">{ren("description")}</p>
             <p style={{ marginTop: "2em" }}>
-              <Link className="btn-ghost" style={{ color: "var(--green)" }} href="/rooms">
+              <Link className="btn-ghost" style={{ color: "var(--green-ink-2)" }} href="/rooms">
                 {rm("viewAll")}
               </Link>
             </p>
@@ -256,21 +278,19 @@ export default async function GyoenTop() {
             {/* the three surfaces the renovation is made of */}
             <div className="swatchrow">
               <div style={{ background: "var(--green)" }}>
-                <span className="lbl" style={{ color: "var(--sky)" }}>
+                <span className="lbl" style={{ color: "var(--green-ink)" }}>
                   {t("concept.swatchGreen")}
                 </span>
               </div>
               <div className="denim">
-                <span className="lbl" style={{ color: "var(--green-deep)" }}>
+                <span className="lbl" style={{ color: "var(--green-ink)" }}>
                   {t("concept.swatchDenim")}
                 </span>
               </div>
               <div className="wood" style={{ minHeight: 78 }}>
-                <svg className="fill" preserveAspectRatio="xMidYMid slice" viewBox="0 0 600 400">
-                  <use href="#wood-rose" />
-                </svg>
                 <div className="seams" />
-                <span className="lbl" style={{ color: "#FBF9F3", position: "absolute", zIndex: 2 }}>
+                {/* 色は app/wood.css（共通ウッドの上のインク）に任せる */}
+                <span className="lbl" style={{ position: "absolute", zIndex: 2 }}>
                   {t("concept.swatchWood")}
                 </span>
               </div>
@@ -288,9 +308,7 @@ export default async function GyoenTop() {
 
           <div className="concept-fig">
             <div className="fig">
-              <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 600 800">
-                <use href="#sc-room-a" />
-              </svg>
+              <Scene svg={WC.HERO} />
               <span className="chip tagtop">
                 <span className="sq" />
                 {ren("eyebrow")}
@@ -306,7 +324,7 @@ export default async function GyoenTop() {
         <div className="wrap">
           <div className="exp-head">
             <div className="rule-lime" style={{ marginBottom: 16 }} />
-            <p className="lab" style={{ color: "var(--green)" }}>
+            <p className="lab" style={{ color: "var(--green-ink-2)" }}>
               03 — {ame("eyebrow")}
             </p>
             <p className="mock-dsp">{t("display.amenities")}</p>
@@ -364,9 +382,17 @@ export default async function GyoenTop() {
           <article className="room r01 grid">
             <div className="numwrap num-out">01</div>
             <div className="fig">
-              <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800">
-                <use href={`#${roomSyms[0]}`} />
-              </svg>
+              {/* ROOM 01 は確定した実レイアウトと朝の光の2枚スライダー
+                  （washed-chambray / chambray-gyoen と同じ仕様）。ラジオ＋
+                  :has() だけで動くので JS は要らない。 */}
+              <input type="radio" name="gy-r1-slide" id="gy-r1-slide-0" className="s-radio" defaultChecked />
+              <input type="radio" name="gy-r1-slide" id="gy-r1-slide-1" className="s-radio" />
+              <Scene svg={roomScenes[0]} className="s0" />
+              <Scene svg={WC.ROOM1_MORNING} className="s1" />
+              <div className="s-dots">
+                <label htmlFor="gy-r1-slide-0" aria-label={rooms[0]?.name} />
+                <label htmlFor="gy-r1-slide-1" aria-label={t("hero.stamp")} />
+              </div>
               <span className="chip tagtop">
                 <span className="sq" />
                 {rooms[0]?.tag}
@@ -382,7 +408,7 @@ export default async function GyoenTop() {
               <p className="desc">{rooms[0]?.text}</p>
               <Link
                 className="btn-ghost"
-                style={{ color: "var(--green)", alignSelf: "flex-start" }}
+                style={{ color: "var(--green-ink-2)", alignSelf: "flex-start" }}
                 href={`/rooms/${rooms[0]?.slug}`}
               >
                 {rooms[0]?.cta}
@@ -393,9 +419,6 @@ export default async function GyoenTop() {
           {/* ROOM 02 — copy over a rosewood panel */}
           <article className="room r02">
             <div className="panel wood">
-              <svg className="fill" preserveAspectRatio="xMidYMid slice" viewBox="0 0 600 400">
-                <use href="#wood-rose" />
-              </svg>
               <div className="seams" />
               <div className="sheen" />
             </div>
@@ -413,16 +436,14 @@ export default async function GyoenTop() {
                 <p className="desc">{rooms[1]?.text}</p>
                 <Link
                   className="btn-ghost"
-                  style={{ color: "var(--green)", alignSelf: "flex-start" }}
+                  style={{ color: "var(--green-ink-2)", alignSelf: "flex-start" }}
                   href={`/rooms/${rooms[1]?.slug}`}
                 >
                   {rooms[1]?.cta}
                 </Link>
               </div>
               <div className="fig">
-                <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800">
-                  <use href={`#${roomSyms[1]}`} />
-                </svg>
+                <Scene svg={roomScenes[1]} />
                 <span className="chip tagtop">
                   <span className="sq" />
                   {rooms[1]?.tag}
@@ -436,7 +457,7 @@ export default async function GyoenTop() {
             <div className="wrap grid" style={{ width: "100%" }}>
               <div className="numwrap num-out">03</div>
               <div className="meta">
-                <p className="mono" style={{ color: "var(--sky)" }}>
+                <p className="mono" style={{ color: "var(--green-ink)" }}>
                   {rooms[2]?.name}
                 </p>
                 <h3 className="dsp">{rooms[2]?.subtitle}</h3>
@@ -444,16 +465,14 @@ export default async function GyoenTop() {
                 <p className="desc">{rooms[2]?.text}</p>
                 <Link
                   className="btn-ghost"
-                  style={{ color: "var(--sky)", alignSelf: "flex-start" }}
+                  style={{ color: "var(--green-ink)", alignSelf: "flex-start" }}
                   href={`/rooms/${rooms[2]?.slug}`}
                 >
                   {rooms[2]?.cta}
                 </Link>
               </div>
               <div className="fig">
-                <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 800">
-                  <use href={`#${roomSyms[2]}`} />
-                </svg>
+                <Scene svg={roomScenes[2]} />
                 <span className="chip tagtop">
                   <span className="sq" />
                   {rooms[2]?.tag}
@@ -468,9 +487,6 @@ export default async function GyoenTop() {
       <section className="cta" id="gy-access">
         <div className="cta-grid">
           <div className="cta-wood wood">
-            <svg className="fill" preserveAspectRatio="xMidYMid slice" viewBox="0 0 600 400">
-              <use href="#wood-rose" />
-            </svg>
             <div className="seams" />
             <div className="sheen" />
             <div className="badge">

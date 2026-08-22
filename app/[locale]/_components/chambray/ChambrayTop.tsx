@@ -45,9 +45,9 @@ import {
 
 /** The illustrated scenes are authored SVG, injected as-is. `.scene` is
  *  display:contents so the svg still sizes against its `.ph` frame. */
-function Scene({ svg, stamp }: { svg: string; stamp?: string }) {
+function Scene({ svg, stamp, className }: { svg: string; stamp?: string; className?: string }) {
   return (
-    <div className="ph">
+    <div className={className ? `ph ${className}` : "ph"}>
       <div className="scene" dangerouslySetInnerHTML={{ __html: svg }} />
       {stamp && <span className="stamp">{stamp}</span>}
     </div>
@@ -388,7 +388,20 @@ export default async function ChambrayTop() {
           <div key={r.slug}>
             <article className={`band rv${i % 2 === 1 ? " rev" : ""}`}>
               <div className="pic">
-                <Scene svg={roomScenes[i % roomScenes.length]} stamp={r.name} />
+                {i === 0 ? (
+                  <>
+                    <input type="radio" name="wc-r1-slide" id="wc-r1-slide-0" className="s-radio" defaultChecked />
+                    <input type="radio" name="wc-r1-slide" id="wc-r1-slide-1" className="s-radio" />
+                    <Scene svg={roomScenes[0]} stamp={r.name} className="s0" />
+                    <Scene svg={S.ROOM1_MORNING} stamp={t("hero.stamp")} className="s1" />
+                    <div className="s-dots">
+                      <label htmlFor="wc-r1-slide-0" aria-label={r.name} />
+                      <label htmlFor="wc-r1-slide-1" aria-label={t("hero.stamp")} />
+                    </div>
+                  </>
+                ) : (
+                  <Scene svg={roomScenes[i % roomScenes.length]} stamp={r.name} />
+                )}
               </div>
               <div className="txt mat-raw">
                 <span className="no" aria-hidden="true">
