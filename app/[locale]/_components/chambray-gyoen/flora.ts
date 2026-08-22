@@ -381,6 +381,76 @@ export const CG_FLORA_DEFS = String.raw`
     </g>
   </symbol>
 
+  <!-- ============ ツタ ＝ 縁 ================================================
+       2026-08-21 モバイル向けに追加。ヤツデ・アオキ・ヨモギは全部「立ち上がる」
+       植物で、置くには面が要る。ところがモバイルは 1カラムで本文とカードが
+       積み上がり、縦の完全な空き帯が 35〜110px しか残らない（375px 実測）。
+       面は無いが**縁は大量にある**——カードの上端、写真帯の上端、節の境目。
+       そこで細く長い蔓を1種だけ足し、縁に沿わせて長さで存在感を出す。
+
+       種としては参考資料4点（ヤツデ・ヨモギ・アオキ・斑入りアオキ）に無いが、
+       クライアント指示「モバイルのみアイビー（蔦）ガーランド」に基づく追加。
+       素材は既存と同じ（明度ラダー・色相回転・硬い鏡面）なので、
+       別のセットから持ってきたようには見えない。 -->
+
+  <!-- 葉。5裂だが裂けは浅く、基部が広い。半径42/62（68%）まで隣の裂片と
+       接していて、外側1/3だけが分かれる。ヤツデ（切れ込み35%）よりさらに
+       浅く、丸い塊として読める＝アイビーの見え方 -->
+  <g id="cg-ivy-blade">
+    <g>
+      <path transform="translate(50 74) rotate(-62)" d="M0 0 C -8 -5.6, -15.7 -11.2, -16 -15.2 C -16.3 -24.8, -9.9 -33.6, 0 -40 C 9.9 -33.6, 16.3 -24.8, 16 -15.2 C 15.7 -11.2, 8 -5.6, 0 0 Z"/>
+      <path transform="translate(50 74) rotate(-32)" d="M0 0 C -10.8 -7.6, -21.2 -15.1, -21.6 -20.5 C -22 -33.5, -13.4 -45.4, 0 -54 C 13.4 -45.4, 22 -33.5, 21.6 -20.5 C 21.2 -15.1, 10.8 -7.6, 0 0 Z"/>
+      <path transform="translate(50 74)" d="M0 0 C -12.4 -8.7, -24.3 -17.4, -24.8 -23.6 C -25.3 -38.4, -15.4 -52.1, 0 -62 C 15.4 -52.1, 25.3 -38.4, 24.8 -23.6 C 24.3 -17.4, 12.4 -8.7, 0 0 Z"/>
+      <path transform="translate(50 74) rotate(32)" d="M0 0 C -10.8 -7.6, -21.2 -15.1, -21.6 -20.5 C -22 -33.5, -13.4 -45.4, 0 -54 C 13.4 -45.4, 22 -33.5, 21.6 -20.5 C 21.2 -15.1, 10.8 -7.6, 0 0 Z"/>
+      <path transform="translate(50 74) rotate(62)" d="M0 0 C -8 -5.6, -15.7 -11.2, -16 -15.2 C -16.3 -24.8, -9.9 -33.6, 0 -40 C 9.9 -33.6, 16.3 -24.8, 16 -15.2 C 15.7 -11.2, 8 -5.6, 0 0 Z"/>
+    </g>
+    <!-- 基部。アイビーは付け根がハート型に窪むので、円ではなく横長で受ける -->
+    <ellipse cx="50" cy="66" rx="17" ry="11"/>
+  </g>
+
+  <symbol id="cg-ivy-leaf" viewBox="0 0 100 90">
+    <use href="#cg-ivy-blade" fill="var(--leaf)"/>
+    <!-- 葉脈。アイビーの識別点はこの明るい脈なので、ヤツデより太めに引く -->
+    <g stroke="var(--vein)" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".9">
+      <path d="M50 74 L 25 60"/><path d="M50 74 L 29 41"/><path d="M50 74 L 50 29"/>
+      <path d="M50 74 L 71 41"/><path d="M50 74 L 75 60"/>
+    </g>
+    <use href="#cg-ivy-blade" fill="var(--shade-paint)"/>
+    <path d="M50 74 L 50 90" stroke="var(--leaf-core)" stroke-width="3.4"
+          stroke-linecap="round" fill="none"/>
+    <ellipse cx="61" cy="46" rx="2.2" ry="7" transform="rotate(28 61 46)"
+             fill="var(--leaf-wet)" opacity=".5"/>
+  </symbol>
+
+  <!-- ガーランド。縁に沿わせる前提なので、蔓は水平に長く、葉は下向きに垂れる。
+       葉の向きを 148〜200° にばらしてあるのは、全部同じ角度で垂れると
+       「造花のガーランド」そのものになるため。
+       奥の葉に --leaf-air（彩度26の淡い緑）を使うと、レンガの暖色の上では
+       彩度が負けて**枯れ葉**に見えた。群落と違ってガーランドは地の色が
+       変わる境界に掛けるものなので、奥は淡くせず --leaf-core（暗い緑）で
+       取る。明度で退かせて彩度では退かせない -->
+  <symbol id="cg-ivy-garland" viewBox="0 0 600 150">
+    <g stroke="var(--leaf-core)" stroke-width="3.6" fill="none" stroke-linecap="round">
+      <path d="M0 40 C 90 20, 150 70, 240 55 C 330 40, 400 85, 490 68 C 540 58, 570 72, 600 66"/>
+    </g>
+    <!-- 巻きひげ。2本だけ。多いと装飾過多になる -->
+    <g stroke="var(--leaf-dk)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".85">
+      <path d="M152 62 C 160 78, 148 88, 142 80 C 138 74, 146 70, 150 78"/>
+      <path d="M418 78 C 428 94, 416 104, 410 96 C 406 90, 414 86, 418 94"/>
+    </g>
+    <use href="#cg-ivy-leaf" x="7" y="2" width="46" height="41" transform="rotate(168 30 36)"/>
+    <use href="#cg-ivy-leaf" x="59" y="14" width="38" height="34" transform="rotate(196 78 42)"/>
+    <use href="#cg-ivy-leaf" x="102" y="16" width="52" height="47" transform="rotate(155 128 54)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
+    <use href="#cg-ivy-leaf" x="156" y="28" width="40" height="36" transform="rotate(200 176 58)" style="--leaf:var(--leaf-hi)"/>
+    <use href="#cg-ivy-leaf" x="206" y="18" width="48" height="43" transform="rotate(172 230 54)"/>
+    <use href="#cg-ivy-leaf" x="268" y="23" width="36" height="32" transform="rotate(148 286 50)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
+    <use href="#cg-ivy-leaf" x="313" y="23" width="50" height="45" transform="rotate(192 338 60)"/>
+    <use href="#cg-ivy-leaf" x="371" y="41" width="42" height="38" transform="rotate(160 392 72)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk)"/>
+    <use href="#cg-ivy-leaf" x="425" y="36" width="46" height="41" transform="rotate(200 448 70)"/>
+    <use href="#cg-ivy-leaf" x="489" y="38" width="38" height="34" transform="rotate(168 508 66)" style="--leaf:var(--leaf-hi)"/>
+    <use href="#cg-ivy-leaf" x="540" y="35" width="44" height="40" transform="rotate(180 562 68)"/>
+  </symbol>
+
   <!-- 斑入りアオキ（写真4）。金色の斑がページで最も明るい植物要素になる。
        斑は葉の縁に不規則に入るので、緑の葉の上に黄色の縁取りを重ねる -->
   <symbol id="cg-aucuba-var-leaf" viewBox="0 0 80 200">

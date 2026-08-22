@@ -269,6 +269,15 @@ export default async function ChambrayGyoenTop() {
     { k: "aucuba", x: 56, y: 32, w: 28, z: "front", rot: 10 },
   ];
 
+  /* 縁 — ツタのガーランド。モバイル専用（CSS 側で display 制御）。
+     カードや写真帯の**上端に掛ける**前提なので、群落と違って「足元を隠す」
+     必要がない。縁そのものが接地になる */
+  const garland = (cls: string) => (
+    <i className={`fl gl ${cls}`} key={`g${cls}`}>
+      {leafSvg("cg-ivy-garland", "0 0 600 150")}
+    </i>
+  );
+
   const flora = (items: ReactNode) => (
     <div className="flora" aria-hidden="true">
       {items}
@@ -503,7 +512,7 @@ export default async function ChambrayGyoenTop() {
           so the anchor is carried by saturation instead — the brick field. */}
       <section id="cg-renovated" className="mat-shadow">
         {/* レンガの地では緑が沈むので、CSS 側で葉色を明るく差し替えている */}
-        {flora([aucubaVar("re-r")])}
+        {flora([aucubaVar("re-r"), garland("gl-re")])}
         <div className="wrap">
           <div className="sidx rv" style={{ color: "#FFFFFF" }}>
             <span className="n">02</span>
@@ -538,7 +547,7 @@ export default async function ChambrayGyoenTop() {
 
       {/* ===================== 4. AMENITIES ===================== */}
       <section id="cg-amenities" className="mat-cham">
-        {flora([aucuba("am-a")])}
+        {flora([aucuba("am-a"), garland("gl-am")])}
         <div className="wrap">
           <div className="sidx rv">
             <span className="n">03</span>
