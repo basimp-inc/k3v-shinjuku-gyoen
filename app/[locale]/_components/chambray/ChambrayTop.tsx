@@ -6,6 +6,7 @@ import * as S from "./scenes";
 import {
   MockConvenience,
   MockFacilities,
+  MockLangSwitch,
   MockMap,
   type MockConvenienceItem,
   type MockDetail,
@@ -132,6 +133,7 @@ export default async function ChambrayTop() {
             <span>{nav("book")}</span>
             {arrow}
           </Link>
+          <MockLangSwitch locale={locale} theme="washed-chambray" />
           <button type="button" className="burger" aria-label={nav("menu")}>
             <i />
             <i />

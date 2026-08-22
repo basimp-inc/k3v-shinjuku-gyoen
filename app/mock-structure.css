@@ -1512,3 +1512,165 @@
     }
   }
 }
+
+/* ===========================================================================
+   MOBILE LANGUAGE BUTTON — 全モックデザイン共通
+
+   Each design's generated stylesheet hides its desktop `.lang` strip at the
+   phone breakpoint (`.nav-links,.nav .lang{display:none}` / `.gnav ul,.gnav
+   .lang`), which left phones with no way to switch language at all. This is
+   the replacement: one compact globe button in the nav that opens the three
+   locales, shown only where the desktop strip is hidden.
+
+   Markup + rationale: `MockLangSwitch` in app/[locale]/_components/mockShared.tsx.
+   Open/closed state is the hidden checkbox `.mlang-in` — no JS.
+
+   Structure is shared here; only colour/type is per design, so the two
+   chambray designs read the same rule through their own `--indigo` / `--cham-*`
+   values and Gyoen Green overrides for its dark nav.
+   =========================================================================== */
+:is(.chambray-top, .chambray-gyoen-top, .gyoen-top) {
+  .mlang {
+    display: none; /* flipped on at the phone breakpoints below */
+    position: relative;
+    flex: none;
+  }
+  .mlang-in {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .mlang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    border: 1px solid;
+    line-height: 1;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mlang-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mlang-btn b {
+    font-weight: 600;
+  }
+  /* tapping anywhere outside closes the popup */
+  .mlang-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+  .mlang-pop {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 2;
+    min-width: 136px;
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+    border-radius: 12px;
+  }
+  .mlang-pop a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .mlang-in:checked ~ .mlang-scrim,
+  .mlang-in:checked ~ .mlang-pop {
+    display: block;
+  }
+  .mlang-in:focus-visible ~ .mlang-btn {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* --- Washed Chambray / Chambray Gyoen — light nav, indigo ink -------------- */
+:is(.chambray-top, .chambray-gyoen-top) {
+  .mlang-btn {
+    color: var(--indigo);
+    border-color: var(--indigo-fade);
+    background: var(--cham-pale);
+    font-family: var(--mono);
+  }
+  .mlang-pop {
+    background: var(--cham-pale);
+    border: 1px solid var(--indigo-fade);
+    box-shadow: 0 18px 34px -20px rgba(19, 40, 60, 0.75);
+  }
+  .mlang-pop a {
+    color: var(--indigo);
+    font-family: var(--ui);
+  }
+  .mlang-pop a[aria-current="true"] {
+    background: var(--indigo);
+    color: var(--cham-pale);
+    font-weight: 600;
+  }
+}
+
+/* --- Gyoen Green — セージのクロス地の上。押せるものだけが濃い緑（app/green.css
+       の方針にそのまま従う）。popup は .gnav の中に置かれる <ul> なので、
+       `.gyoen-top .gnav ul a` のタイポグラフィ（大文字化・字間・opacity）が
+       そのまま効いてしまう。打ち消しは popup 側で明示する。 ------------------ */
+.gyoen-top {
+  .mlang-btn {
+    color: var(--green-ink);
+    border-color: rgb(16 23 16 / 0.28);
+    background: rgb(255 255 255 / 0.5);
+    font-family: var(--gmono);
+  }
+  .gnav .mlang-pop {
+    background: #f2efe8;
+    border: 1px solid rgb(16 23 16 / 0.14);
+    box-shadow: 0 18px 34px -20px rgb(16 23 16 / 0.55);
+  }
+  .gnav .mlang-pop a {
+    color: var(--green-ink);
+    font-family: var(--ui);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    opacity: 1;
+  }
+  .gnav .mlang-pop a[aria-current="true"] {
+    background: var(--green-accent);
+    color: #f2efe8;
+    font-weight: 700;
+  }
+}
+
+/* Shown exactly where each design drops its desktop language strip:
+   880px for the two chambray designs, 900px for Gyoen Green. */
+@media (max-width: 880px) {
+  :is(.chambray-top, .chambray-gyoen-top) .mlang {
+    display: block;
+  }
+}
+@media (max-width: 900px) {
+  .gyoen-top .mlang {
+    display: block;
+  }
+}

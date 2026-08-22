@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/navigation";
 
 /**
  * Fixed bottom navigation for mobile screens (hidden on lg+ where the
@@ -59,6 +61,18 @@ function PinIcon({ className }: { className?: string }) {
   );
 }
 
+function GlobeIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...iconProps}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
+    </svg>
+  );
+}
+
+/** Short label for the tab bar; the sheet spells the names out in full. */
+const LOCALE_SHORT: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
+
 const items = [
   // { id: "concept", icon: LeafIcon },
   { id: "rooms", icon: BedIcon },
@@ -71,8 +85,17 @@ const itemsRight = [
 
 export default function MobileBottomNav() {
   const t = useTranslations("nav");
+  const tLang = useTranslations("localeSwitcher");
   const locale = useLocale();
+  const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("");
+  /**
+   * The top nav also carries a language switcher, but it slides away once the
+   * page is scrolled past 25% on mobile — so on phones this bar is the only
+   * language control that is always reachable. It opens upward as a small
+   * sheet because the bar itself is too short for three names.
+   */
+  const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
     const ids = ["concept", "rooms", "moments", "access"];
@@ -126,6 +149,43 @@ export default function MobileBottomNav() {
       className="fixed inset-x-0 bottom-0 z-50 lg:hidden"
       aria-label="Mobile navigation"
     >
+      {langOpen && (
+        <>
+          {/* tapping anywhere else closes the sheet */}
+          <button
+            type="button"
+            aria-hidden="true"
+            tabIndex={-1}
+            onClick={() => setLangOpen(false)}
+            className="fixed inset-0 -z-10 cursor-default"
+          />
+          <div className="mx-auto mb-2 flex max-w-md justify-end px-3">
+            <ul className="w-40 overflow-hidden rounded-2xl border border-(--color-bg-card-deep) bg-(--color-bg) p-1.5 shadow-[0_12px_28px_-14px_rgb(var(--color-shadow)/0.45)]">
+              {routing.locales.map((code) => {
+                const active = code === locale;
+                return (
+                  <li key={code}>
+                    <Link
+                      href={pathname}
+                      locale={code}
+                      onClick={() => setLangOpen(false)}
+                      aria-current={active ? "true" : undefined}
+                      className={`block rounded-xl px-3 py-2.5 text-[13px] transition-colors duration-200 ${
+                        active
+                          ? "bg-(--color-accent) text-(--color-cream)"
+                          : "text-(--color-text-soft) hover:bg-(--color-bg-card)"
+                      }`}
+                    >
+                      {tLang(code)}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </>
+      )}
+
       <div className="mx-auto flex max-w-md items-center gap-1 rounded-t-3xl border-t border-(--color-bg-card-deep) bg-(--color-bg)/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_-12px_rgb(var(--color-shadow)/0.25)] backdrop-blur-md">
         {items.map(({ id, icon }) => renderItem(id, icon))}
 
@@ -140,6 +200,25 @@ export default function MobileBottomNav() {
         </a>
 
         {itemsRight.map(({ id, icon }) => renderItem(id, icon))}
+
+        <button
+          type="button"
+          onClick={() => setLangOpen((v) => !v)}
+          aria-expanded={langOpen}
+          aria-label={tLang("label")}
+          className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] transition-colors duration-200"
+        >
+          <span
+            className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ${
+              langOpen ? "bg-(--color-bg-card) text-(--color-accent)" : "text-(--color-on-dark-muted)"
+            }`}
+          >
+            <GlobeIcon className="h-5 w-5" />
+          </span>
+          <span className={langOpen ? "text-(--color-text)" : "text-(--color-on-dark-muted)"}>
+            {LOCALE_SHORT[locale] ?? locale.toUpperCase()}
+          </span>
+        </button>
       </div>
     </nav>
   );

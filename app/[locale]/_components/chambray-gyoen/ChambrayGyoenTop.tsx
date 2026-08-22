@@ -9,6 +9,7 @@ import * as WC from "../chambray/scenes";
 import {
   MockConvenience,
   MockFacilities,
+  MockLangSwitch,
   MockMap,
   type MockConvenienceItem,
   type MockDetail,
@@ -336,6 +337,7 @@ export default async function ChambrayGyoenTop() {
             <span>{nav("book")}</span>
             {arrow}
           </Link>
+          <MockLangSwitch locale={locale} theme="chambray-gyoen" />
           <button type="button" className="burger" aria-label={nav("menu")}>
             <i />
             <i />

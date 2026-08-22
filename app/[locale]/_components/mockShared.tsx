@@ -13,6 +13,9 @@
  * components (see the removal steps at the top of each design's stylesheet).
  */
 
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+
 /** Same address the production Access section uses, so every design pins the
  *  same point on the same map. */
 export const MOCK_ADDRESS = "東京都新宿区新宿１丁目１９−６";
@@ -172,6 +175,58 @@ export function MockFacilities({
           ))}
         </ul>
       </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile language button (all mock designs).
+
+   Every mock nav carries a desktop `.lang` strip that its stylesheet hides at
+   the phone breakpoint, which left mobile visitors — the majority for a 民泊
+   site, and the ones most likely to need EN/中文 — with no way to switch.
+   This is the phone-sized replacement: one compact button in the nav that
+   opens the three locales.
+
+   No JS. The open/closed state is a hidden checkbox and CSS `:checked`, the
+   same technique as the ROOM 01 slider, so the mocks stay server-rendered and
+   the button works even while the design is only being reviewed.
+
+   `theme` keeps the 配色プレビュー selection across the locale change — the mock
+   navs already link `/{locale}?theme=…` for exactly that reason.
+
+   Styles: the `.mlang*` block at the end of app/mock-structure.css.
+   --------------------------------------------------------------------------- */
+
+/** Short label for the button face; the popup uses the full native names from
+ *  the `localeSwitcher` namespace. */
+const MOCK_LOCALE_SHORT: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
+
+export async function MockLangSwitch({ locale, theme }: { locale: string; theme: string }) {
+  const t = await getTranslations("localeSwitcher");
+  const id = `mlang-${theme}`;
+
+  return (
+    <div className="mlang">
+      <input type="checkbox" id={id} className="mlang-in" />
+      {/* closes the popup on any tap outside it */}
+      <label htmlFor={id} className="mlang-scrim" aria-hidden="true" />
+      <label htmlFor={id} className="mlang-btn" aria-label={t("label")}>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
+        </svg>
+        <b>{MOCK_LOCALE_SHORT[locale] ?? locale.toUpperCase()}</b>
+      </label>
+      <ul className="mlang-pop">
+        {routing.locales.map((l) => (
+          <li key={l}>
+            <a href={`/${l}?theme=${theme}`} aria-current={l === locale ? "true" : undefined}>
+              {t(l)}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
