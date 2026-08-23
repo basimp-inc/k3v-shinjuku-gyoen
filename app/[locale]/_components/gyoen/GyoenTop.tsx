@@ -510,15 +510,22 @@ export default async function GyoenTop() {
             </h2>
             <p className="jp jp-lead mock-access-lead">{acc("description")}</p>
 
-            <div className="cta-perks">
+            {/* 2026-08-22 クライアント指示：この3行は「色の濃さ・字の大きさ・
+                太さを③（.mock-access-lead）仕様にして横一行に収まるように」。
+                チップの 11px / 字送り 0.14em は和文の情報行には小さすぎ、
+                住所が2行に折れていた。ラベルと値を1行の組にして、リードと
+                同じ級数・同じインクで置く（階層は太さだけで取る）。 */}
+            <dl className="cta-perks">
               {details.map((d) => (
-                <span className="chip on-dark" key={d.label}>
-                  <span className="sq" />
-                  {d.label}
-                  <b className="mock-chip-val">{d.value}</b>
-                </span>
+                <div className="mock-fact" key={d.label}>
+                  <dt>
+                    <span className="sq" />
+                    {d.label}
+                  </dt>
+                  <dd>{d.value}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
 
             <div className="mock-mapframe">
               <MockMap title={acc("mapAlt")} className="mock-map" />

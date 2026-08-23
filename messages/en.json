@@ -14,7 +14,7 @@
     "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
     "titleLine1": "Stay steps away from Shinjuku Gyoen.",
     "titleLine2": "Design Apartments in the Heart of Tokyo.",
-    "description": "K3V SHINJUKU GYOEN is a 3-room design apartment building just steps from Shinjuku Gyoen. UNICO, JOURNAL STANDARD FURNITURE, and CRASH GATE — each room carries a different furniture brand's world. Not a sightseeing base, but a stay that feels like everyday life in Tokyo.",
+    "description": "Three design rooms, steps from Shinjuku Gyoen. Each one furnished by a different Japanese brand — a place to live Tokyo, not just visit it.",
     "ctaPrimary": "Check Availability",
     "ctaSecondary": "See the three rooms",
     "illustrationAlt": "Illustration of a room near Shinjuku Gyoen with a potted plant and a coffee cup by the window, overlooking the Tokyo skyline"
@@ -81,23 +81,23 @@
     "convenience": {
       "eyebrow": "24H NEIGHBOURHOOD",
       "heading": "A neighbourhood that stays open late.",
-      "text": "Not the quiet residential backstreet you might picture when you hear “vacation rental”. Everything you need is within walking distance here — and this part of Tokyo keeps late hours.",
+      "text": "Everything you need is within walking distance — and this part of Tokyo keeps late hours.",
       "items": [
         {
           "title": "Convenience stores, 24 hours",
-          "text": "Step out for a late-night drink or some ice cream and be back in a few minutes."
+          "text": "Midnight ice cream run, back in five minutes."
         },
         {
           "title": "Supermarket and drugstore on foot",
-          "text": "Groceries for cooking, or whatever you forgot to pack — no train ride required."
+          "text": "Groceries or forgotten basics, no train."
         },
         {
           "title": "Shinjuku Sanchome is right there",
-          "text": "Department stores, cinemas and endless places to eat, all within walking distance."
+          "text": "Department stores, cinemas, dinners out."
         },
         {
           "title": "Kabukicho within walking distance",
-          "text": "Stay out late and walk home instead of hunting for a taxi."
+          "text": "Stay out late and walk home, no taxi."
         }
       ]
     }
@@ -339,20 +339,20 @@
     "details": [
       {
         "label": "Address",
-        "value": "1-19-6 Shinjuku, Shinjuku-ku, Tokyo 160-0022"
+        "value": "1-19-6 Shinjuku, Shinjuku-ku"
       },
       {
-        "label": "Nearest station",
-        "value": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station"
+        "label": "Station",
+        "value": "Shinjuku-gyoenmae / Shinjuku"
       },
       {
-        "label": "Check-in",
-        "value": "From 15:00 / Check-out 11:00"
+        "label": "IN / OUT",
+        "value": "15:00 / 11:00"
       }
     ],
     "cta": "Check Availability",
     "mapAlt": "Simple map illustration of the Shinjuku Gyoen area",
-    "mapCaption": "Walking distance from Shinjuku-gyoenmae & Shinjuku Station"
+    "mapCaption": "Shinjuku-gyoenmae & Shinjuku, on foot"
   },
   "footer": {
     "tagline": "Not Just a Stay. Live Tokyo Beautifully. A 3-room design apartment stay steps away from Shinjuku Gyoen.",
@@ -650,7 +650,8 @@
       "ctaSecondary": "See the three rooms →",
       "sideNum": "5",
       "sideUnit": "MIN",
-      "sideLabel": "to Shinjuku Gyoen Gate"
+      "sideLabel": "to Shinjuku Gyoen Gate",
+      "stamp": "Room 01 / Morning"
     },
     "ledge": {
       "station": {

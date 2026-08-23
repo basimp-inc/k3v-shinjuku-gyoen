@@ -31,10 +31,16 @@ export default async function Access() {
             {t("description")}
           </p>
 
-          <dl className="mt-8 space-y-4">
+          {/* 2026-08-22 — スマホでラベルと値が上下に割れて1件2行になっていた。
+              値を「事実そのもの」まで短くしたので、どの幅でも1行の組で置ける。
+              ラベルは幅を固定して値の左端を揃える（階層は色と太さで取る）。 */}
+          <dl className="mt-8 space-y-3">
             {details.map((d) => (
-              <div key={d.label} className="flex flex-col gap-1 border-b border-(--color-bg-card-deep) pb-4 sm:flex-row sm:items-baseline sm:gap-6">
-                <dt className="w-24 shrink-0 text-xs tracking-wide text-(--color-accent)">
+              <div
+                key={d.label}
+                className="flex items-baseline gap-4 border-b border-(--color-bg-card-deep) pb-3 sm:gap-6"
+              >
+                <dt className="w-20 shrink-0 text-[13px] font-medium tracking-wide text-(--color-accent) sm:w-24">
                   {d.label}
                 </dt>
                 <dd className="text-sm text-(--color-text)">{d.value}</dd>

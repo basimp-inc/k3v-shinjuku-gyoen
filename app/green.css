@@ -313,5 +313,7 @@
   font-weight: 700;
 }
 .gyoen-top .mock-conv-lead {
-  color: rgba(16, 23, 16, 0.86);
+  /* 2026-08-22 — リードは mock-structure.css 側で 14px に上げた。地がクロスの
+     明るいセージなので、インクもそれに合わせて一段濃くする */
+  color: rgba(16, 23, 16, 0.94);
 }

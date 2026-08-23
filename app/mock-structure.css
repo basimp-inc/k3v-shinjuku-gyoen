@@ -296,6 +296,35 @@
     align-self: flex-start;
   }
 
+  /* --- 2026-08-22 クライアントfeedback（Find the Door を基準に）------------
+     指摘は「小さくしろ」ではなく「重要な情報が一瞬で分かるように」。
+     この2つは和文が載っているのに札や透かしの級数のままで、スマホでは
+     読む前に飛ばされていた。地と役割はそのまま、級数と濃さだけ上げる。 */
+  /* 素材カードの説明文：11px / 62% は影の地の上で本文として細すぎた */
+  .sample p {
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: rgba(237, 242, 247, 0.8);
+  }
+  /* 近隣2枚のキャプション：9px の和文。写真の上なので級数で稼ぐ。
+     絵の明るい側（街のイラストは空が淡い）ではクリームの文字が落ちるので、
+     文字の下端にだけ薄い暗がりを敷く。絵そのものの色は動かしていない。 */
+  .hoods .h .t {
+    font-family: var(--jp);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+  .hoods .h::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 42%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(14, 24, 36, 0.58), rgba(14, 24, 36, 0));
+  }
+
   @media (max-width: 1100px) {
     .samples-3 {
       grid-template-columns: repeat(2, 1fr);
@@ -346,16 +375,19 @@
     .acc li {
       align-items: flex-start;
     }
-    /* Access — the values are whole phrases, and holding them to a right-hand
-       half-column broke them into two lines with a one-character orphan. At
-       this width the label leads and the value takes the row under it. */
+    /* Access — the values used to be whole phrases ("〒160-0022 東京都新宿区
+       新宿１丁目１９−６"), so at this width the row stacked label over value
+       and each fact cost two lines plus its own padding. The 2026-08-22 pass
+       cut the values down to the fact itself, so the row holds one line again
+       — label left, value right, both on the same baseline. */
     .linfo .acc li {
-      flex-direction: column;
-      gap: 5px;
+      align-items: baseline;
+      gap: 12px;
     }
+    /* the right-hand half-column is a desktop measure; here the value takes
+       whatever the label leaves and only wraps if a locale really needs it */
     .mock-detail-value {
-      text-align: left;
-      max-width: 100%;
+      max-width: none;
     }
   }
 
@@ -390,11 +422,15 @@
     margin-top: 12px;
     max-width: 22em;
   }
+  /* 2026-08-22 — 「夜中でも、ふらっと〜」の下は 13px / 行送り 2.1 で、
+     見出しに対して弱すぎるうえ4行あった。本文を短くしたうえで、Access の
+     リードと同じ 14px / 1.95 に上げ、インクも一段濃くする（小さくすることと
+     簡潔にすることは別、という前提での引き上げ）。 */
   .mock-conv-lead {
     font-family: var(--jp);
-    font-size: 0.8125rem;
-    line-height: 2.1;
-    color: rgba(43, 38, 32, 0.82);
+    font-size: 0.875rem;
+    line-height: 1.95;
+    color: rgba(43, 38, 32, 0.92);
     margin-top: 14px;
     /* em, not ch — ch measures the Latin "0" and cuts 和文 ~40% short */
     max-width: 34em;
@@ -733,16 +769,25 @@
     line-height: 1.3;
   }
 
-  /* PrimeLocation — the shop chips under the illustration */
+  /* PrimeLocation — the shop chips under the illustration.
+     2026-08-22: .chip は UNICO / ROOM 01 のようなラテンの「札」の寸法（11px・
+     字送り 0.14em）。ここだけは中身が和文の**情報**（店と徒歩分数）なので、
+     すぐ上の .walk と同じ読み方ができるところまで級数を上げ、字送りを和文の
+     ものに戻す。札としての .chip 自体は触らない。 */
   .mock-chiprow {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 16px;
   }
+  .mock-chiprow .chip {
+    font-family: var(--gjp);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
   .mock-chip-val {
     font-weight: 400;
-    opacity: 0.72;
+    opacity: 0.85;
     margin-left: 0.5em;
   }
 
@@ -806,10 +851,76 @@
     color: var(--ink-soft);
   }
 
+  /* PrimeLocation — イラスト下の一行キャプション。11px の等幅 + 0.1em 字送りは
+     ラテン向けの寸法で、和文が載ると読む前に飛ばされていた（2026-08-22）。
+     位置と役割はそのまま、和文の書体に戻して級数と濃さだけ上げる。 */
+  .loc .mapnote {
+    font-family: var(--gjp);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: rgba(16, 23, 16, 0.9);
+  }
+
   /* Access — the live map framed like the mock's illustrated map panel */
   .mock-access-lead {
     margin-top: 18px;
   }
+
+  /* --- Find the Door — 見出し下の3行（2026-08-22 クライアント指示）--------
+     「色の濃さ、字の大きさ・太さを③仕様にして横一行に収まるように」。
+     ③ は .mock-access-lead（= .jp.jp-lead / 15px / 500 / 地のインク）。
+     チップの丸ピル＋11px＋0.14em 字送りは、UNICO や ROOM 01 のような
+     ラテンの「札」には合っても、住所や時刻のような**中身**には小さすぎた
+     （375px で住所が2行に折れ、ラベルの「住所」まで縦に割れていた）。
+     ここではピルを外し、ラベルと値をリードと同じ級数・同じインクの1行に
+     組む。階層は色でも大きさでもなく**太さ（700 / 500）**だけで取る。
+     行間の細いルールは、値の右端が揃わなくても行の切れ目が分かるように。 */
+  .cta-perks {
+    /* .chip の横並びから、1件1行の情報リストへ */
+    display: grid;
+    gap: 0;
+  }
+  .mock-fact {
+    display: flex;
+    align-items: baseline;
+    /* 値が入り切らないロケールだけ折り返す。ラベルは常に行頭に残る */
+    flex-wrap: wrap;
+    gap: 0 0.9em;
+    padding: 0.58em 0;
+    border-top: 1px solid rgba(16, 23, 16, 0.18);
+  }
+  .mock-fact:last-child {
+    border-bottom: 1px solid rgba(16, 23, 16, 0.18);
+  }
+  .mock-fact dt,
+  .mock-fact dd {
+    font-family: var(--gjp);
+    font-size: clamp(0.94rem, 1.35vw, 1.06rem);
+    line-height: 1.75;
+    letter-spacing: 0.03em;
+    font-feature-settings: "palt" 1;
+  }
+  .mock-fact dt {
+    display: flex;
+    align-items: baseline;
+    gap: 0.62em;
+    flex: none;
+    font-weight: 700;
+  }
+  .mock-fact dd {
+    font-weight: 500;
+  }
+  /* .chip の中では文字のベースラインに乗っていた四角。ここは行の高さが
+     大きいので、ベースラインではなく行の光学中心に置く */
+  .mock-fact .sq {
+    width: 0.46em;
+    height: 0.46em;
+    flex: none;
+    align-self: center;
+    border-radius: 1px;
+    background: var(--grass);
+  }
+
   .mock-mapframe {
     margin-top: 22px;
     max-width: 560px;
@@ -871,11 +982,13 @@
     margin-top: 12px;
     max-width: 22em;
   }
+  /* 2026-08-22 — 「夜中でも、ふらっと〜」のリード。詳細は Washed Chambray
+     側の同じ規則のコメント参照 */
   .mock-conv-lead {
     font-family: var(--gjp);
-    font-size: 0.8125rem;
-    line-height: 2.1;
-    color: rgba(251, 249, 243, 0.86);
+    font-size: 0.875rem;
+    line-height: 1.95;
+    color: rgba(251, 249, 243, 0.92);
     margin-top: 14px;
     max-width: 34em;
   }
@@ -1274,6 +1387,27 @@
     align-self: flex-start;
   }
 
+  /* --- 2026-08-22 — Washed Chambray と同じ引き上げ（コメントはそちら）----- */
+  .sample p {
+    font-size: 0.78rem;
+    line-height: 1.9;
+  }
+  .hoods .h .t {
+    font-family: var(--jp);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+  .hoods .h::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 42%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(20, 32, 44, 0.55), rgba(20, 32, 44, 0));
+  }
+
   @media (max-width: 1100px) {
     .samples-3 {
       grid-template-columns: repeat(2, 1fr);
@@ -1318,13 +1452,13 @@
     .acc li {
       align-items: flex-start;
     }
+    /* 2026-08-22 — same one-line rows as Washed Chambray; see the note there */
     .linfo .acc li {
-      flex-direction: column;
-      gap: 5px;
+      align-items: baseline;
+      gap: 12px;
     }
     .mock-detail-value {
-      text-align: left;
-      max-width: 100%;
+      max-width: none;
     }
   }
 
@@ -1352,11 +1486,13 @@
     margin-top: 12px;
     max-width: 22em;
   }
+  /* 2026-08-22 — 「夜中でも、ふらっと〜」のリード。詳細は Washed Chambray
+     側の同じ規則のコメント参照 */
   .mock-conv-lead {
     font-family: var(--jp);
-    font-size: 0.8125rem;
-    line-height: 2.1;
-    color: rgba(63, 82, 97, 0.95);
+    font-size: 0.875rem;
+    line-height: 1.95;
+    color: rgba(63, 82, 97, 1);
     margin-top: 14px;
     /* em, not ch — ch measures the Latin "0" and cuts 和文 ~40% short */
     max-width: 34em;
