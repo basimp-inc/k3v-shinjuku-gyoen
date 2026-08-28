@@ -4,9 +4,7 @@
     "description": "K3V SHINJUKU GYOEN 是一间紧邻新宿御苑、共3间客房的设计师民泊。每间客房由不同家具品牌打造，让您像生活在东京一样入住。"
   },
   "nav": {
-    "concept": "理念",
     "rooms": "客房",
-    "moments": "在K3V的一天",
     "access": "交通",
     "cta": "查询空房"
   },
@@ -43,8 +41,6 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "headingLine1": "步行6分钟即达新宿御苑，",
-    "headingLine2": "日常所需触手可及。",
     "heading": "步行6分钟即达新宿御苑，日常所需触手可及。",
     "description": "不仅适合观光，日常购物与出行同样便利。",
     "stats": [
@@ -105,8 +101,6 @@
   },
   "renovated": {
     "eyebrow": "NEWLY RENOVATED",
-    "headingLine1": "拥有酒店般的整洁，",
-    "headingLine2": "以及自家般的舒适。",
     "heading": "拥有酒店般的整洁，以及自家般的舒适。",
     "description": "三间客房均已全面翻新，家具家电全部换新。",
     "points": [
@@ -217,8 +211,6 @@
   },
   "rooms": {
     "eyebrow": "ROOMS",
-    "headingLine1": "我们拍摄的不是房间，",
-    "headingLine2": "而是生活本身。",
     "heading": "我们拍摄的不是房间，而是生活本身。",
     "description": "三间客房各自由不同的家具品牌演绎出不同的生活方式。",
     "items": [
@@ -336,8 +328,6 @@
   },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "紧邻新宿御苑的",
-    "headingLine2": "小小生活据点。",
     "heading": "紧邻新宿御苑的小小生活据点。",
     "description": "紧邻新宿御苑前、距新宿站也在步行范围内，仅有3间客房的小型旅宿。",
     "details": [
@@ -636,443 +626,53 @@
       "cta": "咨询空房情况"
     }
   },
-  "gyoen": {
+  "top": {
     "nav": {
-      "concept": "理念",
-      "rooms": "房型",
-      "location": "交通",
-      "stay": "入住",
-      "book": "查看空房"
-    },
-    "hero": {
-      "eyebrow": "设计师公寓 — 全3室 / 3个家具品牌",
-      "titleA": "Live",
-      "titleEm": "Tokyo",
-      "titleB": "Beautifully.",
-      "lead": "就在新宿御苑旁，以生活的方式停留东京。",
-      "ctaPrimary": "查看空房",
-      "ctaSecondary": "了解三间房 →",
-      "sideNum": "5",
-      "sideUnit": "MIN",
-      "sideLabel": "步行至新宿御苑 新宿门",
-      "stamp": "Room 01 / Morning"
-    },
-    "ledge": {
-      "station": {
-        "label": "新宿御苑前站",
-        "value": "步行3分"
-      },
-      "shinjuku": {
-        "label": "JR新宿站",
-        "value": "步行13分"
-      },
-      "brands": {
-        "label": "3 ROOMS /",
-        "value": "UNICO · JSF · CRASH GATE"
-      },
-      "checkin": {
-        "label": "CHECK-IN",
-        "value": "16:00"
-      },
-      "rate": {
-        "label": "OFFICIAL SITE",
-        "value": "BEST RATE"
-      }
-    },
-    "concept": {
-      "lab": "理念",
-      "index": "01 / 06",
-      "titleA": "Green on one side,",
-      "titleEm": "Tokyo",
-      "titleB": "on the other.",
-      "swatchGreen": "GYOEN GREEN",
-      "swatchDenim": "DENIM SKY",
-      "swatchWood": "WOOD",
-      "specRoomsValue": "3",
-      "specEstValue": "2026",
-      "quoteA": "“Not just a stay.",
-      "quoteB": "Live Tokyo beautifully.”",
-      "body1": "窗外是58公顷的森林；出门往反方向走，就是新宿的喧嚣。K3V SHINJUKU GYOEN 就建在这两个东京的交界处，全部只有3间客房。",
-      "body2": "与其说是酒店房间，不如说是借住在某个人的家里。早晨去御苑散步，回来买杯咖啡，晚上在自己的沙发上看东京。这里就是为这样的三天准备的。",
-      "link": "关于这个家 →",
-      "specRooms": "Rooms",
-      "specGyoen": "Gyoen",
-      "specGuests": "Max guests",
-      "specEst": "Est.",
-      "specGyoenValue": "步行5分",
-      "specGuestsValue": "4人 / 间",
-      "figTag": "玄关",
-      "figCap": "Photo — 玄关 / 3:4"
-    },
-    "rooms": {
-      "lab": "三个家具品牌",
-      "titleA": "三间房，",
-      "titleB": "三种生活。",
-      "all": "查看全部房型",
-      "r1": {
-        "titleA": "Natural",
-        "titleEm": "Living",
-        "tag": "unico",
-        "link": "Room 01 →",
-        "meta": "ROOM 01 — 32㎡ / 4人",
-        "jp": "北欧自然风",
-        "desc": "被柔软的木与布包围，阳光最好的一间。白木与亚麻的空间，很适合慢慢吃早餐。",
-        "cap": "Photo — Room 01 / 16:10 / 清晨的客厅"
-      },
-      "r2": {
-        "titleA": "Urban",
-        "titleEm": "Vintage",
-        "tag": "journal standard furniture",
-        "link": "Room 02 →",
-        "meta": "ROOM 02 — 28㎡ / 3人",
-        "jp": "都市复古风",
-        "desc": "用旧的皮革与铁件。最适合傍晚的光线，把城市的质感原样收进房间。",
-        "cap": "Photo — Room 02 / 5:4 / 黄昏的沙发"
-      },
-      "r3": {
-        "titleA": "Industrial",
-        "titleEm": "Modern",
-        "tag": "crash gate",
-        "badge": "Coming 2026",
-        "meta": "ROOM 03 — 30㎡ / 3人",
-        "jp": "工业现代风",
-        "desc": "粗犷的金属与旧木。最适合夜晚的一间。2026年开放，敬请期待。"
-      }
-    },
-    "location": {
-      "lab": "交通 — 新宿御苑",
-      "titleA": "58 hectares",
-      "titleMid": "of",
-      "titleEm": "green",
-      "titleB": "5 minutes away.",
-      "jp": "新宿御苑虽在市中心，却深得像一座森林。配合清晨开园时间去散步，是这里最好的过法。",
-      "walk": {
-        "gate": {
-          "label": "新宿御苑 新宿门",
-          "num": "5",
-          "unit": "分钟"
-        },
-        "gyoenmae": {
-          "label": "新宿御苑前站（丸之内线）",
-          "num": "3",
-          "unit": "分钟"
-        },
-        "sanchome": {
-          "label": "新宿三丁目站",
-          "num": "8",
-          "unit": "分钟"
-        },
-        "shinjuku": {
-          "label": "JR 新宿站",
-          "num": "13",
-          "unit": "分钟"
-        },
-        "haneda": {
-          "label": "羽田机场",
-          "num": "50",
-          "unit": "分钟"
-        }
-      },
-      "chips": {
-        "gate": "御苑步行5分",
-        "convenience": "便利店1分",
-        "coffee": "咖啡2分",
-        "laundry": "自助洗衣4分"
-      },
-      "mapnote": "MAP — 新宿御苑 / K3V / 步行范围内的生活动线（示意）"
-    },
-    "stay": {
-      "lab": "这里的一天",
-      "titleA": "Three days,",
-      "titleEm": "lived in",
-      "serif": "Morning in the garden, afternoon in the city, evening back on your own sofa.",
-      "m1": {
-        "lab": "07:30 — Morning",
-        "jp": "在厨房烧水，在窗边喝一杯。比酒店的早餐更好。",
-        "cap": "Photo — 07:30 / 房间的早晨"
-      },
-      "m2": {
-        "lab": "09:00 — Gyoen",
-        "jp": "开园就进去，草坪上还没有人。会忘记这里是东京。",
-        "cap": "Photo — 09:00 / 御苑的草坪"
-      },
-      "m3": {
-        "lab": "19:00 — Neighbourhood",
-        "jp": "从巷子里的烤鸡店走回安静的住宅区。回家只要5分钟，才是最奢侈的。",
-        "cap": "Photo — 19:00 / 新宿三丁目"
-      }
-    },
-    "cta": {
-      "badgeLab": "官方网站",
-      "badgeA": "Best rate,",
-      "badgeB": "always.",
-      "titleA": "Not just a stay.",
-      "titleB": "Live Tokyo",
-      "titleEm": "Beautifully",
-      "perks": {
-        "rate": "官网最低价",
-        "cancel": "3天前免费取消",
-        "long": "连住优惠"
-      },
-      "note": "空房查询与预订请通过官方预订系统。仅有3间客房，建议尽早预订。",
-      "primary": "查看房价与空房",
-      "secondary": "联系我们 →"
-    },
-    "footer": {
-      "addr1": "〒160-0022",
-      "addr2": "东京都新宿区新宿1丁目19-6",
-      "roomsHeading": "Rooms",
-      "stayHeading": "Stay",
-      "contactHeading": "Contact",
-      "room1": "01 unico",
-      "room2": "02 journal standard furniture",
-      "room3": "03 crash gate",
-      "contact1": "Instagram",
-      "contact2": "Mail",
-      "copy": "© 2026 K3V SHINJUKU GYOEN",
-      "stay1": "理念",
-      "stay2": "交通",
-      "stay3": "关于入住",
-      "stay4": "常见问题",
-      "contact3": "住宿业登记编号"
-    },
-    "display": {
-      "hero": "Live Tokyo Beautifully.",
-      "location": "Green on One Side.",
-      "renovated": "Everything Made New.",
-      "amenities": "Already Yours.",
-      "rooms": "Three Rooms, Three Lives.",
-      "access": "Find the Door."
-    }
-  },
-  "chambray": {
-    "nav": {
-      "stay": "住宿",
+      "location": "地段",
+      "renovated": "翻新",
       "rooms": "客房",
-      "experience": "街区",
-      "material": "材质",
-      "location": "位置",
       "access": "交通",
-      "book": "查看空房",
+      "book": "查询空房",
       "menu": "菜单"
     },
     "hero": {
-      "eyebrow": "全3间 — 新宿御苑前，东京",
-      "vertical": "洗いざらしのデニムみたいな、東京の朝。",
-      "patch": "木、丹宁，以及御苑的绿。\n在新宿正中央，像生活一样度过的全3间客房。",
-      "ctaPrimary": "官网直订",
-      "ctaSecondary": "查看客房",
       "chipN": "Room 01 — 03",
       "chipT": "unico · JSF · Crash Gate",
-      "titleA": "Live",
-      "titleB": "Tokyo",
-      "titleOut": "Beautifully.",
-      "sub": "Washed, worn, and three minutes from the garden.",
       "side": "Est. 2026 — Shinjuku, Tokyo",
-      "stamp": "Room 01 / Morning"
+      "stamp": "Room 01 / Morning",
+      "vertical": "洗いざらしのデニムみたいな、東京の朝。"
     },
     "rail": {
-      "f1n": "03",
-      "f1l": "仅3间",
-      "f2n": "3′",
-      "f2l": "至新宿御苑",
-      "f3n": "8′",
-      "f3l": "至新宿站",
-      "f4n": "4",
-      "f4l": "每间最多",
       "scroll": "Scroll"
     },
     "ticker": {
+      "em": "Washed in Tokyo",
       "w1": "Wood",
       "w2": "Denim",
       "w3": "Forest",
-      "w4": "Shadow",
-      "em": "Washed in Tokyo"
-    },
-    "concept": {
-      "idx": "概念",
-      "kick": "在新宿，换一种住法",
-      "jp1": "从新宿三丁目的喧嚣往里走两条街，空气忽然松了下来。K3V SHINJUKU GYOEN 就是这样一条小巷里、只有3间客房的小房子。",
-      "jp2": "地板是实木，沙发是洗旧的丹宁，窗外是御苑的树。我们想要的不是酒店那种整齐的舒适，而是让人想「住进来看看」的舒适。",
-      "en": "Three rooms between the noise of Shinjuku and the quiet of the garden. Solid timber, washed indigo, warm shadow — built to be lived in, not checked into.",
-      "tagN": "Material No.01",
-      "tagP": "坐下去会微微下陷，洗旧了的青年布。",
-      "swatchCap": "Shinjuku Gyoen — 3 min",
-      "w1": "Denim",
-      "w1Note": "#1B3A57 · washed",
-      "w2": "Wood",
-      "w2Note": "#6B4A32 · solid",
-      "w3": "Forest",
-      "w3Note": "#1F3A2E · garden",
-      "w4": "Shadow",
-      "w4Note": "#2B2620 · depth",
-      "titleA": "Cut from",
-      "titleB": "one cloth",
-      "titleEm": "— wood, denim, and a park.",
-      "stamp": "Living / Room 01"
-    },
-    "rooms": {
-      "idx": "客房",
-      "note": "每间客房都以一个家具品牌构成不同的世界观。同一栋建筑，推开门，空气就变了。",
-      "sizeLab": "面积",
-      "guestsLab": "人数",
-      "bedLab": "床型",
-      "floorLab": "楼层",
-      "openLab": "开业",
-      "open": "现已开放",
-      "soon": "即将开放",
-      "r1Tag": "unico",
-      "r1Em": "柔和北欧",
-      "r1Body": "橡木家具与亚麻织物。晨光停留最久的房间，床边还有一张小书桌。",
-      "r1Size": "32㎡",
-      "r1Guests": "2–4人",
-      "r1Bed": "双人床 + 沙发",
-      "r1Floor": "2F",
-      "r1Link": "查看 Room 01",
-      "r1Stamp": "Room 01 / unico",
-      "r2Tag": "journal standard furniture",
-      "r2Em": "用旧的质感",
-      "r2Body": "铁艺、旧木与穿旧了的靛蓝沙发。最适合夜晚的房间——把灯调暗，窗外的新宿就恰好远了一些。",
-      "r2Size": "34㎡",
-      "r2Guests": "2–4人",
-      "r2Bed": "大床 + 沙发",
-      "r2Floor": "3F",
-      "r2Link": "查看 Room 02",
-      "r2Stamp": "Room 02 / journal standard furniture",
-      "r3Tag": "crash gate",
-      "r3Em": "筹备中",
-      "r3Body": "以铁与实木的对比构成的第三间。目前正在施工，是三间里最硬朗的一间，开放时间将另行公布。",
-      "r3Size": "待定",
-      "r3Guests": "待定",
-      "r3Open": "2026年 —",
-      "r3Link": "开放时通知我",
-      "r3Stamp": "Room 03 / crash gate — 筹备中",
-      "titleA": "Three rooms.",
-      "titleEm": "Three ways to live here.",
-      "r1Name": "Natural Living",
-      "r2Name": "Urban Vintage",
-      "r3Name": "Industrial Modern"
-    },
-    "exp": {
-      "idx": "街区",
-      "note": "御苑的草坪、巷子里的咖啡店、深夜的乌冬面。走出门的那一刻，旅程就已经开始。",
-      "c1p": "步行3分钟。清晨的草坪几乎属于你一个人。",
-      "c2p": "从昭和年代经营至今的咖啡店，这一带还留着好几家。",
-      "c3p": "房间里也有洗衣机。住得越久，旅行越像生活。",
-      "c4p": "新宿三丁目的小巷。凌晨一点仍有灯亮着。",
-      "c5p": "电线、高楼和树。东京该有的风景全都在。",
-      "s1": "新宿御苑 3′",
-      "s2": "伊势丹 9′",
-      "s3": "黄金街 12′",
-      "s4": "回忆横丁 14′",
-      "s5": "代代木公园 18′",
-      "s6": "羽田 45′",
-      "s7": "成田 90′",
-      "titleA": "Step out.",
-      "titleEm": "The city is the lobby.",
-      "c1": "Gyoen",
-      "c2": "Kissa",
-      "c3": "Laundry",
-      "c4": "Yokocho",
-      "c5": "Skyline"
-    },
-    "material": {
-      "idx": "材质",
-      "note": "这栋房子只用了四种材料。我们只用手能触到的东西，构成了它的全部气质。",
-      "m1Body": "沙发、窗帘、床尾毯。所有会碰到的表面，都用越洗越好的布。",
-      "m2Body": "地板、柱子、门窗。保留木节与色差的实木。",
-      "m3Body": "窗边的盆栽、玄关的植栽，以及御苑。绿意一点一点被引进室内。",
-      "m4Body": "从格栅落下的影子也是一种材料。房间的表情随时间变化。",
-      "titleA": "Four materials.",
-      "titleEm": "One small house.",
-      "m1": "Denim",
-      "m1Em": "indigo, sun-faded",
-      "m1Hex": "#1B3A57 · washed",
-      "m2": "Wood",
-      "m2Em": "warm, knotted",
-      "m2Hex": "#6B4A32 · solid",
-      "m3": "Forest",
-      "m3Em": "the park next door",
-      "m3Hex": "#1F3A2E · garden",
-      "m4": "Shadow",
-      "m4Em": "and the light that makes it",
-      "m4Hex": "#2B2620 · depth"
-    },
-    "location": {
-      "idx": "位置与交通",
-      "addr1": "〒160-0022",
-      "addr2": "东京都新宿区新宿1丁目19-6",
-      "addr3": "K3V SHINJUKU GYOEN",
-      "a1": "丸之内线 新宿御苑前",
-      "a1Min": "3",
-      "a2": "副都心线 新宿三丁目",
-      "a2Min": "7",
-      "a3": "JR 新宿站 东南口",
-      "a3Min": "8",
-      "a4": "新宿御苑 大木户门",
-      "a4Min": "3",
-      "minUnit": "分钟",
-      "hood1": "新宿三丁目",
-      "hood2": "御苑 大木户门",
-      "titleA": "Two minutes",
-      "titleEm": "from the garden gate.",
-      "pin": "K3V — Here"
-    },
-    "cta": {
-      "lab": "官网直订 — 最优价格保证",
-      "body": "通过官网预订最为划算。省下的OTA佣金，我们直接回馈到房价里。",
-      "primary": "立即预订",
-      "secondary": "咨询我们",
-      "price": "¥18,000",
-      "priceNote": "/ 每晚起 — 2人",
-      "note": "入住 16:00 — 退房 11:00\n自助入住 / 免费Wi-Fi / 洗衣烘干机",
-      "titleA": "Stay in the heart of Tokyo.",
-      "titleEm": "Live it beautifully."
+      "w4": "Shadow"
     },
     "footer": {
+      "copyright": "© 2026 K3V Shinjuku Gyoen",
+      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
       "desc": "就在新宿御苑旁，像生活一样住进东京。以家具品牌区分概念的全3间设计民宿。",
-      "stayH": "Stay",
-      "s1": "Room 01 — unico",
-      "s2": "Room 02 — journal standard",
-      "s3": "Room 03 — crash gate",
-      "s4": "官网直订",
       "houseH": "House",
-      "h1": "概念",
-      "h2": "材质",
-      "h3": "街区",
-      "h4": "交通",
-      "infoH": "Info",
       "i1": "住宿规则",
       "i2": "常见问题",
       "i3": "隐私政策",
       "i4": "住宅宿泊事业法 标示",
-      "followH": "Follow",
-      "fo1": "Instagram",
-      "fo2": "Airbnb",
-      "fo3": "Booking.com",
-      "copyright": "© 2026 K3V Shinjuku Gyoen",
-      "brand": "K3V Shinjuku Gyoen",
-      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
-      "creditGyoen": "Chambray Gyoen — Green × Denim × Wood × Brick"
+      "infoH": "Info",
+      "s1": "Room 01 — unico",
+      "s2": "Room 02 — journal standard",
+      "s3": "Room 03 — crash gate",
+      "stayH": "Stay"
     },
     "display": {
+      "access": "Find Us Here.",
       "hero": "Stay Steps Away.",
       "location": "Everything Nearby.",
       "renovated": "Washed, Not Worn.",
-      "amenities": "Bring Yourself.",
-      "rooms": "Three Rooms, Three Cloths.",
-      "access": "Find Us Here."
+      "rooms": "Three Rooms, Three Cloths."
     }
-  },
-  "mockNav": {
-    "location": "地段",
-    "renovated": "翻新",
-    "amenities": "设施",
-    "rooms": "客房",
-    "access": "交通",
-    "book": "查询空房",
-    "menu": "菜单",
-    "close": "关闭",
-    "home": "首页"
   }
 }

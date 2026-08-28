@@ -4,9 +4,7 @@
     "description": "K3V SHINJUKU GYOEN is a 3-room design apartment stay steps away from Shinjuku Gyoen, each room styled by a different furniture brand. Live Tokyo the way you'd actually live it."
   },
   "nav": {
-    "concept": "Concept",
     "rooms": "Rooms",
-    "moments": "A Day at K3V",
     "access": "Access",
     "cta": "Check Availability"
   },
@@ -43,8 +41,6 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "headingLine1": "6 minutes to Shinjuku Gyoen,",
-    "headingLine2": "everyday errands right around the corner.",
     "heading": "6 minutes to Shinjuku Gyoen, everyday errands right around the corner.",
     "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around.",
     "stats": [
@@ -105,8 +101,6 @@
   },
   "renovated": {
     "eyebrow": "NEWLY RENOVATED",
-    "headingLine1": "The cleanliness of a hotel,",
-    "headingLine2": "the comfort of home.",
     "heading": "The cleanliness of a hotel, the comfort of home.",
     "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout.",
     "points": [
@@ -217,8 +211,6 @@
   },
   "rooms": {
     "eyebrow": "ROOMS",
-    "headingLine1": "We don't photograph rooms.",
-    "headingLine2": "We photograph living.",
     "heading": "We don't photograph rooms. We photograph living.",
     "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
     "items": [
@@ -336,8 +328,6 @@
   },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "Steps from Shinjuku Gyoen,",
-    "headingLine2": "a small home base.",
     "heading": "Steps from Shinjuku Gyoen, a small home base.",
     "description": "A small, three-room stay steps from Shinjuku Gyoen and within walking distance of Shinjuku Station.",
     "details": [
@@ -636,443 +626,53 @@
       "cta": "Ask about availability"
     }
   },
-  "gyoen": {
+  "top": {
     "nav": {
-      "concept": "Concept",
-      "rooms": "Rooms",
       "location": "Location",
-      "stay": "Stay",
-      "book": "Check availability"
-    },
-    "hero": {
-      "eyebrow": "Design apartments — 3 rooms, 3 brands",
-      "titleA": "Live",
-      "titleEm": "Tokyo",
-      "titleB": "Beautifully.",
-      "lead": "Stay steps away from Shinjuku Gyoen, and live Tokyo rather than visit it.",
-      "ctaPrimary": "Check availability",
-      "ctaSecondary": "See the three rooms →",
-      "sideNum": "5",
-      "sideUnit": "MIN",
-      "sideLabel": "to Shinjuku Gyoen Gate",
-      "stamp": "Room 01 / Morning"
-    },
-    "ledge": {
-      "station": {
-        "label": "Shinjuku-gyoenmae stn.",
-        "value": "3 min walk"
-      },
-      "shinjuku": {
-        "label": "JR Shinjuku stn.",
-        "value": "13 min walk"
-      },
-      "brands": {
-        "label": "3 ROOMS /",
-        "value": "UNICO · JSF · CRASH GATE"
-      },
-      "checkin": {
-        "label": "CHECK-IN",
-        "value": "16:00"
-      },
-      "rate": {
-        "label": "OFFICIAL SITE",
-        "value": "BEST RATE"
-      }
-    },
-    "concept": {
-      "lab": "Concept",
-      "index": "01 / 06",
-      "titleA": "Green on one side,",
-      "titleEm": "Tokyo",
-      "titleB": "on the other.",
-      "swatchGreen": "GYOEN GREEN",
-      "swatchDenim": "DENIM SKY",
-      "swatchWood": "WOOD",
-      "specRoomsValue": "3",
-      "specEstValue": "2026",
-      "quoteA": "“Not just a stay.",
-      "quoteB": "Live Tokyo beautifully.”",
-      "body1": "A 58-hectare forest on one side of the window. Walk out the door the other way and you are in the middle of Shinjuku. K3V SHINJUKU GYOEN is a three-room design apartment sitting exactly on the seam between those two Tokyos.",
-      "body2": "Less a hotel room than someone's apartment lent to you. Walk the garden in the morning, pick up coffee on the way back, watch the city from your own sofa at night. It is built for three days of that.",
-      "link": "About the house →",
-      "specRooms": "Rooms",
-      "specGyoen": "Gyoen",
-      "specGuests": "Max guests",
-      "specEst": "Est.",
-      "specGyoenValue": "5 min walk",
-      "specGuestsValue": "4 / room",
-      "figTag": "Entrance",
-      "figCap": "Photo — entrance / 3:4"
-    },
-    "rooms": {
-      "lab": "The rooms — 3 brands",
-      "titleA": "Three rooms,",
-      "titleB": "three ways to live.",
-      "all": "See all rooms",
-      "r1": {
-        "titleA": "Natural",
-        "titleEm": "Living",
-        "tag": "unico",
-        "link": "Room 01 →",
-        "meta": "ROOM 01 — 32㎡ / 4 guests",
-        "jp": "Scandinavian natural",
-        "desc": "Soft wood and cloth, and the best light in the house. A room of pale timber and linen that suits a slow breakfast.",
-        "cap": "Photo — Room 01 / 16:10 / morning living room"
-      },
-      "r2": {
-        "titleA": "Urban",
-        "titleEm": "Vintage",
-        "tag": "journal standard furniture",
-        "link": "Room 02 →",
-        "meta": "ROOM 02 — 28㎡ / 3 guests",
-        "jp": "Urban vintage",
-        "desc": "Worn leather and steel. The late afternoon light suits it best — the texture of the city, kept indoors.",
-        "cap": "Photo — Room 02 / 5:4 / sofa at dusk"
-      },
-      "r3": {
-        "titleA": "Industrial",
-        "titleEm": "Modern",
-        "tag": "crash gate",
-        "badge": "Coming 2026",
-        "meta": "ROOM 03 — 30㎡ / 3 guests",
-        "jp": "Industrial modern",
-        "desc": "Raw metal and reclaimed timber. The room that looks best at night. Opening 2026."
-      }
-    },
-    "location": {
-      "lab": "Location — Shinjuku Gyoen",
-      "titleA": "58 hectares",
-      "titleMid": "of",
-      "titleEm": "green",
-      "titleB": "5 minutes away.",
-      "jp": "Shinjuku Gyoen is a garden deep enough to feel like a forest, in the middle of the city. The best way to use this place is to walk in as the gates open.",
-      "walk": {
-        "gate": {
-          "label": "Shinjuku Gyoen, Shinjuku Gate",
-          "num": "5",
-          "unit": "min walk"
-        },
-        "gyoenmae": {
-          "label": "Shinjuku-gyoenmae stn. (Marunouchi)",
-          "num": "3",
-          "unit": "min walk"
-        },
-        "sanchome": {
-          "label": "Shinjuku-sanchome stn.",
-          "num": "8",
-          "unit": "min walk"
-        },
-        "shinjuku": {
-          "label": "JR Shinjuku stn.",
-          "num": "13",
-          "unit": "min walk"
-        },
-        "haneda": {
-          "label": "Haneda Airport",
-          "num": "50",
-          "unit": "min"
-        }
-      },
-      "chips": {
-        "gate": "Gyoen gate 5min",
-        "convenience": "Convenience 1min",
-        "coffee": "Coffee 2min",
-        "laundry": "Laundry 4min"
-      },
-      "mapnote": "MAP — Shinjuku Gyoen / K3V / the walkable everyday (illustrative)"
-    },
-    "stay": {
-      "lab": "A day here",
-      "titleA": "Three days,",
-      "titleEm": "lived in",
-      "serif": "Morning in the garden, afternoon in the city, evening back on your own sofa.",
-      "m1": {
-        "lab": "07:30 — Morning",
-        "jp": "Boil water in the kitchen, drink it by the window. Better than any hotel breakfast.",
-        "cap": "Photo — 07:30 / morning in the room"
-      },
-      "m2": {
-        "lab": "09:00 — Gyoen",
-        "jp": "Walk in as the gates open and the lawn is still empty. You forget this is Tokyo.",
-        "cap": "Photo — 09:00 / the lawn at Gyoen"
-      },
-      "m3": {
-        "lab": "19:00 — Neighbourhood",
-        "jp": "From a yakitori counter in the alley back to quiet streets. Five minutes home is the real luxury.",
-        "cap": "Photo — 19:00 / Shinjuku-sanchome"
-      }
-    },
-    "cta": {
-      "badgeLab": "Official site",
-      "badgeA": "Best rate,",
-      "badgeB": "always.",
-      "titleA": "Not just a stay.",
-      "titleB": "Live Tokyo",
-      "titleEm": "Beautifully",
-      "perks": {
-        "rate": "Best rate on the official site",
-        "cancel": "Free cancellation up to 3 days",
-        "long": "Long-stay discount"
-      },
-      "note": "Availability and booking go through the official engine. With only three rooms, we recommend booking early.",
-      "primary": "See rates & availability",
-      "secondary": "Contact us →"
-    },
-    "footer": {
-      "addr1": "1-19-6 Shinjuku, Shinjuku-ku",
-      "addr2": "Tokyo 160-0022, Japan",
-      "roomsHeading": "Rooms",
-      "stayHeading": "Stay",
-      "contactHeading": "Contact",
-      "room1": "01 unico",
-      "room2": "02 journal standard furniture",
-      "room3": "03 crash gate",
-      "contact1": "Instagram",
-      "contact2": "Mail",
-      "copy": "© 2026 K3V SHINJUKU GYOEN",
-      "stay1": "Concept",
-      "stay2": "Location",
-      "stay3": "Your stay",
-      "stay4": "FAQ",
-      "contact3": "Minpaku registration no."
-    },
-    "display": {
-      "hero": "Live Tokyo Beautifully.",
-      "location": "Green on One Side.",
-      "renovated": "Everything Made New.",
-      "amenities": "Already Yours.",
-      "rooms": "Three Rooms, Three Lives.",
-      "access": "Find the Door."
-    }
-  },
-  "chambray": {
-    "nav": {
-      "stay": "Stay",
+      "renovated": "Renovated",
       "rooms": "Rooms",
-      "experience": "Experience",
-      "material": "Material",
-      "location": "Location",
       "access": "Access",
-      "book": "Book Now",
+      "book": "Check Availability",
       "menu": "Menu"
     },
     "hero": {
-      "eyebrow": "03 Rooms — Shinjuku Gyoenmae, Tokyo",
-      "vertical": "洗いざらしのデニムみたいな、東京の朝。",
-      "patch": "Timber, denim and the green of the garden.\nThree rooms to live in, right in the middle of Shinjuku.",
-      "ctaPrimary": "Book Direct",
-      "ctaSecondary": "See The Rooms",
       "chipN": "Room 01 — 03",
       "chipT": "unico · JSF · Crash Gate",
-      "titleA": "Live",
-      "titleB": "Tokyo",
-      "titleOut": "Beautifully.",
-      "sub": "Washed, worn, and three minutes from the garden.",
       "side": "Est. 2026 — Shinjuku, Tokyo",
-      "stamp": "Room 01 / Morning"
+      "stamp": "Room 01 / Morning",
+      "vertical": "洗いざらしのデニムみたいな、東京の朝。"
     },
     "rail": {
-      "f1n": "03",
-      "f1l": "Rooms Only",
-      "f2n": "3′",
-      "f2l": "To Shinjuku Gyoen",
-      "f3n": "8′",
-      "f3l": "To Shinjuku Station",
-      "f4n": "4",
-      "f4l": "Guests Max",
       "scroll": "Scroll"
     },
     "ticker": {
+      "em": "Washed in Tokyo",
       "w1": "Wood",
       "w2": "Denim",
       "w3": "Forest",
-      "w4": "Shadow",
-      "em": "Washed in Tokyo"
-    },
-    "concept": {
-      "idx": "Concept",
-      "kick": "Stay Different in Shinjuku",
-      "jp1": "Two streets off the noise of Shinjuku 3-chome the air loosens. K3V SHINJUKU GYOEN is a small three-room house on exactly that kind of lane.",
-      "jp2": "Solid timber underfoot, washed denim on the sofa, the trees of the garden through the window. Not the tidy comfort of a hotel — the comfort of a room you'd want to move into.",
-      "en": "Three rooms between the noise of Shinjuku and the quiet of the garden. Solid timber, washed indigo, warm shadow — built to be lived in, not checked into.",
-      "tagN": "Material No.01",
-      "tagP": "A sofa that gives a little when you sit — washed chambray, softened by use.",
-      "swatchCap": "Shinjuku Gyoen — 3 min",
-      "w1": "Denim",
-      "w1Note": "#1B3A57 · washed",
-      "w2": "Wood",
-      "w2Note": "#6B4A32 · solid",
-      "w3": "Forest",
-      "w3Note": "#1F3A2E · garden",
-      "w4": "Shadow",
-      "w4Note": "#2B2620 · depth",
-      "titleA": "Cut from",
-      "titleB": "one cloth",
-      "titleEm": "— wood, denim, and a park.",
-      "stamp": "Living / Room 01"
-    },
-    "rooms": {
-      "idx": "Rooms",
-      "note": "Three rooms, each built around one furniture brand. Same building — open the door and the air changes.",
-      "sizeLab": "Size",
-      "guestsLab": "Guests",
-      "bedLab": "Bed",
-      "floorLab": "Floor",
-      "openLab": "Open",
-      "open": "Now Open",
-      "soon": "Coming Soon",
-      "r1Tag": "unico",
-      "r1Em": "soft nordic",
-      "r1Body": "Oak furniture and linen. Morning light stays in this room the longest. A small work desk sits beside the bed.",
-      "r1Size": "32 m²",
-      "r1Guests": "2–4",
-      "r1Bed": "Double + Sofa",
-      "r1Floor": "2F",
-      "r1Link": "View Room 01",
-      "r1Stamp": "Room 01 / unico",
-      "r2Tag": "journal standard furniture",
-      "r2Em": "worn-in texture",
-      "r2Body": "Iron, reclaimed timber and an indigo sofa you've broken in. This room is at its best at night — dim the lights and Shinjuku moves comfortably far away.",
-      "r2Size": "34 m²",
-      "r2Guests": "2–4",
-      "r2Bed": "Queen + Sofa",
-      "r2Floor": "3F",
-      "r2Link": "View Room 02",
-      "r2Stamp": "Room 02 / journal standard furniture",
-      "r3Tag": "crash gate",
-      "r3Em": "in preparation",
-      "r3Body": "A third room built on the contrast of iron and solid timber. It's the toughest of the three, and it's still being finished. We'll announce the opening shortly.",
-      "r3Size": "TBA",
-      "r3Guests": "TBA",
-      "r3Open": "2026 —",
-      "r3Link": "Get Notified",
-      "r3Stamp": "Room 03 / crash gate — in preparation",
-      "titleA": "Three rooms.",
-      "titleEm": "Three ways to live here.",
-      "r1Name": "Natural Living",
-      "r2Name": "Urban Vintage",
-      "r3Name": "Industrial Modern"
-    },
-    "exp": {
-      "idx": "Experience",
-      "note": "Lawns in the garden, a back-street coffee house, udon at midnight. The stay starts the moment you step out the door.",
-      "c1p": "Three minutes on foot. First thing in the morning the lawn is almost yours.",
-      "c2p": "Coffee houses that have been running since the Showa era — several still here.",
-      "c3p": "There's a washer in the room too. The longer you stay, the more the trip turns into living.",
-      "c4p": "The lanes of Shinjuku 3-chome. Lights still on at 1am.",
-      "c5p": "Power lines, towers and trees. Every Tokyo view at once.",
-      "s1": "Shinjuku Gyoen 3′",
-      "s2": "Isetan 9′",
-      "s3": "Golden Gai 12′",
-      "s4": "Omoide Yokocho 14′",
-      "s5": "Yoyogi Park 18′",
-      "s6": "Haneda 45′",
-      "s7": "Narita 90′",
-      "titleA": "Step out.",
-      "titleEm": "The city is the lobby.",
-      "c1": "Gyoen",
-      "c2": "Kissa",
-      "c3": "Laundry",
-      "c4": "Yokocho",
-      "c5": "Skyline"
-    },
-    "material": {
-      "idx": "Material",
-      "note": "This house is made of four materials. The whole world of it is built from things you can put your hand on.",
-      "m1Body": "Sofa, curtains, bed throw. Every surface you touch is cloth that gets better with washing.",
-      "m2Body": "Floors, posts, joinery — solid timber with its knots and colour shifts left in.",
-      "m3Body": "Pots by the window, planting at the entrance, and the garden itself. The green comes indoors a little at a time.",
-      "m4Body": "The shadow falling through the lattice is a material too. The room changes face by the hour.",
-      "titleA": "Four materials.",
-      "titleEm": "One small house.",
-      "m1": "Denim",
-      "m1Em": "indigo, sun-faded",
-      "m1Hex": "#1B3A57 · washed",
-      "m2": "Wood",
-      "m2Em": "warm, knotted",
-      "m2Hex": "#6B4A32 · solid",
-      "m3": "Forest",
-      "m3Em": "the park next door",
-      "m3Hex": "#1F3A2E · garden",
-      "m4": "Shadow",
-      "m4Em": "and the light that makes it",
-      "m4Hex": "#2B2620 · depth"
-    },
-    "location": {
-      "idx": "Location & Access",
-      "addr1": "〒160-0022",
-      "addr2": "1-19-6 Shinjuku, Shinjuku-ku, Tokyo",
-      "addr3": "K3V SHINJUKU GYOEN",
-      "a1": "Marunouchi Line — Shinjuku-gyoenmae",
-      "a1Min": "3",
-      "a2": "Fukutoshin Line — Shinjuku-sanchome",
-      "a2Min": "7",
-      "a3": "JR Shinjuku Sta. — South East Exit",
-      "a3Min": "8",
-      "a4": "Shinjuku Gyoen — Okido Gate",
-      "a4Min": "3",
-      "minUnit": "min",
-      "hood1": "Shinjuku 3-chome",
-      "hood2": "Gyoen Okido Gate",
-      "titleA": "Two minutes",
-      "titleEm": "from the garden gate.",
-      "pin": "K3V — Here"
-    },
-    "cta": {
-      "lab": "Direct Booking — Best Rate Guaranteed",
-      "body": "Booking on this site is always the best price. The commission we don't pay an OTA goes straight back into the rate.",
-      "primary": "Book Your Stay",
-      "secondary": "Ask a Question",
-      "price": "¥18,000",
-      "priceNote": "/ night — from, 2 guests",
-      "note": "Check-in 16:00 — Check-out 11:00\nSelf check-in / Free Wi-Fi / Washer & Dryer",
-      "titleA": "Stay in the heart of Tokyo.",
-      "titleEm": "Live it beautifully."
+      "w4": "Shadow"
     },
     "footer": {
+      "copyright": "© 2026 K3V Shinjuku Gyoen",
+      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
       "desc": "Stay steps away from Shinjuku Gyoen and live Tokyo rather than visit it. Three design apartments, each built around a different furniture brand.",
-      "stayH": "Stay",
-      "s1": "Room 01 — unico",
-      "s2": "Room 02 — journal standard",
-      "s3": "Room 03 — crash gate",
-      "s4": "Book Direct",
       "houseH": "House",
-      "h1": "Concept",
-      "h2": "Material",
-      "h3": "Experience",
-      "h4": "Access",
-      "infoH": "Info",
       "i1": "House Rules",
       "i2": "FAQ",
       "i3": "Privacy",
       "i4": "Licence Information",
-      "followH": "Follow",
-      "fo1": "Instagram",
-      "fo2": "Airbnb",
-      "fo3": "Booking.com",
-      "copyright": "© 2026 K3V Shinjuku Gyoen",
-      "brand": "K3V Shinjuku Gyoen",
-      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
-      "creditGyoen": "Chambray Gyoen — Green × Denim × Wood × Brick"
+      "infoH": "Info",
+      "s1": "Room 01 — unico",
+      "s2": "Room 02 — journal standard",
+      "s3": "Room 03 — crash gate",
+      "stayH": "Stay"
     },
     "display": {
+      "access": "Find Us Here.",
       "hero": "Stay Steps Away.",
       "location": "Everything Nearby.",
       "renovated": "Washed, Not Worn.",
-      "amenities": "Bring Yourself.",
-      "rooms": "Three Rooms, Three Cloths.",
-      "access": "Find Us Here."
+      "rooms": "Three Rooms, Three Cloths."
     }
-  },
-  "mockNav": {
-    "location": "Location",
-    "renovated": "Renovated",
-    "amenities": "Amenities",
-    "rooms": "Rooms",
-    "access": "Access",
-    "book": "Check Availability",
-    "menu": "Menu",
-    "close": "Close",
-    "home": "Home"
   }
 }

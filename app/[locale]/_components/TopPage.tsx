@@ -48,8 +48,8 @@ function Scene({ svg, stamp, className }: { svg: string; stamp?: string; classNa
 }
 
 export default async function TopPage() {
-  const t = await getTranslations("chambray");
-  const nav = await getTranslations("mockNav");
+  const t = await getTranslations("top");
+  const nav = await getTranslations("top.nav");
   const hero = await getTranslations("hero");
   const loc = await getTranslations("primeLocation");
   const ren = await getTranslations("renovated");

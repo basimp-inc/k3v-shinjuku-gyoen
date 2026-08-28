@@ -4,9 +4,7 @@
     "description": "新宿御苑のすぐそばに建つ、全3室のデザイナーズ民泊「K3V SHINJUKU GYOEN」。部屋ごとに異なる家具ブランドの世界観で、東京を暮らすように滞在する。"
   },
   "nav": {
-    "concept": "コンセプト",
     "rooms": "お部屋",
-    "moments": "暮らしの時間",
     "access": "アクセス",
     "cta": "空室を探す"
   },
@@ -43,8 +41,6 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "headingLine1": "新宿御苑まで徒歩6分、",
-    "headingLine2": "暮らしに必要なものはすぐそこに。",
     "heading": "新宿御苑まで徒歩6分、暮らしに必要なものはすぐそこに。",
     "description": "観光地としてだけでなく、日々の買い物や移動のしやすさも大切に選んだ立地。",
     "stats": [
@@ -105,8 +101,6 @@
   },
   "renovated": {
     "eyebrow": "NEWLY RENOVATED",
-    "headingLine1": "ホテルのような清潔さと、",
-    "headingLine2": "自宅のような心地よさを。",
     "heading": "ホテルのような清潔さと、自宅のような心地よさを。",
     "description": "3部屋とも全面リノベーション済み。家具・家電もすべて新品でそろえました。",
     "points": [
@@ -217,8 +211,6 @@
   },
   "rooms": {
     "eyebrow": "ROOMS",
-    "headingLine1": "部屋を撮るのではなく、",
-    "headingLine2": "暮らしを撮る。",
     "heading": "部屋を撮るのではなく、暮らしを撮る。",
     "description": "3つの部屋には、それぞれ異なる家具ブランドが選んだ暮らし方があります。",
     "items": [
@@ -336,8 +328,6 @@
   },
   "access": {
     "eyebrow": "ACCESS",
-    "headingLine1": "新宿御苑のすぐそば、",
-    "headingLine2": "小さな暮らしの拠点へ。",
     "heading": "新宿御苑のすぐそば、小さな暮らしの拠点へ。",
     "description": "新宿御苑前、新宿駅からも徒歩圏の全3室だけの小さな宿。",
     "details": [
@@ -636,443 +626,53 @@
       "cta": "空室について問い合わせる"
     }
   },
-  "gyoen": {
+  "top": {
     "nav": {
-      "concept": "コンセプト",
-      "rooms": "お部屋",
-      "location": "アクセス",
-      "stay": "滞在",
-      "book": "空室を見る"
-    },
-    "hero": {
-      "eyebrow": "デザイナーズ・アパートメント — 全3室 / 3ブランド",
-      "titleA": "Live",
-      "titleEm": "Tokyo",
-      "titleB": "Beautifully.",
-      "lead": "新宿御苑のすぐそばで、東京を暮らすように滞在する。",
-      "ctaPrimary": "空室を見る",
-      "ctaSecondary": "3室のコンセプトを見る →",
-      "sideNum": "5",
-      "sideUnit": "MIN",
-      "sideLabel": "新宿御苑 新宿門まで",
-      "stamp": "Room 01 / Morning"
-    },
-    "ledge": {
-      "station": {
-        "label": "新宿御苑前駅",
-        "value": "徒歩3分"
-      },
-      "shinjuku": {
-        "label": "JR新宿駅",
-        "value": "徒歩13分"
-      },
-      "brands": {
-        "label": "3 ROOMS /",
-        "value": "UNICO · JSF · CRASH GATE"
-      },
-      "checkin": {
-        "label": "CHECK-IN",
-        "value": "16:00"
-      },
-      "rate": {
-        "label": "OFFICIAL SITE",
-        "value": "BEST RATE"
-      }
-    },
-    "concept": {
-      "lab": "コンセプト",
-      "index": "01 / 06",
-      "titleA": "Green on one side,",
-      "titleEm": "Tokyo",
-      "titleB": "on the other.",
-      "swatchGreen": "GYOEN GREEN",
-      "swatchDenim": "DENIM SKY",
-      "swatchWood": "WOOD",
-      "specRoomsValue": "3",
-      "specEstValue": "2026",
-      "quoteA": "“Not just a stay.",
-      "quoteB": "Live Tokyo beautifully.”",
-      "body1": "窓のむこうは、58ヘクタールの森。ドアを出て反対に歩けば、新宿の雑踏。K3V SHINJUKU GYOEN は、そのふたつの東京のちょうど境目に建つ、全3室のデザイナーズ・アパートメントです。",
-      "body2": "ホテルの部屋というより、誰かの部屋を借りたような感覚。朝は御苑を散歩して、帰りに珈琲を買って、夜は自分の部屋で東京を眺める。そういう三日間のための場所です。",
-      "link": "この家について →",
-      "specRooms": "Rooms",
-      "specGyoen": "Gyoen",
-      "specGuests": "Max guests",
-      "specEst": "Est.",
-      "specGyoenValue": "徒歩5分",
-      "specGuestsValue": "4名 / 室",
-      "figTag": "玄関",
-      "figCap": "Photo — 玄関まわり / 3:4"
-    },
-    "rooms": {
-      "lab": "3つの家具ブランド",
-      "titleA": "三室、",
-      "titleB": "三通りの暮らし。",
-      "all": "すべての部屋を見る",
-      "r1": {
-        "titleA": "Natural",
-        "titleEm": "Living",
-        "tag": "unico",
-        "link": "Room 01 →",
-        "meta": "ROOM 01 — 32㎡ / 4名",
-        "jp": "北欧ナチュラル",
-        "desc": "やわらかい木と布に囲まれた、いちばん陽の入る部屋。朝ごはんが似合う、白木とリネンの空間。",
-        "cap": "Photo — Room 01 / 16:10 / 朝のリビング"
-      },
-      "r2": {
-        "titleA": "Urban",
-        "titleEm": "Vintage",
-        "tag": "journal standard furniture",
-        "link": "Room 02 →",
-        "meta": "ROOM 02 — 28㎡ / 3名",
-        "jp": "アーバンヴィンテージ",
-        "desc": "使い込まれた革と鉄。夕方の光がいちばん似合う、都市の質感をそのまま閉じ込めた一室。",
-        "cap": "Photo — Room 02 / 5:4 / 夕暮れのソファ"
-      },
-      "r3": {
-        "titleA": "Industrial",
-        "titleEm": "Modern",
-        "tag": "crash gate",
-        "badge": "Coming 2026",
-        "meta": "ROOM 03 — 30㎡ / 3名",
-        "jp": "インダストリアルモダン",
-        "desc": "無骨な金属と古材。夜がいちばん似合う部屋。2026年、準備中です。"
-      }
-    },
-    "location": {
-      "lab": "アクセス — 新宿御苑",
-      "titleA": "58 hectares",
-      "titleMid": "of",
-      "titleEm": "green",
-      "titleB": "5 minutes away.",
-      "jp": "新宿御苑は、都心にありながら森のように深い庭。朝いちばんの開門にあわせて散歩に出るのが、この宿のいちばんの過ごし方です。",
-      "walk": {
-        "gate": {
-          "label": "新宿御苑 新宿門",
-          "num": "5",
-          "unit": "分"
-        },
-        "gyoenmae": {
-          "label": "新宿御苑前駅（丸ノ内線）",
-          "num": "3",
-          "unit": "分"
-        },
-        "sanchome": {
-          "label": "新宿三丁目駅",
-          "num": "8",
-          "unit": "分"
-        },
-        "shinjuku": {
-          "label": "JR 新宿駅",
-          "num": "13",
-          "unit": "分"
-        },
-        "haneda": {
-          "label": "羽田空港",
-          "num": "50",
-          "unit": "分"
-        }
-      },
-      "chips": {
-        "gate": "御苑まで5分",
-        "convenience": "コンビニ1分",
-        "coffee": "コーヒー2分",
-        "laundry": "コインランドリー4分"
-      },
-      "mapnote": "MAP — 新宿御苑 / K3V / 徒歩圏の生活動線（イメージ）"
-    },
-    "stay": {
-      "lab": "ここでの一日",
-      "titleA": "Three days,",
-      "titleEm": "lived in",
-      "serif": "Morning in the garden, afternoon in the city, evening back on your own sofa.",
-      "m1": {
-        "lab": "07:30 — Morning",
-        "jp": "キッチンで湯をわかして、窓ぎわで一杯。ホテルの朝食より、ここの朝がいい。",
-        "cap": "Photo — 07:30 / 部屋の朝"
-      },
-      "m2": {
-        "lab": "09:00 — Gyoen",
-        "jp": "開門と同時に入ると、芝生はまだ人のいないまま。ここが東京だと忘れる時間。",
-        "cap": "Photo — 09:00 / 御苑の芝生"
-      },
-      "m3": {
-        "lab": "19:00 — Neighbourhood",
-        "jp": "路地の焼き鳥屋から、静かな住宅街へ。帰り道が5分なのが、いちばんの贅沢。",
-        "cap": "Photo — 19:00 / 新宿三丁目"
-      }
-    },
-    "cta": {
-      "badgeLab": "公式サイト",
-      "badgeA": "Best rate,",
-      "badgeB": "always.",
-      "titleA": "Not just a stay.",
-      "titleB": "Live Tokyo",
-      "titleEm": "Beautifully",
-      "perks": {
-        "rate": "公式サイト最安",
-        "cancel": "キャンセル無料 / 3日前まで",
-        "long": "連泊割引"
-      },
-      "note": "空室状況のご確認・ご予約は公式予約エンジンから。3室のみの小さな宿のため、お早めのご予約をおすすめします。",
-      "primary": "空室・料金を見る",
-      "secondary": "お問い合わせ →"
-    },
-    "footer": {
-      "addr1": "〒160-0022",
-      "addr2": "東京都新宿区新宿１丁目１９−６",
-      "roomsHeading": "Rooms",
-      "stayHeading": "Stay",
-      "contactHeading": "Contact",
-      "room1": "01 unico",
-      "room2": "02 journal standard furniture",
-      "room3": "03 crash gate",
-      "contact1": "Instagram",
-      "contact2": "Mail",
-      "copy": "© 2026 K3V SHINJUKU GYOEN",
-      "stay1": "コンセプト",
-      "stay2": "アクセス",
-      "stay3": "ご滞在について",
-      "stay4": "よくあるご質問",
-      "contact3": "住宅宿泊事業届出番号"
-    },
-    "display": {
-      "hero": "Live Tokyo Beautifully.",
-      "location": "Green on One Side.",
-      "renovated": "Everything Made New.",
-      "amenities": "Already Yours.",
-      "rooms": "Three Rooms, Three Lives.",
-      "access": "Find the Door."
-    }
-  },
-  "chambray": {
-    "nav": {
-      "stay": "ステイ",
-      "rooms": "お部屋",
-      "experience": "まちあるき",
-      "material": "素材",
       "location": "立地",
+      "renovated": "リノベーション",
+      "rooms": "お部屋",
       "access": "アクセス",
-      "book": "空室を見る",
+      "book": "空室を探す",
       "menu": "メニュー"
     },
     "hero": {
-      "eyebrow": "全3室 — 新宿御苑前、東京",
-      "vertical": "洗いざらしのデニムみたいな、東京の朝。",
-      "patch": "木とデニムと、御苑の緑。\n新宿のど真ん中で、暮らすように過ごす全3室。",
-      "ctaPrimary": "公式サイトで予約",
-      "ctaSecondary": "お部屋を見る",
       "chipN": "Room 01 — 03",
       "chipT": "unico · JSF · Crash Gate",
-      "titleA": "Live",
-      "titleB": "Tokyo",
-      "titleOut": "Beautifully.",
-      "sub": "Washed, worn, and three minutes from the garden.",
       "side": "Est. 2026 — Shinjuku, Tokyo",
-      "stamp": "Room 01 / Morning"
+      "stamp": "Room 01 / Morning",
+      "vertical": "洗いざらしのデニムみたいな、東京の朝。"
     },
     "rail": {
-      "f1n": "03",
-      "f1l": "室のみ",
-      "f2n": "3′",
-      "f2l": "新宿御苑まで",
-      "f3n": "8′",
-      "f3l": "新宿駅まで",
-      "f4n": "4",
-      "f4l": "1室あたり最大",
       "scroll": "Scroll"
     },
     "ticker": {
+      "em": "Washed in Tokyo",
       "w1": "Wood",
       "w2": "Denim",
       "w3": "Forest",
-      "w4": "Shadow",
-      "em": "Washed in Tokyo"
-    },
-    "concept": {
-      "idx": "コンセプト",
-      "kick": "新宿で、ちがう泊まり方を",
-      "jp1": "新宿三丁目の喧騒から二本入ると、空気がすっとゆるむ。K3V SHINJUKU GYOEN は、その路地に建つ全3室の小さな家です。",
-      "jp2": "床は無垢の木、ソファは洗いざらしのデニム、窓の外には御苑の樹。整いすぎたホテルの快適さではなく、「ここに住んでみたい」と思う快適さを目指しました。",
-      "en": "Three rooms between the noise of Shinjuku and the quiet of the garden. Solid timber, washed indigo, warm shadow — built to be lived in, not checked into.",
-      "tagN": "Material No.01",
-      "tagP": "座ると少し沈む、洗いざらしのシャンブレー。",
-      "swatchCap": "Shinjuku Gyoen — 3 min",
-      "w1": "Denim",
-      "w1Note": "#1B3A57 · washed",
-      "w2": "Wood",
-      "w2Note": "#6B4A32 · solid",
-      "w3": "Forest",
-      "w3Note": "#1F3A2E · garden",
-      "w4": "Shadow",
-      "w4Note": "#2B2620 · depth",
-      "titleA": "Cut from",
-      "titleB": "one cloth",
-      "titleEm": "— wood, denim, and a park.",
-      "stamp": "Living / Room 01"
-    },
-    "rooms": {
-      "idx": "お部屋",
-      "note": "家具ブランドごとに世界観を変えた全3室。同じ建物なのに、ドアを開けると空気が変わります。",
-      "sizeLab": "広さ",
-      "guestsLab": "定員",
-      "bedLab": "ベッド",
-      "floorLab": "階",
-      "openLab": "オープン",
-      "open": "販売中",
-      "soon": "準備中",
-      "r1Tag": "unico",
-      "r1Em": "やわらかい北欧",
-      "r1Body": "オークの家具と麻のファブリック。朝の光がいちばん長く入る部屋です。ベッドの脇には小さなワークデスク。",
-      "r1Size": "32㎡",
-      "r1Guests": "2–4名",
-      "r1Bed": "ダブル + ソファ",
-      "r1Floor": "2F",
-      "r1Link": "Room 01 を見る",
-      "r1Stamp": "Room 01 / unico",
-      "r2Tag": "journal standard furniture",
-      "r2Em": "使い込んだ質感",
-      "r2Body": "アイアンと古材、履き込んだインディゴのソファ。夜がいちばん似合う部屋。灯りを落とすと、外の新宿がちょうどよく遠くなります。",
-      "r2Size": "34㎡",
-      "r2Guests": "2–4名",
-      "r2Bed": "クイーン + ソファ",
-      "r2Floor": "3F",
-      "r2Link": "Room 02 を見る",
-      "r2Stamp": "Room 02 / journal standard furniture",
-      "r3Tag": "crash gate",
-      "r3Em": "準備中",
-      "r3Body": "アイアンと無垢材のコントラストで組み上げる3室目。いま、いちばん骨太な部屋をつくっています。オープンは追ってお知らせします。",
-      "r3Size": "未定",
-      "r3Guests": "未定",
-      "r3Open": "2026年 —",
-      "r3Link": "オープンを知らせる",
-      "r3Stamp": "Room 03 / crash gate — 準備中",
-      "titleA": "Three rooms.",
-      "titleEm": "Three ways to live here.",
-      "r1Name": "Natural Living",
-      "r2Name": "Urban Vintage",
-      "r3Name": "Industrial Modern"
-    },
-    "exp": {
-      "idx": "まちあるき",
-      "note": "御苑の芝生、路地裏の喫茶店、深夜のうどん。玄関を出た瞬間から、滞在は始まっています。",
-      "c1p": "徒歩3分。朝いちの芝生はほぼ貸切です。",
-      "c2p": "昭和から続く喫茶店が、まだ何軒も残っています。",
-      "c3p": "洗濯機は部屋にも。長く居るほど、旅が生活になります。",
-      "c4p": "新宿三丁目の路地。深夜1時でも灯りが残っている。",
-      "c5p": "電線と高層ビルと木。東京らしい風景がぜんぶある。",
-      "s1": "新宿御苑 3′",
-      "s2": "伊勢丹 9′",
-      "s3": "ゴールデン街 12′",
-      "s4": "思い出横丁 14′",
-      "s5": "代々木公園 18′",
-      "s6": "羽田 45′",
-      "s7": "成田 90′",
-      "titleA": "Step out.",
-      "titleEm": "The city is the lobby.",
-      "c1": "Gyoen",
-      "c2": "Kissa",
-      "c3": "Laundry",
-      "c4": "Yokocho",
-      "c5": "Skyline"
-    },
-    "material": {
-      "idx": "素材",
-      "note": "この建物は、たった4つの素材でできています。手で触れられるものだけで、世界観をつくりました。",
-      "m1Body": "ソファ、カーテン、ベッドスロー。触れる面はすべて、洗うほど良くなる布に。",
-      "m2Body": "床・柱・建具。節も色ムラもそのまま活かした無垢材を使っています。",
-      "m3Body": "窓辺の鉢、玄関の植栽、そして御苑。緑は室内にも少しずつ引き込みます。",
-      "m4Body": "格子から落ちる影も、素材のひとつ。時間で表情が変わる部屋です。",
-      "titleA": "Four materials.",
-      "titleEm": "One small house.",
-      "m1": "Denim",
-      "m1Em": "indigo, sun-faded",
-      "m1Hex": "#1B3A57 · washed",
-      "m2": "Wood",
-      "m2Em": "warm, knotted",
-      "m2Hex": "#6B4A32 · solid",
-      "m3": "Forest",
-      "m3Em": "the park next door",
-      "m3Hex": "#1F3A2E · garden",
-      "m4": "Shadow",
-      "m4Em": "and the light that makes it",
-      "m4Hex": "#2B2620 · depth"
-    },
-    "location": {
-      "idx": "立地とアクセス",
-      "addr1": "〒160-0022",
-      "addr2": "東京都新宿区新宿１丁目１９−６",
-      "addr3": "K3V SHINJUKU GYOEN",
-      "a1": "丸ノ内線 新宿御苑前",
-      "a1Min": "3",
-      "a2": "副都心線 新宿三丁目",
-      "a2Min": "7",
-      "a3": "JR 新宿駅 東南口",
-      "a3Min": "8",
-      "a4": "新宿御苑 大木戸門",
-      "a4Min": "3",
-      "minUnit": "分",
-      "hood1": "新宿三丁目",
-      "hood2": "御苑 大木戸門",
-      "titleA": "Two minutes",
-      "titleEm": "from the garden gate.",
-      "pin": "K3V — Here"
-    },
-    "cta": {
-      "lab": "公式予約 — 最安値保証",
-      "body": "公式サイトからのご予約が、いちばんお得です。OTA手数料のぶん、そのまま宿泊料に還元しています。",
-      "primary": "このサイトで予約する",
-      "secondary": "問い合わせる",
-      "price": "¥18,000",
-      "priceNote": "/ 泊 — 2名から",
-      "note": "チェックイン 16:00 — チェックアウト 11:00\nセルフチェックイン / Wi-Fi無料 / 洗濯乾燥機",
-      "titleA": "Stay in the heart of Tokyo.",
-      "titleEm": "Live it beautifully."
+      "w4": "Shadow"
     },
     "footer": {
+      "copyright": "© 2026 K3V Shinjuku Gyoen",
+      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
       "desc": "新宿御苑のすぐそばで、東京を暮らすように滞在する。家具ブランドごとにコンセプトが異なる、全3室のデザイナーズ民泊。",
-      "stayH": "Stay",
-      "s1": "Room 01 — unico",
-      "s2": "Room 02 — journal standard",
-      "s3": "Room 03 — crash gate",
-      "s4": "公式サイトで予約",
       "houseH": "House",
-      "h1": "コンセプト",
-      "h2": "素材",
-      "h3": "まちあるき",
-      "h4": "アクセス",
-      "infoH": "Info",
       "i1": "ハウスルール",
       "i2": "よくある質問",
       "i3": "プライバシー",
       "i4": "住宅宿泊事業法 表示",
-      "followH": "Follow",
-      "fo1": "Instagram",
-      "fo2": "Airbnb",
-      "fo3": "Booking.com",
-      "copyright": "© 2026 K3V Shinjuku Gyoen",
-      "brand": "K3V Shinjuku Gyoen",
-      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
-      "creditGyoen": "Chambray Gyoen — Green × Denim × Wood × Brick"
+      "infoH": "Info",
+      "s1": "Room 01 — unico",
+      "s2": "Room 02 — journal standard",
+      "s3": "Room 03 — crash gate",
+      "stayH": "Stay"
     },
     "display": {
+      "access": "Find Us Here.",
       "hero": "Stay Steps Away.",
       "location": "Everything Nearby.",
       "renovated": "Washed, Not Worn.",
-      "amenities": "Bring Yourself.",
-      "rooms": "Three Rooms, Three Cloths.",
-      "access": "Find Us Here."
+      "rooms": "Three Rooms, Three Cloths."
     }
-  },
-  "mockNav": {
-    "location": "立地",
-    "renovated": "リノベーション",
-    "amenities": "設備",
-    "rooms": "お部屋",
-    "access": "アクセス",
-    "book": "空室を探す",
-    "menu": "メニュー",
-    "close": "閉じる",
-    "home": "ホーム"
   }
 }
