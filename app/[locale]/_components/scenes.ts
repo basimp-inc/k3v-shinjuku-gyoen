@@ -1,29 +1,31 @@
-/* Auto-extracted verbatim from docs/top-page-mock-8.html, with every SVG id
-   namespaced `wc-`: the Gyoen Green and Denim Sakura designs sit in the same
-   document and generic ids (#sky, #wall, #glow, #soft) would collide.
+/* TOPページのイラスト。SVG id は `fig-` 接頭辞（flora.ts と共有の名前空間）。
+   generic な id（#sky, #wall, #glow, #soft）はページ内の他の SVG と衝突するので、
+   接頭辞は外さないこと。
 
-   Kept as raw strings and injected with dangerouslySetInnerHTML: this is static
-   authored markup, and hand-converting several hundred SVG attributes to JSX
-   casing would only add transcription risk.
-   Re-run docs/gen-chambray-assets.py if the mock changes. */
+   raw string のまま dangerouslySetInnerHTML で注入している：静的な手書きマークアップ
+   であり、数百の SVG 属性を手で JSX のキャメルケースへ直しても転記ミスが増えるだけ。
+
+   **このファイルが正**。もとはモックHTMLから生成していたが、モックと生成スクリプトは
+   ~/workbench/design-mock-library/washed-chambray/ へ退避した。ROOM1_MORNING のように
+   手で足したものがあるので、あのスクリプトを本番へ向けて実行してはいけない。 */
 
 export const HERO = String.raw`
 <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
-              <linearGradient id="wc-sky" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fig-sky" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#EDF2F7"/><stop offset=".55" stop-color="#DCE7F0"/><stop offset="1" stop-color="#C6D6E4"/>
               </linearGradient>
-              <linearGradient id="wc-wd" x1="0" y1="0" x2="1" y2="0">
+              <linearGradient id="fig-wd" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0" stop-color="#AC5F27"/><stop offset=".4" stop-color="#E0A063"/>
                 <stop offset=".75" stop-color="#CC8043"/><stop offset="1" stop-color="#8C481E"/>
               </linearGradient>
-              <linearGradient id="wc-shoji" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fig-shoji" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#FBFAF6"/><stop offset="1" stop-color="#E8E9E2"/>
               </linearGradient>
-              <filter id="wc-bl"><feGaussianBlur stdDeviation="18"/></filter>
+              <filter id="fig-bl"><feGaussianBlur stdDeviation="18"/></filter>
             </defs>
 
-            <rect width="800" height="1000" fill="url(#wc-sky)"/>
+            <rect width="800" height="1000" fill="url(#fig-sky)"/>
             <!-- 霞んだ新宿のビル -->
             <g fill="#A6BED4" opacity=".55">
               <rect x="20" y="150" width="70" height="300"/><rect x="104" y="210" width="46" height="240"/>
@@ -41,17 +43,17 @@ export const HERO = String.raw`
             <rect y="470" width="800" height="60" fill="#1F3A2E" opacity=".85"/>
 
             <!-- 縁側の床（木） -->
-            <rect y="530" width="800" height="470" fill="url(#wc-wd)"/>
+            <rect y="530" width="800" height="470" fill="url(#fig-wd)"/>
             <g stroke="#3E2A1C" stroke-width="2" opacity=".5">
               <line x1="0" y1="596" x2="800" y2="596"/><line x1="0" y1="672" x2="800" y2="672"/>
               <line x1="0" y1="762" x2="800" y2="762"/><line x1="0" y1="868" x2="800" y2="868"/>
             </g>
             <!-- 朝日の帯 -->
-            <path d="M120 530 L420 530 L620 1000 L200 1000 Z" fill="#FFF6E2" opacity=".42" filter="url(#wc-bl)"/>
+            <path d="M120 530 L420 530 L620 1000 L200 1000 Z" fill="#FFF6E2" opacity=".42" filter="url(#fig-bl)"/>
 
             <!-- 障子 -->
             <g>
-              <rect x="430" y="120" width="330" height="410" fill="url(#wc-shoji)"/>
+              <rect x="430" y="120" width="330" height="410" fill="url(#fig-shoji)"/>
               <g stroke="#6B4A32" stroke-width="7" opacity=".9">
                 <line x1="540" y1="120" x2="540" y2="530"/><line x1="650" y1="120" x2="650" y2="530"/>
                 <line x1="430" y1="258" x2="760" y2="258"/><line x1="430" y1="396" x2="760" y2="396"/>
@@ -102,21 +104,21 @@ export const HERO = String.raw`
             <g fill="#2B2620" opacity=".8">
               <rect x="300" y="800" width="72" height="34" rx="17"/><rect x="392" y="812" width="72" height="34" rx="17"/>
             </g>
-            <ellipse cx="360" cy="850" rx="180" ry="26" fill="#2B2620" opacity=".16" filter="url(#wc-bl)"/>
+            <ellipse cx="360" cy="850" rx="180" ry="26" fill="#2B2620" opacity=".16" filter="url(#fig-bl)"/>
           </svg>
 `;
 
 export const LIVING = String.raw`
 <svg viewBox="0 0 800 960" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <defs>
-                <linearGradient id="wc-wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F4EE"/><stop offset="1" stop-color="#E4E0D6"/></linearGradient>
+                <linearGradient id="fig-wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F4EE"/><stop offset="1" stop-color="#E4E0D6"/></linearGradient>
                 <!-- 床は白茶けた無垢材。家具はすべて濃い木でとるので、
                      天板と床がひと続きに見えていた問題が解ける -->
-                <linearGradient id="wc-fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9DFC8"/><stop offset="1" stop-color="#C7B693"/></linearGradient>
-                <linearGradient id="wc-ch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#A6BED4"/></linearGradient>
-                <filter id="wc-bl2"><feGaussianBlur stdDeviation="24"/></filter>
+                <linearGradient id="fig-fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9DFC8"/><stop offset="1" stop-color="#C7B693"/></linearGradient>
+                <linearGradient id="fig-ch" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#A6BED4"/></linearGradient>
+                <filter id="fig-bl2"><feGaussianBlur stdDeviation="24"/></filter>
               </defs>
-              <rect width="800" height="960" fill="url(#wc-wl)"/>
+              <rect width="800" height="960" fill="url(#fig-wl)"/>
               <!-- 窓 -->
               <rect x="70" y="70" width="380" height="440" fill="#EFF5F8"/>
               <g stroke="#6B4A32" stroke-width="8"><line x1="260" y1="70" x2="260" y2="510"/><line x1="70" y1="290" x2="450" y2="290"/></g>
@@ -126,9 +128,9 @@ export const LIVING = String.raw`
               <g fill="#4C6E31" opacity=".5"><ellipse cx="190" cy="230" rx="52" ry="36"/></g>
               <g fill="#B0CC80" opacity=".85"><ellipse cx="128" cy="164" rx="38" ry="24"/><ellipse cx="346" cy="146" rx="30" ry="19"/><ellipse cx="364" cy="400" rx="34" ry="21"/></g>
               <!-- 壁に回り込む光 -->
-              <path d="M77 510 L443 510 L591 680 L164 680 Z" fill="#FFE9B8" opacity=".38" filter="url(#wc-bl2)"/>
+              <path d="M77 510 L443 510 L591 680 L164 680 Z" fill="#FFE9B8" opacity=".38" filter="url(#fig-bl2)"/>
               <!-- 床 -->
-              <rect y="680" width="800" height="280" fill="url(#wc-fl)"/>
+              <rect y="680" width="800" height="280" fill="url(#fig-fl)"/>
               <g stroke="#A8977A" stroke-width="2" opacity=".6">
                 <line x1="0" y1="726" x2="800" y2="726"/><line x1="0" y1="790" x2="800" y2="790"/><line x1="0" y1="872" x2="800" y2="872"/>
                 <line x1="220" y1="680" x2="188" y2="960"/><line x1="540" y1="680" x2="580" y2="960"/>
@@ -142,13 +144,13 @@ export const LIVING = String.raw`
                 <path d="M370 680 L384 680 L579 960 L561 960 Z"/>
                 <path d="M200 745 L645 745 L664 768 L212 768 Z"/>
               </g>
-              <ellipse cx="378" cy="686" rx="215" ry="34" fill="#FFE9B8" opacity=".5" filter="url(#wc-bl2)"/>
+              <ellipse cx="378" cy="686" rx="215" ry="34" fill="#FFE9B8" opacity=".5" filter="url(#fig-bl2)"/>
               <g fill="#FFFDF4" opacity=".38"><path d="M300 690 L338 690 L505 950 L462 950 Z"/></g>
               <!-- 壁と床の見切り -->
               <rect y="680" width="800" height="9" fill="#6B4A32" opacity=".55"/>
               <!-- シャンブレーのソファ -->
               <g>
-                <rect x="120" y="540" width="480" height="150" rx="14" fill="url(#wc-ch)"/>
+                <rect x="120" y="540" width="480" height="150" rx="14" fill="url(#fig-ch)"/>
                 <rect x="120" y="622" width="480" height="112" rx="16" fill="#B8CCDE"/>
                 <rect x="152" y="576" width="196" height="56" rx="10" fill="#EDF2F7"/>
                 <rect x="368" y="570" width="196" height="62" rx="10" fill="#D3E0EB"/>
@@ -159,7 +161,7 @@ export const LIVING = String.raw`
               </g>
               <!-- 低いテーブル。濃いウォルナットで、白茶けた床から確実に浮かす -->
               <g>
-                <ellipse cx="390" cy="884" rx="160" ry="18" fill="#2B2620" opacity=".22" filter="url(#wc-bl2)"/>
+                <ellipse cx="390" cy="884" rx="160" ry="18" fill="#2B2620" opacity=".22" filter="url(#fig-bl2)"/>
                 <rect x="250" y="808" width="280" height="16" rx="4" fill="#5A3D28"/>
                 <rect x="250" y="806" width="280" height="5" rx="2" fill="#8F6743"/>
                 <rect x="256" y="824" width="268" height="9" fill="#3F2A1B"/>
@@ -181,7 +183,7 @@ export const LIVING = String.raw`
               <!-- 窓辺の松。低く広く仕立てた盆栽。
                    slice で右が切られても鉢が欠けないよう内側に寄せてある -->
               <g transform="translate(-28 0)">
-                <ellipse cx="694" cy="846" rx="76" ry="13" fill="#2B2620" opacity=".2" filter="url(#wc-bl2)"/>
+                <ellipse cx="694" cy="846" rx="76" ry="13" fill="#2B2620" opacity=".2" filter="url(#fig-bl2)"/>
                 <rect x="636" y="832" width="116" height="8" rx="3" fill="#4A3222"/>
                 <rect x="652" y="778" width="84" height="54" rx="5" fill="#3A322A"/>
                 <rect x="646" y="772" width="96" height="13" rx="4" fill="#4B4137"/>
@@ -213,14 +215,14 @@ export const GYOEN_SQ = String.raw`
 export const ROOM1 = String.raw`
 <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            <linearGradient id="wc-r1w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E9E3D6"/></linearGradient>
+            <linearGradient id="fig-r1w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E9E3D6"/></linearGradient>
             <!-- 掃き出し窓。朝いちばんの逆光なので、上は白く抜いて
                  下にいくほど暖色に寄せる。光源そのものを画にする -->
-            <linearGradient id="wc-r1gl" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="fig-r1gl" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#F4F8FA"/><stop offset=".5" stop-color="#FBF3E2"/><stop offset="1" stop-color="#FFEDC8"/>
             </linearGradient>
             <!-- 縦に連なる帯のシアー。杉綾の織り柄は細い糸目で示す -->
-            <pattern id="wc-r1cur" width="38" height="26" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r1cur" width="38" height="26" patternUnits="userSpaceOnUse">
               <rect width="38" height="26" fill="#DCE7EE" opacity=".4"/>
               <rect x="2" width="30" height="26" fill="#C3D2DC" opacity=".46"/>
               <path d="M2 26 L10 13 L18 26 M18 26 L26 13 L34 26" fill="none" stroke="#8FA9BF" stroke-width="1.4" opacity=".4"/>
@@ -228,26 +230,26 @@ export const ROOM1 = String.raw`
             </pattern>
             <!-- 床は木ではなく、目の詰まった濃いグレーのループカーペット。
                  この部屋でいちばん暗い面なので、光はここでいちばん効く -->
-            <pattern id="wc-r1cp" width="12" height="8" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r1cp" width="12" height="8" patternUnits="userSpaceOnUse">
               <rect width="12" height="8" fill="#3D3833"/>
               <rect width="6" height="4" fill="#4C463F"/><rect x="6" y="4" width="6" height="4" fill="#4C463F"/>
               <rect y="7" width="12" height="1" fill="#2B2620"/>
             </pattern>
             <!-- 白地に細いストライプの寝具 -->
-            <pattern id="wc-r1bd" width="13" height="8" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r1bd" width="13" height="8" patternUnits="userSpaceOnUse">
               <rect width="13" height="8" fill="#FAF8F3"/>
               <rect width="4" height="8" fill="#F4F1E9"/>
             </pattern>
-            <filter id="wc-b1"><feGaussianBlur stdDeviation="22"/></filter>
+            <filter id="fig-b1"><feGaussianBlur stdDeviation="22"/></filter>
           </defs>
 
           <!-- 天井と壁 -->
-          <rect width="1000" height="700" fill="url(#wc-r1w)"/>
+          <rect width="1000" height="700" fill="url(#fig-r1w)"/>
           <rect width="1000" height="96" fill="#FCFAF5"/>
           <rect y="93" width="1000" height="4" fill="#E0DACC"/>
           <!-- 丸型のシーリングライト。slice で上が切られるので
                モバイル幅（y 37 から）に収まる高さに置く -->
-          <ellipse cx="392" cy="68" rx="132" ry="50" fill="#FFF1CE" opacity=".4" filter="url(#wc-b1)"/>
+          <ellipse cx="392" cy="68" rx="132" ry="50" fill="#FFF1CE" opacity=".4" filter="url(#fig-b1)"/>
           <ellipse cx="392" cy="64" rx="78" ry="27" fill="#FFFDF4"/>
           <ellipse cx="392" cy="60" rx="58" ry="17" fill="#FFFFFF"/>
 
@@ -261,7 +263,7 @@ export const ROOM1 = String.raw`
 
           <!-- 壁いっぱいの掃き出し窓 -->
           <g>
-            <rect x="212" y="140" width="648" height="400" fill="url(#wc-r1gl)"/>
+            <rect x="212" y="140" width="648" height="400" fill="url(#fig-r1gl)"/>
             <!-- 向かいの建物。シアー越しなので輪郭だけ残す -->
             <g fill="#B6C6D4" opacity=".5">
               <rect x="626" y="192" width="148" height="348"/><rect x="786" y="240" width="74" height="300"/>
@@ -279,7 +281,7 @@ export const ROOM1 = String.raw`
               <rect x="212" y="140" width="18" height="400"/><rect x="842" y="140" width="18" height="400"/>
             </g>
             <!-- シアーカーテン -->
-            <rect x="212" y="162" width="648" height="378" fill="url(#wc-r1cur)"/>
+            <rect x="212" y="162" width="648" height="378" fill="url(#fig-r1cur)"/>
             <!-- カーテンレールのヘッダー -->
             <rect x="212" y="140" width="648" height="26" fill="#2F3E48"/>
             <rect x="212" y="140" width="648" height="7" fill="#4A5D6B" opacity=".85"/>
@@ -287,7 +289,7 @@ export const ROOM1 = String.raw`
           </g>
 
           <!-- カーペット -->
-          <rect y="540" width="1000" height="160" fill="url(#wc-r1cp)"/>
+          <rect y="540" width="1000" height="160" fill="url(#fig-r1cp)"/>
           <rect y="540" width="1000" height="7" fill="#241F1A" opacity=".7"/>
 
           <!-- 右手の作り付けクローゼット -->
@@ -308,7 +310,7 @@ export const ROOM1 = String.raw`
             <path d="M724 176 L764 176 L648 700 L578 700 Z" fill="#FFFDF4" opacity=".3"/>
           </g>
           <!-- 窓ぎわの照り返し -->
-          <ellipse cx="536" cy="548" rx="380" ry="36" fill="#FFE9B8" opacity=".42" filter="url(#wc-b1)"/>
+          <ellipse cx="536" cy="548" rx="380" ry="36" fill="#FFE9B8" opacity=".42" filter="url(#fig-b1)"/>
 
           <!-- 奥のベッド。シングル寄りの細いほう -->
           <g>
@@ -324,7 +326,7 @@ export const ROOM1 = String.raw`
               <rect x="137" y="392" width="49" height="30" fill="#DAD6CC"/>
               <rect x="112" y="392" width="74" height="58" rx="4" fill="none" stroke="#D6D0C2" stroke-width="2"/>
             </g>
-            <path d="M52 434 L268 434 L256 700 L14 700 Z" fill="url(#wc-r1bd)"/>
+            <path d="M52 434 L268 434 L256 700 L14 700 Z" fill="url(#fig-r1bd)"/>
             <path d="M52 434 L268 434 L266 466 L50 466 Z" fill="#FFFFFF" opacity=".55"/>
             <!-- 掛け布団のたるみ。縦のストライプと別の線で厚みを出す -->
             <g fill="none" stroke="#EBE6DA" stroke-width="4" opacity=".9">
@@ -335,7 +337,7 @@ export const ROOM1 = String.raw`
           </g>
 
           <!-- ベッドの間に落ちる影。2台が別々のベッドに見える手当て -->
-          <path d="M268 436 L302 436 L280 700 L250 700 Z" fill="#241F1A" opacity=".35" filter="url(#wc-b1)"/>
+          <path d="M268 436 L302 436 L280 700 L250 700 Z" fill="#241F1A" opacity=".35" filter="url(#fig-b1)"/>
 
           <!-- 手前のベッド。幅の広いほう -->
           <g>
@@ -367,7 +369,7 @@ export const ROOM1 = String.raw`
               <g fill="#C8783A"><circle cx="566" cy="420" r="3"/><circle cx="582" cy="424" r="3"/></g>
               <rect x="504" y="390" width="94" height="84" rx="5" fill="none" stroke="#245542" stroke-width="3"/>
             </g>
-            <path d="M302 450 L734 450 L768 700 L274 700 Z" fill="url(#wc-r1bd)"/>
+            <path d="M302 450 L734 450 L768 700 L274 700 Z" fill="url(#fig-r1bd)"/>
             <path d="M302 450 L734 450 L739 486 L298 486 Z" fill="#FFFFFF" opacity=".6"/>
             <!-- 掛け布団のたるみ -->
             <g fill="none" stroke="#EBE6DA" stroke-width="5" opacity=".9">
@@ -391,17 +393,17 @@ export const ROOM1 = String.raw`
 export const ROOM1_MORNING = String.raw`
 <svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs>
-              <linearGradient id="wc-hwall" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fig-hwall" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#F7F5EF"/><stop offset="1" stop-color="#E6E1D5"/>
               </linearGradient>
               <!-- ベッドの背は掃き出し窓。朝いちばんの逆光なので上は白く
                    抜いて、下にいくほど暖色に寄せる（ROOM 01 と同じ作り） -->
-              <linearGradient id="wc-hgl" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="fig-hgl" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#F4F8FA"/><stop offset=".5" stop-color="#FBF3E2"/><stop offset="1" stop-color="#FFEDC8"/>
               </linearGradient>
               <!-- 縦に連なる帯のシアー。写真と同じく、濃い色のヘッダー
                    レールから吊った縦型で、帯の合わせ目だけ濃く残す -->
-              <pattern id="wc-hcur" width="34" height="24" patternUnits="userSpaceOnUse">
+              <pattern id="fig-hcur" width="34" height="24" patternUnits="userSpaceOnUse">
                 <rect width="34" height="24" fill="#E4EDF3" opacity=".38"/>
                 <rect x="2" width="27" height="24" fill="#C8D7E1" opacity=".42"/>
                 <path d="M2 24 L9 12 L16 24 M16 24 L23 12 L30 24" fill="none" stroke="#93AABD" stroke-width="1.3" opacity=".38"/>
@@ -412,30 +414,30 @@ export const ROOM1_MORNING = String.raw`
                    ROOM 01 のカーペットより一段明るく織ってある：この画では
                    画面を横切る帯になるので、同じ濃さだと "重い・シック
                    すぎる" 側に倒れてしまう -->
-              <pattern id="wc-hcp" width="12" height="8" patternUnits="userSpaceOnUse">
+              <pattern id="fig-hcp" width="12" height="8" patternUnits="userSpaceOnUse">
                 <rect width="12" height="8" fill="#514A42"/>
                 <rect width="6" height="4" fill="#5E574E"/><rect x="6" y="4" width="6" height="4" fill="#5E574E"/>
                 <rect y="7" width="12" height="1" fill="#3D372F"/>
               </pattern>
               <!-- 白地に細いストライプの寝具（ROOM 01 と同じ生地） -->
-              <pattern id="wc-hbd" width="13" height="8" patternUnits="userSpaceOnUse">
+              <pattern id="fig-hbd" width="13" height="8" patternUnits="userSpaceOnUse">
                 <rect width="13" height="8" fill="#FAF8F3"/>
                 <rect width="4" height="8" fill="#EFEBE1"/>
               </pattern>
               <!-- ダイニング側だけがライトオークの無垢材。上に置く家具は
                    すべて濃い木でとる。床と天板が同系色で溶ける問題の解 -->
-              <linearGradient id="wc-hfl" x1="0" y1="0" x2="1" y2="0">
+              <linearGradient id="fig-hfl" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0" stop-color="#C9B896"/><stop offset=".4" stop-color="#E7DDC5"/>
                 <stop offset=".75" stop-color="#D9CCAD"/><stop offset="1" stop-color="#C2B08E"/>
               </linearGradient>
-              <linearGradient id="wc-htbl" x1="0" y1="0" x2="1" y2="1">
+              <linearGradient id="fig-htbl" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="#D9C098"/><stop offset=".55" stop-color="#C2A377"/><stop offset="1" stop-color="#A9895E"/>
               </linearGradient>
-              <filter id="wc-hbl"><feGaussianBlur stdDeviation="18"/></filter>
+              <filter id="fig-hbl"><feGaussianBlur stdDeviation="18"/></filter>
             </defs>
 
             <!-- 天井と白い壁 -->
-            <rect width="800" height="1000" fill="url(#wc-hwall)"/>
+            <rect width="800" height="1000" fill="url(#fig-hwall)"/>
             <rect width="800" height="150" fill="#FCFAF5"/>
             <rect y="146" width="800" height="4" fill="#DED8CA"/>
 
@@ -450,7 +452,7 @@ export const ROOM1_MORNING = String.raw`
             <!-- 壁いっぱいの掃き出し窓。ベッドの背は写真と同じこのシアー
                  一枚で、オリーブの壁は立てない -->
             <g>
-              <rect x="124" y="150" width="648" height="290" fill="url(#wc-hgl)"/>
+              <rect x="124" y="150" width="648" height="290" fill="url(#fig-hgl)"/>
               <!-- 向かいの建物。シアー越しなので輪郭だけ残す -->
               <g fill="#B6C6D4" opacity=".42">
                 <rect x="142" y="212" width="80" height="228"/><rect x="560" y="186" width="126" height="254"/><rect x="700" y="230" width="58" height="210"/>
@@ -467,7 +469,7 @@ export const ROOM1_MORNING = String.raw`
                 <rect x="124" y="150" width="15" height="290"/><rect x="757" y="150" width="15" height="290"/>
               </g>
               <!-- シアーカーテン -->
-              <rect x="124" y="174" width="648" height="266" fill="url(#wc-hcur)"/>
+              <rect x="124" y="174" width="648" height="266" fill="url(#fig-hcur)"/>
               <!-- 開口ぜんぶを光源として持ち上げる -->
               <rect x="124" y="174" width="648" height="266" fill="#FFF6DF" opacity=".16"/>
               <!-- カーテンレールのヘッダー -->
@@ -475,16 +477,16 @@ export const ROOM1_MORNING = String.raw`
               <rect x="124" y="150" width="648" height="7" fill="#4A5D6B" opacity=".85"/>
               <rect x="124" y="150" width="648" height="290" fill="none" stroke="#59686F" stroke-width="4"/>
               <!-- 窓まわりのにじみ -->
-              <rect x="112" y="138" width="672" height="314" fill="#FFF1CE" opacity=".22" filter="url(#wc-hbl)"/>
+              <rect x="112" y="138" width="672" height="314" fill="#FFF1CE" opacity=".22" filter="url(#fig-hbl)"/>
             </g>
 
             <!-- ベッドエリアの床。カーペットは継ぎ目なしの一枚で通し、
                  杉綾のラグは敷かない -->
-            <rect y="440" width="800" height="208" fill="url(#wc-hcp)"/>
+            <rect y="440" width="800" height="208" fill="url(#fig-hcp)"/>
             <rect y="440" width="800" height="6" fill="#241F1A" opacity=".5"/>
 
             <!-- ダイニング側のライトオーク -->
-            <rect y="648" width="800" height="352" fill="url(#wc-hfl)"/>
+            <rect y="648" width="800" height="352" fill="url(#fig-hfl)"/>
             <g stroke="#A8977A" stroke-width="2" opacity=".55">
               <line x1="0" y1="712" x2="800" y2="712"/><line x1="0" y1="792" x2="800" y2="792"/>
               <line x1="0" y1="886" x2="800" y2="886"/>
@@ -503,17 +505,17 @@ export const ROOM1_MORNING = String.raw`
               <path d="M562 186 L596 186 L570 1000 L494 1000 Z" fill="#FFFDF4" opacity=".18"/>
             </g>
             <!-- 窓ぎわの照り返し -->
-            <ellipse cx="440" cy="450" rx="320" ry="26" fill="#FFE9B8" opacity=".38" filter="url(#wc-hbl)"/>
+            <ellipse cx="440" cy="450" rx="320" ry="26" fill="#FFE9B8" opacity=".38" filter="url(#fig-hbl)"/>
 
             <!-- 奥のベッド。柱の向こうに続く、シングル寄りの細いほう -->
             <g>
               <!-- 足もとの落ち影。カーペットに置いてあることを先に描く -->
-              <ellipse cx="132" cy="524" rx="150" ry="20" fill="#1C1813" opacity=".3" filter="url(#wc-hbl)"/>
+              <ellipse cx="132" cy="524" rx="150" ry="20" fill="#1C1813" opacity=".3" filter="url(#fig-hbl)"/>
               <rect x="34" y="312" width="206" height="56" rx="5" fill="#C6A886"/>
               <g stroke="#B08A63" stroke-width="3" opacity=".6"><line x1="86" y1="312" x2="86" y2="368"/><line x1="138" y1="312" x2="138" y2="368"/><line x1="190" y1="312" x2="190" y2="368"/></g>
               <rect x="34" y="312" width="206" height="5" rx="3" fill="#FFE9B8" opacity=".7"/>
               <rect x="52" y="338" width="116" height="38" rx="10" fill="#FBFAF6"/>
-              <path d="M32 368 L242 368 L262 520 L6 520 Z" fill="url(#wc-hbd)"/>
+              <path d="M32 368 L242 368 L262 520 L6 520 Z" fill="url(#fig-hbd)"/>
               <!-- 折り返したシーツ。ベッドに見えるかどうかはこの一本 -->
               <path d="M32 368 L242 368 L245 394 L29 394 Z" fill="#FFFFFF" opacity=".7"/>
               <path d="M29 394 L245 394" fill="none" stroke="#D3CCBC" stroke-width="2.5"/>
@@ -530,7 +532,7 @@ export const ROOM1_MORNING = String.raw`
                  部屋はヘッドボードだけの低いベッドで、天蓋があると
                  窓の光をまるごと遮ってしまう -->
             <g>
-              <ellipse cx="530" cy="552" rx="250" ry="22" fill="#1C1813" opacity=".3" filter="url(#wc-hbl)"/>
+              <ellipse cx="530" cy="552" rx="250" ry="22" fill="#1C1813" opacity=".3" filter="url(#fig-hbl)"/>
               <rect x="336" y="300" width="382" height="64" rx="5" fill="#C6A886"/>
               <g stroke="#B08A63" stroke-width="3" opacity=".6"><line x1="431" y1="300" x2="431" y2="364"/><line x1="527" y1="300" x2="527" y2="364"/><line x1="623" y1="300" x2="623" y2="364"/></g>
               <rect x="336" y="300" width="382" height="6" rx="3" fill="#FFE9B8" opacity=".75"/>
@@ -559,7 +561,7 @@ export const ROOM1_MORNING = String.raw`
                 <g fill="#C8783A"><circle cx="548" cy="341" r="3"/><circle cx="560" cy="345" r="3"/></g>
                 <rect x="496" y="316" width="78" height="72" rx="5" fill="none" stroke="#245542" stroke-width="3"/>
               </g>
-              <path d="M332 364 L722 364 L760 548 L296 548 Z" fill="url(#wc-hbd)"/>
+              <path d="M332 364 L722 364 L760 548 L296 548 Z" fill="url(#fig-hbd)"/>
               <path d="M332 364 L722 364 L726 394 L330 394 Z" fill="#FFFFFF" opacity=".75"/>
               <path d="M330 394 L726 394" fill="none" stroke="#D3CCBC" stroke-width="2.5"/>
               <g fill="none" stroke="#E4DFD2" stroke-width="5" opacity=".95">
@@ -609,12 +611,12 @@ export const ROOM1_MORNING = String.raw`
             <!-- 丸い木のテーブル。木目の出たライトオークで、
                  同じ椅子は一脚もない -->
             <g>
-              <ellipse cx="300" cy="808" rx="212" ry="26" fill="#2B2620" opacity=".18" filter="url(#wc-hbl)"/>
+              <ellipse cx="300" cy="808" rx="212" ry="26" fill="#2B2620" opacity=".18" filter="url(#fig-hbl)"/>
               <g stroke="#8F6743" stroke-width="14" stroke-linecap="round">
                 <line x1="192" y1="768" x2="158" y2="856"/><line x1="410" y1="768" x2="444" y2="856"/><line x1="300" y1="778" x2="300" y2="866"/>
               </g>
               <ellipse cx="300" cy="754" rx="202" ry="52" fill="#A9895E"/>
-              <ellipse cx="300" cy="744" rx="202" ry="52" fill="url(#wc-htbl)"/>
+              <ellipse cx="300" cy="744" rx="202" ry="52" fill="url(#fig-htbl)"/>
               <g fill="none" stroke="#B4956A" stroke-width="2.5" opacity=".55">
                 <ellipse cx="296" cy="743" rx="152" ry="37"/><ellipse cx="292" cy="742" rx="100" ry="23"/><ellipse cx="288" cy="741" rx="48" ry="11"/>
               </g>
@@ -672,15 +674,15 @@ export const ROOM1_MORNING = String.raw`
 export const ROOM2 = String.raw`
 <svg viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            <linearGradient id="wc-r2w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F3EC"/><stop offset="1" stop-color="#E7E1D4"/></linearGradient>
+            <linearGradient id="fig-r2w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F3EC"/><stop offset="1" stop-color="#E7E1D4"/></linearGradient>
             <!-- バルコニーの掃き出し窓。ROOM 01 のような朝の逆光ではなく、
                  日中のやわらかい外光。上は白く抜いて、下だけ床の色を拾う -->
-            <linearGradient id="wc-r2gl" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="fig-r2gl" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0" stop-color="#F1F6F9"/><stop offset=".55" stop-color="#EBF0F0"/><stop offset="1" stop-color="#F6F0E1"/>
             </linearGradient>
             <!-- 打ち放しのコンクリート。梁・柱・窓わきの壁を同じ地で通す。
                  この部屋の Urban Vintage はここが持っている -->
-            <pattern id="wc-r2cc" width="132" height="72" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r2cc" width="132" height="72" patternUnits="userSpaceOnUse">
               <rect width="132" height="72" fill="#B7B2A8"/>
               <rect width="132" height="36" fill="#BCB7AD"/>
               <rect y="34" width="132" height="2" fill="#ACA79D" opacity=".6"/>
@@ -689,35 +691,35 @@ export const ROOM2 = String.raw`
             </pattern>
             <!-- 床は木ではなくタイルカーペット。杢の入った、この部屋で
                  いちばん暗い面 -->
-            <pattern id="wc-r2cp" width="12" height="8" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r2cp" width="12" height="8" patternUnits="userSpaceOnUse">
               <rect width="12" height="8" fill="#4E463D"/>
               <rect width="6" height="4" fill="#5C544A"/><rect x="6" y="4" width="6" height="4" fill="#5C544A"/>
               <rect y="7" width="12" height="1" fill="#39332C"/>
             </pattern>
             <!-- 白地に細いストライプの寝具（ROOM 01 と同じ生地） -->
-            <pattern id="wc-r2bd" width="13" height="8" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r2bd" width="13" height="8" patternUnits="userSpaceOnUse">
               <rect width="13" height="8" fill="#FAF8F3"/>
               <rect width="4" height="8" fill="#F0ECE2"/>
             </pattern>
             <!-- 緑のスローの下に重ねた、生成りのワッフルブランケット -->
-            <pattern id="wc-r2wf" width="11" height="11" patternUnits="userSpaceOnUse">
+            <pattern id="fig-r2wf" width="11" height="11" patternUnits="userSpaceOnUse">
               <rect width="11" height="11" fill="#EFE9DA"/>
               <path d="M0 10H11M10 0V11" stroke="#DCD3C0" stroke-width="1.5"/>
             </pattern>
-            <linearGradient id="wc-r2tb" x1="0" y1="0" x2="1" y2="0">
+            <linearGradient id="fig-r2tb" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0" stop-color="#D6BB93"/><stop offset=".55" stop-color="#C2A377"/><stop offset="1" stop-color="#AC8C61"/>
             </linearGradient>
-            <filter id="wc-b2"><feGaussianBlur stdDeviation="20"/></filter>
+            <filter id="fig-b2"><feGaussianBlur stdDeviation="20"/></filter>
           </defs>
 
           <!-- 天井と壁 -->
-          <rect width="1000" height="700" fill="url(#wc-r2w)"/>
+          <rect width="1000" height="700" fill="url(#fig-r2w)"/>
           <rect width="1000" height="58" fill="#FBF8F1"/>
 
           <!-- 現しの梁。画面をまるごと横切る。天井から下がっているので、
                モバイルで上が切られても帯として残る高さに置く -->
           <g>
-            <path d="M0 34 L1000 62 L1000 142 L0 126 Z" fill="url(#wc-r2cc)"/>
+            <path d="M0 34 L1000 62 L1000 142 L0 126 Z" fill="url(#fig-r2cc)"/>
             <path d="M0 34 L1000 62 L1000 76 L0 50 Z" fill="#C8C3B9"/>
             <path d="M0 126 L1000 142 L1000 152 L0 137 Z" fill="#8E8980" opacity=".55"/>
           </g>
@@ -728,7 +730,7 @@ export const ROOM2 = String.raw`
           <!-- バルコニーの掃き出し窓。ROOM 01 と違って、この部屋は
                カーテンを引いていない。外光がそのまま入る -->
           <g>
-            <rect x="786" y="196" width="214" height="256" fill="url(#wc-r2gl)"/>
+            <rect x="786" y="196" width="214" height="256" fill="url(#fig-r2gl)"/>
             <!-- 向かいの建物。輪郭とベランダの開口だけ残す -->
             <g fill="#B6C6D4" opacity=".45">
               <rect x="800" y="222" width="72" height="230"/><rect x="884" y="250" width="58" height="202"/><rect x="954" y="232" width="46" height="220"/>
@@ -751,7 +753,7 @@ export const ROOM2 = String.raw`
 
           <!-- 窓わきの、コンクリート現しの壁 -->
           <g>
-            <rect x="704" y="190" width="82" height="262" fill="url(#wc-r2cc)"/>
+            <rect x="704" y="190" width="82" height="262" fill="url(#fig-r2cc)"/>
             <rect x="704" y="190" width="9" height="262" fill="#C6C1B7" opacity=".8"/>
             <g fill="#948F86" opacity=".55"><circle cx="730" cy="252" r="3.4"/><circle cx="762" cy="316" r="3.4"/><circle cx="730" cy="380" r="3.4"/></g>
           </g>
@@ -777,13 +779,13 @@ export const ROOM2 = String.raw`
           </g>
 
           <!-- タイルカーペットの床 -->
-          <rect y="452" width="1000" height="248" fill="url(#wc-r2cp)"/>
+          <rect y="452" width="1000" height="248" fill="url(#fig-r2cp)"/>
           <rect y="452" width="1000" height="7" fill="#2C2721" opacity=".6"/>
           <g stroke="#3B352D" stroke-width="2" opacity=".45">
             <line x1="0" y1="528" x2="1000" y2="528"/><line x1="0" y1="614" x2="1000" y2="614"/>
             <line x1="640" y1="452" x2="354" y2="700"/><line x1="822" y1="452" x2="1000" y2="529"/>
           </g>
-          <ellipse cx="538" cy="468" rx="62" ry="12" fill="#241F1A" opacity=".35" filter="url(#wc-b2)"/>
+          <ellipse cx="538" cy="468" rx="62" ry="12" fill="#241F1A" opacity=".35" filter="url(#fig-b2)"/>
 
           <!-- 窓からの光。カーペットが部屋でいちばん暗い面なので、
                光条は床の上でいちばん効く -->
@@ -792,7 +794,7 @@ export const ROOM2 = String.raw`
             <path d="M802 210 L898 210 L690 700 L494 700 Z" fill="#FFFCF2" opacity=".1"/>
             <path d="M934 208 L1000 208 L1000 700 L836 700 Z" fill="#FFFCF2" opacity=".09"/>
           </g>
-          <ellipse cx="884" cy="470" rx="210" ry="26" fill="#FFF1CE" opacity=".4" filter="url(#wc-b2)"/>
+          <ellipse cx="884" cy="470" rx="210" ry="26" fill="#FFF1CE" opacity=".4" filter="url(#fig-b2)"/>
 
           <!-- ダイニングの上に一灯だけ下がる、白いホーローのペンダント -->
           <g>
@@ -801,7 +803,7 @@ export const ROOM2 = String.raw`
             <path d="M748 256 L778 283 q-30 8 -60 0 Z" fill="#FFFFFF" opacity=".6"/>
             <path d="M694 304 q54 16 108 0 q-54 10 -108 0 Z" fill="#DCD5C6"/>
             <circle cx="748" cy="308" r="9" fill="#F0D9A8"/>
-            <circle cx="748" cy="312" r="42" fill="#F0D9A8" opacity=".22" filter="url(#wc-b2)"/>
+            <circle cx="748" cy="312" r="42" fill="#F0D9A8" opacity=".22" filter="url(#fig-b2)"/>
           </g>
 
           <!-- 窓を背にした、向こう側の椅子2脚 -->
@@ -820,9 +822,9 @@ export const ROOM2 = String.raw`
 
           <!-- ライトオークの角テーブル -->
           <g>
-            <ellipse cx="880" cy="576" rx="184" ry="24" fill="#241F1A" opacity=".3" filter="url(#wc-b2)"/>
+            <ellipse cx="880" cy="576" rx="184" ry="24" fill="#241F1A" opacity=".3" filter="url(#fig-b2)"/>
             <g stroke="#A9895E" stroke-width="10" stroke-linecap="round"><line x1="720" y1="470" x2="714" y2="530"/></g>
-            <path d="M700 450 L968 438 L1014 482 L746 496 Z" fill="url(#wc-r2tb)"/>
+            <path d="M700 450 L968 438 L1014 482 L746 496 Z" fill="url(#fig-r2tb)"/>
             <g fill="none" stroke="#B4956A" stroke-width="2.5" opacity=".4">
               <path d="M714 464 L980 452"/><path d="M728 478 L994 466"/>
             </g>
@@ -861,7 +863,7 @@ export const ROOM2 = String.raw`
           </g>
 
           <!-- ベッドがカーペットに落とす影 -->
-          <ellipse cx="230" cy="596" rx="300" ry="26" fill="#1C1813" opacity=".32" filter="url(#wc-b2)"/>
+          <ellipse cx="230" cy="596" rx="300" ry="26" fill="#1C1813" opacity=".32" filter="url(#fig-b2)"/>
 
           <!-- ヘッドボードの奥に回した棚。苔玉と、読みかけの本 -->
           <g>
@@ -901,7 +903,7 @@ export const ROOM2 = String.raw`
           <g>
             <path d="M22 396 L430 396 L494 560 L-46 560 Z" fill="#C6A886"/>
             <path d="M22 396 L430 396 L432 404 L20 404 Z" fill="#DCC4A2"/>
-            <path d="M42 406 L410 406 L462 552 L-14 552 Z" fill="url(#wc-r2bd)"/>
+            <path d="M42 406 L410 406 L462 552 L-14 552 Z" fill="url(#fig-r2bd)"/>
             <path d="M42 406 L410 406 L414 438 L38 438 Z" fill="#FFFFFF" opacity=".75"/>
             <path d="M38 438 L414 438" fill="none" stroke="#D3CCBC" stroke-width="2.5"/>
             <!-- 足もとに掛けたセージのスロー -->
@@ -909,7 +911,7 @@ export const ROOM2 = String.raw`
             <path d="M28 452 L418 452 L419 462 L26 462 Z" fill="#A2B389"/>
             <g fill="none" stroke="#7F9168" stroke-width="3" opacity=".45"><path d="M150 458 L140 500"/><path d="M272 458 L270 500"/><path d="M372 458 L386 500"/></g>
             <!-- その下に重ねた、生成りのワッフル -->
-            <path d="M14 500 L432 500 L448 534 L-4 534 Z" fill="url(#wc-r2wf)"/>
+            <path d="M14 500 L432 500 L448 534 L-4 534 Z" fill="url(#fig-r2wf)"/>
             <path d="M14 500 L432 500 L433 508 L13 508 Z" fill="#F7F2E6" opacity=".8"/>
             <!-- スローの房。ベッドの左の脇に垂れる -->
             <g stroke="#9BAC83" stroke-width="2.5" stroke-linecap="round" opacity=".75">
@@ -974,10 +976,9 @@ export const ROOM2 = String.raw`
 export const ROOM3 = String.raw`
 <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
           <!-- ROOM 03 だけは描き起こしのイラストを画像アセットで持つ。
-               外側の <svg> は残す：docs/gen-chambray-assets.py が mock 内の
-               <svg> ブロックをちょうど15個数える前提なので、<img> に置き換えると
-               生成が落ちる。この形なら .ph / .scene の CSS もコンポーネントも
-               変えずに済み、slice の切り抜き挙動もそのまま効く。
+               外側の <svg> をそのまま残しているので、.ph / .scene の CSS も
+               コンポーネントも他のシーンと同じで済み、slice の切り抜き挙動も
+               そのまま効く。
                viewBox は原画と同じ 4:3。内側の <image> にも slice を掛けて、
                差し替え画像の比率が多少ずれても歪まないようにしてある。
                外枠だけ xMidYMax（下寄せ）にしてある：desktop は .pic が 1.334 で
@@ -990,8 +991,8 @@ export const ROOM3 = String.raw`
 
 export const EXP_GYOEN = String.raw`
 <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs><linearGradient id="wc-e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE7F0"/><stop offset="1" stop-color="#EDEEE0"/></linearGradient></defs>
-            <rect width="600" height="800" fill="url(#wc-e1)"/>
+            <defs><linearGradient id="fig-e1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE7F0"/><stop offset="1" stop-color="#EDEEE0"/></linearGradient></defs>
+            <rect width="600" height="800" fill="url(#fig-e1)"/>
             <g fill="#A6BED4" opacity=".5"><rect x="16" y="90" width="62" height="200"/><rect x="470" y="50" width="82" height="240"/><rect x="380" y="130" width="46" height="160"/></g>
             <g fill="#4C6E31"><ellipse cx="140" cy="270" rx="150" ry="118"/><ellipse cx="430" cy="230" rx="168" ry="128"/><ellipse cx="290" cy="330" rx="176" ry="116"/></g>
             <g fill="#74994A" opacity=".9"><ellipse cx="110" cy="222" rx="70" ry="52"/><ellipse cx="450" cy="182" rx="80" ry="56"/></g>
@@ -1076,8 +1077,8 @@ export const EXP_YOKOCHO = String.raw`
 
 export const EXP_SKYLINE = String.raw`
 <svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs><linearGradient id="wc-e5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#C6D6E4"/></linearGradient></defs>
-            <rect width="600" height="800" fill="url(#wc-e5)"/>
+            <defs><linearGradient id="fig-e5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DEE8F1"/><stop offset="1" stop-color="#C6D6E4"/></linearGradient></defs>
+            <rect width="600" height="800" fill="url(#fig-e5)"/>
             <g fill="#8FA9BF" opacity=".85"><rect x="0" y="260" width="150" height="540"/><rect x="160" y="170" width="120" height="630"/><rect x="300" y="330" width="90" height="470"/><rect x="410" y="220" width="190" height="580"/></g>
             <g fill="#6E8FAC"><rect x="120" y="390" width="60" height="410"/><rect x="380" y="450" width="60" height="350"/></g>
             <g fill="#EDF2F7" opacity=".8">
@@ -1096,9 +1097,9 @@ export const SHADOW = String.raw`
 <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%" aria-hidden="true">
             <rect width="400" height="500" fill="#2B2620"/>
             <g opacity=".5"><rect x="40" width="26" height="500" fill="#3F372E"/><rect x="140" width="26" height="500" fill="#3F372E"/><rect x="240" width="26" height="500" fill="#3F372E"/><rect x="340" width="26" height="500" fill="#3F372E"/></g>
-            <defs><linearGradient id="wc-sd" x1="0" y1="0" x2="1" y2="1">
+            <defs><linearGradient id="fig-sd" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#F0D9A8" stop-opacity=".26"/><stop offset=".45" stop-color="#2B2620" stop-opacity=".2"/><stop offset="1" stop-color="#0D0B09" stop-opacity=".82"/></linearGradient></defs>
-            <rect width="400" height="500" fill="url(#wc-sd)"/>
+            <rect width="400" height="500" fill="url(#fig-sd)"/>
             <g opacity=".5" fill="#0D0B09"><path d="M60 120 L220 60 L300 200 L120 280 Z"/><path d="M180 340 L360 300 L400 440 L200 480 Z"/></g>
           </svg>
 `;
@@ -1106,11 +1107,11 @@ export const SHADOW = String.raw`
 export const MAP = String.raw`
 <svg viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
-            <linearGradient id="wc-cloth" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient id="fig-cloth" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0" stop-color="#E4EDF4"/><stop offset="1" stop-color="#C6D6E4"/>
             </linearGradient>
           </defs>
-          <rect width="900" height="700" fill="url(#wc-cloth)"/>
+          <rect width="900" height="700" fill="url(#fig-cloth)"/>
           <g opacity=".5">
             <rect width="900" height="700" fill="none"/>
             <g stroke="#FFFFFF" stroke-width="1" opacity=".6">

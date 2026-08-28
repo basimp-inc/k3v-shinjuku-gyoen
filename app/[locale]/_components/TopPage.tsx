@@ -2,53 +2,39 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import type { ReactNode } from "react";
-import ChambrayBehaviour from "./ChambrayBehaviour";
+import TopBehaviour from "./TopBehaviour";
 import * as S from "./scenes";
-import { CG_FLORA_DEFS } from "./flora";
+import { FLORA_DEFS } from "./flora";
 import {
-  MockLangSwitch,
-  MockMap,
-  type MockConvenienceItem,
-  type MockDetail,
-  type MockNearby,
-  type MockPoint,
-  type MockRoom,
-  type MockStat,
-} from "../mockShared";
+  AccessMap,
+  LangSwitch,
+  type ConvenienceItem,
+  type Detail,
+  type Nearby,
+  type Point,
+  type RoomCard,
+  type Stat,
+} from "./topShared";
 
 /**
- * REVIEW-ONLY alternative TOP page — the fifth entry of the 配色プレビュー
- * switcher ("Washed Chambray"). It ships its own nav and footer, so the current
- * design's chrome is hidden by CSS while this is on screen.
+ * TOPページ本体（デザイン名 "Washed Chambray" / 2026-08-25 クライアント採用）。
  *
- * Material source: docs/top-page-mock-8.html
- * Styles: app/chambray-design.css (materials/type) + app/mock-structure.css
- * (the canonical section layouts), both scoped under .chambray-top.
- * Removal steps are listed at the top of app/chambray-design.css.
+ * このページだけが自前のナビとフッターを持つ。共通クローム（components/Nav・
+ * Footer・MobileBottomNav）は app/styles/top-design.css の :has() ルールで
+ * このページでだけ隠れる。下層ページ（/rooms・/stay）は共通クロームを使う。
  *
- * Structure: Hero → PrimeLocation → Renovated → Rooms → Access. Amenities
- * (03 EVERYTHING YOU NEED) was dropped from the TOP on 2026-08-25 — see the
- * note where the section used to sit.
+ * スタイル：app/styles/top-design.css（素材・タイポグラフィ）と
+ * app/styles/top-layout.css（セクションのレイアウト）。どちらも .top-page 配下。
  *
- * What IS this design's argument: the light inversion of Timber Indigo. The
- * ground is washed chambray and #1B3A57 is ink rather than field, with exactly
- * one dark anchor (Renovated). Everything is built like a garment — dashed
- * stitch rules, a raw-denim patch sewn onto the hero, rivets, and a 12-column
- * grid that room bands break out of edge to edge.
+ * 構成：Hero → PrimeLocation → Renovated → Rooms → Access。
+ * 03 EVERYTHING YOU NEED（アメニティ）は 2026-08-25 に TOP から外した
+ * —— 節があった位置のコメントを参照。
  *
- * Section ids are wc-prefixed because the current design and the other five
- * alternatives are all still in the DOM (hidden) and already own #rooms,
- * #access and friends. The SVG ids in ./scenes.ts carry the same prefix.
+ * デザインの主張：地は洗いざらしのシャンブレーで、生デニム #1B3A57 は面ではなく
+ * 「インク」。濃い面は RENOVATED の1箇所だけ。全体が服の仕立てのように組んで
+ * ある —— 破線のステッチ罫、ヒーローに縫い付けた生デニムのパッチ、リベット、
+ * そして部屋の帯が端まで突き抜ける12列グリッド。
  */
-
-/** cg- → wc- id namespacing. ./flora.ts is shared with chambray-gyoen, which
- *  injects the same symbols under their original cg- ids; while both designs
- *  sit in the DOM together the ids would collide, so this design renames every
- *  one on the way in. Same trick gyoen-green uses for its gy- prefix.
- *  app/chambray-design.css refers to the renamed ids (url(#wc-gLeafShade)). */
-function wc(svg: string) {
-  return svg.replaceAll("cg-", "wc-");
-}
 
 /** The illustrated scenes are authored SVG, injected as-is. `.scene` is
  *  display:contents so the svg still sizes against its `.ph` frame. */
@@ -61,7 +47,7 @@ function Scene({ svg, stamp, className }: { svg: string; stamp?: string; classNa
   );
 }
 
-export default async function ChambrayTop() {
+export default async function TopPage() {
   const t = await getTranslations("chambray");
   const nav = await getTranslations("mockNav");
   const hero = await getTranslations("hero");
@@ -71,19 +57,19 @@ export default async function ChambrayTop() {
   const acc = await getTranslations("access");
   const locale = await getLocale();
 
-  const stats = loc.raw("stats") as MockStat[];
-  const nearby = loc.raw("nearby") as MockNearby[];
-  const points = ren.raw("points") as MockPoint[];
-  const rooms = rm.raw("items") as MockRoom[];
-  const details = acc.raw("details") as MockDetail[];
-  const convItems = loc.raw("convenience.items") as MockConvenienceItem[];
+  const stats = loc.raw("stats") as Stat[];
+  const nearby = loc.raw("nearby") as Nearby[];
+  const points = ren.raw("points") as Point[];
+  const rooms = rm.raw("items") as RoomCard[];
+  const details = acc.raw("details") as Detail[];
+  const convItems = loc.raw("convenience.items") as ConvenienceItem[];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
-    ["location", "#wc-location"],
-    ["renovated", "#wc-renovated"],
-    ["rooms", "#wc-rooms"],
-    ["access", "#wc-access"],
+    ["location", "#location"],
+    ["renovated", "#renovated"],
+    ["rooms", "#rooms"],
+    ["access", "#access"],
   ] as const;
 
   const nearbyScenes = [S.EXP_GYOEN, S.EXP_KISSA, S.EXP_LAUNDRY, S.EXP_YOKOCHO, S.EXP_SKYLINE];
@@ -101,7 +87,7 @@ export default async function ChambrayTop() {
 
   /* --- 御苑の植物。面・点・線の3役 -------------------------------------
      2026-08-25 にクライアント採択（chambray-gyoen で好評だったものを移植）。
-     素材は ./flora.ts、レイアウトは app/chambray-design.css の FLORA 節。
+     素材は ./flora.ts、レイアウトは app/styles/top-design.css の FLORA 節。
      どれも aria-hidden の純粋な装飾で、z-index:0 の .flora 層に入る。
      .wrap（z-index:2）より下なので、本文の可読性には干渉しない。
 
@@ -124,31 +110,31 @@ export default async function ChambrayTop() {
      viewBox はシンボル側の 0 0 460 560 と一致させること */
   const clump = (cls: string) => (
     <i className={`fl clump ${cls}`} key={`c${cls}`}>
-      {leafSvg("wc-fatsia-clump", "0 0 460 560")}
+      {leafSvg("fig-fatsia-clump", "0 0 460 560")}
     </i>
   );
   /* 面 — ヤツデの葉1枚 */
   const leaf = (cls: string) => (
     <i className={`fl leaf ${cls}`} key={`l${cls}`}>
-      {leafSvg("wc-fatsia-leaf", "0 0 240 240")}
+      {leafSvg("fig-fatsia-leaf", "0 0 240 240")}
     </i>
   );
   /* 点 — アオキ（実つき）。ページ唯一の鮮やかな赤 */
   const aucuba = (cls: string) => (
     <i className={`fl aucuba ${cls}`} key={`a${cls}`}>
-      {leafSvg("wc-aucuba-sprig", "0 0 220 260")}
+      {leafSvg("fig-aucuba-sprig", "0 0 220 260")}
     </i>
   );
   /* 点 — 斑入りアオキ。ページで最も明るい植物要素 */
   const aucubaVar = (cls: string) => (
     <i className={`fl avar ${cls}`} key={`v${cls}`}>
-      {leafSvg("wc-aucuba-variegated", "0 0 220 240")}
+      {leafSvg("fig-aucuba-variegated", "0 0 220 240")}
     </i>
   );
   /* 線 — ヨモギ。細かく裂けた葉の繋ぎ */
   const mug = (cls: string) => (
     <i className={`fl mug ${cls}`} key={`m${cls}`}>
-      {leafSvg("wc-mugwort-sprig", "0 0 240 120")}
+      {leafSvg("fig-mugwort-sprig", "0 0 240 120")}
     </i>
   );
 
@@ -232,7 +218,7 @@ export default async function ChambrayTop() {
      必要がない。縁そのものが接地になる */
   const garland = (cls: string) => (
     <i className={`fl gl ${cls}`} key={`g${cls}`}>
-      {leafSvg("wc-ivy-garland", "0 0 600 150")}
+      {leafSvg("fig-ivy-garland", "0 0 600 150")}
     </i>
   );
 
@@ -267,24 +253,22 @@ export default async function ChambrayTop() {
      いる」形なので、点線の先に浮いていると生育の文脈がなく不自然だった） */
   const sprig = (
     <i className="fl sprig" aria-hidden="true">
-      {leafSvg("wc-fatsia-mark", "0 0 120 84")}
+      {leafSvg("fig-fatsia-mark", "0 0 120 84")}
     </i>
   );
 
   return (
-    <div className="chambray-top" data-design="chambray">
-      <ChambrayBehaviour />
+    <div className="top-page">
+      <TopBehaviour />
       <div className="grain" aria-hidden="true" />
 
-      {/* ヤツデ・アオキ・ヨモギ・ツタ。面・点・線・縁の4役。
-          id は wc- へ付け替えて注入する（chambray-gyoen が同じ素材を cg- の
-          まま入れているため。両方が DOM にいる間の衝突よけ） */}
+      {/* ヤツデ・アオキ・ヨモギ・ツタ。面・点・線・縁の4役 */}
       <svg
         width="0"
         height="0"
         aria-hidden="true"
         style={{ position: "absolute" }}
-        dangerouslySetInnerHTML={{ __html: wc(CG_FLORA_DEFS) }}
+        dangerouslySetInnerHTML={{ __html: FLORA_DEFS }}
       />
 
       {/* ===================== NAV ===================== */}
@@ -307,7 +291,7 @@ export default async function ChambrayTop() {
             {routing.locales.map((l, i) => (
               <span key={l} style={{ display: "contents" }}>
                 {i > 0 && <span>/</span>}
-                <a href={`/${l}?theme=washed-chambray`} aria-current={l === locale ? "true" : undefined}>
+                <a href={`/${l}`} aria-current={l === locale ? "true" : undefined}>
                   {l === locale ? <b>{localeLabels[l] ?? l.toUpperCase()}</b> : (localeLabels[l] ?? l.toUpperCase())}
                 </a>
               </span>
@@ -317,7 +301,7 @@ export default async function ChambrayTop() {
             <span>{nav("book")}</span>
             {arrow}
           </Link>
-          <MockLangSwitch locale={locale} theme="washed-chambray" />
+          <LangSwitch locale={locale} />
           <button type="button" className="burger" aria-label={nav("menu")}>
             <i />
             <i />
@@ -327,7 +311,7 @@ export default async function ChambrayTop() {
       </header>
 
       {/* ===================== 1. HERO ===================== */}
-      <section id="wc-hero" className="hero mat-cham">
+      <section id="hero" className="hero mat-cham">
         {flora([cluster("cl-he", ANCHOR)])}
 
         <div className="hero-side">
@@ -341,7 +325,7 @@ export default async function ChambrayTop() {
               <span className="dot" aria-hidden="true" />
               <span className="mono-s">{hero("eyebrow")}</span>
             </div>
-            <p className="mock-dsp">{t("display.hero")}</p>
+            <p className="display-line">{t("display.hero")}</p>
             <h1 className="rv d1">
               <span className="h1">
                 {hero("titleLine1")}
@@ -359,7 +343,7 @@ export default async function ChambrayTop() {
                   <span>{hero("ctaPrimary")}</span>
                   {arrow}
                 </Link>
-                <a href="#wc-rooms" className="btn btn-line" style={{ color: "var(--cham-pale)" }}>
+                <a href="#rooms" className="btn btn-line" style={{ color: "var(--cham-pale)" }}>
                   <span>{hero("ctaSecondary")}</span>
                 </a>
               </div>
@@ -407,7 +391,7 @@ export default async function ChambrayTop() {
       </section>
 
       {/* ===================== 2. PRIME LOCATION ===================== */}
-      <section id="wc-location" className="mat-cham bleach">
+      <section id="location" className="mat-cham bleach">
         {flora([cluster("cl-lo", SEC)])}
 
         <div className="wrap cut">
@@ -426,7 +410,7 @@ export default async function ChambrayTop() {
           <div className="cgrid">
             <div className="c-left">
               <div className="c-head">
-                <p className="mock-dsp">{t("display.location")}</p>
+                <p className="display-line">{t("display.location")}</p>
                 <h2 className="rv">{loc("heading")}</h2>
               </div>
               <div className="c-copy rv d1">
@@ -453,9 +437,9 @@ export default async function ChambrayTop() {
           </div>
 
           {/* 近所 — the signature horizontal rail. `data-rail` is read by
-              ChambrayBehaviour: "auto" turns it into a slow autoplay carousel
+              TopBehaviour: "auto" turns it into a slow autoplay carousel
               for the A/B the client asked for. */}
-          <div className="rail-x rv d2" data-wc-rail-track="">
+          <div className="rail-x rv d2" data-rail-track="">
             {nearby.map((n, i) => (
               <article className="card" key={n.label}>
                 <Scene svg={nearbyScenes[i % nearbyScenes.length]} />
@@ -472,10 +456,10 @@ export default async function ChambrayTop() {
               4項目それぞれが見出し＋本文のカードで、モバイルでは1画面ぶんを
               占めていた。項目名だけを帯に載せ、本文は落としている
               （2026-08-25「情報量の削減」）。 */}
-          <div className="mock-conv-head rv d1">
-            <span className="mock-conv-eyebrow">{loc("convenience.eyebrow")}</span>
-            <h3 className="mock-conv-h">{loc("convenience.heading")}</h3>
-            <p className="mock-conv-lead">{loc("convenience.text")}</p>
+          <div className="conv-head rv d1">
+            <span className="conv-eyebrow">{loc("convenience.eyebrow")}</span>
+            <h3 className="conv-h">{loc("convenience.heading")}</h3>
+            <p className="conv-lead">{loc("convenience.text")}</p>
           </div>
         </div>
 
@@ -483,7 +467,7 @@ export default async function ChambrayTop() {
       </section>
 
       {/* ===================== 3. RENOVATED ===================== */}
-      <section id="wc-renovated" className="mat-shadow">
+      <section id="renovated" className="mat-shadow">
         {flora([aucubaVar("re-r"), garland("gl-re")])}
 
         <div className="wrap">
@@ -495,7 +479,7 @@ export default async function ChambrayTop() {
           </div>
 
           <div className="mhead">
-            <p className="mock-dsp">{t("display.renovated")}</p>
+            <p className="display-line">{t("display.renovated")}</p>
             <h2 className="rv">{ren("heading")}</h2>
             <p className="rv d1">{ren("description")}</p>
           </div>
@@ -518,12 +502,12 @@ export default async function ChambrayTop() {
         </div>
       </section>
 
-      {/* 03 EVERYTHING YOU NEED（#wc-amenities）は 2026-08-25 のクライアント判断で
-          TOP から外した。削除ではなく非表示 — 設備・アメニティの内容は各客室の
-          紹介ページ（/rooms/[room]）に掲載する予定なので、messages の `amenities`
-          キー一式と mockShared の MockFacilities はそのまま残してある。 */}
+      {/* 03 EVERYTHING YOU NEED は 2026-08-25 のクライアント判断で TOP から外した。
+          設備・アメニティの内容は各客室の紹介ページ（/rooms/[room]）に載せる予定
+          なので、messages の `amenities` キー一式はそのまま残してある
+          （TASK.md Phase 2 の未消化タスク）。 */}
       {/* ===================== 4. ROOMS ===================== */}
-      <section id="wc-rooms" className="rooms mat-cham">
+      <section id="rooms" className="rooms mat-cham">
         {flora([cluster("cl-ro", SEC), garland("gl-ro")])}
 
         <div className="wrap">
@@ -534,7 +518,7 @@ export default async function ChambrayTop() {
             {sprig}
           </div>
           <div className="rhead">
-            <p className="mock-dsp">{t("display.rooms")}</p>
+            <p className="display-line">{t("display.rooms")}</p>
             <h2 className="rv">{rm("heading")}</h2>
             <p className="rv d1">{rm("description")}</p>
           </div>
@@ -548,13 +532,13 @@ export default async function ChambrayTop() {
               <div className="pic">
                 {i === 0 ? (
                   <>
-                    <input type="radio" name="wc-r1-slide" id="wc-r1-slide-0" className="s-radio" defaultChecked />
-                    <input type="radio" name="wc-r1-slide" id="wc-r1-slide-1" className="s-radio" />
+                    <input type="radio" name="room1-slide" id="room1-slide-0" className="s-radio" defaultChecked />
+                    <input type="radio" name="room1-slide" id="room1-slide-1" className="s-radio" />
                     <Scene svg={roomScenes[0]} stamp={r.name} className="s0" />
                     <Scene svg={S.ROOM1_MORNING} stamp={t("hero.stamp")} className="s1" />
                     <div className="s-dots">
-                      <label htmlFor="wc-r1-slide-0" aria-label={r.name} />
-                      <label htmlFor="wc-r1-slide-1" aria-label={t("hero.stamp")} />
+                      <label htmlFor="room1-slide-0" aria-label={r.name} />
+                      <label htmlFor="room1-slide-1" aria-label={t("hero.stamp")} />
                     </div>
                   </>
                 ) : (
@@ -580,7 +564,7 @@ export default async function ChambrayTop() {
           </div>
         ))}
 
-        <div className="wrap mock-viewall-wrap">
+        <div className="wrap viewall-wrap">
           <Link href="/rooms" className="btn btn-line">
             <span>{rm("viewAll")}</span>
             {arrow}
@@ -591,7 +575,7 @@ export default async function ChambrayTop() {
       </section>
 
       {/* ===================== 5. ACCESS ===================== */}
-      <section id="wc-access" className="mat-cham bleach">
+      <section id="access" className="mat-cham bleach">
         {flora([cluster("cl-ac", ANCHOR2)])}
 
         <div className="wrap">
@@ -604,11 +588,11 @@ export default async function ChambrayTop() {
 
           <div className="lgrid">
             <div className="lmap rv">
-              <MockMap title={acc("mapAlt")} className="mock-map" />
+              <AccessMap title={acc("mapAlt")} className="access-map" />
             </div>
 
             <div className="linfo">
-              <p className="mock-dsp">{t("display.access")}</p>
+              <p className="display-line">{t("display.access")}</p>
               <h2 className="rv">{acc("heading")}</h2>
               <p className="addr rv d1">{acc("description")}</p>
 
@@ -623,7 +607,7 @@ export default async function ChambrayTop() {
                 </div>
               </div>
 
-              <Link href="/stay" className="btn btn-ink mock-access-cta rv d2">
+              <Link href="/stay" className="btn btn-ink access-cta rv d2">
                 <span>{acc("cta")}</span>
                 {arrow}
               </Link>
@@ -650,16 +634,16 @@ export default async function ChambrayTop() {
           </div>
           <div className="ft-col">
             <h5>{t("footer.stayH")}</h5>
-            <a href="#wc-rooms">{t("footer.s1")}</a>
-            <a href="#wc-rooms">{t("footer.s2")}</a>
-            <a href="#wc-rooms">{t("footer.s3")}</a>
+            <a href="#rooms">{t("footer.s1")}</a>
+            <a href="#rooms">{t("footer.s2")}</a>
+            <a href="#rooms">{t("footer.s3")}</a>
             <Link href="/stay">{nav("book")}</Link>
           </div>
           <div className="ft-col">
             <h5>{t("footer.houseH")}</h5>
-            <a href="#wc-location">{nav("location")}</a>
-            <a href="#wc-renovated">{nav("renovated")}</a>
-            <a href="#wc-access">{nav("access")}</a>
+            <a href="#location">{nav("location")}</a>
+            <a href="#renovated">{nav("renovated")}</a>
+            <a href="#access">{nav("access")}</a>
           </div>
           <div className="ft-col">
             <h5>{t("footer.infoH")}</h5>

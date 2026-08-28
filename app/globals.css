@@ -1,69 +1,72 @@
 @import "tailwindcss";
-/* REVIEW-ONLY alternative TOP page designs (entries 2–4 of the switcher) */
-@import "./gyoen-design.css";
-@import "./chambray-design.css";
-@import "./chambray-gyoen-design.css";
-/* Layouts for the canonical six sections those six designs all share.
-   Imported last so it can narrow the generated stylesheets above. */
-@import "./mock-structure.css";
 
-/* 素材（ウッド／緑）は全デザイン共通で、色の最終決定権を持つ。デザインシート
-   と mock-structure.css のどちらより後に読むこと —— 順番を上げると .mock-* の
-   クリーム文字が勝ってしまい、明るい地の上に白文字が残る。 */
-@import "./wood.css";
-@import "./green.css";
+/* TOPページのデザイン。2枚に分かれているのは役割が違うから：
+     top-design.css  … 素材・配色・タイポグラフィ・自前のナビ/フッター
+     top-layout.css  … 各セクションのレイアウト（top-design の語彙を絞る側）
+   なので top-layout は top-design より後に読む。 */
+@import "./styles/top-design.css";
+@import "./styles/top-layout.css";
+
+/* ウッド（色＋柄）は面の最終決定権を持つので、上の2枚より後に読むこと。
+   順番を上げると .top-page 側のクリーム文字が勝ってしまい、明るい地の上に
+   白文字が残る。 */
+@import "./styles/wood.css";
 
 /* ---------------------------------------------------------------------------
-   Colour tokens.
+   Colour tokens — Washed Chambray（2026-08-25 クライアント採用）。
 
-   Every colour used in app/, components/ and lib/ resolves through one of these
-   variables — there are no hardcoded hex values outside this file. That means a
-   theme only has to redefine the variables it wants to move: set
-   <html data-theme="…"> and the whole site follows.
+   app/・components/・lib/ で使う色はすべてこの変数を経由する。このファイルの
+   外に生のHEXは無い。
 
-   :root holds the "current" palette (what the client has already reviewed).
-   Each [data-theme="…"] block further down overrides a subset of it.
+   2026-08-28 まではここに4パレットが同居し、<html data-theme="…"> でどれを
+   使うか決めていた（レビュー用の配色プレビュー）。採用が確定したので採用案の
+   値を :root に畳み、data-theme 機構ごと撤去した。過去の3案は
+   ~/workbench/design-mock-library に案ごとのディレクトリで保存してある。
+
+   TOPページは styles/top-design.css がまるごと差し替えるので、ここのトークンが
+   実際に効くのは下層ページ（/rooms・/stay）と共通クローム。
    --------------------------------------------------------------------------- */
 :root {
   /* Surfaces — page background, card, and the deeper card/section tone */
-  --color-bg: #f3ece1;
-  --color-bg-card: #efe5d3;
-  --color-bg-card-deep: #e8dcc4;
-  --color-cream: #faf6ee;
+  --color-bg: #dee8f1;
+  --color-bg-card: #d1dfec;
+  --color-bg-card-deep: #c6d6e4;
+  --color-cream: #f2efe8;
 
   /* Text */
-  --color-text: #4a3a24;
-  --color-text-soft: #6f5c3f;
+  --color-text: #2b2620;
+  --color-text-soft: #55606b;
 
-  /* Accents (each with its hover partner) */
-  --color-accent: #8a6b45;
-  --color-accent-dark: #745936;
-  --color-accent2: #c77b4f;
-  --color-accent2-dark: #b96b40;
+  /* Accents (each with its hover partner).
+     accent は生デニム（インク）、accent2 は無垢材 */
+  --color-accent: #1b3a57;
+  --color-accent-dark: #12283c;
+  --color-accent2: #6b4a32;
+  --color-accent2-dark: #4a3222;
 
   /* Lines and edges */
-  --color-line: #dccca9;
-  --color-line-strong: #c9a874;
-  --color-line-on-dark: #5c4a30;
+  --color-line: #bccfe0;
+  --color-line-strong: #6e8fac;
+  --color-line-on-dark: #2c5779;
 
   /* Marks sitting on a dark surface (footer text, inactive mobile nav) */
-  --color-on-dark-soft: #c9bda3;
-  --color-on-dark-muted: #a99878;
+  --color-on-dark-soft: #dee8f1;
+  --color-on-dark-muted: #93a8bb;
 
   /* Greens — moss gradient and the hero plant */
-  --color-moss-from: #97c459;
-  --color-moss-to: #639922;
-  --color-leaf: #7f9a52;
-  --color-leaf-dark: #5d7a3a;
+  --color-moss-from: #7fa07f;
+  --color-moss-to: #33553f;
+  --color-leaf: #5e8b54;
+  --color-leaf-dark: #1f3a2e;
 
   /* Illustration warm tones (hero sky, sun glow, floor, skyline, props) */
-  --color-glow: #f6ceac;
-  --color-glow-soft: #f9e2b8;
-  --color-sky-mid: #f0ddc0;
-  --color-floor: #ddc9a3;
-  --color-skyline: #a9855c;
-  --color-terracotta-dark: #a85f38;
-  --color-object-dark: #3a2c19;
+  --color-glow: #f0d9a8;
+  --color-glow-soft: #f2efe8;
+  --color-sky-mid: #c6d6e4;
+  --color-floor: #8f6743;
+  --color-skyline: #8fa9bf;
+  --color-terracotta-dark: #6b4a32;
+  --color-object-dark: #2b2620;
 
   /* Room 02 / 03 accents — warm deep browns, NOT black×gold (client NG: 高級感/黒×金) */
   --color-vintage-dark: #3d2f21;
@@ -77,199 +80,11 @@
 
   /* Drop-shadow tint. Space-separated channels so it can take an alpha:
      rgb(var(--color-shadow) / 0.28) */
-  --color-shadow: 74 58 36;
+  --color-shadow: 43 38 32;
 
   --font-jp-heading: "Zen Maru Gothic", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-jp-body: "M PLUS Rounded 1c", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-en: "Quicksand", "Trebuchet MS", sans-serif;
-}
-
-/* ---------------------------------------------------------------------------
-   Themes. Selected via <html data-theme="…">, which components/ThemeMock.tsx
-   sets from ?theme= or localStorage. Each block overrides only what it changes.
-   --------------------------------------------------------------------------- */
-
-/* current — the palette the client has already seen. Deliberately overrides
-   nothing, so data-theme="current" and no attribute at all render identically. */
-[data-theme="current"] {
-  --color-bg: #f3ece1;
-}
-
-/* gyoen-green — 新宿御苑の樹木の深緑 #33502f を主役に、空/デニムの #a9c3d6 を
-   小面積のアクセント、芝の #93b23e を差し色、木（ローズウッド〜チーク）を素材色に
-   置く案。docs/top-page-mock-5.html のTOPページモックと同じ配色体系。
-   緑を「主役の構造色」にした唯一の案。 */
-[data-theme="gyoen-green"] {
-  --color-bg: #f2efe6;
-  --color-bg-card: #eae6d9;
-  --color-bg-card-deep: #ddd9c7;
-  --color-cream: #fbf9f3;
-
-  --color-text: #1e2a1c;
-  --color-text-soft: #4a5546;
-
-  /* 主役は深緑。accent2 は木（ローズウッド）で、緑一色にせず素材のコントラストを残す */
-  --color-accent: #33502f;
-  --color-accent-dark: #22331f;
-  --color-accent2: #7a3f1f;
-  --color-accent2-dark: #5e2f16;
-
-  /* デニムはここ（罫線・細部）に効かせる。面では使わない */
-  --color-line: #d7d9cc;
-  --color-line-strong: #58809e;
-  --color-line-on-dark: #3f6238;
-
-  --color-on-dark-soft: #bfd1dc;
-  --color-on-dark-muted: #7c8b7b;
-
-  /* hero illustration ambient tones only — ROOM 02/03 (vintage/industrial)
-     keep their own fixed brand colours across every theme */
-  --color-moss-from: #93b23e;
-  --color-moss-to: #4e7238;
-  --color-leaf: #5c7a4e;
-  --color-leaf-dark: #33502f;
-
-  --color-glow: #f0d9a8;
-  --color-glow-soft: #f7eccf;
-  --color-sky-mid: #cbdce7;
-  --color-floor: #c08b57;
-  --color-skyline: #8aa6b8;
-  --color-terracotta-dark: #7a3f1f;
-  --color-object-dark: #22331f;
-
-  --color-shadow: 30 42 28;
-}
-
-/* Plank seams instead of brick coursing — a dark seam with its lit edge, one
-   every 152px, on the alternating card-toned bands. Board width only: a fine
-   grain hairline was tried at 7–19px pitch and reads as corduroy stripes at
-   section scale, not as wood. */
-[data-theme="gyoen-green"] #renovated,
-[data-theme="gyoen-green"] #rooms,
-[data-theme="gyoen-green"] #reviews,
-[data-theme="gyoen-green"] #access {
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      rgb(122 63 31 / 0.07) 0 1px,
-      rgb(255 255 255 / 0.5) 1px 3px,
-      transparent 3px 152px
-    );
-}
-
-/* washed-chambray — timber-indigo の明暗を反転させた案。地は洗いざらしの
-   シャンブレー #c6d6e4 で、生デニム #1b3a57 は面ではなく「インク」として
-   見出し・タイポ・小さなパッチにだけ使う。無垢材 #6b4a32 と御苑の緑 #1f3a2e、
-   温かい黒 #2b2620 の役割は timber-indigo と同じ。
-   docs/top-page-mock-8.html のTOPページモックと同じ配色体系。
-   薄い地に濃紺が2箇所だけ落ちる構成なので、最後の予約ブロックが一番強くなる。
-
-   TOPページは app/chambray-design.css がまるごと差し替えるので、ここで効くのは
-   下層ページとプレビュー用スウォッチだけ。 */
-[data-theme="washed-chambray"] {
-  --color-bg: #dee8f1;
-  --color-bg-card: #d1dfec;
-  --color-bg-card-deep: #c6d6e4;
-  --color-cream: #f2efe8;
-
-  --color-text: #2b2620;
-  --color-text-soft: #55606b;
-
-  /* accent は生デニム（インク）、accent2 は無垢材 */
-  --color-accent: #1b3a57;
-  --color-accent-dark: #12283c;
-  --color-accent2: #6b4a32;
-  --color-accent2-dark: #4a3222;
-
-  --color-line: #bccfe0;
-  --color-line-strong: #6e8fac;
-  --color-line-on-dark: #2c5779;
-
-  --color-on-dark-soft: #dee8f1;
-  --color-on-dark-muted: #93a8bb;
-
-  --color-moss-from: #7fa07f;
-  --color-moss-to: #33553f;
-  --color-leaf: #5e8b54;
-  --color-leaf-dark: #1f3a2e;
-
-  --color-glow: #f0d9a8;
-  --color-glow-soft: #f2efe8;
-  --color-sky-mid: #c6d6e4;
-  --color-floor: #8f6743;
-  --color-skyline: #8fa9bf;
-  --color-terracotta-dark: #6b4a32;
-  --color-object-dark: #2b2620;
-
-  --color-shadow: 43 38 32;
-}
-
-/* Same 63° warp as timber-indigo, but the white weft sits on top of the blue
-   instead of under it — on a light ground the weave is the more visible half,
-   so the light pass is stronger and the dark pass fainter. */
-[data-theme="washed-chambray"] #renovated,
-[data-theme="washed-chambray"] #rooms,
-[data-theme="washed-chambray"] #reviews,
-[data-theme="washed-chambray"] #access {
-  background-image:
-    repeating-linear-gradient(63deg, rgb(255 255 255 / 0.6) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(63deg, rgb(27 58 87 / 0.06) 0 1px, transparent 1px 4px);
-}
-
-/* chambray-gyoen — green-gyoen × washed-chambray の統合案（2026-08-19 パレット承認）。
-   洗いを一段強くしたシャンブレー地に、新宿御苑の新緑（そら豆〜黄緑）・明るいオーク・
-   レンガを小面積で効かせる。黒・濃紺・濃茶は不使用 — 最暗色はデニムインク
-   #33526E（L*≈34）で、メリハリは明度差ではなく彩度差と面積比で作る。
-
-   TOPページは app/chambray-gyoen-design.css がまるごと差し替えるので、ここで
-   効くのは下層ページとプレビュー用スウォッチだけ。 */
-[data-theme="chambray-gyoen"] {
-  --color-bg: #edf2f7;
-  --color-bg-card: #dee8f1;
-  --color-bg-card-deep: #c6d6e4;
-  --color-cream: #f2efe8;
-
-  --color-text: #3f5261;
-  --color-text-soft: #56687a;
-
-  /* accent は洗いのかかったデニムインク、accent2 はレンガ */
-  --color-accent: #3a5e7d;
-  --color-accent-dark: #33526e;
-  --color-accent2: #c97b4f;
-  --color-accent2-dark: #ad5d33;
-
-  --color-line: #bccfdd;
-  --color-line-strong: #6f93b0;
-  --color-line-on-dark: #47688a;
-
-  --color-on-dark-soft: #edf2f7;
-  --color-on-dark-muted: #a7bccd;
-
-  /* 新緑レンジ — 深緑は使わない（最深 #5f8437） */
-  --color-moss-from: #93b23e;
-  --color-moss-to: #74994a;
-  --color-leaf: #83a94d;
-  --color-leaf-dark: #5f8437;
-
-  --color-glow: #fbf3d8;
-  --color-glow-soft: #f2efe8;
-  --color-sky-mid: #c9dce8;
-  --color-floor: #c9a26e;
-  --color-skyline: #8fa9bf;
-  --color-terracotta-dark: #ad5d33;
-  --color-object-dark: #33526e;
-
-  --color-shadow: 63 82 97;
-}
-
-/* Same 63° weave as washed-chambray, fainter — the ground is a wash lighter */
-[data-theme="chambray-gyoen"] #renovated,
-[data-theme="chambray-gyoen"] #rooms,
-[data-theme="chambray-gyoen"] #reviews,
-[data-theme="chambray-gyoen"] #access {
-  background-image:
-    repeating-linear-gradient(63deg, rgb(255 255 255 / 0.6) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(63deg, rgb(58 94 125 / 0.05) 0 1px, transparent 1px 4px);
 }
 
 @theme inline {
@@ -331,40 +146,6 @@ h1, h2, h3, h4,
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Steam animation for the hero illustration */
-@keyframes steam-rise {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleX(1);
-  }
-  25% {
-    opacity: 0.55;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-26px) scaleX(1.4);
-  }
-}
-.steam path {
-  animation: steam-rise 3.6s ease-in-out infinite;
-  transform-origin: bottom center;
-}
-.steam path:nth-child(2) {
-  animation-delay: 0.9s;
-}
-.steam path:nth-child(3) {
-  animation-delay: 1.8s;
-}
-
-/* Gentle drifting light for hero backdrop */
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(14px, -10px); }
-}
-.drift {
-  animation: drift 9s ease-in-out infinite;
 }
 
 /* Pill focus visibility */

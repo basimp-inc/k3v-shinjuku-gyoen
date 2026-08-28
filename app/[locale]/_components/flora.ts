@@ -1,10 +1,6 @@
-/* 新宿御苑の林床の植物。装飾レイヤー（.flora）の素材。
+/* 新宿御苑の林床の植物。TOPページの装飾レイヤー（.flora）の素材。
  *
- * 2026-08-25：クライアント採択にともない chambray-gyoen/ から chambray/ へ移動。
- * scenes.ts と同じく**複数デザインの共有アセット**。washed-chambray（採用案）が
- * 一次利用者で、chambray-gyoen は非表示化されるまでの間このファイルを参照する。
- * washed-chambray 側は描画時に id を cg- → wc- へ付け替えて注入するので、
- * 両方が同時に DOM にいても id は衝突しない（gyoen-green の gy- と同じ手）。
+ * 2026-08-25 クライアント採択。SVG id は scenes.ts と同じ `fig-` 名前空間。
  *
  * 2026-08-20 クライアント参考資料4点にもとづく描き直し。
  * 前版との決定的な違い：
@@ -29,9 +25,9 @@
  * 追加色はすべて中明度以上で、「暗色を入れない」規則を守っている（最暗が
  * アオキの実 #D93B22 の L*49.5）。
  *
- * id は cg- 接頭辞。他デザインが同じ document にいるため。
+ * id は fig- 接頭辞（scenes.ts と共有の名前空間）。
  */
-export const CG_FLORA_DEFS = String.raw`
+export const FLORA_DEFS = String.raw`
 <defs>
   <!-- ============ ヤツデ ＝ 面 ==============================================
        写真1。裂片は長く伸びて先が尖り、谷は深い。葉脈は葉身より明るい黄緑で、
@@ -53,7 +49,7 @@ export const CG_FLORA_DEFS = String.raw`
        ひと続きの葉身になり、そこから先だけが分かれて尖る。切れ込みの
        深さ 35% ＝ 実物のヤツデの見え方。裂片1枚の面積は 2900 → 4358
        単位²（+50%）で、被覆率もここで稼いでいる。 -->
-  <g id="cg-fatsia-blade">
+  <g id="fig-fatsia-blade">
     <g>
       <!-- 1枚の裂片を7方向へ。原点(120,210)＝葉柄の付け根で回転させる。
            外側の裂片ほど短く、長さに比例して幅も縮む（相似） -->
@@ -95,23 +91,23 @@ export const CG_FLORA_DEFS = String.raw`
        独立した棘に見え、掌状葉ではなくアガベ／ユッカの見え方になった。
        方向性のある陰（光源側＝右上が明るく、左下が陰）に替えると、同じ
        明度差でも「1枚の面に光が当たっている」と読める。光源はヒーローの
-       cg-canopy の cg-sunG（cx=.72 cy=.2）と揃えてある -->
-  <linearGradient id="cg-gLeafShade" x1="0" y1="1" x2=".85" y2=".15">
+       fig-canopy の fig-sunG（cx=.72 cy=.2）と揃えてある -->
+  <linearGradient id="fig-gLeafShade" x1="0" y1="1" x2=".85" y2=".15">
     <stop offset="0"   stop-color="#2F5936" stop-opacity=".46"/>
     <stop offset=".40" stop-color="#46793E" stop-opacity=".22"/>
     <stop offset=".76" stop-color="#46793E" stop-opacity=".05"/>
     <stop offset="1"   stop-color="#46793E" stop-opacity="0"/>
   </linearGradient>
   <!-- レンガ地用。ラダーごと +12L* した --leaf-shade/#4B774F, --leaf-core/#659857 -->
-  <linearGradient id="cg-gLeafShade-lift" x1="0" y1="1" x2=".85" y2=".15">
+  <linearGradient id="fig-gLeafShade-lift" x1="0" y1="1" x2=".85" y2=".15">
     <stop offset="0"   stop-color="#4B774F" stop-opacity=".44"/>
     <stop offset=".40" stop-color="#659857" stop-opacity=".21"/>
     <stop offset=".76" stop-color="#659857" stop-opacity=".05"/>
     <stop offset="1"   stop-color="#659857" stop-opacity="0"/>
   </linearGradient>
 
-  <symbol id="cg-fatsia-leaf" viewBox="0 0 240 240">
-    <use href="#cg-fatsia-blade" fill="var(--leaf)"/>
+  <symbol id="fig-fatsia-leaf" viewBox="0 0 240 240">
+    <use href="#fig-fatsia-blade" fill="var(--leaf)"/>
 
     <!-- 葉脈。写真のとおり葉身より明るい黄緑。ヤツデらしさの大半はここ。
          陰より先に敷いて、付け根側では陰に沈ませる -->
@@ -125,7 +121,7 @@ export const CG_FLORA_DEFS = String.raw`
       <path d="M120 210 L 211 191"/>
     </g>
     <!-- 陰。葉身と同じ形で重ねるので輪郭から絶対にはみ出さない -->
-    <use href="#cg-fatsia-blade" fill="var(--shade-paint)"/>
+    <use href="#fig-fatsia-blade" fill="var(--shade-paint)"/>
 
     <!-- 葉柄。葉の下に潜るので陰の側の値で引く -->
     <path d="M120 210 L 120 238" stroke="var(--leaf-core)" stroke-width="5"
@@ -133,7 +129,7 @@ export const CG_FLORA_DEFS = String.raw`
 
     <!-- 鏡面＝「濡れ」。柔らかい光沢はプラスチックに見えるので、ぼかさず
          小さく硬い縁で置く。面積は葉身の約2.8%。光源はヒーローの
-         cg-canopy と揃えて右上（cg-sunG が cx=.72 cy=.2）なので、
+         fig-canopy と揃えて右上（fig-sunG が cx=.72 cy=.2）なので、
          右側の裂片にだけ載せる -->
     <g fill="var(--leaf-wet)" opacity=".58">
       <ellipse cx="160" cy="149" rx="2.6" ry="13" transform="rotate(26 160 149)"/>
@@ -143,7 +139,7 @@ export const CG_FLORA_DEFS = String.raw`
 
   <!-- 株。写真1は葉が重なり合った密集した面なので、花序ではなく
        大小の葉の重なりで組む。奥の葉ほど暗く、手前ほど明るい -->
-  <symbol id="cg-fatsia-clump" viewBox="0 0 460 560">
+  <symbol id="fig-fatsia-clump" viewBox="0 0 460 560">
     <!-- 写真1は葉が互いに深く重なった一枚の面。間隔を空けると「並べた葉」に
          見えるので、隣の葉の中心近くまで食い込ませる。
          上端140は花枝のための天地。ヤツデの花は葉の上へ抜けて咲く -->
@@ -152,28 +148,28 @@ export const CG_FLORA_DEFS = String.raw`
          いなかった。葉脈まで一緒に動かすと、奥は輪郭のぼやけた塊、手前は
          脈まで見える葉、というふうに「距離」として読めるようになる -->
     <g style="--leaf:var(--leaf-core);--vein:var(--leaf-dk)">
-      <use href="#cg-fatsia-leaf" x="-10" y="174" width="228" height="228"/>
-      <use href="#cg-fatsia-leaf" x="238" y="158" width="216" height="216"/>
+      <use href="#fig-fatsia-leaf" x="-10" y="174" width="228" height="228"/>
+      <use href="#fig-fatsia-leaf" x="238" y="158" width="216" height="216"/>
     </g>
-    <use href="#cg-fatsia-leaf" x="112" y="140" width="238" height="238"/>
+    <use href="#fig-fatsia-leaf" x="112" y="140" width="238" height="238"/>
     <g style="--leaf:var(--leaf-hi)">
-      <use href="#cg-fatsia-leaf" x="10"  y="272" width="258" height="258"/>
+      <use href="#fig-fatsia-leaf" x="10"  y="272" width="258" height="258"/>
     </g>
     <!-- 最前列だけ新芽の黄緑（h107）。群れの中に「いま伸びている葉」が
          1枚あると、株全体が生きているものとして読める。色相幅を稼ぐのは
          ここ。葉脈は花色まで上げないと葉身に負けて消える -->
     <g style="--leaf:var(--leaf-new);--vein:var(--bloom)">
-      <use href="#cg-fatsia-leaf" x="196" y="290" width="252" height="252"/>
+      <use href="#fig-fatsia-leaf" x="196" y="290" width="252" height="252"/>
     </g>
     <!-- 花は葉の上へ立ち上がる（写真どおり）。緑の葉を背にできる位置まで
          下げてあるので、白い小花のコントラストもここで確保される -->
-    <use href="#cg-fatsia-spray" x="74" y="6" width="330" height="194"/>
+    <use href="#fig-fatsia-spray" x="74" y="6" width="330" height="194"/>
   </symbol>
 
   <!-- ヤツデの花序。参考写真の主役。小花が球状に集まり、花柄が放射する。
        白のままだと明るい地に溶けるので、写真同様に蕾（淡い黄緑）を混ぜて
        視認性を確保している -->
-  <symbol id="cg-fatsia-umbel" viewBox="0 0 100 100">
+  <symbol id="fig-fatsia-umbel" viewBox="0 0 100 100">
     <g stroke="var(--stalk)" stroke-width="1.5" opacity=".6" stroke-linecap="round">
       <path d="M50 50 L 81.0 50.0"/>
       <path d="M50 50 L 79.1 60.6"/>
@@ -226,7 +222,7 @@ export const CG_FLORA_DEFS = String.raw`
 
   <!-- 見出しの点線ルールの終端につく標。花序は丸く完結した形なので、
        行末の飾りとして自然に納まる -->
-  <symbol id="cg-fatsia-mark" viewBox="0 0 120 84">
+  <symbol id="fig-fatsia-mark" viewBox="0 0 120 84">
     <!-- 茎は左端の高さ42（＝箱の中央）から入る。見出しの点線ルールと同じ
          高さで受けるので、点線がそのまま茎に続いて見える。前版は箱の
          左下から立ち上げていたため、点線と繋がらず宙に浮いていた -->
@@ -236,13 +232,13 @@ export const CG_FLORA_DEFS = String.raw`
       <path d="M34 42 C 50 44 56 52 66 60"/>
     </g>
     <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46">
-      <use href="#cg-fatsia-umbel" x="54" y="46" width="30" height="30"/>
+      <use href="#fig-fatsia-umbel" x="54" y="46" width="30" height="30"/>
     </g>
-    <use href="#cg-fatsia-umbel" x="58" y="0" width="44" height="44"/>
+    <use href="#fig-fatsia-umbel" x="58" y="0" width="44" height="44"/>
   </symbol>
 
   <!-- 花枝。1点から花柄が放射して先端に球がつく、写真そのものの構造 -->
-  <symbol id="cg-fatsia-spray" viewBox="0 0 300 176">
+  <symbol id="fig-fatsia-spray" viewBox="0 0 300 176">
     <g stroke="var(--stalk)" stroke-width="4" fill="none" stroke-linecap="round">
       <path d="M150 174 L 150 150"/>
       <path d="M150 150 Q 110 121 70 64"/>
@@ -252,12 +248,12 @@ export const CG_FLORA_DEFS = String.raw`
       <path d="M150 150 Q 173 155 196 132"/>
       <path d="M150 150 Q 204 102 258 26"/>
     </g>
-    <g><use href="#cg-fatsia-umbel" x="40" y="34" width="60" height="60"/></g>
-    <g><use href="#cg-fatsia-umbel" x="116" y="6" width="68" height="68"/></g>
-    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#cg-fatsia-umbel" x="198" y="44" width="56" height="56"/></g>
-    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#cg-fatsia-umbel" x="86" y="98" width="52" height="52"/></g>
-    <g><use href="#cg-fatsia-umbel" x="172" y="108" width="48" height="48"/></g>
-    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#cg-fatsia-umbel" x="236" y="4" width="44" height="44"/></g>
+    <g><use href="#fig-fatsia-umbel" x="40" y="34" width="60" height="60"/></g>
+    <g><use href="#fig-fatsia-umbel" x="116" y="6" width="68" height="68"/></g>
+    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#fig-fatsia-umbel" x="198" y="44" width="56" height="56"/></g>
+    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#fig-fatsia-umbel" x="86" y="98" width="52" height="52"/></g>
+    <g><use href="#fig-fatsia-umbel" x="172" y="108" width="48" height="48"/></g>
+    <g style="--bloom:var(--bloom-bud);--bloom-hi:var(--bloom-bud-hi);--stalk:#7E9C46"><use href="#fig-fatsia-umbel" x="236" y="4" width="44" height="44"/></g>
   </symbol>
 
   <!-- ============ ヨモギ ＝ 線 ==============================================
@@ -265,7 +261,7 @@ export const CG_FLORA_DEFS = String.raw`
   <!-- 輪郭を1本のパスで取ると、裂けの谷が浅くなって菱形の記号に潰れる。
        中肋に細い小葉を並べる作り（ヤツデと同じ手法）にすると、小さく
        表示しても羽状に裂けた葉として読める -->
-  <symbol id="cg-mugwort-leaf" viewBox="0 0 90 116">
+  <symbol id="fig-mugwort-leaf" viewBox="0 0 90 116">
     <path d="M45 116 V 24" stroke="var(--mug-dk)" stroke-width="2.6"
           fill="none" opacity=".8" stroke-linecap="round"/>
     <g fill="var(--mug)">
@@ -304,7 +300,7 @@ export const CG_FLORA_DEFS = String.raw`
   <!-- 小さい葉を5枚散らすと、表示サイズ（100px前後）では切れ込みが潰れて
        星形の記号にしか見えない。葉を3枚に減らして1枚あたりを大きく取り、
        羽状の裂けが読める寸法を確保する -->
-  <symbol id="cg-mugwort-sprig" viewBox="0 0 240 120">
+  <symbol id="fig-mugwort-sprig" viewBox="0 0 240 120">
     <g stroke="var(--mug-dk)" stroke-width="3.4" fill="none" opacity=".75" stroke-linecap="round">
       <path d="M4 116 C 70 110, 130 84, 196 34"/>
       <path d="M62 104 C 74 86, 82 68, 84 48"/>
@@ -313,10 +309,10 @@ export const CG_FLORA_DEFS = String.raw`
     <!-- 奥の1枚だけ落とす。ヨモギは「線」の役なので面としては効かせないが、
          3枚が完全に同値だと重なりが読めず、1枚の記号に潰れる -->
     <g style="--mug:var(--mug-sh);--mug-dk:var(--leaf-core)">
-      <use href="#cg-mugwort-leaf" x="8"   y="18" width="98" height="126"/>
+      <use href="#fig-mugwort-leaf" x="8"   y="18" width="98" height="126"/>
     </g>
-    <use href="#cg-mugwort-leaf" x="88"  y="4"  width="86" height="111"/>
-    <use href="#cg-mugwort-leaf" x="158" y="0"  width="74" height="95"/>
+    <use href="#fig-mugwort-leaf" x="88"  y="4"  width="86" height="111"/>
+    <use href="#fig-mugwort-leaf" x="158" y="0"  width="74" height="95"/>
   </symbol>
 
   <!-- ============ アオキ ＝ 点 ==============================================
@@ -326,7 +322,7 @@ export const CG_FLORA_DEFS = String.raw`
        して葉身そのものが明るすぎたので、陰側 --aoki（L*55）／受光側
        --aoki-hi（L*72）の2面に割った。1枚の葉の中に17単位の明度差ができる
        ので、平らな楕円ではなく「面の向きが変わっている葉」に見える -->
-  <symbol id="cg-aucuba-leaf" viewBox="0 0 80 200">
+  <symbol id="fig-aucuba-leaf" viewBox="0 0 80 200">
     <path fill="var(--aoki)" d="M40 200
       C 22 172, 10 130, 10 92   C 10 54, 22 24, 40 0
       C 58 24, 70 54, 70 92     C 70 130, 58 172, 40 200 Z"/>
@@ -353,16 +349,16 @@ export const CG_FLORA_DEFS = String.raw`
     </g>
   </symbol>
 
-  <symbol id="cg-aucuba-sprig" viewBox="0 0 220 260">
+  <symbol id="fig-aucuba-sprig" viewBox="0 0 220 260">
     <g stroke="var(--aoki-dk)" stroke-width="4.5" fill="none" stroke-linecap="round">
       <path d="M110 258 V 96"/>
       <path d="M110 190 L 58 150"/><path d="M110 160 L 166 122"/>
       <path d="M110 130 L 66 96"/>
     </g>
-    <use href="#cg-aucuba-leaf" x="18"  y="104" width="72" height="180" transform="rotate(-34 54 194)"/>
-    <use href="#cg-aucuba-leaf" x="130" y="78"  width="68" height="170" transform="rotate(32 164 163)"/>
-    <use href="#cg-aucuba-leaf" x="26"  y="48"  width="62" height="155" transform="rotate(-46 57 125)"/>
-    <use href="#cg-aucuba-leaf" x="86"  y="20"  width="58" height="145"/>
+    <use href="#fig-aucuba-leaf" x="18"  y="104" width="72" height="180" transform="rotate(-34 54 194)"/>
+    <use href="#fig-aucuba-leaf" x="130" y="78"  width="68" height="170" transform="rotate(32 164 163)"/>
+    <use href="#fig-aucuba-leaf" x="26"  y="48"  width="62" height="155" transform="rotate(-46 57 125)"/>
+    <use href="#fig-aucuba-leaf" x="86"  y="20"  width="58" height="145"/>
     <!-- 実。写真のとおり楕円で、枝先に房。ページ唯一の鮮やかな赤。
          陰側（--berry-dk）を敷いてから明部を右上へずらして重ねる。
          球にいちばん効くのは陰と鏡面で、輪郭線ではない -->
@@ -402,7 +398,7 @@ export const CG_FLORA_DEFS = String.raw`
   <!-- 葉。5裂だが裂けは浅く、基部が広い。半径42/62（68%）まで隣の裂片と
        接していて、外側1/3だけが分かれる。ヤツデ（切れ込み35%）よりさらに
        浅く、丸い塊として読める＝アイビーの見え方 -->
-  <g id="cg-ivy-blade">
+  <g id="fig-ivy-blade">
     <g>
       <path transform="translate(50 74) rotate(-62)" d="M0 0 C -8 -5.6, -15.7 -11.2, -16 -15.2 C -16.3 -24.8, -9.9 -33.6, 0 -40 C 9.9 -33.6, 16.3 -24.8, 16 -15.2 C 15.7 -11.2, 8 -5.6, 0 0 Z"/>
       <path transform="translate(50 74) rotate(-32)" d="M0 0 C -10.8 -7.6, -21.2 -15.1, -21.6 -20.5 C -22 -33.5, -13.4 -45.4, 0 -54 C 13.4 -45.4, 22 -33.5, 21.6 -20.5 C 21.2 -15.1, 10.8 -7.6, 0 0 Z"/>
@@ -414,14 +410,14 @@ export const CG_FLORA_DEFS = String.raw`
     <ellipse cx="50" cy="66" rx="17" ry="11"/>
   </g>
 
-  <symbol id="cg-ivy-leaf" viewBox="0 0 100 90">
-    <use href="#cg-ivy-blade" fill="var(--leaf)"/>
+  <symbol id="fig-ivy-leaf" viewBox="0 0 100 90">
+    <use href="#fig-ivy-blade" fill="var(--leaf)"/>
     <!-- 葉脈。アイビーの識別点はこの明るい脈なので、ヤツデより太めに引く -->
     <g stroke="var(--vein)" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".9">
       <path d="M50 74 L 25 60"/><path d="M50 74 L 29 41"/><path d="M50 74 L 50 29"/>
       <path d="M50 74 L 71 41"/><path d="M50 74 L 75 60"/>
     </g>
-    <use href="#cg-ivy-blade" fill="var(--shade-paint)"/>
+    <use href="#fig-ivy-blade" fill="var(--shade-paint)"/>
     <path d="M50 74 L 50 90" stroke="var(--leaf-core)" stroke-width="3.4"
           stroke-linecap="round" fill="none"/>
     <ellipse cx="61" cy="46" rx="2.2" ry="7" transform="rotate(28 61 46)"
@@ -435,7 +431,7 @@ export const CG_FLORA_DEFS = String.raw`
        彩度が負けて**枯れ葉**に見えた。群落と違ってガーランドは地の色が
        変わる境界に掛けるものなので、奥は淡くせず --leaf-core（暗い緑）で
        取る。明度で退かせて彩度では退かせない -->
-  <symbol id="cg-ivy-garland" viewBox="0 0 600 150">
+  <symbol id="fig-ivy-garland" viewBox="0 0 600 150">
     <g stroke="var(--leaf-core)" stroke-width="3.6" fill="none" stroke-linecap="round">
       <path d="M0 40 C 90 20, 150 70, 240 55 C 330 40, 400 85, 490 68 C 540 58, 570 72, 600 66"/>
     </g>
@@ -444,22 +440,22 @@ export const CG_FLORA_DEFS = String.raw`
       <path d="M152 62 C 160 78, 148 88, 142 80 C 138 74, 146 70, 150 78"/>
       <path d="M418 78 C 428 94, 416 104, 410 96 C 406 90, 414 86, 418 94"/>
     </g>
-    <use href="#cg-ivy-leaf" x="7" y="2" width="46" height="41" transform="rotate(168 30 36)"/>
-    <use href="#cg-ivy-leaf" x="59" y="14" width="38" height="34" transform="rotate(196 78 42)"/>
-    <use href="#cg-ivy-leaf" x="102" y="16" width="52" height="47" transform="rotate(155 128 54)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
-    <use href="#cg-ivy-leaf" x="156" y="28" width="40" height="36" transform="rotate(200 176 58)" style="--leaf:var(--leaf-hi)"/>
-    <use href="#cg-ivy-leaf" x="206" y="18" width="48" height="43" transform="rotate(172 230 54)"/>
-    <use href="#cg-ivy-leaf" x="268" y="23" width="36" height="32" transform="rotate(148 286 50)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
-    <use href="#cg-ivy-leaf" x="313" y="23" width="50" height="45" transform="rotate(192 338 60)"/>
-    <use href="#cg-ivy-leaf" x="371" y="41" width="42" height="38" transform="rotate(160 392 72)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk)"/>
-    <use href="#cg-ivy-leaf" x="425" y="36" width="46" height="41" transform="rotate(200 448 70)"/>
-    <use href="#cg-ivy-leaf" x="489" y="38" width="38" height="34" transform="rotate(168 508 66)" style="--leaf:var(--leaf-hi)"/>
-    <use href="#cg-ivy-leaf" x="540" y="35" width="44" height="40" transform="rotate(180 562 68)"/>
+    <use href="#fig-ivy-leaf" x="7" y="2" width="46" height="41" transform="rotate(168 30 36)"/>
+    <use href="#fig-ivy-leaf" x="59" y="14" width="38" height="34" transform="rotate(196 78 42)"/>
+    <use href="#fig-ivy-leaf" x="102" y="16" width="52" height="47" transform="rotate(155 128 54)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
+    <use href="#fig-ivy-leaf" x="156" y="28" width="40" height="36" transform="rotate(200 176 58)" style="--leaf:var(--leaf-hi)"/>
+    <use href="#fig-ivy-leaf" x="206" y="18" width="48" height="43" transform="rotate(172 230 54)"/>
+    <use href="#fig-ivy-leaf" x="268" y="23" width="36" height="32" transform="rotate(148 286 50)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk);--leaf-wet:transparent"/>
+    <use href="#fig-ivy-leaf" x="313" y="23" width="50" height="45" transform="rotate(192 338 60)"/>
+    <use href="#fig-ivy-leaf" x="371" y="41" width="42" height="38" transform="rotate(160 392 72)" style="--leaf:var(--leaf-core);--vein:var(--leaf-dk)"/>
+    <use href="#fig-ivy-leaf" x="425" y="36" width="46" height="41" transform="rotate(200 448 70)"/>
+    <use href="#fig-ivy-leaf" x="489" y="38" width="38" height="34" transform="rotate(168 508 66)" style="--leaf:var(--leaf-hi)"/>
+    <use href="#fig-ivy-leaf" x="540" y="35" width="44" height="40" transform="rotate(180 562 68)"/>
   </symbol>
 
   <!-- 斑入りアオキ（写真4）。金色の斑がページで最も明るい植物要素になる。
        斑は葉の縁に不規則に入るので、緑の葉の上に黄色の縁取りを重ねる -->
-  <symbol id="cg-aucuba-var-leaf" viewBox="0 0 80 200">
+  <symbol id="fig-aucuba-var-leaf" viewBox="0 0 80 200">
     <path fill="var(--variegate)" d="M40 200
       C 22 172, 10 130, 10 92   C 10 54, 22 24, 40 0
       C 58 24, 70 54, 70 92     C 70 130, 58 172, 40 200 Z"/>
@@ -479,16 +475,16 @@ export const CG_FLORA_DEFS = String.raw`
       C 56 80, 56.5 104, 53.5 126   C 51 104, 50 82, 52 62 Z"/>
   </symbol>
 
-  <symbol id="cg-aucuba-variegated" viewBox="0 0 220 240">
+  <symbol id="fig-aucuba-variegated" viewBox="0 0 220 240">
     <g stroke="var(--aoki-dk)" stroke-width="4.5" fill="none" stroke-linecap="round">
       <path d="M110 238 V 110"/>
       <path d="M110 200 L 56 164"/><path d="M110 172 L 168 138"/>
       <path d="M110 144 L 70 110"/>
     </g>
-    <use href="#cg-aucuba-var-leaf" x="16"  y="114" width="70" height="176" transform="rotate(-36 51 202)"/>
-    <use href="#cg-aucuba-var-leaf" x="132" y="92"  width="66" height="165" transform="rotate(34 165 174)"/>
-    <use href="#cg-aucuba-var-leaf" x="28"  y="62"  width="60" height="150" transform="rotate(-48 58 137)"/>
-    <use href="#cg-aucuba-var-leaf" x="88"  y="34"  width="56" height="140"/>
+    <use href="#fig-aucuba-var-leaf" x="16"  y="114" width="70" height="176" transform="rotate(-36 51 202)"/>
+    <use href="#fig-aucuba-var-leaf" x="132" y="92"  width="66" height="165" transform="rotate(34 165 174)"/>
+    <use href="#fig-aucuba-var-leaf" x="28"  y="62"  width="60" height="150" transform="rotate(-48 58 137)"/>
+    <use href="#fig-aucuba-var-leaf" x="88"  y="34"  width="56" height="140"/>
   </symbol>
 </defs>
 `;

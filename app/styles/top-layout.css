@@ -1,0 +1,567 @@
+/* ---------------------------------------------------------------------------
+   TOPページのセクションレイアウト。
+
+   ./top-design.css が素材・配色・タイポグラフィと自前のクロームを持ち、この
+   ファイルはその語彙の上に**構造だけ**を載せる。globals.css で top-design より
+   後に読むので、素材シート側の指定を絞る側になる。
+
+   セクションの並びは Hero → PrimeLocation → Renovated → Rooms → Access。
+   文言は `hero` / `primeLocation` / `renovated` / `rooms` / `access` 名前空間から。
+
+   クラス名の作法：`.c-head` `.rhead` `.sidx` `.rail-x` のようにデザイン側が
+   すでに持っている語彙を再利用し、素材シートに無い部品（アクセスの地図・
+   利便性ブロック・全室一覧への導線）にだけ独自のクラスを足す。
+   --------------------------------------------------------------------------- */
+
+/* ===========================================================================
+   WASHED CHAMBRAY — 12列のエディトリアル。仕立てのディテールで差をつける
+   One dark anchor (Renovated), room bands breaking the grid edge to edge, and
+   a horizontal rail for the neighbourhood. Everything reads as garment
+   construction: dashed stitch, raw-denim patches, rivets.
+   =========================================================================== */
+.top-page {
+  /* Display type. The source mock set every headline in Barlow Condensed and
+     Newsreader italic — Latin faces with no 和文 glyphs. The canonical
+     headings are Japanese, so they move to the JP face; the design's voice is
+     carried by the em sub-line, the colour split and the stitch details. */
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .mhead h2,
+  .linfo h2,
+  .card h4,
+  .sample b,
+  .word b {
+    font-family: var(--jp);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+  /* .band h3 is NOT in that list: the room names are Latin in every locale, so
+     they keep Barlow Condensed — the one place this design's display face can
+     do its job. */
+  /* The Latin display line, set in the condensed face the source mock used for
+     every headline. Barlow Condensed has no 和文 glyphs, so it takes this line
+     and the canonical Japanese heading becomes the subhead beneath it. */
+  .display-line {
+    font-family: var(--cnd);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    color: var(--indigo);
+    margin-top: 14px;
+  }
+  .hero .display-line {
+    font-size: clamp(2.4rem, 6.4vw, 5.6rem);
+    margin-top: 16px;
+  }
+  .mhead .display-line {
+    color: var(--ecru);
+  }
+  /* .display-line is a <p>, and .mhead p / .rhead p — which set the lead
+     paragraph — match it at the same specificity and win on order. Left alone,
+     the display line collapsed to lead size (14px) in Renovated and Rooms, and
+     in the two 12-column heads it was also pulled into the right-hand
+     column where the lead lives. Restating it at head scope puts the line back
+     at the head of the left column, as it already is in Hero, PrimeLocation and
+     Access. */
+  .mhead .display-line,
+  .rhead .display-line {
+    font-size: clamp(2rem, 4.8vw, 4rem);
+    line-height: 0.9;
+    letter-spacing: 0.005em;
+    margin-top: 0;
+  }
+  .rhead .display-line {
+    color: var(--indigo);
+    grid-column: 1 / 8;
+    grid-row: 1;
+  }
+  /* the Japanese heading is the display line's subhead, so it takes the row
+     below it; the lead spans both rows and keeps its bottom alignment */
+  .rhead h2 {
+    grid-row: 2;
+  }
+  .rhead > p:not(.display-line) {
+    grid-row: 1 / 3;
+    align-self: end;
+  }
+  .h1,
+  .c-head h2,
+  .rhead h2,
+  .mhead h2,
+  .linfo h2 {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    line-height: 1.85;
+    margin-top: 14px;
+    max-width: 34em;
+    /* 2026-08-25：見出しを1文に統合したので、折り返しが文節を割るように
+       なった（「暮らしに必要なものはす／ぐそこに。」）。auto-phrase は
+       文節境界で折る。非対応ブラウザは従来どおりの禁則処理に落ちるだけ */
+    word-break: auto-phrase;
+  }
+  /* 2026-08-25：`h2 em`（見出しの2行目を別色・強制改行で分ける書き方）は
+     クライアント指示「見出しの2行分割を1文に統一」で廃止。ChambrayTop は
+     messages の `heading`（1本化した文字列）を h2 に直接入れる。
+     headingLine1 / headingLine2 は他デザインがまだ使っているので messages
+     には残してある — A で他デザインを消したら一緒に消せる。 */
+  /* 2026-08-25「近隣施設の文字を太く、見やすく」。カード見出しを一段上げる */
+  .card h4 {
+    font-size: 1.0625rem;
+    letter-spacing: 0.01em;
+  }
+  .sample b {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Hero — the chip is a label above a value, but both spans are inline, so
+     "ROOM 01 — 03" and the brand list ran together on one line and the .t
+     margin-top the source mock set was inert. */
+  .hero-chip .n,
+  .hero-chip .t {
+    display: block;
+  }
+  /* Hero — the two actions sit side by side inside the patch and the longer
+     label makes the secondary the wider of the pair. A full-strength border
+     let it read as a peer of the primary; softening it restores the order
+     without touching either label. */
+  .patch .btn-line {
+    border-color: rgba(237, 242, 247, 0.42);
+  }
+  .patch .btn-line:hover {
+    border-color: rgba(237, 242, 247, 0.78);
+    background: rgba(237, 242, 247, 0.08);
+  }
+
+  /* PrimeLocation — the walk-time list carries a whole phrase, not a bare
+     numeral with a unit, so it steps down from the display size. */
+  .acc i {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+  }
+  .acc {
+    margin-top: 26px;
+  }
+  /* PrimeLocation — the six/six split gave the portrait plate the same width as
+     the text column, so it ran ~310px past the bottom of the walk-time list and
+     left a hole beside it. Seven/five keeps the plate portrait, closes most of
+     the gap, and gives the copy and the list the extra width. */
+  .c-left {
+    grid-column: 1 / 8;
+  }
+  .c-fig {
+    grid-column: 8 / 13;
+  }
+  /* the rows are label-left / time-right, so across the full seven columns the
+     pair drifted too far apart to read as one line */
+  .c-left .acc {
+    max-width: 34em;
+  }
+  .rail-x {
+    margin-top: clamp(40px, 5vw, 68px);
+  }
+  /* the four neighbourhood cards overran the text column by ~40px at desktop
+     widths, so the last one was clipped by the viewport and the rail read as a
+     broken grid rather than a scroller. At 300px they land inside the column;
+     narrower viewports still scroll, which is what the rail is for. */
+  .card {
+    flex-basis: clamp(228px, 25vw, 300px);
+  }
+  /* 距離はカードで一番読みたい情報なのに、mono 10px・字送り .14em・
+     不透明度 .68 でカード内で一番弱かった。和文の指定に直して数値として
+     立たせる（色は chambray-design.css 側で .88 まで上げてある）。
+     2026-08-25 クライアント指示。 */
+  .card p {
+    font-family: var(--jp);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  /* Renovated — three cloths instead of the source mock's four */
+  .samples-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* the source mock spaced the sample title off the swatch with a .hex line
+     that the canonical content has no data for, so the title was sitting 3px
+     under the cloth */
+  .sample b {
+    margin-top: 14px;
+  }
+  .sample p {
+    margin-top: 8px;
+  }
+
+  /* Rooms — the outlined index numeral is meant to cross the seam between the
+     picture and the raw-denim panel, but its near-white stroke only reads on
+     the panel: everything hanging over the light ground and the illustration
+     disappeared, so the glyph looked chopped off. A mid-tone stroke reads on
+     both sides of the seam, which is what the crossing was for. */
+  .band .no {
+    -webkit-text-stroke-color: var(--indigo-fade);
+  }
+  .viewall-wrap {
+    padding-block: clamp(34px, 4.4vw, 60px);
+  }
+
+  /* Access — the live map replaces the illustrated one, so it fills .lmap */
+  .access-map {
+    position: absolute;
+    inset: 0;
+  }
+  .access-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .access-cta {
+    margin-top: 26px;
+    align-self: flex-start;
+  }
+
+  /* --- 2026-08-22 クライアントfeedback（Find the Door を基準に）------------
+     指摘は「小さくしろ」ではなく「重要な情報が一瞬で分かるように」。
+     この2つは和文が載っているのに札や透かしの級数のままで、スマホでは
+     読む前に飛ばされていた。地と役割はそのまま、級数と濃さだけ上げる。 */
+  /* 素材カードの説明文：11px / 62% は影の地の上で本文として細すぎた */
+  .sample p {
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: rgba(237, 242, 247, 0.8);
+  }
+  /* 近隣2枚のキャプション：9px の和文。写真の上なので級数で稼ぐ。
+     絵の明るい側（街のイラストは空が淡い）ではクリームの文字が落ちるので、
+     文字の下端にだけ薄い暗がりを敷く。絵そのものの色は動かしていない。 */
+  .hoods .h .t {
+    font-family: var(--jp);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+  .hoods .h::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 42%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(14, 24, 36, 0.58), rgba(14, 24, 36, 0));
+  }
+
+  @media (max-width: 1100px) {
+    .samples-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 880px) {
+    /* PrimeLocation stacks here, so the seven/five split above has to let go */
+    .c-left,
+    .c-fig {
+      grid-column: 1 / 13;
+    }
+    .c-left .acc {
+      max-width: none;
+    }
+    /* the heads are single-column here, so the display line spans the width and
+       every part takes its own row again */
+    .rhead .display-line {
+      grid-column: 1 / 13;
+    }
+    .rhead .display-line,
+    .rhead h2,
+    .rhead > p:not(.display-line) {
+      grid-row: auto;
+    }
+    /* the stacked band puts the numeral over the bottom of the picture, where
+       the room-name stamp already sits at the left; it moves to the free side
+       so the two stop overlapping */
+    .band .no,
+    .band.rev .no {
+      left: auto;
+      right: 16px;
+    }
+  }
+  @media (max-width: 600px) {
+    .samples-3 {
+      grid-template-columns: 1fr;
+    }
+    .acc li {
+      align-items: flex-start;
+    }
+    /* Access — the values used to be whole phrases ("〒160-0022 東京都新宿区
+       新宿１丁目１９−６"), so at this width the row stacked label over value
+       and each fact cost two lines plus its own padding. The 2026-08-22 pass
+       cut the values down to the fact itself, so the row holds one line again
+       — label left, value right, both on the same baseline. */
+    .linfo .acc li {
+      align-items: baseline;
+      gap: 12px;
+    }
+  }
+
+  /* =========================================================================
+     Phase 1.5 (2026-08-17 クライアントfeedback)
+     ========================================================================= */
+
+  /* --- 立地の利便性 — 「夜中でも買いに行ける」の側の主張 ------------------- */
+  .conv-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--forest-ink);
+  }
+  /* --cnd (Barlow Condensed) carries no Japanese glyphs, so a 和文 heading set
+     in it silently falls back mid-line. The Latin display faces stay on the
+     Latin display lines; headings that hold Japanese use --jp. */
+  .conv-h {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: var(--indigo);
+    margin-top: 12px;
+    max-width: 22em;
+  }
+  /* 2026-08-22 — 「夜中でも、ふらっと〜」の下は 13px / 行送り 2.1 で、
+     見出しに対して弱すぎるうえ4行あった。本文を短くしたうえで、Access の
+     リードと同じ 14px / 1.95 に上げ、インクも一段濃くする（小さくすることと
+     簡潔にすることは別、という前提での引き上げ）。 */
+  .conv-lead {
+    font-family: var(--jp);
+    font-size: 0.875rem;
+    line-height: 1.95;
+    color: rgba(43, 38, 32, 0.92);
+    margin-top: 14px;
+    /* em, not ch — ch measures the Latin "0" and cuts 和文 ~40% short */
+    max-width: 34em;
+  }
+}
+
+/* ===========================================================================
+   近隣レールとフッター（2026-08-17〜22 のクライアントfeedback反映）
+
+   最終セクションの地は当初「塗り壁／ウッド／モケットグリーン」の3案を切り替えて
+   比較していたが、2026-08-22 に**カジュアルなウッド調で確定**したため切替属性ごと
+   廃止（地と柄は ./wood.css の共通ウッド）。近隣SHOPの横スライドも同様に手動／オートを
+   比較していたが、2026-08-21 に**オートディスプレイで統一**が決まって廃止済み。
+   下のルールはどちらも切り替えではなく既定の姿。
+
+   The client's指摘 on the footer was 「色が重い／白字が細い」. The ground answers
+   it structurally: it goes light and the type goes dark, so body copy clears
+   4.5:1 without thickening anything. 地と柄は app/wood.css の共通ウッド
+   （2026-08-21 に色柄を統一）で、中〜明るめの材なのでその上のインクが読める。
+   =========================================================================== */
+
+/* --- 近隣SHOP：オートディスプレイ ---
+   The rail drifts on its own (app/[locale]/_components/autoRail.ts), driving
+   scrollLeft frame by frame — and mandatory snapping fights that, dragging the
+   rail back to the nearest card on every frame — so the snapping ./top-design.css
+   sets on .rail-x is dropped here.
+
+   top-design.css is imported before this one, so this plain `.top-page .rail-x`
+   selector overrides it on source order alone; no specificity padding needed. */
+.top-page .rail-x {
+  scroll-snap-type: none;
+  scrollbar-width: none;
+}
+.top-page .rail-x::-webkit-scrollbar {
+  height: 0;
+}
+/* the cloned run that makes the loop seamless — same cards, no second reading
+   for a screen reader */
+.top-page .rail-x .card[data-rail-clone] {
+  pointer-events: none;
+}
+
+/* --- 最終セクション（footer）の文字 ----------------------------------------
+   クライアント指摘は「色が重い／白字が細い」。地は app/wood.css の共通ウッド
+   （明るい中間色）なので、その上の文字は**濃く・太く**して解く。
+
+   インクは --shadow(#2B2620) より一段深い #221D18 を footer 専用に持つ。
+   ウッドは木目と板の継ぎ目で地の明るさが振れるので、素の面での数字ではなく
+   「一番暗いピクセルの上」で 4.5:1 を満たす側に置いた。実測（背景を合成して
+   全ピクセル走査）で最暗部 4.97:1 / 中央値 6.2:1 ——  --shadow のままだと
+   最暗部 4.46:1 で、wood.css のヴェールと合わせてようやくこの数字になる。
+
+   太らせ方は一律ではなく役割ごと：
+     ブランドマーク  デニムのまま（27px/700 の大文字なので 4.5:1 で足りる）
+     リード文        13px→14px / 400→500
+     カラム見出し    9px mono を 10px/700 に。9px の 400 は「細い」の本丸
+     リンク          14px / 500→600（タップ対象なので一番強く）
+     最下段          9px→10px / 600、罫線も 0.28→0.42 に濃く
+
+   透明度で階層を作るのは今回もやらない（旧実装が薄い白文字で階層を作って
+   いたのが「細い」の正体）。差はサイズ・ウェイト・字間だけでつけている。 */
+.top-page footer {
+  /* footer 専用の深いインク。他セクションの --shadow より暗いのは、
+     ここだけ地がウッド（明るい中間色）で、かつ小さい文字が多いから */
+  --ft-ink: #221d18;
+  color: var(--ft-ink);
+}
+.top-page .ft-brand .k {
+  color: var(--indigo);
+}
+.top-page .ft-brand p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 2;
+  color: var(--ft-ink);
+  max-width: 32em;
+}
+/* カラム見出しは 9px の大文字 mono。小さい文字ほどウェイトで効かせるので、
+   ここは 700 まで上げたうえで字間を少し詰める（太字にすると 0.2em は
+   バラけて逆に読みにくい） */
+.top-page .ft-col h5 {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ft-ink);
+  opacity: 1;
+}
+.top-page .ft-col a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ft-ink);
+}
+/* hover は色だけでなく下線も出す。濃いインク同士の色差は小さいので、
+   色の変化だけだと「押せる」ことが伝わりにくい */
+.top-page .ft-col a:hover {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.top-page .ft-bot {
+  border-top: 1px solid rgba(34, 29, 24, 0.42);
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--ft-ink);
+}
+
+/* ===========================================================================
+   MOBILE LANGUAGE BUTTON — 全モックデザイン共通
+
+   ./top-design.css は電話幅でデスクトップの `.lang` ストリップを隠す
+   （`.nav-links,.nav .lang{display:none}`）。そのままだと電話から言語を切り替える
+   手段が無くなるので、その置き換えとして小さな地球儀ボタンをナビに置いている。
+
+   マークアップと理由：`LangSwitch`（app/[locale]/_components/topShared.tsx）。
+   開閉は隠しチェックボックス `.mlang-in` と CSS `:checked` だけ —— JS は使わない。
+   色とタイポは `--indigo` / `--cham-*` を読むので、素材シート側と自動で揃う。
+   =========================================================================== */
+.top-page {
+  .mlang {
+    display: none; /* flipped on at the phone breakpoints below */
+    position: relative;
+    flex: none;
+  }
+  .mlang-in {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .mlang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    border: 1px solid;
+    line-height: 1;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mlang-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mlang-btn b {
+    font-weight: 600;
+  }
+  /* tapping anywhere outside closes the popup */
+  .mlang-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+  }
+  .mlang-pop {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 2;
+    min-width: 136px;
+    margin: 0;
+    padding: 5px;
+    list-style: none;
+    border-radius: 12px;
+  }
+  .mlang-pop a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .mlang-in:checked ~ .mlang-scrim,
+  .mlang-in:checked ~ .mlang-pop {
+    display: block;
+  }
+  .mlang-in:focus-visible ~ .mlang-btn {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* --- Washed Chambray / Chambray Gyoen — light nav, indigo ink -------------- */
+.top-page {
+  .mlang-btn {
+    color: var(--indigo);
+    border-color: var(--indigo-fade);
+    background: var(--cham-pale);
+    font-family: var(--mono);
+  }
+  .mlang-pop {
+    background: var(--cham-pale);
+    border: 1px solid var(--indigo-fade);
+    box-shadow: 0 18px 34px -20px rgba(19, 40, 60, 0.75);
+  }
+  .mlang-pop a {
+    color: var(--indigo);
+    font-family: var(--ui);
+  }
+  .mlang-pop a[aria-current="true"] {
+    background: var(--indigo);
+    color: var(--cham-pale);
+    font-weight: 600;
+  }
+}
+
+/* デスクトップの言語ストリップが消える幅とちょうど同じ 880px で出す。 */
+@media (max-width: 880px) {
+  .top-page .mlang {
+    display: block;
+  }
+}

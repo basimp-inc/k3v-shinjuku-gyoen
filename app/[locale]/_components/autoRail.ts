@@ -1,9 +1,8 @@
 /**
- * 近隣SHOP の横スライド — オートディスプレイ（全デザイン共通）
+ * 近隣SHOP の横スライド — オートディスプレイ
  *
  * Phase 1.5 で A・B 比較していた「手動 / オートプレイ」は、クライアント確認の結果
- * **オートディスプレイで統一**（2026-08-21）。切り替え用の <html data-wc-rail> は
- * 廃止し、Washed Chambray / Chambray Gyoen の両デザインがこの一本を共有する。
+ * **オートディスプレイで統一**（2026-08-21）。
  *
  * The run of cards is cloned so the wrap-around is a plain subtraction of one
  * run's width rather than a visible rewind.
@@ -12,11 +11,11 @@
  * focus, while the tab is hidden, and entirely under prefers-reduced-motion —
  * a carousel the reader cannot stop is worse than no carousel.
  *
- * @param root  the design's subtree (.chambray-top / .chambray-gyoen-top)
+ * @param root  TOPページのサブツリー（.top-page）
  * @returns a teardown that removes the clones and every listener
  */
 export function wireAutoRail(root: HTMLElement): () => void {
-  const rail = root.querySelector<HTMLElement>("[data-wc-rail-track]");
+  const rail = root.querySelector<HTMLElement>("[data-rail-track]");
   if (!rail) return () => {};
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -43,7 +42,7 @@ export function wireAutoRail(root: HTMLElement): () => void {
     frame = 0;
     clearTimeout(releaseTimer);
     releaseTimer = 0;
-    rail.querySelectorAll("[data-wc-clone]").forEach((el) => el.remove());
+    rail.querySelectorAll("[data-rail-clone]").forEach((el) => el.remove());
     rail.scrollLeft = 0;
   };
 
@@ -53,7 +52,7 @@ export function wireAutoRail(root: HTMLElement): () => void {
      clone and the loop jumps visibly on every cycle. */
   const loopWidth = () => {
     const first = rail.firstElementChild as HTMLElement | null;
-    const clone = rail.querySelector<HTMLElement>("[data-wc-clone]");
+    const clone = rail.querySelector<HTMLElement>("[data-rail-clone]");
     return first && clone ? clone.offsetLeft - first.offsetLeft : 0;
   };
 
@@ -63,11 +62,11 @@ export function wireAutoRail(root: HTMLElement): () => void {
     const addRun = () =>
       run.forEach((card) => {
         const clone = card.cloneNode(true) as HTMLElement;
-        clone.setAttribute("data-wc-clone", "");
+        clone.setAttribute("data-rail-clone", "");
         clone.setAttribute("aria-hidden", "true");
         rail.append(clone);
       });
-    if (!rail.querySelector("[data-wc-clone]")) {
+    if (!rail.querySelector("[data-rail-clone]")) {
       addRun();
       /* One copy is not always enough: the rail can only scroll
          scrollWidth − clientWidth, and with four cards on a wide viewport
@@ -115,14 +114,6 @@ export function wireAutoRail(root: HTMLElement): () => void {
     frame = requestAnimationFrame(step);
   };
 
-  /* The subtree is display:none while its theme is not selected, so the rail
-     has no layout to measure until then — (re)start it whenever the theme
-     changes, and clear the clones again when the design goes off screen. */
-  const sync = () => {
-    if (root.getClientRects().length) start();
-    else stop();
-  };
-
   rail.addEventListener("pointerenter", hold);
   rail.addEventListener("pointerleave", release);
   rail.addEventListener("pointerdown", hold);
@@ -132,12 +123,9 @@ export function wireAutoRail(root: HTMLElement): () => void {
   rail.addEventListener("touchmove", nudge, { passive: true });
   window.addEventListener("pointerup", release);
 
-  sync();
-  const themeChange = new MutationObserver(() => requestAnimationFrame(sync));
-  themeChange.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  start();
 
   return () => {
-    themeChange.disconnect();
     stop();
     rail.removeEventListener("pointerenter", hold);
     rail.removeEventListener("pointerleave", release);
