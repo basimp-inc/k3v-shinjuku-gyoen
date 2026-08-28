@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 会議資料の中間生成物（docs/review-2026-08-24）
+# 記録として残すのは README.md / PDF / tools/ の3点。以下はサイズが大きく、
+# PDF が印刷品質の記録を持っているためリポジトリには入れない。
+# ローカルには残してあるので、必要なら tools/ で作り直せる（ただし再生成すると
+# 撮り直した時点のデザインになる。8/24 時点の絵は PDF 側にしかない）。
+docs/review-2026-08-24/screens/
+docs/review-2026-08-24/*.html
