@@ -1,8 +1,0 @@
-<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 250"  aria-hidden="true">
-              <rect width="400" height="250" fill="#9CBF67"/>
-              <g fill="#4C6E31"><ellipse cx="90" cy="86" rx="124" ry="88"/><ellipse cx="308" cy="66" rx="132" ry="82"/></g>
-              <g fill="#74994A" opacity=".85"><ellipse cx="120" cy="60" rx="60" ry="40"/></g>
-              <rect y="160" width="400" height="90" fill="#7CA24C"/>
-              <g fill="#4A3222"><rect x="80" y="138" width="20" height="62"/><rect x="292" y="128" width="16" height="62"/></g>
-              <path d="M0 210 Q200 176 400 214 L400 250 L0 250 Z" fill="#9CBF67"/>
-            </svg>
