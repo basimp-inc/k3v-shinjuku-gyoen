@@ -23,15 +23,6 @@ const iconProps = {
   strokeLinejoin: "round" as const,
 };
 
-function LeafIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...iconProps}>
-      <path d="M5 19c8-1 12-6 13-13-8 1-13 5-13 13Z" />
-      <path d="M6.5 17.5C9 14 11 12 15.5 9.5" />
-    </svg>
-  );
-}
-
 function BedIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} {...iconProps}>
@@ -39,15 +30,6 @@ function BedIcon({ className }: { className?: string }) {
       <path d="M3 18v2M21 18v2" />
       <path d="M3 14h18" />
       <path d="M6 11V7.5A1.5 1.5 0 0 1 7.5 6H10a1.5 1.5 0 0 1 1.5 1.5V11" />
-    </svg>
-  );
-}
-
-function SunIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} {...iconProps}>
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 3v2.2M12 18.8V21M4.2 12H2M22 12h-2.2M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6 16.8 7.2M7.2 16.8l-1.6 1.6" />
     </svg>
   );
 }
@@ -73,15 +55,8 @@ function GlobeIcon({ className }: { className?: string }) {
 /** Short label for the tab bar; the sheet spells the names out in full. */
 const LOCALE_SHORT: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
 
-const items = [
-  // { id: "concept", icon: LeafIcon },
-  { id: "rooms", icon: BedIcon },
-] as const;
-
-const itemsRight = [
-  // { id: "moments", icon: SunIcon },
-  { id: "access", icon: PinIcon },
-] as const;
+const items = [{ id: "rooms", icon: BedIcon }] as const;
+const itemsRight = [{ id: "access", icon: PinIcon }] as const;
 
 export default function MobileBottomNav() {
   const t = useTranslations("nav");
@@ -98,7 +73,7 @@ export default function MobileBottomNav() {
   const [langOpen, setLangOpen] = useState(false);
 
   useEffect(() => {
-    const ids = ["concept", "rooms", "moments", "access"];
+    const ids = ["rooms", "access"];
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -137,7 +112,7 @@ export default function MobileBottomNav() {
           <Icon className="h-5 w-5" />
         </span>
         <span className={active ? "text-(--color-text)" : "text-(--color-on-dark-muted)"}>
-          {t(id as "concept" | "rooms" | "moments" | "access")}
+          {t(id as "rooms" | "access")}
         </span>
       </a>
     );

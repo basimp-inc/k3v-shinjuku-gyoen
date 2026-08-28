@@ -6,10 +6,11 @@ export default async function Footer() {
   const nav = await getTranslations("nav");
   const locale = await getLocale();
 
+  /* TOPページに実在する節だけを指す。#concept / #moments は節そのものが無く、
+     クリックしてもページ先頭に着地するだけだったので外した（Nav 側では以前から
+     同じ2つが外れていた）。 */
   const links = [
-    { label: nav("concept"), href: `/${locale}#concept` },
     { label: nav("rooms"), href: `/${locale}/rooms` },
-    { label: nav("moments"), href: `/${locale}#moments` },
     { label: nav("access"), href: `/${locale}#access` },
   ];
 
