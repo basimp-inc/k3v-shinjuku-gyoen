@@ -45,7 +45,8 @@
     "eyebrow": "PRIME LOCATION",
     "headingLine1": "6 minutes to Shinjuku Gyoen,",
     "headingLine2": "everyday errands right around the corner.",
-    "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around — convenient for a short trip or a longer stay in the Shinjuku Gyoen area.",
+    "heading": "6 minutes to Shinjuku Gyoen, everyday errands right around the corner.",
+    "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around.",
     "stats": [
       {
         "value": "6 min walk",
@@ -81,7 +82,7 @@
     "convenience": {
       "eyebrow": "24H NEIGHBOURHOOD",
       "heading": "A neighbourhood that stays open late.",
-      "text": "Everything you need is within walking distance — and this part of Tokyo keeps late hours.",
+      "text": "Everything you need is within walking distance.",
       "items": [
         {
           "title": "Convenience stores, 24 hours",
@@ -106,6 +107,7 @@
     "eyebrow": "NEWLY RENOVATED",
     "headingLine1": "The cleanliness of a hotel,",
     "headingLine2": "the comfort of home.",
+    "heading": "The cleanliness of a hotel, the comfort of home.",
     "description": "All three rooms have been fully renovated, with brand-new furniture and appliances throughout.",
     "points": [
       {
@@ -217,7 +219,8 @@
     "eyebrow": "ROOMS",
     "headingLine1": "We don't photograph rooms.",
     "headingLine2": "We photograph living.",
-    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand. Even steps from the same Shinjuku Gyoen, the room you choose shows you a slightly different face of the day.",
+    "heading": "We don't photograph rooms. We photograph living.",
+    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
     "items": [
       {
         "tag": "UNICO",
@@ -335,7 +338,8 @@
     "eyebrow": "ACCESS",
     "headingLine1": "Steps from Shinjuku Gyoen,",
     "headingLine2": "a small home base.",
-    "description": "A small, three-room stay steps from Shinjuku Gyoen and within walking distance of Shinjuku Station. Convenience stores and supermarkets nearby make it easy for travelers and long-stayers alike.",
+    "heading": "Steps from Shinjuku Gyoen, a small home base.",
+    "description": "A small, three-room stay steps from Shinjuku Gyoen and within walking distance of Shinjuku Station.",
     "details": [
       {
         "label": "Address",

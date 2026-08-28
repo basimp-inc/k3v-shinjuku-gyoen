@@ -68,6 +68,49 @@
   /* 明るいシャンブレー地に緑の文字を置くとき専用。--forest のままだと
      見出しの細いウェイトで 4.5:1 を割る（3.95:1）ので一段落とす */
   --forest-ink:#3E5C28;
+  /* 03b FLORA — 御苑の林床の植物（2026-08-25 クライアント採択で
+     chambray-gyoen から移植）。値は chambray-gyoen で承認済みのものをそのまま
+     使う。washed-chambray の --forest 系（#4C6E31〜#B0CC80）と同じ「そら豆〜
+     黄緑」のレンジに 2026-08-20 で寄せてあるので、地とぶつからない。
+     素材そのものは app/[locale]/_components/chambray/flora.ts。
+
+     --vein が --leaf より明るいのが要点。写真では葉脈が光っていて、
+     ヤツデらしさの大半をこの明暗の反転が作っている ---- */
+  /* 葉の明度ラダー。暗いほど青緑・低彩度、明るいほど黄・高彩度 */
+  --leaf-shade:#2F5936;  /* 最暗部。葉の重なりの内側のみ L*34.0 */
+  --leaf-core:#46793E;   /* 中間の陰・葉身の谷          L*46.0 */
+  --leaf-dk:#64964B;     /* 奥の葉・葉柄                L*57.0 */
+  --leaf:#7FB94A;        /* ヤツデ葉身（基準）           L*69.3 */
+  --leaf-hi:#ADD154;     /* 受光面・手前の葉            L*79.0 */
+  --leaf-new:#BCCC68;    /* 新芽。色相の上端            L*79.0 */
+  --vein:#CBE38F;        /* 葉脈（葉より明るい）         L*86.8 */
+  /* 遠景の葉。彩度を 62 → 26 まで落として地に半分溶かす。被覆率だけを
+     上げて視覚的な重さを増やさないための層 */
+  --leaf-air:#B7DBB1;    /* 遠景・霞んだ葉              L*84.0 */
+  /* 鏡面ハイライト＝「濡れ」。ぼかさず・小さく・高明度。わずかに青いのは
+     空の反射だから。柔らかい光沢はプラスチックに見える */
+  --leaf-wet:#E3F7F9;    /* 鏡面。硬い縁                L*96.0 */
+
+  --mug:#8CC63F;         /* ヨモギ                     L*73.8 */
+  --mug-dk:#548851;      /* ヨモギ茎・脈                L*52.0 */
+  --mug-sh:#6EA059;      /* ヨモギ奥の葉                L*61.0 */
+
+  /* アオキは「光沢のある深緑の葉」が本体。硬いハイライトを載せる相手として
+     葉身そのものを一段落とす */
+  --aoki:#5C9148;        /* アオキ葉・陰側              L*55.0 */
+  --aoki-hi:#92BE58;     /* アオキ葉・受光側            L*72.0 */
+  --aoki-dk:#39693B;     /* アオキ枝・鋸歯              L*40.0 */
+  --berry:#D93B22;       /* アオキの実。ページ唯一の鮮やかな赤 L*49.5 */
+  --berry-dk:#9E2922;    /* 実の陰側                   L*36.0 */
+  --variegate:#E3CE4B;   /* 斑入りの金                 L*82.4 */
+  --variegate-hi:#EFE07E;/* 斑の明部                   L*88.5 */
+  /* 花序。純白のままだと明るい地に溶けるので、「開いた花＝クリーム」と
+     「蕾＝淡い黄緑」を混ぜる。蕾の側が地との差を担保する */
+  --bloom:#FBFAF2;       /* 開いた小花                 L*98.0 */
+  --bloom-hi:#EDF0DC;    /* 花の陰                     L*94.1 */
+  --bloom-bud:#CBDF9B;   /* 蕾（淡い黄緑）              L*85.5 */
+  --bloom-bud-hi:#B8D082;/* 蕾の陰                     L*79.6 */
+  --stalk:#A9C46B;       /* 花柄                       L*76.0 */
   /* 04 SHADOW -------------------------------------------- */
   --shadow:#2B2620;
   /* thread / paper --------------------------------------- */
@@ -361,9 +404,16 @@ background:var(--cham);
   }
   .rail .f:last-child {border-right:0;flex:0 0 auto
   }
-  .rail .f b {font-family:var(--cnd);font-weight:700;font-size:1.5rem;letter-spacing:.02em;line-height:1
+  /* 2026-08-25 クライアント指示「ヒーロー下・WOOD 上の文字バランス」。
+     徒歩◯分（b）が 1.5rem の condensed 700 なのに対し、施設名（span）は
+     mono .625rem・字送り .14em・不透明度 .72 と落差が大きく、
+     肝心の「どこまで」が読めない帯になっていた。数字をわずかに落とし、
+     ラベルを上げて、2つで1つの情報として読めるところまで寄せる。
+     施設名は和文なので mono に和文フォントを継ぎ、字送りも和文向けに詰める */
+  .rail .f b {font-family:var(--cnd);font-weight:700;font-size:1.35rem;letter-spacing:.02em;line-height:1
   }
-  .rail .f span {font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72
+  .rail .f span {font-family:'IBM Plex Mono',var(--jp),ui-monospace,monospace;
+  font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.92
   }
   .cue {display:flex;align-items:center;gap:10px;color:var(--wood-pale)
   }
@@ -391,11 +441,15 @@ background:var(--cham);
   }
   .wrap {position:relative;z-index:2;padding:clamp(70px,10vw,140px) var(--pad)
   }
-  .sidx {display:flex;align-items:baseline;gap:15px;margin-bottom:clamp(28px,4vw,44px)
+  /* 2026-08-25 クライアント指示「01 PRIME LOCATION の文字間隔を詰める」。
+     字送りが .24em / .2em と広く、番号とラベルのあいだも 15px 空いていて、
+     見出しの前に「間延びした帯」が1本入る形になっていた。節の標識は全節
+     共通の文法なので、01 だけでなく .sidx 全体に効かせる */
+  .sidx {display:flex;align-items:baseline;gap:10px;margin-bottom:clamp(28px,4vw,44px)
   }
-  .sidx .n {font-family:var(--mono);font-size:.625rem;letter-spacing:.2em;color:var(--thread)
+  .sidx .n {font-family:var(--mono);font-size:.625rem;letter-spacing:.12em;color:var(--thread)
   }
-  .sidx .l {font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.24em;text-transform:uppercase
+  .sidx .l {font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase
   }
   .sidx .rule {flex:1;height:1px;background:repeating-linear-gradient(90deg,currentColor 0 8px,transparent 8px 15px);opacity:.35
   }
@@ -424,8 +478,10 @@ background:var(--cham);
   }
   .c-head h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.6rem,6.6vw,5.6rem);line-height:.84;color:var(--indigo)
   }
-  .c-head h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;line-height:1.15;margin-top:.16em;letter-spacing:-.01em
-  }
+  /* `h2 em`（見出し2行目を wood 系の別色＋強制改行で分ける書き方）は
+     2026-08-25「見出しの2行分割を1文に統一」で廃止。.c-head / .rhead /
+     .mhead / .linfo の4箇所ぶん削除済み。`.ehead h2 em` も 03 を外した時点で
+     不要になっている（.ehead / .mock-ami のルールごと未使用のまま残置）。 */
   .c-copy {margin-top:clamp(26px,3vw,42px);max-width:44ch
   }
   .c-copy p+p {margin-top:16px
@@ -521,8 +577,6 @@ background:var(--cham);
   }
   .rhead h2 {grid-column:1/8;font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:.84;color:var(--indigo)
   }
-  .rhead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.46em;line-height:1.2;margin-top:.14em
-  }
   .rhead p {grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.7)
   }
   .band {position:relative;display:grid;grid-template-columns:repeat(12,1fr);align-items:stretch;min-height:clamp(360px,44vw,560px)
@@ -610,9 +664,15 @@ background:var(--cham);
   }
   .card .meta .n {font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;color:var(--thread)
   }
-  .card h4 {font-family:var(--cnd);font-weight:700;font-size:1.2rem;letter-spacing:.05em;text-transform:uppercase;color:var(--indigo)
+  /* 2026-08-25 クライアント指示「近隣施設の文字を太く、見やすく」。
+     施設名は和文なのに Barlow Condensed + 字送り .05em + uppercase が
+     かかっていて、和文フォントへフォールバックしたうえ字が散っていた。
+     距離は .75rem・不透明度 .68 で、カードの中で一番読みたい数字が
+     一番薄いという逆転が起きていた。和文の指定に直し、距離を数値として
+     立たせる（歩数はヒーローのウッド帯と同じ役なので字面も揃える） */
+  .card h4 {font-family:var(--jp);font-weight:700;font-size:1.0625rem;letter-spacing:.01em;text-transform:none;color:var(--indigo)
   }
-  .card p {font-family:var(--jp);font-size:.75rem;line-height:1.9;color:rgba(43,38,32,.68);margin-top:6px
+  .card p {font-family:var(--jp);font-weight:600;font-size:.8125rem;line-height:1.7;color:rgba(43,38,32,.88);margin-top:5px
   }
   .walkline {display:flex;flex-wrap:wrap;gap:9px 24px;margin-top:clamp(30px,4vw,52px);padding-top:20px;border-top:1px solid rgba(27,58,87,.22)
   }
@@ -624,8 +684,6 @@ background:var(--cham);
   .mhead {max-width:54ch;margin-bottom:clamp(36px,5vw,62px)
   }
   .mhead h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.3rem,5.2vw,4.4rem);line-height:.86;color:var(--ecru)
-  }
-  .mhead h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-pale);font-size:.48em;margin-top:.14em;line-height:1.2
   }
   .mhead p {margin-top:18px;font-size:.875rem;line-height:1.95;color:rgba(237,242,247,.62)
   }
@@ -670,8 +728,6 @@ background:var(--cham);
   .linfo {grid-column:8/13;display:flex;flex-direction:column
   }
   .linfo h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.1rem,3.8vw,3.3rem);line-height:.88;color:var(--indigo)
-  }
-  .linfo h2 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;color:var(--wood-ink);font-size:.52em;margin-top:.1em
   }
   .linfo .addr {margin-top:20px;font-family:var(--jp);font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.78)
   }
@@ -733,7 +789,7 @@ background:var(--cham);
   /* ============================================================
    FOOTER
    ============================================================ */
-  footer {background:var(--shadow);color:var(--ecru)
+  footer {position:relative;background:var(--shadow);color:var(--ecru)
   }
   .ft {padding:clamp(44px,6vw,72px) var(--pad) 0;display:grid;grid-template-columns:repeat(12,1fr);gap:24px
   }
@@ -757,6 +813,248 @@ background:var(--cham);
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
   font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,242,247,.45)
   }
+  /* ============================================================
+   SUMBAR — 節を締めるウッドのまとめ帯
+
+   2026-08-25 クライアント指示「各項目にWOOD調を入れ、まとめのような役割で
+   使う」。ヒーロー末尾の `.rail.mat-wood` と同じ文法を、各節の締めとして
+   繰り返す。読み終わりに木の面が一枚入ることで節の切れ目がはっきりし、
+   その節の要点だけを持ち帰れる。
+
+   `.rail` との違いは1点だけ：`.rail` はヒーローの中で `z-index:3` を持つが、
+   こちらは節の直後に置く独立した帯なので z-index を持たない。行の作り
+   （flex / baseline / 縦罫 / 折り返し）は意図的に `.rail` と同じにしてある。
+   ============================================================ */
+  .sumbar {
+  position:relative;display:flex;flex-wrap:wrap;align-items:stretch;
+  /* 上下とも縁を切る。アクセスの帯だけはすぐ下がフッターで、そちらも
+     app/wood.css が同じハニーオークを敷いているため、縁が無いと帯と
+     フッターがひと続きの木の面に見えて「帯」として読めなくなる */
+  border-top:1px solid rgba(19,40,60,.2);
+  border-bottom:1px solid rgba(19,40,60,.2);
+  }
+  .sumbar .f {
+  flex:1 1 auto;min-width:170px;padding:15px var(--pad);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 11px;
+  border-right:1px solid rgba(237,242,247,.18);color:var(--ecru);
+  }
+  .sumbar .f:last-child {border-right:0
+  }
+  /* ヒーローの帯と同じ寸法。数字とラベルの差を詰めてある理由は .rail 側の
+     コメントを参照（2026-08-25 の「文字バランス」修正と同じ扱い） */
+  /* 書体は **condensed を先に、和文を後ろに**継ぐこと。ここを和文だけに
+     すると「JOURNAL STANDARD FURNITURE」のようなラテンのブランド名が
+     全角幅で組まれ、375px で2行に折れて右のラベルが離れて見える。
+     ラテンは Barlow Condensed が拾い、和文はその次で拾われる */
+  .sumbar .f b {font-family:var(--cnd),var(--jp);font-weight:700;font-size:1.35rem;letter-spacing:.02em;line-height:1.15
+  }
+  .sumbar .f span {font-family:'IBM Plex Mono',var(--jp),ui-monospace,monospace;
+  font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.92;white-space:nowrap
+  }
+  /* ラベルの無い帯（項目名だけを並べる立地の帯）は、1行あたりの文字数が
+     多いので少し詰める */
+  .sumbar .f:not(:has(span)) b {font-size:1.0625rem;line-height:1.5
+  }
+
+  /* ============================================================
+   FLORA — 新宿御苑の林床が、余白から入り込む
+
+   2026-08-25 クライアント採択で chambray-gyoen から移植。素材は
+   app/[locale]/_components/chambray/flora.ts（3デザイン共有）。id は描画時に
+   cg- → wc- へ付け替えて注入しているので、ここでの url() 参照も wc- を使う。
+
+   置き方の原則：
+     * コンテンツの下（z-index:0）に敷く。.wrap は z-index:2 なので、
+       文字の可読性には一切干渉しない
+     * セクションの上下パディング（clamp(70px,10vw,140px)）が作る余白帯と、
+       画面左右の端。「植物のために場所を空ける」ことは決してしない
+     * 大株は2箇所だけ。他は見出し脇の一枝で繋ぐ（混合リズム）
+   動きの原則：
+     * 常時の揺れは ±2.6度・9.5〜18.5秒。周期は互いに素に近い値を選ぶ
+     * スクロール連動は CSS の scroll-driven animation。メインスレッド外で
+       走るので既存の IntersectionObserver と競合しない。非対応ブラウザでは
+       静止した植物として成立する（@supports で囲ってある）
+     * 揺れは内側の <span>、スクロール連動は外側の <i> が持つ
+   ============================================================ */
+  .flora {position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  /* 葉の陰に使うグラデーション。paint server の stop はシャドウツリー越しの
+     カスタムプロパティを見ないので、色そのものではなく「どのグラデーションを
+     使うか」を継承させて切り替える。定義は flora.ts */
+  --shade-paint:url(#wc-gLeafShade)
+  }
+  .fl {position:absolute;display:block;pointer-events:none
+  }
+  .fl > span {display:block;transform-origin:bottom center;
+  animation:wc-sway 12s ease-in-out infinite
+  }
+  .fl svg {width:100%;height:100%;overflow:visible;display:block
+  }
+  /* --- 縁のガーランド。モバイル専用 -------------------------------------
+     デスクトップには側方の余白があるので群落で足りる。モバイルは面が無く
+     縁しか無いので、細く長い蔓で長さを稼ぐ。 */
+  .fl.gl {display:none;aspect-ratio:600/150;--drift:10px
+  }
+  /* 位相と周期をずらして、複数が同時に同じ向きへ振れるのを防ぐ。
+     公約数があると数十秒ごとに全部の位相が揃って、群落がひとかたまりで
+     振れる瞬間ができる */
+  .cl .slot:nth-child(1) .fl > span {animation-duration:9.5s;animation-delay:-2.5s
+  }
+  .cl .slot:nth-child(2) .fl > span {animation-duration:13.5s;animation-delay:-7s
+  }
+  .cl .slot:nth-child(3) .fl > span {animation-duration:16.5s;animation-delay:-12s
+  }
+  .cl .slot:nth-child(4) .fl > span {animation-duration:11s;animation-delay:-4s
+  }
+  .cl .slot:nth-child(5) .fl > span {animation-duration:15s;animation-delay:-9.5s
+  }
+  .cl .slot:nth-child(6) .fl > span {animation-duration:18.5s;animation-delay:-6s
+  }
+  .cl .slot:nth-child(7) .fl > span {animation-duration:12.5s;animation-delay:-14s
+  }
+
+  /* --- 群落 --------------------------------------------------------------
+     .cl が群落の箱、.slot が中の1員（位置と幅は TSX 側からインラインの %）。
+     .fl は slot いっぱいに広がり、高さは種類ごとの aspect-ratio が決める。 */
+  .cl {position:absolute;pointer-events:none
+  }
+  /* 傾き・反転は .slot にかける。内側の .fl > span は wc-sway が transform を
+     使い切っているので、そちらに書いても効かない */
+  .cl .slot {position:absolute;display:block;transform-origin:50% 100%
+  }
+  .cl .slot > .fl {position:relative;width:100%
+  }
+
+  /* 奥行き層。株（clump）はシンボル内部で既に4層を持っているので付けない。
+     葉身だけでなく葉脈も一緒に落とすのが要点で、そうしないと段の差が
+     「色の差」にしかならず、「距離」として読めない */
+  .cl .fl.z-back {--leaf:var(--leaf-core);--vein:var(--leaf-dk);
+  --mug:var(--mug-sh);--mug-dk:var(--leaf-core);
+  --aoki:var(--aoki-dk);--aoki-hi:var(--aoki);--variegate:#B9A94A
+  }
+  .cl .fl.z-front {--leaf:var(--leaf-hi);--vein:var(--bloom)
+  }
+  /* 最奥。被覆率を上げるためだけの層。彩度を落とし葉脈を葉身と同色にして
+     「輪郭のぼやけた塊」にする。奥を薄く敷いて手前を濃くする＝局所的に
+     濃く、全体としては軽い */
+  .cl .fl.z-air {--leaf:var(--leaf-air);--leaf-hi:var(--leaf-air);
+  --leaf-new:var(--leaf-air);--leaf-core:var(--leaf-dk);--vein:var(--leaf-air);
+  --mug:var(--leaf-air);--mug-dk:var(--leaf-air);opacity:.62
+  }
+  /* 奥の葉に鏡面が乗ると、その1枚だけ手前に飛び出して層が壊れる */
+  .cl .fl.z-air {--leaf-wet:transparent
+  }
+
+  /* --- 種類ごとの大きさ（群落の外に単独で置く場合の既定値） -------------
+     群落の中では TSX 側のインライン % が優先される。viewBox は flora.ts の
+     各シンボルに合わせること。 */
+  .fl.clump  {aspect-ratio:460/560
+  }
+  .fl.leaf   {aspect-ratio:1
+  }
+  .fl.mug    {aspect-ratio:240/120
+  }
+  .fl.aucuba {aspect-ratio:220/260
+  }
+  .fl.avar   {aspect-ratio:220/240
+  }
+  .flora > .fl.clump  {width:clamp(230px,32vw,500px);--drift:110px
+  }
+  .flora > .fl.leaf   {width:clamp(104px,13vw,215px);--drift:78px
+  }
+  .flora > .fl.mug    {width:clamp(96px,11.5vw,186px);--drift:52px
+  }
+  .flora > .fl.aucuba {width:clamp(86px,10vw,152px);--drift:64px
+  }
+  .flora > .fl.avar   {width:clamp(92px,10.5vw,162px);--drift:64px
+  }
+
+  /* --- 配置 --------------------------------------------------------------
+     群落は必ず画面の左右いずれかの端で切る（.flora の overflow:hidden が
+     その役をする）。セクションの上下境界は跨がせない：
+       ・水平の直線で切れた茎は「定規で切った」ように見える。画面端で
+         切れたものは「フレームの外へ続いている」と読める
+       ・レンガ節（mat-shadow）とフッター（--shadow）は地の色が違うので、
+         跨いだ瞬間に葉色の上書きが片側にしか効かない
+     視線設計は「入口で1回・区切りで数回・出口で1回」。
+
+     接地の規則：群落の足元は必ず何かに隠す。開いた地の上で終わると宙に浮く。
+       目安：見えている 65〜80% ／ 隠れている 20〜35%
+     隠し先は (a) 不透明なコンテンツ（木レール、部屋の帯、カード、パネル）
+     か (b) 地の色が変わる境界（立地→レンガ、アクセス→フッター）。
+     地の色が同じ境界では絶対に切らない。 */
+
+  /* 入口。ヒーローはコピー塊（.patch）と部屋イラスト（.hero-fig）で全幅が
+     詰まっていて、主群落級の塊はどう置いても半分以上が裏に回る。ここは
+     副群落の寸法にとどめ、「強」の役はページ末尾のアクセスに持たせる。
+     幅で空きの位置が変わるので、左からではなく**空きの右端**から効かせる。
+     接地はイラスト枠の側面に預ける（枠の陰から出ている状態なら、足元が
+     地に接していなくても同じ空間にいるものとして読める）。 */
+  .cl.cl-he {right:44%;bottom:16%;
+  width:clamp(200px,16vw,420px);aspect-ratio:660/520;--drift:96px
+  }
+  /* 立地は 2000px 超の長い節。読み終わりの「改行記号」として下端に1つだけ。
+     足元はレンガ節（mat-shadow）の下へ */
+  .cl.cl-lo {right:clamp(-110px,-6vw,-30px);bottom:1%;
+  width:clamp(230px,28vw,430px);aspect-ratio:430/360;--drift:70px
+  }
+  /* 部屋の下端。帯に隠れる量を3割前後に収める。視差も弱める——部屋→
+     アクセスは地の色が同じなので、視差の分だけはみ出して切れると切断に見える */
+  .cl.cl-ro {left:clamp(-60px,-3vw,-16px);bottom:2%;
+  width:clamp(150px,15vw,230px);aspect-ratio:430/360;--drift:34px
+  }
+  /* 出口の主群落。アクセス右下でページを締め、足元はフッター（--shadow に
+     変わる）の下へ。ロケールごとに行の高さが変わるので、テキストのすぐ下に
+     上端を置く設計は避け、一回り縮めたうえで下へ送る */
+  /* 2026-08-25：chambray-gyoen の値（right -6vw / bottom -3%）をそのまま持って
+     くると、washed-chambray のアクセス節は 1052px と一回り低いぶん食い込みが
+     効きすぎて、実測で縦65% × 横75% ＝ 面積49% しか見えていなかった（目安の
+     「見えている65〜80%」を割り、接地ではなく埋没）。両軸とも食い込みを
+     緩めて 8割前後へ戻す */
+  .cl.cl-ac {right:clamp(-60px,-3.5vw,-20px);bottom:5%;
+  width:clamp(280px,32vw,500px);aspect-ratio:660/520;--drift:96px
+  }
+
+  /* --- 掛け。単独で余白に置かず、必ずカードや写真の縁に触れさせる ------- */
+  /* レンガ節は素材サンプルが主役。掛けを1つだけ。上はサンプルパネルの右下角に
+     食い込ませ、足元はレンガ→淡い地の境界の下へ送る */
+  .fl.re-r  {right:5%;bottom:4%;width:clamp(120px,13vw,200px);--drift:30px
+  }
+  /* フッターはページ最後の要素なので、スクロールしても view() の進捗を
+     最後まで消化できず、視差が +40px ほど残りっぱなしになる。ここだけ
+     視差を弱める。締めは cl-ac が担うので、ここは繋ぎの一枝だけ */
+  footer .fl {--drift:18px
+  }
+  .fl.ft-r  {right:4%;bottom:4%
+  }
+
+  /* --- 一枝（線）。見出しの点線ルールの先に接ぐ ------------------------- */
+  .sidx .fl.sprig {position:relative;flex:none;width:clamp(56px,5.8vw,84px);
+  aspect-ratio:120/84;margin-left:-19px;
+  align-self:center
+  }
+
+  /* 濃い地・暖色の地では緑が沈むので、その中の植物だけ一段明るく差し替える。
+     葉脈はさらに白へ寄せないと地の暖色に負けて消える。明度ラダー全段を
+     +12L* 平行移動する（1段だけ持ち上げるとラダーが潰れて平板な葉に戻る）。
+     対象は2面：レンガ節（.mat-shadow）と、フッター。フッターは
+     app/wood.css の `.chambray-top footer` がハニーオーク #C89055 を敷いて
+     いて（ここの background:var(--shadow) はそちらに上書きされる）、
+     モバイルのヒーローで木レールに対して行っているのと同じ理由で
+     明るい葉色が要る */
+  .mat-shadow .fl,
+  footer .fl {
+  --shade-paint:url(#wc-gLeafShade-lift);
+  --leaf-shade:#4B774F;--leaf-core:#659857;--leaf-dk:#85B663;
+  --leaf:#AAD86B;--leaf-hi:#D0E781;--leaf-new:#D6DE80;--vein:#E1EFA9;
+  --leaf-air:#CBE4C4;
+  --mug:#B9DF6B;--mug-dk:#74A86A;--mug-sh:#8EBE73;
+  --aoki:#7DB161;--aoki-hi:#B4D877;--aoki-dk:#578853;
+  }
+
+  @media (prefers-reduced-motion:reduce) {
+    .fl > span {animation:none
+    }
+  }
+
   /* ============================================================
    REVEAL
    ============================================================ */
@@ -808,7 +1106,7 @@ background:var(--cham);
     }
     .hero-chip {left:auto;right:-8px;top:auto;bottom:-14px
     }
-    .rail .f {min-width:50%;border-right:0;border-top:1px solid rgba(237,242,247,.16)
+    .rail .f,.sumbar .f {min-width:50%;border-right:0;border-top:1px solid rgba(237,242,247,.16)
     }
     .rhead h2,.rhead p,.ehead h2,.ehead p {grid-column:1/13
     }
@@ -854,7 +1152,100 @@ background:var(--cham);
     }
     .ft-col {grid-column:span 6
     }
-    .rail .f {min-width:100%
+    .rail .f,.sumbar .f {min-width:100%
+    }
+  }
+
+  /* ============================================================
+     モバイルの植物配置 — デスクトップとは別構成
+     ============================================================
+     375px では構成そのものを変える必要がある：
+
+       ・**横の余白がゼロ**。`.wrap` が全幅なので、デスクトップの「左右端から
+         生やして画面外へ逃がす」という接地の手が使えない
+       ・**縦の完全な空き帯が 35〜110px しかない**。1カラムに積み上がるぶん、
+         群落を置ける面が残らない
+
+     そこでモバイルは **低く横に広い帯**にして、足元を「すぐ下の不透明ブロック」
+     か「地の色が変わる境界」へ差し込む。壁の際に生えている草の見え方。
+
+     置かない節：**リノベーション（レンガ）**。1カラムでカードが縦に詰まり、
+     差し込んでも9割が裏に回る。全部の節に植物を置くことより、出したものが
+     見えていることを優先する。代わりに縁の蔓（.gl）を掛ける。 */
+  @media (max-width:700px) {
+    /* 箱の aspect-ratio を寝かせても意味がない。中の要素は % で位置だけを
+       もらい、高さは**自分の縦横比**から決まるので、箱を低くしても要素は
+       そのまま箱の下へはみ出す。インクの高さは実質「群落の幅」で決まる
+       （ink高 ≒ 幅 × 0.98）ので、狭い空き帯に収めるには**幅そのものを
+       詰める**しかない。 */
+    /* 視差はモバイルでは 14px まで落とす。**個別の .cl.cl-XX 側に書くこと**：
+       `.cl {--drift:14px}` だけだと (0,2,0) で、デスクトップの
+       `.cl.cl-he {--drift:96px}` (0,3,0) に負ける。負けたまま気づかないと、
+       スクロール連動で群落が最大 96px 下へ送られ、ヒーローでは足元が
+       節の外へ出て overflow:hidden で切り落とされる（実測で 80px 下がって
+       いた）。以下の各ルールで上書きしている。 */
+    /* ヒーロー：置き場は**木レール（.rail.mat-wood）の右下の死角**。レールは
+       積み上がった徒歩時間の帯で、右側がまるごと空いている。レールは
+       z-index:3 の不透明な木の面なので、ヒーローの .flora だけその上へ出す。
+       木の帯の上に鉢が載っている見え方になる。
+       寸法・位置とも **vw** で持つこと。群落のインクは箱から下へ大きくはみ出し、
+       そのはみ出し量が幅に比例するので、bottom を px で固定すると狭い幅で
+       丸ごとヒーローの外へ落ちて消える。 */
+    #wc-hero .flora {z-index:4
+    }
+    .cl.cl-he {right:-2%;left:auto;top:auto;bottom:28vw;width:28vw;
+    /* chambray-gyoen の 10vw はあちらのヒーロー末端に合わせた値。
+       washed-chambray はレールの下にさらにティッカー（.ticker.mat-raw、
+       高さ53px の濃紺帯）があるぶん、同じ値では株がティッカーの上に
+       乗ってしまう（＝暖色の木ではなく濃紺の上に緑を置くことになり、
+       この節用に用意した「木目に負けない葉色」も意味を失う）。
+       ティッカーぶん持ち上げて、足元を木のレールの中に収める。 */
+    /* 木レールはオレンジの暖色。淡い緑（--leaf-air の彩度26）はその上では
+       彩度で負けて灰色に見えるので、この株だけ遠景層をやめ、奥行きは
+       明度だけで取る。葉脈もさらに明るくしないと木目に負ける */
+    --leaf-air:var(--leaf-dk);
+    --leaf:#8FC756;--leaf-hi:#B9DC6B;--leaf-new:#CBD86E;
+    --leaf-dk:#5F8B44;--leaf-core:#3F6335;--vein:#DCEFA8;
+    --mug:#9BD24C;--mug-dk:#527F4A;--mug-sh:#6C9A52;
+    --aoki:#5C8F44;--aoki-hi:#8CBC55;--aoki-dk:#3A6234;--drift:14px
+    }
+    /* 下端に寄せるものは **px で指定する**。合わせたい相手は「節の下端
+       そのもの」なので、節の高さに比例させる理由がない。% のままだと
+       文章量が変わるロケールで節の高さが変わり、沈んだり浮いたりする */
+    /* 足元＝レンガ節（地の色が変わる）の下。chambray-gyoen の 14px は視差が
+       最大96px 効いていた状態での値で、視差を 14px に直すと株が境界に届かず
+       宙に浮く（実測 overflow -16px＝遮蔽ゼロ）。ink127px の 25% を沈める */
+    .cl.cl-lo {left:2%;right:auto;bottom:-34px;width:40vw;--drift:14px
+    }
+    /* 部屋は**最後の帯の足元**に置く。帯に上を隠させる（＝写真の足元から
+       生えている見え方）。左に置くと「すべての部屋を見る」ボタンの文字裏に
+       回るので右へ。部屋→アクセスは地の色が同じなので、視差を足しても
+       境界に届かない位置に置くこと */
+    /* ここだけ境界で切らない（部屋→アクセスは地の色が同じ）。遮蔽は上の
+       帯が担うので bottom は据え置き */
+    .cl.cl-ro {right:4%;left:auto;top:auto;bottom:26px;width:34vw;--drift:14px
+    }
+    /* 足元＝フッター（--shadow に変わる）の下。cl-lo と同じく、視差を直した
+       ぶん沈み込みが消えるので下げ直す。ink157px の 25% を沈める */
+    .cl.cl-ac {right:4%;left:auto;bottom:-13px;width:42vw;--drift:14px
+    }
+    /* 立ち上がる植物を置く面が無い節は、群落をやめて**縁の蔓**に置き換える。
+       レンガの帯は上下どちらの境界も地の色が変わるので、蔓を掛ける相手と
+       しては全ページで最も強い。上端＝壁の上を越えてくる蔓、
+       下端＝壁から垂れる蔓。幅は画面より広く取り、左右へ抜けさせる
+       （縁飾りではなく「続いているもの」に見せるため） */
+    .fl.re-r {display:none
+    }
+    .fl.gl {display:block;width:118vw;left:-9vw;right:auto
+    }
+    /* レンガの上端に掛ける */
+    .fl.gl-re {top:-14px
+    }
+    /* レンガの下端から垂れる（部屋節の上端）。上下反転させて、壁の裏から
+       出てきた蔓が下がってくるように見せる */
+    .fl.gl-ro {top:-30px
+    }
+    .fl.gl-ro > span {transform:scaleY(-1)
     }
   }
 }
@@ -862,6 +1253,45 @@ background:var(--cham);
 /* --- animations, hoisted out of the scoped block and wc-namespaced ------- */
 @keyframes wc-sweep{0%,100%{transform:scaleX(.35);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}}
 @keyframes wc-slide{to{transform:translateX(-50%)}}
+
+/* --- flora animations ------------------------------------------------------
+   風の揺れ。回転の中心は葉柄の付け根（transform-origin:bottom center）。
+   振幅 ±2.6度で先端は約32px動く。穏やかだが、確実に「揺れている」と分かる。
+   4点のキーフレームで往復に非対称を入れてあるので、往路と復路が同じ軌跡を
+   辿らず、機械的な振り子に見えにくい。 */
+@keyframes wc-sway {
+  0%   { transform: rotate(-2.6deg) translate(0, 0); }
+  27%  { transform: rotate(1.1deg) translate(2px, -3px); }
+  53%  { transform: rotate(2.6deg) translate(0, 0); }
+  78%  { transform: rotate(-0.8deg) translate(-2px, 3px); }
+  100% { transform: rotate(-2.6deg) translate(0, 0); }
+}
+/* スクロールに連れた奥行き。移動量は --drift で植物ごとに変える：
+   大株ほど大きく（手前）、ヨモギは小さく（奥）。これで平面に貼った絵ではなく、
+   奥行きのある茂みとして読める。 */
+@keyframes wc-drift {
+  from { transform: translateY(var(--drift, 70px)); }
+  to   { transform: translateY(calc(var(--drift, 70px) * -0.85)); }
+}
+/* scroll-driven animation はメインスレッド外で走る。非対応ブラウザには何も
+   適用されず、植物は静止したまま成立する。 */
+@supports (animation-timeline: view()) {
+  @media not (prefers-reduced-motion: reduce) {
+    /* 視差は .flora の直接の子（＝群落まるごと、または単独の植物）にかける。
+       群落の中の1枚ずつを別々に動かすと、まとまりがほどけて元の
+       「バラバラの素材」に戻ってしまう。群れは1つの物体として動く */
+    .chambray-top .flora > .fl,
+    .chambray-top .flora > .cl {
+      animation: wc-drift linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    /* 見出し脇の一枝は行の中にいるので、動かすと文字が揺れて見える */
+    .chambray-top .sidx .fl.sprig {
+      animation: none;
+    }
+  }
+}
 
 /* --- React-integration fixes, not part of the mock ------------------------ */
 /* Each scene is injected with dangerouslySetInnerHTML, which needs a host

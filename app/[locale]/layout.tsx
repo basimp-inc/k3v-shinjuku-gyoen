@@ -8,7 +8,6 @@ import "../globals.css";
 import Nav from "@/components/Nav";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import Footer from "@/components/Footer";
-import ThemeMock from "@/components/ThemeMock";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -39,8 +38,14 @@ export default async function RootLayout({
 
   const messages = await getMessages();
 
+  /* 2026-08-25：washed-chambray をクライアントが採用。配色プレビューの切り替え
+     （components/ThemeMock.tsx）は外し、data-theme を固定した。globals.css の
+     トークンはすべて [data-theme="…"] で分岐しているので、これで下層ページ
+     （/rooms・/stay）も採用案の配色に揃う。他案（current / gyoen-green /
+     chambray-gyoen）は非表示。ファイルは残してあるので、戻すなら ThemeMock を
+     layout に足し直せばよい。 */
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-theme="washed-chambray">
       <head>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
@@ -52,7 +57,6 @@ export default async function RootLayout({
         <link href='https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap' rel='stylesheet' />
       </head>
       <body>
-        <ThemeMock />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className='min-h-screen bg-(--color-bg) pb-20 lg:pb-0' data-chrome-pad>
             <Nav />

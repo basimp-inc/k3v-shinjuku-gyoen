@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import ChambrayGyoenBehaviour from "./ChambrayGyoenBehaviour";
 import { CG_SVG_DEFS } from "./defs";
-import { CG_FLORA_DEFS } from "./flora";
+import { CG_FLORA_DEFS } from "../chambray/flora";
 import * as WC from "../chambray/scenes";
 import {
   MockConvenience,

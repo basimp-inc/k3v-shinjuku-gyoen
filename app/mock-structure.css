@@ -118,23 +118,20 @@
     line-height: 1.85;
     margin-top: 14px;
     max-width: 34em;
+    /* 2026-08-25：見出しを1文に統合したので、折り返しが文節を割るように
+       なった（「暮らしに必要なものはす／ぐそこに。」）。auto-phrase は
+       文節境界で折る。非対応ブラウザは従来どおりの禁則処理に落ちるだけ */
+    word-break: auto-phrase;
   }
-  /* the second heading line keeps the wood/forest accent, minus the italic
-     serif that has no 和文 cut */
-  .c-head h2 em,
-  .rhead h2 em,
-  .ehead h2 em,
-  .mhead h2 em,
-  .linfo h2 em {
-    font-family: var(--jp);
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1em;
-    text-transform: none;
-  }
+  /* 2026-08-25：`h2 em`（見出しの2行目を別色・強制改行で分ける書き方）は
+     クライアント指示「見出しの2行分割を1文に統一」で廃止。ChambrayTop は
+     messages の `heading`（1本化した文字列）を h2 に直接入れる。
+     headingLine1 / headingLine2 は他デザインがまだ使っているので messages
+     には残してある — A で他デザインを消したら一緒に消せる。 */
+  /* 2026-08-25「近隣施設の文字を太く、見やすく」。カード見出しを一段上げる */
   .card h4 {
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
+    font-size: 1.0625rem;
+    letter-spacing: 0.01em;
   }
   .sample b {
     font-size: 1.05rem;
@@ -196,11 +193,16 @@
   .card {
     flex-basis: clamp(228px, 25vw, 300px);
   }
+  /* 距離はカードで一番読みたい情報なのに、mono 10px・字送り .14em・
+     不透明度 .68 でカード内で一番弱かった。和文の指定に直して数値として
+     立たせる（色は chambray-design.css 側で .88 まで上げてある）。
+     2026-08-25 クライアント指示。 */
   .card p {
-    font-family: var(--mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-family: var(--jp);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
   }
 
   /* Renovated — three cloths instead of the source mock's four */

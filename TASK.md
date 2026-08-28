@@ -806,6 +806,166 @@ ja・en・zh × current・gyoen-green・washed-chambray・chambray-gyoen で
 MISSING_MESSAGE を出し、ROOM 01 スライダー2枚目の aria-label が
 キー文字列そのままになっている。
 
+### モバイル4案 確認会 資料（2026-08-24）
+
+4案（current / gyoen-green / washed-chambray / chambray-gyoen）のTOPページを
+モバイル 390×844・DPR2 で1画面ずつ撮り、印刷用A4 8ページにまとめた。
+成果物は [docs/review-2026-08-24/](docs/review-2026-08-24/) — PDF・HTML・個別スクリーン48枚・
+撮影/組版スクリプト（`tools/`）。手順と注意点はそのフォルダの README.md に記載。
+
+- 総スクロール量の実測: A current 7,888px（10画面）/ B gyoen-green 9,943px（12）/
+  C washed-chambray 10,519px（13）/ D chambray-gyoen 10,543px（13）
+- **キャプチャ時の落とし穴**: `.rv` / `.reveal` はビューポート外だと `opacity:0` のままなので、
+  スクロールしてから明示的に `in` / `is-visible` を付けないと真っ白なコマになる
+  （実際に gyoen-green の ROOM 02 が丸ごと消えた）。`prefers-reduced-motion: reduce` だけでは
+  `.reveal` しか救えない — `.rv` には reduced-motion の上書きが無い
+- **キャプチャで確認した既存の課題**（いずれも未修正）:
+  - gyoen-green ROOM 02 — 本文と「ROOM 02」ラベルがウッドパネルに直接乗りコントラスト不足
+    （Phase 1.5 で既知として記録済みの件を、実画面で確認）
+  - gyoen-green ROOM 03 下 — 客室ブロックとアクセスの間に約1/3画面ぶんの空白帯
+
+---
+
+## Phase 1.9 — 採用案の確定と TOP 改修（2026-08-25 クライアントMTG）
+
+**washed-chambray を採用。他3案は非表示にする。** 指摘の主軸は「文字の大きさ・配置」で、
+全体としては情報量を減らす方向。以下はMTGでの決定・指示をそのままタスク化したもの。
+
+### A. 採用案の確定と他モックの非表示（2026-08-25 完了）
+
+- [x] `app/[locale]/page.tsx` は `<ChambrayTop />` だけを描画するようにした
+      （以前は現行案＋3案を同時に DOM へ入れ、CSS でどれを見せるか決めていた）
+- [x] `app/[locale]/layout.tsx`：`components/ThemeMock.tsx`（配色プレビューの切替）を外し、
+      `<html data-theme="washed-chambray">` に固定。globals.css のトークンは
+      すべて `[data-theme="…"]` で分岐しているので、**下層ページ（/rooms・/stay）も
+      採用案の配色に揃う**（実測 `--color-bg:#dee8f1` / `--color-accent:#1b3a57`）
+- [x] TOP では現行案のクローム（Nav / Footer / MobileBottomNav）が非表示、
+      下層ページでは表示——という既存の `:has()` 制御がそのまま効くことを確認
+- [x] **ファイルは削除していない**。戻す場合は各 Top をページに足し、layout の
+      固定 `data-theme` を `ThemeMock` に差し替えればよい（手順は page.tsx の冒頭コメント）
+
+> ⚠️ 将来ほんとうに削除する場合の注意：`chambray/flora.ts` と `chambray/scenes.ts` は
+> **採用案が使っている**（B で `flora.ts` を chambray-gyoen から移動済み）。
+> 非表示にした案を消すときも、この2つは消さないこと。
+
+**残っている整理（任意・今回はやっていない）**:
+- `layout.tsx` の Fraunces（gyoen-green 専用の表示書体）はもう誰も使っていない
+- `messages` の `headingLine1` / `headingLine2` は非表示3案だけが参照している
+- `components/ThemeMock.tsx` は import されなくなった
+
+### B. chambray-gyoen の植物イラストを washed-chambray へ移植（2026-08-25 完了）
+
+クライアント評価が高かったため採用。
+
+- [x] `flora.ts` を `chambray-gyoen/` → `chambray/` へ移動し、**共有アセット**にした
+      （`scenes.ts` と同じ扱い）。chambray-gyoen 側は `../chambray/flora` を参照する。
+      これで A で chambray-gyoen を消しても素材が失われない
+- [x] id の `cg-` → `wc-` 付け替え。`ChambrayTop.tsx` の `wc()` ヘルパーが注入時に
+      置換する（gyoen-green の `gy-` と同じ手）。両デザインが同時に DOM にいても
+      id が衝突しないことを実測で確認（`cg-fatsia-clump` / `wc-fatsia-clump` 各1件）
+- [x] 植物パレット23トークンを `chambray-design.css` の `.chambray-top` に追加。
+      値は chambray-gyoen の承認済みのまま（`--forest` 系と同レンジなので地とぶつからない）
+- [x] FLORA レイヤー・配置・モバイル構成・keyframes（`wc-sway` / `wc-drift`）を移植
+- [x] 配置：ヒーロー(ANCHOR) / 立地(SEC) / レンガ(斑入りアオキ＋蔓) / 部屋(SEC＋蔓) /
+      アクセス(ANCHOR2) / フッター(ヨモギ一枝) ＋ 全セクション見出しに花序の標
+- [x] 暗い地・暖色の地（`.mat-shadow` とハニーオークのフッター）は葉色を +12L* 持ち上げ
+
+**移植中に見つけた既存バグ（chambray-gyoen 側にも存在）**:
+`@media(max-width:700px)` の `.cl {--drift:14px}` は詳細度 (0,2,0) で、デスクトップの
+`.cl.cl-he {--drift:96px}` (0,3,0) に負ける。モバイルでも視差が最大96px効いてしまい、
+実測でヒーローの群落が **80px 下へ送られて節の外へ出て、`overflow:hidden` で
+切り落とされていた**。washed-chambray 側は個別の `.cl.cl-XX` に `--drift:14px` を
+書いて修正済み。**chambray-gyoen 側は未修正**（A で非表示にするため）。
+
+この修正で沈み込みが消えるので、chambray-gyoen から持ってきた `bottom` の値は
+そのままだと群落が宙に浮く。モバイルの `cl-lo` / `cl-ac` を実測で再調整した。
+
+**実測（視差を止めた静止状態での「見えている率」）**:
+| | デスクトップ 1440 | モバイル 375 |
+|---|---|---|
+| ヒーロー `cl-he` | 100%（イラスト枠の側面で接地） | 97%（木レールの上に載る） |
+| 立地 `cl-lo` | 89% | 71% |
+| 部屋 `cl-ro` | 69% | 100%（帯に上を35%隠させる。境界は同色なので切らない） |
+| アクセス `cl-ac` | 79% | 77% |
+| 蔓 `gl-re`/`gl-ro` | 非表示（デスクトップは群落で足りる） | 69% / 58%（118vw で左右へ抜けさせる意図的な値） |
+
+- [x] ヒーロー樹冠 `#cg-canopy` は**移植しない**（2026-08-25 決定）。
+      あれは「植物イラスト」ではなく chambray-gyoen のヒーロー背景そのもの
+      （空＋樹冠＋芝の全面イラスト）で、入れると washed-chambray の織り目の地が
+      公園の風景に置き換わり、採用しなかった案に寄ってしまう。地は現状維持
+
+### C. 文字まわりの個別指示（2026-08-25 完了）
+
+- [x] **ヒーロー下ウッド帯の分数ラベルのバランス**（＝「hero下・WOOD上の文字バランス」）
+      — `.rail .f` は `b`（徒歩◯分）1.5rem condensed 700 に対し `span`（施設名）が
+      mono .625rem・字送り .14em・不透明度 .72 と落差が大きく、肝心の「どこまで」が
+      読めなかった。数字 1.5rem→1.35rem、ラベル .625rem→.75rem／不透明度 .72→.92／
+      字送り .14em→.06em、和文フォントを継いで weight 500。2つで1つの情報として読める
+- [x] **01 PRIME LOCATION の字間を詰める** — `.sidx` の字送り .24em→.14em（ラベル）、
+      .2em→.12em（番号）、番号とラベルの間隔 15px→10px。節の標識は全節共通の文法なので
+      `.sidx` 全体に適用
+- [x] **近隣施設の文字を太く・見やすく** — `.rail-x` カード。施設名は和文なのに
+      Barlow Condensed＋字送り .05em＋uppercase がかかっていた（和文へフォールバック
+      したうえ字が散る）。和文指定に直し 0.95rem→1.0625rem。距離は mono .625rem・
+      不透明度 .68 とカード内で一番弱かったのを、和文 600 / .8125rem / 不透明度 .88 へ
+- [x] **見出しの2行分割を1文に統一** — `h2` + `em`（`em` は `display:block` ＋ wood 系の
+      別色）をやめ、messages に**1本化した `heading` キー**を追加して h2 に直接入れる。
+      対象は `.c-head` / `.rhead` / `.mhead` / `.linfo` の4箇所。
+      死んだ `h2 em` ルールは削除、`word-break:auto-phrase` を足して和文の折り返しが
+      文節を割らないようにした
+      - `headingLine1` / `headingLine2` は**残置**（gyoen / chambray-gyoen がまだ使うため）。
+        A で他デザインを消したら一緒に削除できる
+      - `.ehead` は D で 03 を外したため対象外（`.ehead` / `.mock-ami` のルールは未使用のまま残置）
+
+### D. セクション 03 EVERYTHING YOU NEED を TOP から隠す
+
+**2026-08-25 決定：削除ではなく「TOP から隠す」。** 設備・アメニティの内容は
+各客室の紹介ページ（`/rooms/[room]`）に掲載する。よって i18n キーと共通コンポーネントは残す。
+
+- [x] `#wc-amenities` セクションを `ChambrayTop.tsx` から外す
+- [x] 以降のセクション番号を繰り上げ（04 ROOMS → 03、05 ACCESS → 04）。
+      ソース内のセクション番号コメントも 1〜5 に振り直し
+- [x] ヘッダーナビ（`navLinks`）とフッターの `#wc-amenities` リンクを外す
+- [x] 使わなくなった束縛を削除（`ame` / `amenityItems` / `facRooms` / `facCommon`、
+      および `MockFacilities` / `MockItem` / `MockRoomFacility` の import）
+- [x] `messages/{ja,en,zh}.json` の `amenities` キー一式は**温存**（客室ページで再利用）
+- [x] `mockShared.tsx` の `MockFacilities` も**温存**（客室ページで再利用）
+- [ ] Phase 2 の客室紹介ページ実装時に、`amenities.facilities.*` を各部屋ページへ載せる
+
+### E. 全体方針（2026-08-25 完了）
+
+- [x] **各項目にウッド調を入れ、「まとめ」の役割を持たせる** — `.sumbar.mat-wood` を新設。
+      ヒーロー末尾の `.rail.mat-wood` と同じ文法（flex / baseline / 縦罫 / 折り返し）で、
+      各節の締めに置く。中身は**既存の messages から拾うだけ**で新しいコピーは作っていない
+      | 節 | 帯の中身 |
+      |---|---|
+      | 01 PRIME LOCATION | 便利ブロックの4項目（コンビニは24時間／スーパーもドラッグストアも徒歩圏／新宿三丁目はすぐそこ／歌舞伎町まで歩ける） |
+      | 02 NEWLY RENOVATED | **置いていない**（下記） |
+      | 03 ROOMS | UNICO・ROOM 01／JOURNAL STANDARD FURNITURE・ROOM 02／CRASH GATE・ROOM 03 |
+      | 04 ACCESS | 住所／最寄り駅／IN・OUT（節の中ほどのリストから移設） |
+- [x] **情報量の削減**
+      - 便利ブロック：4項目が「見出し＋本文」のカードで1画面ぶんを占めていたのを、
+        見出しだけを帯に載せて本文を削除
+      - リノベーションの素材カード：本文（`points[].text`）を落として見出しだけに
+        （3行ぶん）
+      - アクセス：実務情報のリストを帯へ移し、節の中ほどを空けた
+      - `description` 3本と `convenience.text`：**2文目以降を削除**（1文目が主張を担い、
+        2文目が言い換え・補足になっていたもの）。新しい文は書いていない。3言語同時
+        | | 変更前 | 変更後 |
+        |---|---|---|
+        | primeLocation | 65字 | 36字 |
+        | rooms | 74字 | 35字 |
+        | access | 64字 | 27字 |
+        | convenience.text | 52字 | 26字 |
+
+**02 に帯を置いていない理由**：載せられる中身が素材カードの3つの見出しそのもので、
+帯にすると同じ語がすぐ上下に2回出る。節の締めは `mat-shadow` の暗い板そのものが
+担っている。必要なら1行で追加できる。
+
+**モバイル総スクロール量**：10,519px（8/24 実測）→ **8,553px**（約10.5画面 / 2,000px 弱の削減）
+
+---
+
 ## Phase 2 — 追加ページ（サイトマップ準拠）
 
 要件定義書 10章のサイトマップに基づく。App Router で `app/[locale]/xxx/page.tsx` として追加し、Nav/Footer からリンクする。

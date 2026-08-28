@@ -45,7 +45,8 @@
     "eyebrow": "PRIME LOCATION",
     "headingLine1": "步行6分钟即达新宿御苑，",
     "headingLine2": "日常所需触手可及。",
-    "description": "不仅适合观光，日常购物与出行同样便利——无论是短途旅行还是稍长的旅居，新宿御苑前都是理想之选。",
+    "heading": "步行6分钟即达新宿御苑，日常所需触手可及。",
+    "description": "不仅适合观光，日常购物与出行同样便利。",
     "stats": [
       {
         "value": "步行6分钟",
@@ -81,7 +82,7 @@
     "convenience": {
       "eyebrow": "24H NEIGHBOURHOOD",
       "heading": "深夜也能随时出门买东西。",
-      "text": "生活所需的一切都在步行范围内，而且这一带到深夜依然热闹。到达当天就不会有任何不方便。",
+      "text": "生活所需的一切都在步行范围内。",
       "items": [
         {
           "title": "便利店24小时营业",
@@ -106,6 +107,7 @@
     "eyebrow": "NEWLY RENOVATED",
     "headingLine1": "拥有酒店般的整洁，",
     "headingLine2": "以及自家般的舒适。",
+    "heading": "拥有酒店般的整洁，以及自家般的舒适。",
     "description": "三间客房均已全面翻新，家具家电全部换新。",
     "points": [
       {
@@ -217,7 +219,8 @@
     "eyebrow": "ROOMS",
     "headingLine1": "我们拍摄的不是房间，",
     "headingLine2": "而是生活本身。",
-    "description": "三间客房各自由不同的家具品牌演绎出不同的生活方式。即便同样紧邻新宿御苑，选择不同的房间，也会让每一天呈现出略微不同的面貌。",
+    "heading": "我们拍摄的不是房间，而是生活本身。",
+    "description": "三间客房各自由不同的家具品牌演绎出不同的生活方式。",
     "items": [
       {
         "tag": "UNICO",
@@ -335,7 +338,8 @@
     "eyebrow": "ACCESS",
     "headingLine1": "紧邻新宿御苑的",
     "headingLine2": "小小生活据点。",
-    "description": "紧邻新宿御苑前、距新宿站也在步行范围内，仅有3间客房的小型旅宿。附近便利店、超市一应俱全，无论是旅行者还是长住者都很方便。",
+    "heading": "紧邻新宿御苑的小小生活据点。",
+    "description": "紧邻新宿御苑前、距新宿站也在步行范围内，仅有3间客房的小型旅宿。",
     "details": [
       {
         "label": "地址",

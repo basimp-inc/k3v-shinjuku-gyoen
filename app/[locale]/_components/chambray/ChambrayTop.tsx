@@ -1,20 +1,18 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
+import type { ReactNode } from "react";
 import ChambrayBehaviour from "./ChambrayBehaviour";
 import * as S from "./scenes";
+import { CG_FLORA_DEFS } from "./flora";
 import {
-  MockConvenience,
-  MockFacilities,
   MockLangSwitch,
   MockMap,
   type MockConvenienceItem,
   type MockDetail,
-  type MockItem,
   type MockNearby,
   type MockPoint,
   type MockRoom,
-  type MockRoomFacility,
   type MockStat,
 } from "../mockShared";
 
@@ -28,10 +26,9 @@ import {
  * (the canonical section layouts), both scoped under .chambray-top.
  * Removal steps are listed at the top of app/chambray-design.css.
  *
- * Structure is deliberately NOT a design decision: like the other five
- * alternatives this renders the canonical six sections in the canonical order
- * — Hero → PrimeLocation → Renovated → Amenities → Rooms → Access — from the
- * canonical message namespaces, so the client compares direction, not content.
+ * Structure: Hero → PrimeLocation → Renovated → Rooms → Access. Amenities
+ * (03 EVERYTHING YOU NEED) was dropped from the TOP on 2026-08-25 — see the
+ * note where the section used to sit.
  *
  * What IS this design's argument: the light inversion of Timber Indigo. The
  * ground is washed chambray and #1B3A57 is ink rather than field, with exactly
@@ -43,6 +40,15 @@ import {
  * alternatives are all still in the DOM (hidden) and already own #rooms,
  * #access and friends. The SVG ids in ./scenes.ts carry the same prefix.
  */
+
+/** cg- → wc- id namespacing. ./flora.ts is shared with chambray-gyoen, which
+ *  injects the same symbols under their original cg- ids; while both designs
+ *  sit in the DOM together the ids would collide, so this design renames every
+ *  one on the way in. Same trick gyoen-green uses for its gy- prefix.
+ *  app/chambray-design.css refers to the renamed ids (url(#wc-gLeafShade)). */
+function wc(svg: string) {
+  return svg.replaceAll("cg-", "wc-");
+}
 
 /** The illustrated scenes are authored SVG, injected as-is. `.scene` is
  *  display:contents so the svg still sizes against its `.ph` frame. */
@@ -61,7 +67,6 @@ export default async function ChambrayTop() {
   const hero = await getTranslations("hero");
   const loc = await getTranslations("primeLocation");
   const ren = await getTranslations("renovated");
-  const ame = await getTranslations("amenities");
   const rm = await getTranslations("rooms");
   const acc = await getTranslations("access");
   const locale = await getLocale();
@@ -69,18 +74,14 @@ export default async function ChambrayTop() {
   const stats = loc.raw("stats") as MockStat[];
   const nearby = loc.raw("nearby") as MockNearby[];
   const points = ren.raw("points") as MockPoint[];
-  const amenityItems = ame.raw("items") as MockItem[];
   const rooms = rm.raw("items") as MockRoom[];
   const details = acc.raw("details") as MockDetail[];
   const convItems = loc.raw("convenience.items") as MockConvenienceItem[];
-  const facRooms = ame.raw("facilities.rooms") as MockRoomFacility[];
-  const facCommon = ame.raw("facilities.common") as MockItem[];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
     ["location", "#wc-location"],
     ["renovated", "#wc-renovated"],
-    ["amenities", "#wc-amenities"],
     ["rooms", "#wc-rooms"],
     ["access", "#wc-access"],
   ] as const;
@@ -98,10 +99,193 @@ export default async function ChambrayTop() {
     </span>
   );
 
+  /* --- 御苑の植物。面・点・線の3役 -------------------------------------
+     2026-08-25 にクライアント採択（chambray-gyoen で好評だったものを移植）。
+     素材は ./flora.ts、レイアウトは app/chambray-design.css の FLORA 節。
+     どれも aria-hidden の純粋な装飾で、z-index:0 の .flora 層に入る。
+     .wrap（z-index:2）より下なので、本文の可読性には干渉しない。
+
+     配置の考え方（chambray-gyoen での検証結果をそのまま引き継ぐ）：
+     植物は単体で散らさず <i class="cl"> の群落として組む。群落の中では
+     % 指定で互いに 25〜40% 食い込ませ、奥／中／手前の3層に振り分ける。
+     重なりが1つも無い完結したシルエットは、脳が確実に「切り抜き素材」と
+     判定するため。群落は必ず画面の左右いずれかの端で切り、セクションの
+     上下境界は跨がせない（跨いだ瞬間に葉色の上書きが片側にしか効かない）。 */
+
+  const leafSvg = (id: string, box: string) => (
+    <span>
+      <svg viewBox={box}>
+        <use href={`#${id}`} />
+      </svg>
+    </span>
+  );
+
+  /* 面 — ヤツデの大株。葉が重なった塊。群落の主役。
+     viewBox はシンボル側の 0 0 460 560 と一致させること */
+  const clump = (cls: string) => (
+    <i className={`fl clump ${cls}`} key={`c${cls}`}>
+      {leafSvg("wc-fatsia-clump", "0 0 460 560")}
+    </i>
+  );
+  /* 面 — ヤツデの葉1枚 */
+  const leaf = (cls: string) => (
+    <i className={`fl leaf ${cls}`} key={`l${cls}`}>
+      {leafSvg("wc-fatsia-leaf", "0 0 240 240")}
+    </i>
+  );
+  /* 点 — アオキ（実つき）。ページ唯一の鮮やかな赤 */
+  const aucuba = (cls: string) => (
+    <i className={`fl aucuba ${cls}`} key={`a${cls}`}>
+      {leafSvg("wc-aucuba-sprig", "0 0 220 260")}
+    </i>
+  );
+  /* 点 — 斑入りアオキ。ページで最も明るい植物要素 */
+  const aucubaVar = (cls: string) => (
+    <i className={`fl avar ${cls}`} key={`v${cls}`}>
+      {leafSvg("wc-aucuba-variegated", "0 0 220 240")}
+    </i>
+  );
+  /* 線 — ヨモギ。細かく裂けた葉の繋ぎ */
+  const mug = (cls: string) => (
+    <i className={`fl mug ${cls}`} key={`m${cls}`}>
+      {leafSvg("wc-mugwort-sprig", "0 0 240 120")}
+    </i>
+  );
+
+  const kinds = { clump, leaf, aucuba, avar: aucubaVar, mug } as const;
+
+  /* 群落の1員。x/y/w は群落ボックスに対する % で、種類ごとの aspect-ratio
+     から高さが決まる。z は奥行き層（CSS 側で葉色を差し替える）。
+     株（clump）はシンボル内部で既に4層を持っているので z を付けない */
+  type Member = {
+    k: keyof typeof kinds;
+    x: number;
+    y: number;
+    w: number;
+    z?: "air" | "back" | "front";
+    /* 傾きと反転。同じシンボルを何枚も並べるので、これを振らないと葉脈と
+       鏡面の位置が全部そろって「型紙で抜いた」ことが露見する。±16° まで */
+    rot?: number;
+    flip?: boolean;
+  };
+
+  /* 群落。中の座標は % なので、群落ごと大きさを変えても構成が崩れない。
+     隣り合う要素は必ず 25〜40% 重ねること */
+  const cluster = (cls: string, members: Member[]) => (
+    <i className={`cl ${cls}`} key={`cl${cls}`}>
+      {members.map((m, n) => {
+        const tf = [m.rot ? `rotate(${m.rot}deg)` : "", m.flip ? "scaleX(-1)" : ""]
+          .filter(Boolean)
+          .join(" ");
+        return (
+          <i
+            className="slot"
+            key={n}
+            style={{
+              left: `${m.x}%`,
+              top: `${m.y}%`,
+              width: `${m.w}%`,
+              ...(tf ? { transform: tf } : null),
+            }}
+          >
+            {kinds[m.k](m.z ? `z-${m.z}` : "")}
+          </i>
+        );
+      })}
+    </i>
+  );
+
+  /* 主群落。ページに2つだけ（入口＝ヒーロー、出口＝アクセス）。
+     外周へ葉を1枚「飛ばす」のは、輪郭を閉じさせないため。閉じた輪郭を持つ
+     塊は、中身がどれだけ複雑でも1個のオブジェクトとして読まれてしまう */
+  const ANCHOR: Member[] = [
+    { k: "clump", x: 24, y: -6, w: 68, z: "air", flip: true },
+    { k: "leaf", x: -2, y: 20, w: 40, z: "air", rot: -13 },
+    { k: "leaf", x: 36, y: 0, w: 30, z: "back", rot: 9 },
+    { k: "clump", x: -6, y: 6, w: 76 },
+    { k: "aucuba", x: 54, y: 24, w: 25, z: "back", rot: 12, flip: true },
+    { k: "mug", x: 24, y: 68, w: 46, z: "front" },
+    { k: "leaf", x: 64, y: 50, w: 33, z: "front", rot: -8, flip: true },
+  ];
+  /* 主群落その2。同じレシピを2回使うと「型」が見えるので、こちらは
+     アオキとヨモギ主導・株は脇役にして構成を変える */
+  const ANCHOR2: Member[] = [
+    { k: "clump", x: -4, y: -4, w: 66, z: "air" },
+    { k: "leaf", x: 62, y: 16, w: 38, z: "air", rot: 14 },
+    { k: "leaf", x: 4, y: 4, w: 32, z: "back", rot: -11, flip: true },
+    { k: "clump", x: 30, y: 10, w: 70, flip: true },
+    { k: "aucuba", x: 2, y: 34, w: 28, rot: -14 },
+    { k: "avar", x: 20, y: 52, w: 26, z: "front", rot: 7 },
+    { k: "mug", x: 40, y: 72, w: 48, z: "front", flip: true },
+  ];
+  /* 副群落。奥層を省いた2層。主群落と同じ画面に入らない距離に置く */
+  const SEC: Member[] = [
+    { k: "leaf", x: 30, y: 14, w: 52, z: "air", rot: 12 },
+    { k: "leaf", x: 0, y: 26, w: 44, z: "back", rot: -14, flip: true },
+    { k: "leaf", x: 24, y: 0, w: 56 },
+    { k: "mug", x: 6, y: 60, w: 60, z: "front", flip: true },
+    { k: "aucuba", x: 56, y: 32, w: 28, z: "front", rot: 10 },
+  ];
+
+  /* 縁 — ツタのガーランド。モバイル専用（CSS 側で display 制御）。
+     カードや写真帯の**上端に掛ける**前提なので、群落と違って「足元を隠す」
+     必要がない。縁そのものが接地になる */
+  const garland = (cls: string) => (
+    <i className={`fl gl ${cls}`} key={`g${cls}`}>
+      {leafSvg("wc-ivy-garland", "0 0 600 150")}
+    </i>
+  );
+
+  const flora = (items: ReactNode) => (
+    <div className="flora" aria-hidden="true">
+      {items}
+    </div>
+  );
+
+  /* --- まとめ帯 -----------------------------------------------------------
+     2026-08-25 クライアント指示「各項目にWOOD調を入れ、まとめのような役割で
+     使う」。ヒーロー末尾の `.rail.mat-wood`（徒歩時間の帯）と同じ文法を、
+     各セクションの締めとして繰り返す。読み終わりに木の面が一枚入ることで
+     節の切れ目がはっきりし、要点だけを持ち帰れる。
+
+     中身は**既存の messages から拾うだけ**で、新しいコピーは作らない。
+     帯が要点を持つぶん、同じことを言っていた説明文は落としてある
+     （情報量の削減。messages 側で2文目を削除済み）。 */
+  const sumbar = (items: { v: string; l?: string }[]) => (
+    <div className="sumbar mat-wood">
+      {items.map((it) => (
+        <div className="f" key={it.v + (it.l ?? "")}>
+          <b>{it.v}</b>
+          {it.l && <span>{it.l}</span>}
+        </div>
+      ))}
+    </div>
+  );
+
+  /* 見出しの点線ルールの終端につく標。全セクション共通の文法。花序は丸く
+     完結した形なので、行末の飾りとして無理なく納まる（枝は「何かから生えて
+     いる」形なので、点線の先に浮いていると生育の文脈がなく不自然だった） */
+  const sprig = (
+    <i className="fl sprig" aria-hidden="true">
+      {leafSvg("wc-fatsia-mark", "0 0 120 84")}
+    </i>
+  );
+
   return (
     <div className="chambray-top" data-design="chambray">
       <ChambrayBehaviour />
       <div className="grain" aria-hidden="true" />
+
+      {/* ヤツデ・アオキ・ヨモギ・ツタ。面・点・線・縁の4役。
+          id は wc- へ付け替えて注入する（chambray-gyoen が同じ素材を cg- の
+          まま入れているため。両方が DOM にいる間の衝突よけ） */}
+      <svg
+        width="0"
+        height="0"
+        aria-hidden="true"
+        style={{ position: "absolute" }}
+        dangerouslySetInnerHTML={{ __html: wc(CG_FLORA_DEFS) }}
+      />
 
       {/* ===================== NAV ===================== */}
       <header className="nav">
@@ -144,6 +328,8 @@ export default async function ChambrayTop() {
 
       {/* ===================== 1. HERO ===================== */}
       <section id="wc-hero" className="hero mat-cham">
+        {flora([cluster("cl-he", ANCHOR)])}
+
         <div className="hero-side">
           <span>{t("hero.side")}</span>
         </div>
@@ -222,6 +408,8 @@ export default async function ChambrayTop() {
 
       {/* ===================== 2. PRIME LOCATION ===================== */}
       <section id="wc-location" className="mat-cham bleach">
+        {flora([cluster("cl-lo", SEC)])}
+
         <div className="wrap cut">
           <div className="marks" aria-hidden="true">
             <i className="v" style={{ left: "33.33%" }} />
@@ -232,16 +420,14 @@ export default async function ChambrayTop() {
             <span className="n">01</span>
             <span className="l">{loc("eyebrow")}</span>
             <span className="rule" />
+            {sprig}
           </div>
 
           <div className="cgrid">
             <div className="c-left">
               <div className="c-head">
                 <p className="mock-dsp">{t("display.location")}</p>
-                <h2 className="rv">
-                  {loc("headingLine1")}
-                  <em>{loc("headingLine2")}</em>
-                </h2>
+                <h2 className="rv">{loc("heading")}</h2>
               </div>
               <div className="c-copy rv d1">
                 <p className="jp">{loc("description")}</p>
@@ -282,34 +468,43 @@ export default async function ChambrayTop() {
             ))}
           </div>
 
-          <MockConvenience
-            eyebrow={loc("convenience.eyebrow")}
-            heading={loc("convenience.heading")}
-            text={loc("convenience.text")}
-            items={convItems}
-          />
+          {/* 便利ブロックは「見出し＋リード」＋まとめ帯に圧縮した。以前は
+              4項目それぞれが見出し＋本文のカードで、モバイルでは1画面ぶんを
+              占めていた。項目名だけを帯に載せ、本文は落としている
+              （2026-08-25「情報量の削減」）。 */}
+          <div className="mock-conv-head rv d1">
+            <span className="mock-conv-eyebrow">{loc("convenience.eyebrow")}</span>
+            <h3 className="mock-conv-h">{loc("convenience.heading")}</h3>
+            <p className="mock-conv-lead">{loc("convenience.text")}</p>
+          </div>
         </div>
+
+        {sumbar(convItems.map((c) => ({ v: c.title })))}
       </section>
 
       {/* ===================== 3. RENOVATED ===================== */}
       <section id="wc-renovated" className="mat-shadow">
+        {flora([aucubaVar("re-r"), garland("gl-re")])}
+
         <div className="wrap">
           <div className="sidx rv" style={{ color: "var(--ecru)" }}>
             <span className="n">02</span>
             <span className="l">{ren("eyebrow")}</span>
             <span className="rule" />
+            {sprig}
           </div>
 
           <div className="mhead">
             <p className="mock-dsp">{t("display.renovated")}</p>
-            <h2 className="rv">
-              {ren("headingLine1")}
-              <em>{ren("headingLine2")}</em>
-            </h2>
+            <h2 className="rv">{ren("heading")}</h2>
             <p className="rv d1">{ren("description")}</p>
           </div>
 
-          {/* cut samples pinned to the board */}
+          {/* cut samples pinned to the board.
+              2026-08-25：各カードの本文（`points[].text`）を落として見出しだけに。
+              ここだけ まとめ帯（.sumbar）を置いていないのは、載せられる中身が
+              この3つの見出しそのもので、帯にすると同じ語が2回出るため。
+              節の締めは mat-shadow の板そのものが担っている。 */}
           <div className="samples rv d1 samples-3">
             {points.map((p, i) => (
               <article className="sample" key={p.title}>
@@ -317,69 +512,30 @@ export default async function ChambrayTop() {
                   <span className="pin rivet" aria-hidden="true" />
                 </div>
                 <b>{p.title}</b>
-                <p>{p.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===================== 4. AMENITIES ===================== */}
-      <section id="wc-amenities" className="mat-cham">
+      {/* 03 EVERYTHING YOU NEED（#wc-amenities）は 2026-08-25 のクライアント判断で
+          TOP から外した。削除ではなく非表示 — 設備・アメニティの内容は各客室の
+          紹介ページ（/rooms/[room]）に掲載する予定なので、messages の `amenities`
+          キー一式と mockShared の MockFacilities はそのまま残してある。 */}
+      {/* ===================== 4. ROOMS ===================== */}
+      <section id="wc-rooms" className="rooms mat-cham">
+        {flora([cluster("cl-ro", SEC), garland("gl-ro")])}
+
         <div className="wrap">
           <div className="sidx rv">
             <span className="n">03</span>
-            <span className="l">{ame("eyebrow")}</span>
-            <span className="rule" />
-          </div>
-
-          <div className="ehead">
-            <p className="mock-dsp">{t("display.amenities")}</p>
-            <h2 className="rv">
-              {ame("headingLine1")}
-              <em>{ame("headingLine2")}</em>
-            </h2>
-            <p className="rv d1">{ame("description")}</p>
-          </div>
-
-          {/* every item a small patch, dashed-stitched like the hero's */}
-          <ul className="mock-ami rv d1">
-            {amenityItems.map((item, i) => (
-              <li key={item.label}>
-                <span className="edge" aria-hidden="true" />
-                <span className="n">{String(i + 1).padStart(2, "0")}</span>
-                <b>{item.label}</b>
-              </li>
-            ))}
-          </ul>
-
-          <MockFacilities
-            heading={ame("facilities.heading")}
-            text={ame("facilities.text")}
-            roomLabel={ame("facilities.roomLabel")}
-            rooms={facRooms}
-            commonHeading={ame("facilities.commonHeading")}
-            common={facCommon}
-          />
-
-          <p className="walkline mock-note rv d2">{ame("note")}</p>
-        </div>
-      </section>
-
-      {/* ===================== 5. ROOMS ===================== */}
-      <section id="wc-rooms" className="rooms mat-cham">
-        <div className="wrap">
-          <div className="sidx rv">
-            <span className="n">04</span>
             <span className="l">{rm("eyebrow")}</span>
             <span className="rule" />
+            {sprig}
           </div>
           <div className="rhead">
             <p className="mock-dsp">{t("display.rooms")}</p>
-            <h2 className="rv">
-              {rm("headingLine1")}
-              <em>{rm("headingLine2")}</em>
-            </h2>
+            <h2 className="rv">{rm("heading")}</h2>
             <p className="rv d1">{rm("description")}</p>
           </div>
         </div>
@@ -430,15 +586,20 @@ export default async function ChambrayTop() {
             {arrow}
           </Link>
         </div>
+
+        {sumbar(rooms.map((r) => ({ v: r.tag, l: r.name })))}
       </section>
 
-      {/* ===================== 6. ACCESS ===================== */}
+      {/* ===================== 5. ACCESS ===================== */}
       <section id="wc-access" className="mat-cham bleach">
+        {flora([cluster("cl-ac", ANCHOR2)])}
+
         <div className="wrap">
           <div className="sidx rv">
-            <span className="n">05</span>
+            <span className="n">04</span>
             <span className="l">{acc("eyebrow")}</span>
             <span className="rule" />
+            {sprig}
           </div>
 
           <div className="lgrid">
@@ -448,23 +609,8 @@ export default async function ChambrayTop() {
 
             <div className="linfo">
               <p className="mock-dsp">{t("display.access")}</p>
-              <h2 className="rv">
-                {acc("headingLine1")}
-                <em>{acc("headingLine2")}</em>
-              </h2>
+              <h2 className="rv">{acc("heading")}</h2>
               <p className="addr rv d1">{acc("description")}</p>
-
-              <ul className="acc rv d1">
-                {details.map((d, i) => (
-                  <li key={d.label}>
-                    <span className="p">
-                      <span className={`ln ${accLines[i % accLines.length]}`} aria-hidden="true" />
-                      <b>{d.label}</b>
-                    </span>
-                    <i className="mock-detail-value">{d.value}</i>
-                  </li>
-                ))}
-              </ul>
 
               <div className="hoods rv d2">
                 <div className="h">
@@ -484,10 +630,17 @@ export default async function ChambrayTop() {
             </div>
           </div>
         </div>
+
+        {/* 実務情報（住所・最寄り駅・IN/OUT）は節の中ほどのリストから、
+            締めのまとめ帯へ移した。ページ末尾で「で、どこで何時なの」に
+            一目で答える位置になる。 */}
+        {sumbar(details.map((d) => ({ v: d.value, l: d.label })))}
       </section>
 
       {/* ===================== FOOTER ===================== */}
       <footer>
+        {flora([mug("ft-r")])}
+
         <div className="ft">
           <div className="ft-brand">
             <a href={`/${locale}`} className="k">
@@ -506,7 +659,6 @@ export default async function ChambrayTop() {
             <h5>{t("footer.houseH")}</h5>
             <a href="#wc-location">{nav("location")}</a>
             <a href="#wc-renovated">{nav("renovated")}</a>
-            <a href="#wc-amenities">{nav("amenities")}</a>
             <a href="#wc-access">{nav("access")}</a>
           </div>
           <div className="ft-col">
