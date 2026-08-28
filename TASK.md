@@ -844,14 +844,13 @@ MISSING_MESSAGE を出し、ROOM 01 スライダー2枚目の aria-label が
 - [x] **ファイルは削除していない**。戻す場合は各 Top をページに足し、layout の
       固定 `data-theme` を `ThemeMock` に差し替えればよい（手順は page.tsx の冒頭コメント）
 
-> ⚠️ 将来ほんとうに削除する場合の注意：`chambray/flora.ts` と `chambray/scenes.ts` は
-> **採用案が使っている**（B で `flora.ts` を chambray-gyoen から移動済み）。
-> 非表示にした案を消すときも、この2つは消さないこと。
+> 2026-08-28 追記：非表示にした3案は Phase 1.10 で削除した。`flora.ts` と `scenes.ts` は
+> 採用案が使っているので残してある（現在のパスは `app/[locale]/_components/`）。
 
-**残っている整理（任意・今回はやっていない）**:
-- `layout.tsx` の Fraunces（gyoen-green 専用の表示書体）はもう誰も使っていない
-- `messages` の `headingLine1` / `headingLine2` は非表示3案だけが参照している
-- `components/ThemeMock.tsx` は import されなくなった
+**残っていた整理 → 2026-08-28 の Phase 1.10 で全部消化した**:
+- [x] `layout.tsx` の Fraunces（gyoen-green 専用の表示書体）を削除
+- [x] `messages` の `headingLine1` / `headingLine2` を削除
+- [x] `components/ThemeMock.tsx` を削除
 
 ### B. chambray-gyoen の植物イラストを washed-chambray へ移植（2026-08-25 完了）
 
@@ -931,6 +930,11 @@ MISSING_MESSAGE を出し、ROOM 01 スライダー2枚目の aria-label が
 - [x] `messages/{ja,en,zh}.json` の `amenities` キー一式は**温存**（客室ページで再利用）
 - [x] `mockShared.tsx` の `MockFacilities` も**温存**（客室ページで再利用）
 - [ ] Phase 2 の客室紹介ページ実装時に、`amenities.facilities.*` を各部屋ページへ載せる
+      - `amenities` の i18n キー一式は3言語とも温存済み（Phase 1.10 でも消していない）
+      - マークアップの下敷きは旧 `mockShared.tsx` の `MockFacilities`。Phase 1.10 で
+        本番からは外したので、`~/workbench/design-mock-library/process-docs/mockShared-at-cleanup.tsx`
+        を参照する（CSS は `.top-page` スコープ専用だったため一緒に削除。客室ページには
+        そのページに合ったスタイルを新しく当てること）
 
 ### E. 全体方針（2026-08-25 完了）
 
@@ -963,6 +967,125 @@ MISSING_MESSAGE を出し、ROOM 01 スライダー2枚目の aria-label が
 担っている。必要なら1行で追加できる。
 
 **モバイル総スクロール量**：10,519px（8/24 実測）→ **8,553px**（約10.5画面 / 2,000px 弱の削減）
+
+---
+
+## Phase 1.10 — 本番構成へのリファクタ（2026-08-28 完了）
+
+Phase 1.9 で採用案を確定させたあと、リポジトリには**不採用3案のファイルが1つも消されずに
+残っていた**。「どれが本物か」がコードから読み取れない状態だったので、production コードベース
+として読める形へ戻した。**UI・URL・多言語・振る舞いは変えていない**（下の検証を参照）。
+
+### A. 到達不能ファイルの削除
+
+- [x] 旧「現行案」TOP の7コンポーネント（`Hero` / `HeroIllustration` / `PrimeLocation` /
+      `Renovated` / `Amenities` / `Rooms` / `Access`）
+- [x] `_components/gyoen/` と `_components/chambray-gyoen/`（ディレクトリごと）
+- [x] `components/ThemeMock.tsx`（配色プレビュー切替。import されていなかった）
+- [x] `app/gyoen-design.css`（1,287行）/ `app/chambray-gyoen-design.css`（1,361行）
+- [x] `mock-structure.css` の `.gyoen-top` / `.chambray-gyoen-top` ブロック（計 954 行）
+- [x] `green.css` の `.gyoen-top` 節（ファイル自体が不要になったので、生き残った
+      `--forest*` 4トークンを `top-design.css` へ畳んで削除）
+- [x] `wood.css` の `.gyoen-top` 節（211行 → 149行）
+- [x] 採用案の中で死んでいた CSS —— `.mock-ami*` / `.mock-note` / `.mock-detail-value` /
+      `.ehead`（03 セクション撤去で未使用）、`.mock-conv` / `.mock-conv-list`（帯へ圧縮した
+      ときに未使用化）、`.mock-fac*`
+- [x] `components/icons.tsx` の未使用アイコン12個（残り6個はすべて描画されている）
+- [x] `layout.tsx` の Fraunces（不採用案専用）。フォントの `<link>` は2本→1本に統合
+
+### B. 設計資料を `~/workbench/design-mock-library` へ退避
+
+`docs/gen-chambray-assets.py` は再実行すると採用案の `scenes.ts` と `chambray-design.css` を
+丸ごと上書きし、手作業で入れた `ROOM1_MORNING`・スライダーCSS・確定版 `HERO` を消す —— つまり
+**「本物ではなくモックを編集してしまう」経路がリポジトリの中に生きていた**。物理的に断つため、
+モックHTML・生成スクリプト・イラスト書き出し・検討メモをすべて隣のリポジトリへ移した。
+
+- [x] `gyoen-green/` `chambray-gyoen/` `washed-chambray/` `process-docs/` を案ごとの README 付きで作成
+- [x] `washed-chambray/README.md` に「**本番実装が正。gen-assets.py を本番へ向けて実行するな**」を明記
+- [x] 本リポジトリの `docs/` は `README.md` ＋ `review-2026-08-24/`（クライアント成果物の記録）だけに
+- [x] `.claude/launch.json` の `mock-docs` サーバ定義を削除、`npm` → `pnpm` に統一
+
+### C. 命名とディレクトリの整理
+
+モック時代の名前が本番実装に残っていたので、全面的に production 名へ改名した。
+
+| 種別 | before | after |
+|---|---|---|
+| ディレクトリ | `_components/chambray/` + `mockShared.tsx` | `_components/` にフラット化 |
+| コンポーネント | `ChambrayTop` / `ChambrayBehaviour` | `TopPage` / `TopBehaviour` |
+| 共有ヘルパ | `mockShared.tsx` / `MockMap` / `MockLangSwitch` / `MOCK_ADDRESS` | `topShared.tsx` / `AccessMap` / `LangSwitch` / `ACCESS_ADDRESS` |
+| 型 | `MockRoom` `MockStat` `MockNearby` `MockPoint` `MockDetail` `MockConvenienceItem` | `RoomCard` `Stat` `Nearby` `Point` `Detail` `ConvenienceItem` |
+| CSS ファイル | `chambray-design.css` / `mock-structure.css` / `wood.css` | `app/styles/{top-design,top-layout,wood}.css` |
+| ルート class | `.chambray-top` | `.top-page` |
+| セクション class | `.mock-dsp` `.mock-map` `.mock-access-cta` `.mock-viewall-wrap` `.mock-conv-*` | `.display-line` `.access-map` `.access-cta` `.viewall-wrap` `.conv-*` |
+| **アンカー id** | `#wc-hero` `#wc-location` `#wc-renovated` `#wc-rooms` `#wc-access` | `#hero` `#location` `#renovated` `#rooms` `#access` |
+| SVG 内部 id | `wc-*`（scenes.ts）/ `cg-*`（flora.ts） | `fig-*` に統一 |
+| keyframes | `wc-sweep` `wc-slide` `wc-sway` `wc-drift` | `top-*` |
+| data属性 | `data-wc-rail-track` `data-wc-clone` | `data-rail-track` `data-rail-clone` |
+| i18n 名前空間 | `chambray` / `mockNav` | `top` / `top.nav` |
+
+`wc-` 接頭辞は「複数デザインが同一 DOM にいた頃の id 衝突よけ」が唯一の理由だったので、
+`flora.ts` の id を実行時に付け替えていた `wc()` ヘルパーごと不要になり削除した。
+**アンカー id を素の名前に戻せたのは、それを占有していた旧「現行案」コンポーネントを
+A で消したから。**
+
+### D. テーマ切替機構の撤去
+
+- [x] `[data-theme="washed-chambray"]` の30トークンを `app/globals.css` の `:root` に畳んだ
+- [x] 未使用の3テーマブロック（`current` / `gyoen-green` / `chambray-gyoen`）と、
+      死んだ `#renovated, #rooms, #reviews, #access` 織り目ルールを削除
+- [x] `layout.tsx` の `<html data-theme="washed-chambray">` → `<html lang={locale}>`
+- [x] `[data-design]` 切替を `[data-chrome-pad]:has(.top-page)` の1ブロックに畳んだ。
+      「TOPだけ自前クローム、下層ページは共通クローム」という実際の仕様がそのまま読める形になった
+- [x] `TopBehaviour` / `autoRail` の `data-theme` MutationObserver を削除
+      （「テーマ切替で display:none が外れた瞬間に IntersectionObserver を張り直す」ための
+      仕掛けだった。常に表示されるようになったのでマウント時に張るだけでよい）
+
+### E. messages の整理（3言語同時・522 → 196 キー）
+
+- [x] `gyoen` 名前空間（149キー）—— 不採用デザイン専用
+- [x] `chambray` の未参照 164 キー（`nav.*` `concept.*` `exp.*` `material.*` `rail.f1n` 等、
+      モック8の旧セクション由来。TOPが実際に読むのは29キーだけだった）
+- [x] `headingLine1` / `headingLine2`（2026-08-25 に1文の `heading` へ統合済み）
+- [x] `mockNav.amenities` / `.close` / `.home`、`nav.concept` / `nav.moments`
+- [x] `chambray` → `top`、`mockNav` → `top.nav` に統合
+- [x] **温存**：`amenities`（D の客室ページで再利用）、`concept` / `moments` / `reviews`
+      （翻訳済みのクライアント承認コピー。`/reviews` は Phase 2 の予定ページ）
+- [x] 3言語のキー集合が完全一致することをスクリプトで確認
+
+### F. リファクタ中に直した既存バグ
+
+`Nav` / `Footer` / `MobileBottomNav` は `/{locale}#access` `#concept` `#moments` を指していたが、
+TOPページにその id は無く（採用案は `#wc-*` を使っていた）、**クリックしてもページ先頭に
+着地するだけ**だった。C のアンカー改名で `#access` は実在するようになった。
+
+- [x] `Footer` の `#concept` / `#moments` リンクを削除（対応する節がサイトに存在しない。
+      `Nav` では以前から同じ2つがコメントアウトされていた）
+- [x] `MobileBottomNav` の IntersectionObserver 監視 id を `["rooms","access"]` に縮小、
+      未使用のローカル `LeafIcon` / `SunIcon` を削除
+
+> これがこのリファクタで**唯一のユーザー可視の変更**（フッターのリンクが4→2に減る）。
+> 他はすべて内部整理で、見た目は1ピクセルも動いていない。
+
+### 検証
+
+変更前後で 9ルート × 2ビューポート（1440 / 375）＝18通りをヘッドレス Chrome で撮り、
+`docH`・全要素の計算スタイル・ボックス位置・SVG id と `<use href>` の解決・全アンカー・
+可視テキスト・CSS カスタムプロパティの解決値を機械比較した。
+
+- **F 以外の差分ゼロ**（TOPページは3言語とも完全一致）
+- 型チェック 0 エラー / ビルド成功 / コンソールエラー 0 / 404 が 0
+- lint 警告 5 → 1（残る1件は `no-page-custom-font`。App Router の root layout に対する
+  Pages Router 前提のルールで、pre-existing。`next/font` へ移すと配信方法が変わるので
+  リファクタの範囲外とした）
+
+### 行数
+
+| | before | after |
+|---|---|---|
+| CSS（app/） | 4,762 行 | 2,042 行 |
+| TOPページ関連 TSX/TS | 15 ファイル | 6 ファイル |
+| messages（各言語） | 522 キー | 196 キー |
 
 ---
 

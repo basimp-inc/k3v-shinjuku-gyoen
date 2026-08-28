@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // docs/ holds one-off tooling for client deliverables, not application code.
+    "docs/**",
   ]),
 ]);
 

@@ -11,34 +11,41 @@
 - **ゴール**: 「新宿御苑前で一番予約したくなる民泊サイト」。公式サイト経由の直接予約導線を作り、OTA依存を減らす。
 - **要件定義書（Source of Truth）**: https://docs.google.com/document/d/1CMOUpOBNIdinqRwsINJwuFoK9J3Pr7wXrcku125ysZo/edit — ページ構成・コピー案・お部屋仕様・予約導線・SEO方針など、内容に迷ったら必ずこのドキュメントを一次情報として参照する。
 
-## ⚠️ 既知の不整合（最優先で解消）
+## ⚠️ TOPページの実装を上書きしないための注意
 
-現在 TOP ページに実装済みのコンテンツは、要件定義書とは**別のコンセプト**で書かれている（おそらく初期ドラフト/プレースホルダー）。新しいページを作る前に、または着手時に必ずこのズレを認識すること。
+### 1. `scenes.ts` の `HERO` と `ROOM1_MORNING`（確定済み・勝手に戻さないこと）
 
-| 項目 | 現状の実装（messages/*.json, 各component） | 要件定義書の正しい内容 |
-|---|---|---|
-| 施設名 | K3v Tokyo | K3V SHINJUKU GYOEN |
-| 立地 | 台東区谷中3-2-1／千代田線「根津駅」徒歩6分 | 新宿御苑前／新宿駅徒歩圏 |
-| 部屋数 | 8室 | 3室 |
-| コンセプト | 「和」と「北欧」が溶け合う暮らし | 家具ブランドごとに異なるライフスタイル（UNICO / JOURNAL STANDARD FURNITURE / CRASH GATE） |
-| ROOM 01 | 和と北欧のスタンダードルーム | UNICO ROOM — Natural Living（北欧ナチュラル） |
-| ROOM 02 | Journal Standardのアーバンヴィンテージ（※これはほぼ一致） | JOURNAL STANDARD FURNITURE ROOM — Urban Vintage |
-| ROOM 03 | CRASH GATEのインダストリアルモダン（※ほぼ一致） | CRASH GATE ROOM — Industrial Modern（詳細未定・準備中） |
-| コピー | 「暮らすように、東京を旅する。」 | 「新宿御苑のすぐそばで、東京を暮らすように滞在する。」/ EN: "Stay steps away from Shinjuku Gyoen. Design Apartments in the Heart of Tokyo." / タグライン: "Not Just a Stay. Live Tokyo Beautifully." |
+`app/[locale]/_components/scenes.ts` の `HERO` と `ROOM1_MORNING`、および ROOM 01 の2枚
+スライダーは、2026-08-21 にクライアント指示で確定した仕様。**別セッション/別エージェントが
+「壊れている」と判断して元に戻すケースが実際に起きている。理由を確認せずに変更しないこと。**
 
-ROOM 02・03 のブランド名/世界観は要件定義書と概ね一致しているため活かせる。**施設名・立地・部屋数・ROOM 01・全体のブランドストーリーは要件定義書に合わせて書き換えが必要**。詳細は [TASK.md](TASK.md) の Phase 0 を参照。
+- **`HERO`**: 初期生成版（障子・のれん・鉢植え・シャンブレーのシャツを干した「朝の縁側」の
+  情景、git コミット `1f3ea55` 時点の内容）が正。2026-08-17 に一度「確定した ROOM 01 実
+  レイアウトに合わせる」目的で描き直されたが、クライアント判断で初期生成版へ戻すことが確定済み。
+- **`ROOM1_MORNING`**: 2026-08-17〜21 の間 `HERO` として使われていた「実レイアウト版」を
+  退避した新規エクスポート。**元モックには存在しない、手動追加分。**
+- **ROOM 01 の写真**: `TopPage.tsx` の ROOM 01 は `ROOM1`（1枚目）と `ROOM1_MORNING`（2枚目）
+  を切り替える2枚スライダー。ラジオ入力 + CSS `:has()` のみで動作し JS 不要。対応 CSS は
+  `app/styles/top-design.css` の `.ph .stamp` ルール直後（`.s-radio` / `.pic .ph.s0` /
+  `.pic .ph.s1` / `.s-dots`）。
 
-## ⚠️ washed-chambray Hero / ROOM 01 イラスト仕様（確定済み・勝手に戻さないこと）
+### 2. 生成スクリプトを本番へ向けて実行しないこと
 
-`app/[locale]/_components/chambray/scenes.ts` の `HERO` と `ROOM1_MORNING`、および washed-chambray・chambray-gyoen 両テーマの ROOM 01 写真は、2026-08-21 にクライアント指示で確定した仕様。**別セッション/別エージェントが「壊れている」と判断して元に戻すケースが実際に起きている。理由を確認せずに変更しないこと。**
+TOPページはもともとモックHTMLから `scenes.ts` と `top-design.css` を生成していた。その
+モックと生成スクリプトは 2026-08-28 に `~/workbench/design-mock-library/washed-chambray/`
+へ退避してある。**再実行すると上の `ROOM1_MORNING`・スライダーCSS・確定版 `HERO` がすべて
+消える**（モック側が未更新のため）。加えて本番側は SVG id を `fig-`、ルートクラスを
+`.top-page` に改名済みで、生成物はそのままでは噛み合わない。
 
-- **`HERO`**: 初期生成版（障子・のれん・鉢植え・シャンブレーのシャツを干した「朝の縁側」の情景、git コミット `1f3ea55` 時点の内容）を正とする。2026-08-17 に一度「確定した ROOM 01 実レイアウトに合わせる」目的で描き直されたが、クライアント判断で初期生成版へ戻すことが確定している。実レイアウト版のイラスト自体は破棄していない（次項）。
-- **`ROOM1_MORNING`**: 2026-08-17〜21 の間 `HERO` として使われていた「実レイアウト版」のイラストをそのまま退避した新規エクスポート。**`docs/top-page-mock-8.html` には存在しない、手動追加分**（`docs/gen-chambray-assets.py` の `SCENE_NAMES` にも意図的に含めていない — 詳細はそのスクリプト内のコメント参照）。
-- **ROOM 01 の写真**: `ChambrayTop.tsx` / `ChambrayGyoenTop.tsx` / `GyoenTop.tsx` の ROOM 01 は `ROOM1`（1枚目）と `ROOM1_MORNING`（2枚目）を切り替える2枚スライダー。ラジオ入力 + CSS `:has()` のみで動作し JS 不要。対応 CSS は `chambray-design.css` と `chambray-gyoen-design.css` 双方の `.ph .stamp` ルール直後（`.s-radio` / `.pic .ph.s0` / `.pic .ph.s1` / `.s-dots`）、および `gyoen-design.css` の末尾ブロック。
+**イラストを直すときは `scenes.ts` を直接編集する。** これが唯一の正。
 
-**2026-08-22 追記 — gyoen-green もイラストを共有している**: クライアント指示「green gyoen のイラストは消し、chambray gyoen のものに統一」により `_components/gyoen/defs.ts` は削除済み。gyoen-green は室内・近所の絵を `chambray/scenes.ts` から、ヒーローの樹冠を `chambray-gyoen/defs.ts` の `#cg-canopy` から取り、描画時に id を `gy-` へ付け替えている。つまり `scenes.ts` は**3デザイン共有**。washed-chambray を消す場合でも `scenes.ts` は残すこと。
+### 3. TOPページ以外の3案は削除済み
 
-**`docs/gen-chambray-assets.py` を再実行すると `scenes.ts` と `chambray-design.css` が丸ごと上書きされ、`ROOM1_MORNING` とスライダー用 CSS が消え、`HERO` も実レイアウト版に戻る**（`docs/top-page-mock-8.html` 側は未更新のため）。再実行が必要になった場合は、実行後にこの節の内容を手動で復元すること。
+2026-08-25 に Washed Chambray が採用され、不採用の3案（現行案 / Gyoen Green /
+Chambray Gyoen）は 2026-08-28 のリファクタでリポジトリから削除した。CSS・コンポーネント・
+messages・元モック一式は `~/workbench/design-mock-library` に案ごとの README 付きで保存
+してある。`<html data-theme>` による配色プレビュー機構も同時に撤去し、採用パレットは
+`app/globals.css` の `:root` に畳んである。
 
 ## クライアントのデザイン方針（最重要・全ページ共通）
 
@@ -56,17 +63,47 @@ ROOM 02・03 のブランド名/世界観は要件定義書と概ね一致して
 
 ## 技術スタック
 
-- Next.js 15 (App Router) + TypeScript、`app/[locale]/` で多言語ルーティング
-- next-intl（`i18n/routing.ts`: locales = `ja`(default) / `en` / `zh`、`localePrefix: "always"`）。UI文言はハードコードせず `messages/{ja,en,zh}.json` に追加し `useTranslations`/`getTranslations` 経由で参照する。3言語すべて追従させること。
-- Tailwind CSS v4（CSS-first設定）。カラー・フォントトークンは `app/globals.css` の `:root` / `@theme inline` に集約。新しい色を増やす場合もここに変数を足す（コンポーネント内へのベタ書きHEXは既存踏襲だが、トークン化できるものは変数を優先）。
-- コンポーネントは `components/` 直下にフラット配置。`Reveal.tsx` がスクロールインアニメーションの共通ラッパー。
+- **Next.js 16 (App Router) + TypeScript**。`app/[locale]/` で多言語ルーティング。
+- **next-intl**（`i18n/routing.ts`: locales = `ja`(default) / `en` / `zh`、`localePrefix: "always"`）。
+  UI文言はハードコードせず `messages/{ja,en,zh}.json` に追加し `useTranslations` /
+  `getTranslations` 経由で参照する。**3言語すべて追従させること。**
+- **Tailwind CSS v4**（CSS-first設定）。`app/globals.css` が唯一のエントリで、`:root` に
+  カラー・フォントトークン、`@theme inline` に Tailwind への橋渡しがある。
+  **`app/globals.css` の場所を動かさないこと** —— Tailwind v4 の自動ソース検出の基準になっている。
+- **パッケージマネージャは要整理**：ロックファイルは `pnpm-lock.yaml`（`pnpm-workspace.yaml`
+  もあり `node_modules` も pnpm が作った形）だが、現在の開発マシンに pnpm は入っておらず、
+  実際のコマンドは npm で動いている。**触るときは npm を使うこと。**
+
+### ディレクトリの役割
+
+| 場所 | 何を置くか |
+|---|---|
+| `app/[locale]/` | ルート（URL）。ここを見ればサイトのページ構成がわかる |
+| `app/[locale]/_components/` | **TOPページ専用**のコンポーネントとイラスト。他のページから import しない |
+| `app/[locale]/{rooms,stay}/_components/` | そのページ専用のコンポーネント |
+| `components/` | 2箇所以上で使う共通UI。下層ページのクローム（`Nav` / `Footer` / `MobileBottomNav`）と再利用パーツ |
+| `app/styles/` | TOPページのデザインシート（`top-design.css` / `top-layout.css`）と共通ウッド（`wood.css`） |
+| `lib/` `i18n/` | 純粋なデータ・設定。UI を持たない |
+
+新しいコンポーネントは**まずそのページの `_components/` に置く**。2箇所目の利用が出たときに
+`components/` へ上げる。先回りして共通化しない。
+
+### CSS の読み込み順（変えると壊れる）
+
+`app/globals.css` の `@import` の順番に意味がある。
+
+1. `tailwindcss`
+2. `styles/top-design.css` — 素材・配色・タイポグラフィ
+3. `styles/top-layout.css` — レイアウト。2 の語彙を絞る側なので後
+4. `styles/wood.css` — 面の最終決定権を持つので最後
 
 ## コマンド
 
 ```bash
 npm run dev       # 開発サーバー
-npm run build     # 本番ビルド
+npm run build     # 本番ビルド（型チェックを含む）
 npm run lint      # ESLint
+npx tsc --noEmit  # 型チェックのみ
 ```
 
 ## 作業の進め方
