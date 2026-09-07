@@ -330,11 +330,7 @@ export default async function TopPage() {
             </div>
             <p className="display-line">{t("display.hero")}</p>
             <h1 className="rv d1">
-              <span className="h1">
-                {hero("titleLine1")}
-                <br />
-                {hero("titleLine2")}
-              </span>
+
             </h1>
 
             {/* the raw-denim patch sewn onto the washed ground */}
@@ -563,7 +559,6 @@ export default async function TopPage() {
             <a href={`/${locale}`} className="k">
               K3<em>v</em>
             </a>
-            <p>{t("footer.desc")}</p>
           </div>
           <div className="ft-col">
             <h5>{t("footer.stayH")}</h5>
@@ -585,10 +580,6 @@ export default async function TopPage() {
             <a href="#">{t("footer.i3")}</a>
             <a href="#">{t("footer.i4")}</a>
           </div>
-        </div>
-        <div className="ft-bot">
-          <span>{t("footer.copyright")}</span>
-          <span>{t("footer.credit")}</span>
         </div>
       </footer>
     </div>

@@ -10,8 +10,6 @@
   },
   "hero": {
     "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
-    "titleLine1": "Stay steps away from Shinjuku Gyoen.",
-    "titleLine2": "Design Apartments in the Heart of Tokyo.",
     "description": "Three design rooms, steps from Shinjuku Gyoen. Each one furnished by a different Japanese brand — a place to live Tokyo, not just visit it.",
     "ctaPrimary": "Check Availability",
     "ctaSecondary": "See the three rooms",
@@ -41,7 +39,7 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "heading": "6 minutes to Shinjuku Gyoen — day or night,\neverything you need is right around the corner.",
+    "heading": "6 minutes to Shinjuku Gyoen, day or night,\neverything you need is right around the corner.",
     "stats": [
       {
         "value": "6 min walk",
@@ -633,9 +631,6 @@
       "w4": "Shadow"
     },
     "footer": {
-      "copyright": "© 2026 K3V Shinjuku Gyoen",
-      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
-      "desc": "Stay steps away from Shinjuku Gyoen and live Tokyo rather than visit it. Three design apartments, each built around a different furniture brand.",
       "houseH": "House",
       "i1": "House Rules",
       "i2": "FAQ",
