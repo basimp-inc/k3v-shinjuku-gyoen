@@ -666,6 +666,87 @@ background:var(--cham);
   }
   .acc i small {font-family:var(--mono);font-weight:400;font-size:.5625rem;letter-spacing:.1em;opacity:.6;margin-left:3px
   }
+
+  /* --- Nearby info panel (PrimeLocation) --------------------------------
+     2026-09-07 redesign: split the 7-row list into the two groups the data
+     already carries — walk-times (stats) and neighbourhood convenience
+     (convItems) — inside one mat-wood panel instead of one long column.
+     Text sits on --wood, so it uses --wood-on (see wood.css) rather than
+     --indigo; the coloured rings from .acc don't survive wood's warm hue
+     (--thread is nearly the same colour as --wood itself), so both columns
+     share one quiet ink-toned mark instead of the four-colour coding. */
+  .nearby {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px clamp(32px, 4.8vw, 64px);
+    padding: clamp(22px, 3.4vw, 40px) clamp(24px, 3.6vw, 44px);
+    border-radius: 14px;
+    box-shadow: 0 18px 36px -22px rgba(43, 38, 32, .45);
+  }
+  .nearby-col {
+    list-style: none;
+  }
+  .nearby-col li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(43, 38, 32, .14);
+  }
+  .nearby-col li:first-child {
+    padding-top: 0;
+  }
+  .nearby-col li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .nearby-col .p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .nearby-mark {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: none;
+    background: var(--wood-deep);
+  }
+  .nearby-col b {
+    font-family: var(--jp);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--wood-on);
+  }
+  .nearby-col i {
+    font-family: var(--jp);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: .01em;
+    color: var(--wood-on);
+    white-space: nowrap;
+    flex: none;
+  }
+  @media (max-width: 600px) {
+    .nearby {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .nearby-col:first-child {
+      padding-bottom: 6px;
+    }
+    .nearby-col:last-child {
+      border-top: 1px solid rgba(43, 38, 32, .16);
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+  }
+
   .hoods {display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px
   }
   .hoods .h {position:relative;overflow:hidden;aspect-ratio:16/10

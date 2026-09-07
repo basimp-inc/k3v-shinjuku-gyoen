@@ -61,11 +61,6 @@ export default async function TopPage() {
   const rooms = rm.raw("items") as RoomCard[];
   const details = acc.raw("details") as Detail[];
   const convItems = loc.raw("convenience.items") as ConvenienceItem[];
-  /* 統合された01 PRIME LOCATIONリスト（徒歩時間3件＋利便性4件、共通の帯） */
-  const primeItems = [
-    ...stats.map((s) => ({ label: s.label, value: s.value as string | undefined })),
-    ...convItems.map((c) => ({ label: c.title, value: undefined as string | undefined })),
-  ];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
@@ -78,9 +73,6 @@ export default async function TopPage() {
   const roomScenes = [S.ROOM1, S.ROOM2, S.ROOM3];
   /* the three cloths the renovation is cut from */
   const sampleFaces = ["mat-wood", "mat-cham", "mat-forest"];
-  /* the coloured ring on each row of the unified PRIME LOCATION list —
-     walk-time rows keep their own colour, convenience rows share --thread */
-  const accLines = ["g", "", "w", "t", "t", "t", "t"];
 
   const arrow = (
     <span className="arw" aria-hidden="true">
@@ -384,24 +376,29 @@ export default async function TopPage() {
                 <p className="display-line">{t("display.location")}</p>
                 <h2 className="rv">{loc("heading")}</h2>
               </div>
-              <div className="c-copy rv d1">
+              <div className="nearby mat-wood rv d1">
+                <ul className="nearby-col">
+                  {stats.map((s) => (
+                    <li key={s.label}>
+                      <span className="p">
+                        <span className="nearby-mark" aria-hidden="true" />
+                        <b>{s.label}</b>
+                      </span>
+                      <i>{s.value}</i>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="nearby-col">
+                  {convItems.map((c) => (
+                    <li key={c.title}>
+                      <span className="p">
+                        <span className="nearby-mark" aria-hidden="true" />
+                        <b>{c.title}</b>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              {/* 2026-09-07 クライアント再確認：徒歩時間3件と利便性4件を、見出し＋
-                  時間の帯を共有する1本のリストへ統合した。以前は近隣写真レール
-                  （rail-x）と便利ブロックの帯（conv-head + まとめ帯）に分けていたが
-                  （2026-08-25「情報量の削減」）、リファレンス側で統合が正式判断に
-                  なったため、そちらへ差し替える。 */}
-              <ul className="acc rv d1">
-                {primeItems.map((s, i) => (
-                  <li key={s.label}>
-                    <span className="p">
-                      <span className={`ln ${accLines[i % accLines.length]}`} aria-hidden="true" />
-                      <b>{s.label}</b>
-                    </span>
-                    {s.value && <i>{s.value}</i>}
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="c-fig rv d1">

@@ -114,6 +114,11 @@
      （.rhead/.mhead/.linfo）の1行ルールには影響しない。 */
   .c-head h2 {
     white-space: pre-line;
+    /* the nearby-info list below is now the second typographic level (16px
+       bold), so the lead sentence steps down to stay clearly behind it —
+       it was clamp(.95rem,1.5vw,1.2rem), tying or beating the list at desktop
+       widths. */
+    font-size: clamp(0.85rem, 1.15vw, 0.9375rem);
   }
   /* 2026-08-25「近隣施設の文字を太く、見やすく」。カード見出しを一段上げる */
   .card h4 {
@@ -164,11 +169,6 @@
   }
   .c-fig {
     grid-column: 8 / 13;
-  }
-  /* the rows are label-left / time-right, so across the full seven columns the
-     pair drifted too far apart to read as one line */
-  .c-left .acc {
-    max-width: 34em;
   }
   .rail-x {
     margin-top: clamp(40px, 5vw, 68px);
@@ -273,9 +273,6 @@
     .c-left,
     .c-fig {
       grid-column: 1 / 13;
-    }
-    .c-left .acc {
-      max-width: none;
     }
     /* the heads are single-column here, so the display line spans the width and
        every part takes its own row again */
