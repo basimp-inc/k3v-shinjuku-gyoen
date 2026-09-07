@@ -82,6 +82,60 @@
      rgb(var(--color-shadow) / 0.28) */
   --color-shadow: 43 38 32;
 
+  /* -------------------------------------------------------------------------
+     TYPE SCALE — 2026-09-08 クライアント指摘「全体的に文字が小さくて読みにくい」。
+
+     一律に何%増やす、ではなく**役割ごとに別々の増やし方**をしている。増分は
+     下（本文・ラベル）ほど大きく、上（見出し）ほど小さい —— 元の設計は
+     ディスプレイ書体が巨大で本文が 13〜14px という開き方をしていて、
+     読みにくさの実体は「本文が小さい」ことだったから。
+
+       micro  9px   → 11–12.5px   +33%   スタンプ・透かしの mono 極小ラベル
+       label  10-12 → 12–13.5px   +25%   見出し前の標・キャプション・言語切替
+       ui     11-13 → 14–15.5px   +21%   ナビ・ボタン・チップ・補助テキスト
+       body   13-15 → 16–17.5px   +19%   本文（モバイルで 16px を下回らせない）
+       lead   15-17 → 18–20px     +18%   リード文・章の導入
+       sub    17-20 → 20–23px     +13%   小見出し・カード見出し・和文の節見出し
+       h3     21-24 → 24–32px     +11%   節の中の主張
+       h2     30    → 32–40px      +7%   節の見出し（下層ページ）
+       h1     30-36 → 38–52px     +11%   ページ見出し（下層ページ）
+
+     ディスプレイ（.h1 / .display-line / .band .no など、ラテンの巨大な級数）は
+     **触っていない**。もともと十分に大きく、そこを足すと本文との差が開いて
+     「読みにくい」がむしろ悪化する。
+
+     値は clamp() の3項すべてを 390px（電話）→1280px（デスクトップ）の直線で
+     引いてある。中央項の vw 係数は (max-min)/890px から出しているので、
+     ブレークポイントを増やさずに階層が保たれる。
+     ---------------------------------------------------------------------- */
+  /* ワードマークだけは可読性ではなく**同一性**の話なので、本文と一緒に
+     上げない。TOPの自前ナビ（.mark .k）と下層ページの共通ナビで同じ値を
+     使い、2つのヘッダーの見え方を揃える。 */
+  --fs-brand: clamp(1.5rem, 1.44rem + 0.25vw, 1.6875rem);
+
+  --fs-micro: clamp(0.6875rem, 0.646rem + 0.17vw, 0.78125rem);
+  --fs-label: clamp(0.75rem, 0.709rem + 0.17vw, 0.84375rem);
+  --fs-ui: clamp(0.875rem, 0.834rem + 0.17vw, 0.96875rem);
+  --fs-body: clamp(1rem, 0.959rem + 0.17vw, 1.09375rem);
+  --fs-lead: clamp(1.125rem, 1.07rem + 0.22vw, 1.25rem);
+  --fs-sub: clamp(1.25rem, 1.168rem + 0.34vw, 1.4375rem);
+  --fs-h3: clamp(1.5rem, 1.28rem + 0.9vw, 2rem);
+  --fs-h2: clamp(2rem, 1.78rem + 0.9vw, 2.5rem);
+  --fs-h1: clamp(2.375rem, 1.99rem + 1.57vw, 3.25rem);
+
+  /* 行送り。和文は字面が大きいぶんラテンより広く要る。級数を上げたぶん
+     行送りも上げないと、行間が詰まって「大きいのに読みにくい」になる */
+  --lh-display: 1.15;
+  --lh-heading: 1.5;
+  --lh-sub: 1.65;
+  --lh-body: 1.85;
+  --lh-relaxed: 2;
+
+  /* 1行の長さ。和文は 1em ≒ 1文字なので em で測る（ch はラテンの "0" を
+     測るので和文では4割短く出る） */
+  --measure-body: 34em;
+  --measure-lead: 30em;
+
   --font-jp-heading: "Zen Maru Gothic", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-jp-body: "M PLUS Rounded 1c", "Noto Sans SC", "Hiragino Maru Gothic ProN", sans-serif;
   --font-en: "Quicksand", "Trebuchet MS", sans-serif;
@@ -93,6 +147,32 @@
   --font-heading: var(--font-jp-heading);
   --font-en: var(--font-en);
   --font-sans: var(--font-jp-body);
+
+  /* Tailwind の text-* を上の1本のスケールに載せ替える。下層ページ
+     （/rooms・/stay）と共通クロームは全部この utility 経由なので、呼び出し側
+     70箇所を触らずに級数が上がる。**役割が変わったところだけ** JSX 側の
+     クラスを差し替えてある（本文が text-sm だった箇所 → text-base など）。
+
+     Tailwind 既定は xs12 / sm14 / base16 / lg18 / xl20 / 2xl24 / 3xl30 / 4xl36
+     の固定値。どの段も**どの画面幅でも既定を下回らない**ように取ってあるので、
+     差し替えで小さくなる箇所は無い。行送りも段ごとに持たせる（既定の
+     line-height は本文には詰まりすぎる）。 */
+  --text-xs: var(--fs-label);
+  --text-xs--line-height: 1.7;
+  --text-sm: var(--fs-ui);
+  --text-sm--line-height: 1.75;
+  --text-base: var(--fs-body);
+  --text-base--line-height: var(--lh-body);
+  --text-lg: var(--fs-lead);
+  --text-lg--line-height: var(--lh-sub);
+  --text-xl: var(--fs-sub);
+  --text-xl--line-height: var(--lh-sub);
+  --text-2xl: var(--fs-h3);
+  --text-2xl--line-height: var(--lh-heading);
+  --text-3xl: var(--fs-h2);
+  --text-3xl--line-height: 1.4;
+  --text-4xl: var(--fs-h1);
+  --text-4xl--line-height: 1.3;
 }
 
 * {

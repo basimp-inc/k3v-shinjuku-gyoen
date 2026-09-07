@@ -64,14 +64,14 @@ export default async function RoomsPage() {
 
                   <div className="flex flex-1 flex-col p-6">
                     <span
-                      className={`inline-flex w-fit rounded-full px-3 py-1 text-[11px] tracking-wide ${roomTagClass[room.slug as (typeof ROOM_SLUGS)[number]]}`}
+                      className={`inline-flex w-fit rounded-full px-3 py-1 text-xs tracking-wide ${roomTagClass[room.slug as (typeof ROOM_SLUGS)[number]]}`}
                     >
                       {room.tag}
                     </span>
 
                     <h2 className="font-en mt-4 text-sm tracking-[0.15em] text-(--color-accent)">{room.name}</h2>
-                    <p className="mt-1 text-lg text-(--color-text)">{room.subtitle}</p>
-                    <p className="mt-3 flex-1 text-sm leading-[1.8] text-(--color-text-soft)">{room.text}</p>
+                    <p className="mt-1 text-xl text-(--color-text)">{room.subtitle}</p>
+                    <p className="mt-3 flex-1 text-base leading-[1.8] text-(--color-text-soft)">{room.text}</p>
 
                     <span className="group/link mt-6 inline-flex items-center gap-2 text-sm text-(--color-text)">
                       {room.cta}
@@ -92,7 +92,7 @@ export default async function RoomsPage() {
             <h2 className="mt-3 max-w-md text-xl/normal text-(--color-text) md:text-2xl/normal">
               {t("designerHeading")}
             </h2>
-            <p className="mt-2 max-w-md text-sm leading-[1.8] text-(--color-text-soft)">{t("designerText")}</p>
+            <p className="mt-2 max-w-md text-base leading-[1.8] text-(--color-text-soft)">{t("designerText")}</p>
           </Reveal>
 
           <Reveal delay={100}>

@@ -23,8 +23,8 @@ export default async function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-en text-3xl font-semibold text-(--color-bg)">K3V</p>
-            <p className="mt-3 max-w-sm text-sm leading-[1.8] text-(--color-on-dark-soft)">
+            <p className="font-en text-2xl font-semibold text-(--color-bg)">K3V</p>
+            <p className="mt-3 max-w-sm text-base leading-[1.8] text-(--color-on-dark-soft)">
               {t("tagline")}
             </p>
           </div>

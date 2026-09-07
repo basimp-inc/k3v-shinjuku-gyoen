@@ -26,7 +26,7 @@ export default async function StayAvailability() {
           <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
+          <p className="mt-4 max-w-(--measure-lead) text-base leading-[1.8] text-(--color-text-soft) md:text-lg">
             {t("description")}
           </p>
         </Reveal>
@@ -43,11 +43,11 @@ export default async function StayAvailability() {
                 </div>
                 <div className="min-w-0">
                   <span
-                    className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] tracking-wide ${roomTagClass[room.slug as RoomSlug]}`}
+                    className={`inline-flex rounded-full px-2.5 py-1 text-xs tracking-wide ${roomTagClass[room.slug as RoomSlug]}`}
                   >
                     {room.tag}
                   </span>
-                  <p className="mt-1.5 truncate text-sm text-(--color-text)">{room.subtitle}</p>
+                  <p className="mt-1.5 truncate text-base text-(--color-text)">{room.subtitle}</p>
                 </div>
               </Link>
             </Reveal>
@@ -56,7 +56,7 @@ export default async function StayAvailability() {
 
         <Reveal delay={150}>
           <div className="mt-8 rounded-[18px] bg-(--color-bg) p-6">
-            <p className="text-sm leading-[1.8] text-(--color-accent)">{t("pendingNote")}</p>
+            <p className="max-w-(--measure-body) text-base leading-[1.8] text-(--color-accent)">{t("pendingNote")}</p>
             <a
               href="#contact"
               className="group mt-5 inline-flex items-center gap-2 rounded-full bg-(--color-accent) px-7 py-3.5 text-sm text-(--color-cream) transition-all duration-200 hover:scale-[1.03] hover:bg-(--color-accent-dark)"

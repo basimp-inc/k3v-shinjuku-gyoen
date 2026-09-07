@@ -51,7 +51,7 @@ export default function NavClient({ locale, links, ctaLabel }: NavClientProps) {
       }`}
     >
       <div className='mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3 md:px-10 md:py-4'>
-        <a href={`/${locale}`} className='font-en text-xl font-semibold tracking-wide text-(--color-text) md:text-2xl'>
+        <a href={`/${locale}`} className='font-en text-[length:var(--fs-brand)] font-semibold tracking-wide text-(--color-text)'>
           K3V
         </a>
 

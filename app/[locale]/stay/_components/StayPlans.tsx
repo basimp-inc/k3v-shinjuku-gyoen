@@ -19,7 +19,7 @@ export default async function StayPlans() {
           <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
+          <p className="mt-4 max-w-(--measure-lead) text-base leading-[1.8] text-(--color-text-soft) md:text-lg">
             {t("description")}
           </p>
         </Reveal>
@@ -28,11 +28,11 @@ export default async function StayPlans() {
           {items.map((plan, i) => (
             <Reveal key={plan.title} delay={i * 100}>
               <div className="h-full rounded-[18px] bg-(--color-bg) p-7">
-                <span className="font-en inline-flex rounded-full bg-(--color-bg-card) px-3 py-1 text-[11px] tracking-wide text-(--color-accent)">
+                <span className="font-en inline-flex rounded-full bg-(--color-bg-card) px-3 py-1 text-xs tracking-wide text-(--color-accent)">
                   {plan.tag}
                 </span>
-                <h3 className="mt-4 text-lg text-(--color-text)">{plan.title}</h3>
-                <p className="mt-2 text-sm leading-[1.8] text-(--color-text-soft)">{plan.text}</p>
+                <h3 className="mt-4 text-xl text-(--color-text)">{plan.title}</h3>
+                <p className="mt-2 text-base leading-[1.8] text-(--color-text-soft)">{plan.text}</p>
               </div>
             </Reveal>
           ))}

@@ -93,10 +93,15 @@
   .rhead h2,
   .mhead h2,
   .linfo h2 {
-    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-    line-height: 1.85;
-    margin-top: 14px;
-    max-width: 34em;
+    /* 2026-09-08：ここが「文字が小さい」の本丸だった。ラテンのディスプレイ
+       行が 50〜120px あるのに、その下の**和文の見出し**は 15〜19px しかなく、
+       本文（13〜15px）との差がほとんど無い。読み手にとって節の主題を運ぶのは
+       この行なので、Level 2 として立つ 20〜23px へ上げる。行送りは級数を
+       上げたぶん詰め（1.85→1.65）、1行の長さも文字数で持ち直す。 */
+    font-size: var(--fs-sub);
+    line-height: var(--lh-sub);
+    margin-top: 16px;
+    max-width: var(--measure-lead);
     /* 2026-08-25：見出しを1文に統合したので、折り返しが文節を割るように
        なった（「暮らしに必要なものはす／ぐそこに。」）。auto-phrase は
        文節境界で折る。非対応ブラウザは従来どおりの禁則処理に落ちるだけ */
@@ -117,16 +122,19 @@
     /* the nearby-info list below is now the second typographic level (16px
        bold), so the lead sentence steps down to stay clearly behind it —
        it was clamp(.95rem,1.5vw,1.2rem), tying or beating the list at desktop
-       widths. */
-    font-size: clamp(0.85rem, 1.15vw, 0.9375rem);
+       widths. 2026-09-08：スケール全体を上げたので、この行も一段上げる。
+       nearby リスト（--fs-sub）の**1段下**という関係は変えずに、絶対値だけを
+       13.6〜15px → 18〜20px へ持ち上げている。 */
+    font-size: var(--fs-lead);
+    line-height: var(--lh-sub);
   }
   /* 2026-08-25「近隣施設の文字を太く、見やすく」。カード見出しを一段上げる */
   .card h4 {
-    font-size: 1.0625rem;
+    font-size: var(--fs-sub);
     letter-spacing: 0.01em;
   }
   .sample b {
-    font-size: 1.05rem;
+    font-size: var(--fs-sub);
     letter-spacing: 0.02em;
   }
 
@@ -154,7 +162,7 @@
   .acc i {
     font-family: var(--jp);
     font-weight: 700;
-    font-size: 0.9375rem;
+    font-size: var(--fs-body);
     letter-spacing: 0.01em;
   }
   .acc {
@@ -187,7 +195,7 @@
   .card p {
     font-family: var(--jp);
     font-weight: 600;
-    font-size: 0.8125rem;
+    font-size: var(--fs-ui);
     letter-spacing: 0.01em;
     text-transform: none;
   }
@@ -240,7 +248,7 @@
      読む前に飛ばされていた。地と役割はそのまま、級数と濃さだけ上げる。 */
   /* 素材カードの説明文：11px / 62% は影の地の上で本文として細すぎた */
   .sample p {
-    font-size: 0.78rem;
+    font-size: var(--fs-ui);
     line-height: 1.9;
     color: rgba(237, 242, 247, 0.8);
   }
@@ -249,8 +257,8 @@
      文字の下端にだけ薄い暗がりを敷く。絵そのものの色は動かしていない。 */
   .hoods .h .t {
     font-family: var(--jp);
-    font-size: 0.6875rem;
-    letter-spacing: 0.06em;
+    font-size: var(--fs-label);
+    letter-spacing: 0.04em;
     text-transform: none;
   }
   .hoods .h::after {
@@ -297,6 +305,17 @@
     .samples-3 {
       grid-template-columns: 1fr;
     }
+    /* 2026-09-08：ヒーローの2つのボタンはラベルが 11px → 14px になったぶん、
+       パッチの幅（電話で 339px）に横並びで収まらなくなり、2つ目だけが下へ
+       落ちて幅の違う札が段違いに並んでいた。折り返しを事故ではなく**縦積み**
+       として扱い、幅を揃える。タップ対象としてもこちらが正しい。 */
+    .patch .acts {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .patch .acts .btn {
+      justify-content: center;
+    }
     .acc li {
       align-items: flex-start;
     }
@@ -319,8 +338,8 @@
   .conv-eyebrow {
     display: block;
     font-family: var(--mono);
-    font-size: 0.5625rem;
-    letter-spacing: 0.2em;
+    font-size: var(--fs-label);
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--forest-ink);
   }
@@ -330,8 +349,8 @@
   .conv-h {
     font-family: var(--jp);
     font-weight: 700;
-    font-size: clamp(1.35rem, 2.6vw, 2rem);
-    line-height: 1.5;
+    font-size: var(--fs-h3);
+    line-height: var(--lh-heading);
     letter-spacing: 0.01em;
     color: var(--indigo);
     margin-top: 12px;
@@ -343,10 +362,10 @@
      簡潔にすることは別、という前提での引き上げ）。 */
   .conv-lead {
     font-family: var(--jp);
-    font-size: 0.875rem;
+    font-size: var(--fs-body);
     line-height: 1.95;
     color: rgba(43, 38, 32, 0.92);
-    margin-top: 14px;
+    margin-top: 16px;
     /* em, not ch — ch measures the Latin "0" and cuts 和文 ~40% short */
     max-width: 34em;
   }
@@ -417,7 +436,7 @@
   color: var(--indigo);
 }
 .top-page .ft-brand p {
-  font-size: 0.875rem;
+  font-size: var(--fs-body);
   font-weight: 500;
   line-height: 2;
   color: var(--ft-ink);
@@ -427,14 +446,14 @@
    ここは 700 まで上げたうえで字間を少し詰める（太字にすると 0.2em は
    バラけて逆に読みにくい） */
 .top-page .ft-col h5 {
-  font-size: 0.625rem;
+  font-size: var(--fs-label);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: var(--ft-ink);
   opacity: 1;
 }
 .top-page .ft-col a {
-  font-size: 0.875rem;
+  font-size: var(--fs-body);
   font-weight: 600;
   color: var(--ft-ink);
 }
@@ -447,7 +466,7 @@
 }
 .top-page .ft-bot {
   border-top: 1px solid rgba(34, 29, 24, 0.42);
-  font-size: 0.625rem;
+  font-size: var(--fs-label);
   font-weight: 600;
   color: var(--ft-ink);
 }
@@ -485,8 +504,8 @@
     border-radius: 999px;
     border: 1px solid;
     line-height: 1;
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-label);
+    letter-spacing: 0.06em;
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -526,7 +545,7 @@
     display: block;
     padding: 10px 12px;
     border-radius: 8px;
-    font-size: 0.8125rem;
+    font-size: var(--fs-ui);
     letter-spacing: 0.03em;
     white-space: nowrap;
   }
@@ -564,8 +583,9 @@
   }
 }
 
-/* デスクトップの言語ストリップが消える幅とちょうど同じ 880px で出す。 */
-@media (max-width: 880px) {
+/* デスクトップの言語ストリップが消える幅とちょうど同じ 1080px で出す
+   （2026-09-08：ナビの級数を上げたぶん、その幅が 880px から上がった）。 */
+@media (max-width: 1080px) {
   .top-page .mlang {
     display: block;
   }

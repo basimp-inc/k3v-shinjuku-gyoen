@@ -21,7 +21,7 @@ export default function PageHero({ eyebrow, headingLines, description }: PageHer
             ))}
           </h1>
           {description && (
-            <p className="mt-5 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
+            <p className="mt-5 max-w-(--measure-lead) text-base leading-[1.8] text-(--color-text-soft) md:text-lg">
               {description}
             </p>
           )}

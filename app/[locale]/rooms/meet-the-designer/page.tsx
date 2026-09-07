@@ -49,8 +49,8 @@ export default async function MeetTheDesignerPage() {
               <Reveal key={note.room} delay={i * 100}>
                 <div className="flex h-full flex-col rounded-[18px] bg-(--color-bg) p-6">
                   <p className="font-en text-xs tracking-[0.15em] text-(--color-accent)">{note.tag}</p>
-                  <p className="mt-1 text-base text-(--color-text)">{note.room}</p>
-                  <p className="mt-4 flex-1 text-sm leading-[1.9] text-(--color-text-soft)">
+                  <p className="mt-1 text-lg text-(--color-text)">{note.room}</p>
+                  <p className="mt-4 flex-1 text-base leading-[1.9] text-(--color-text-soft)">
                     &ldquo;{note.quote}&rdquo;
                   </p>
                 </div>
@@ -64,7 +64,7 @@ export default async function MeetTheDesignerPage() {
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <h2 className="text-2xl/normal text-(--color-text) md:text-3xl/normal">{t("closingHeading")}</h2>
-            <p className="mt-5 text-sm leading-[1.9] text-(--color-text-soft) md:text-base">{t("closing")}</p>
+            <p className="mt-5 text-base leading-[1.9] text-(--color-text-soft) md:text-lg">{t("closing")}</p>
 
             <Link
               href="/rooms"

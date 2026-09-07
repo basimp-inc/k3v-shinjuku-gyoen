@@ -48,12 +48,12 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
 
           <div className="mt-6 grid gap-10 md:grid-cols-2 md:items-center">
             <Reveal>
-              <span className={`inline-flex rounded-full px-3 py-1 text-[11px] tracking-wide ${tagClass}`}>
+              <span className={`inline-flex rounded-full px-3 py-1 text-xs tracking-wide ${tagClass}`}>
                 {room.tag}
               </span>
               <p className="font-en mt-4 text-sm tracking-[0.15em] text-(--color-accent)">{room.name}</p>
               <h1 className="mt-2 text-3xl leading-[1.3] text-(--color-text) md:text-4xl">{room.subtitle}</h1>
-              <p className="mt-5 max-w-md text-sm leading-[1.8] text-(--color-text-soft) md:text-base">{room.lead}</p>
+              <p className="mt-5 max-w-md text-base leading-[1.8] text-(--color-text-soft) md:text-lg">{room.lead}</p>
 
               <a
                 href="#contact"
@@ -78,14 +78,14 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
           <div className="space-y-5">
             {room.story.map((p, i) => (
               <Reveal key={p.slice(0, 24)} delay={i * 100}>
-                <p className="text-sm leading-[1.9] text-(--color-text-soft) md:text-base">{p}</p>
+                <p className="text-base leading-[1.9] text-(--color-text-soft)">{p}</p>
               </Reveal>
             ))}
           </div>
 
           {room.comingSoonNote && (
             <Reveal delay={room.story.length * 100}>
-              <p className="mt-6 rounded-2xl bg-(--color-bg) px-5 py-4 text-sm leading-[1.8] text-(--color-accent)">
+              <p className="mt-6 rounded-2xl bg-(--color-bg) px-5 py-4 text-base leading-[1.8] text-(--color-accent)">
                 <span className="font-en tracking-widest">{common("comingSoonBadge")}</span> — {room.comingSoonNote}
               </p>
             </Reveal>
@@ -99,8 +99,8 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
             {room.highlights.map((h, i) => (
               <Reveal key={h.title} delay={i * 100}>
                 <div className="h-full rounded-[18px] bg-(--color-bg-card) p-6">
-                  <h3 className="text-base text-(--color-text)">{h.title}</h3>
-                  <p className="mt-2 text-sm leading-[1.8] text-(--color-text-soft)">{h.text}</p>
+                  <h3 className="text-lg text-(--color-text)">{h.title}</h3>
+                  <p className="mt-2 text-base leading-[1.8] text-(--color-text-soft)">{h.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -118,7 +118,7 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
                   className="flex flex-col gap-1 border-b border-(--color-bg-card-deep) pb-4 sm:flex-row sm:items-baseline sm:gap-6"
                 >
                   <dt className="w-28 shrink-0 text-xs tracking-wide text-(--color-accent)">{d.label}</dt>
-                  <dd className="text-sm text-(--color-text)">{d.value}</dd>
+                  <dd className="text-base text-(--color-text)">{d.value}</dd>
                 </div>
               ))}
             </dl>
@@ -126,7 +126,7 @@ export default async function RoomDetailView({ slug }: { slug: RoomSlug }) {
 
           <Reveal delay={150}>
             <blockquote className="rounded-[22px] bg-(--color-bg) p-7">
-              <p className="text-sm leading-[1.9] text-(--color-text) md:text-base">
+              <p className="text-base leading-[1.9] text-(--color-text) md:text-lg">
                 &ldquo;{room.designerQuote.quote}&rdquo;
               </p>
               <footer className="mt-4 font-en text-xs tracking-[0.15em] text-(--color-accent)">

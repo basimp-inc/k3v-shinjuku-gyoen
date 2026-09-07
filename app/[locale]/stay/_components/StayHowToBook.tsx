@@ -20,7 +20,7 @@ export default async function StayHowToBook() {
           <h2 className="mt-4 max-w-xl text-2xl/[1.5] text-(--color-text) md:text-3xl/[1.5]">
             {t("heading")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
+          <p className="mt-4 max-w-(--measure-lead) text-base leading-[1.8] text-(--color-text-soft) md:text-lg">
             {t("description")}
           </p>
         </Reveal>
@@ -29,9 +29,9 @@ export default async function StayHowToBook() {
           {steps.map((step, i) => (
             <Reveal key={step.step} delay={i * 100}>
               <div className="h-full rounded-[18px] bg-(--color-bg-card) p-7">
-                <span className="font-en text-2xl text-(--color-line-strong)">{step.step}</span>
-                <h3 className="mt-3 text-lg text-(--color-text)">{step.title}</h3>
-                <p className="mt-2 text-sm leading-[1.8] text-(--color-text-soft)">{step.text}</p>
+                <span className="font-en text-3xl text-(--color-line-strong)">{step.step}</span>
+                <h3 className="mt-3 text-xl text-(--color-text)">{step.title}</h3>
+                <p className="mt-2 text-base leading-[1.8] text-(--color-text-soft)">{step.text}</p>
               </div>
             </Reveal>
           ))}

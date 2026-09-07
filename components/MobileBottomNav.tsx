@@ -102,7 +102,7 @@ export default function MobileBottomNav() {
       <a
         key={id}
         href={href}
-        className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] transition-colors duration-200"
+        className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-xs transition-colors duration-200"
       >
         <span
           className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ${
@@ -145,7 +145,7 @@ export default function MobileBottomNav() {
                       locale={code}
                       onClick={() => setLangOpen(false)}
                       aria-current={active ? "true" : undefined}
-                      className={`block rounded-xl px-3 py-2.5 text-[13px] transition-colors duration-200 ${
+                      className={`block rounded-xl px-3 py-2.5 text-sm transition-colors duration-200 ${
                         active
                           ? "bg-(--color-accent) text-(--color-cream)"
                           : "text-(--color-text-soft) hover:bg-(--color-bg-card)"
@@ -169,7 +169,7 @@ export default function MobileBottomNav() {
           className="mx-1 -mt-6 flex h-14 shrink-0 items-center gap-1.5 rounded-full bg-(--color-accent) px-4 text-(--color-cream) shadow-[0_8px_16px_-6px_rgb(var(--color-shadow)/0.35)] transition-transform duration-200 active:scale-95"
         >
           <BedIcon className="h-5 w-5 shrink-0" />
-          <span className="whitespace-nowrap text-[12px] font-medium leading-tight">
+          <span className="whitespace-nowrap text-xs font-medium leading-tight">
             {t("cta")}
           </span>
         </a>
@@ -181,7 +181,7 @@ export default function MobileBottomNav() {
           onClick={() => setLangOpen((v) => !v)}
           aria-expanded={langOpen}
           aria-label={tLang("label")}
-          className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-[11px] transition-colors duration-200"
+          className="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-xs transition-colors duration-200"
         >
           <span
             className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-200 ${

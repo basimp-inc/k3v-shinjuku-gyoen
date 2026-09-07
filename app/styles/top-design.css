@@ -116,7 +116,7 @@
 background:var(--cham);
   color:var(--shadow);
   font-family:var(--ui);
-  font-size:16px;line-height:1.6;
+  font-size:var(--fs-body);line-height:var(--lh-body);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   * {margin:0;padding:0;box-sizing:border-box
@@ -208,7 +208,7 @@ background:var(--cham);
    TYPE
    ============================================================ */
 
-.mono-s {font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase
+.mono-s {font-family:var(--mono);font-size:var(--fs-label);letter-spacing:.16em;text-transform:uppercase
   }
   .jp {font-family:var(--jp);font-weight:400;line-height:2;letter-spacing:.045em;font-feature-settings:"palt" 1
   }
@@ -217,8 +217,8 @@ background:var(--cham);
    ============================================================ */
   .btn {
   display:inline-flex;align-items:center;gap:12px;cursor:pointer;white-space:nowrap;
-  font-family:var(--ui);font-weight:600;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:15px 24px;border:1px solid currentColor;position:relative;
+  font-family:var(--ui);font-weight:600;font-size:var(--fs-ui);letter-spacing:.14em;text-transform:uppercase;
+  padding:15px 26px;border:1px solid currentColor;position:relative;
   transition:transform .22s cubic-bezier(.2,.8,.3,1),background-color .22s ease,color .22s ease,box-shadow .22s ease;
   }
   .btn .arw {transition:transform .3s cubic-bezier(.2,.8,.3,1)
@@ -258,16 +258,16 @@ background:var(--cham);
   }
   .mark {display:flex;align-items:baseline;gap:11px
   }
-  .mark .k {font-family:var(--cnd);font-weight:700;font-size:1.5rem;letter-spacing:.03em;line-height:1
+  .mark .k {font-family:var(--cnd);font-weight:700;font-size:var(--fs-brand);letter-spacing:.03em;line-height:1
   }
   .mark .k em {font-family:var(--dsp);font-style:italic;font-weight:300;letter-spacing:0
   }
-  .mark .s {font-family:var(--mono);font-size:.5625rem;letter-spacing:.26em;text-transform:uppercase;opacity:.66
+  .mark .s {font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.26em;text-transform:uppercase;opacity:.66
   }
-  .nav-links {display:flex;gap:28px
+  .nav-links {display:flex;gap:clamp(18px,1.9vw,28px)
   }
   .nav-links a {
-  font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;
+  font-family:var(--ui);font-weight:600;font-size:var(--fs-ui);letter-spacing:.12em;text-transform:uppercase;
   position:relative;padding:6px 0;opacity:.82;transition:opacity .2s ease;
   }
   .nav-links a::after {content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--thread);transition:right .3s cubic-bezier(.2,.8,.3,1)
@@ -278,11 +278,11 @@ background:var(--cham);
   }
   .nav-right {display:flex;align-items:center;gap:18px
   }
-  .lang {display:flex;gap:7px;font-family:var(--mono);font-size:.6875rem;opacity:.75
+  .lang {display:flex;gap:8px;font-family:var(--mono);font-size:var(--fs-label);opacity:.75
   }
   .lang b {color:var(--thread);font-weight:500
   }
-  .nav .btn {padding:11px 17px;font-size:.6875rem
+  .nav .btn {padding:11px 18px;font-size:var(--fs-label)
   }
   .burger {display:none;flex-direction:column;gap:5px;padding:8px;margin-right:-8px
   }
@@ -310,18 +310,22 @@ background:var(--cham);
   }
 
 /* the patch: a raw-denim block sewn onto the washed ground */
+  /* 2026-09-08：中の本文が 14px → 16〜17.5px、ボタンのラベルが 11px → 14〜15.5px
+     になり、430px では2つのボタンが横に収まらず（実測 160+11+211 = 382px ＝
+     内寸ちょうど）2行目に落ちていた。パッチ自体を広げて解く —— 幅を戻すのでは
+     なく面を足す。本文の1行の文字数（382px で和文21字）も同時に適正へ寄る。 */
   .patch {
-  position:relative;margin-top:clamp(26px,3.6vw,40px);max-width:min(100%,430px);
+  position:relative;margin-top:clamp(26px,3.6vw,40px);max-width:min(100%,470px);
   padding:22px 24px 24px;
   box-shadow:9px 10px 0 rgba(19,40,60,.20);
   }
   .patch .edge {position:absolute;inset:7px;border:1px dashed rgba(200,120,58,.6);pointer-events:none
   }
-  .patch p {position:relative;font-size:.875rem;line-height:1.9;color:rgba(237,242,247,.9)
+  .patch p {position:relative;font-size:var(--fs-body);line-height:1.9;color:rgba(237,242,247,.9)
   }
   .patch .acts {position:relative;display:flex;flex-wrap:wrap;gap:11px;margin-top:18px
   }
-  .patch .btn {padding:13px 19px;font-size:.6875rem
+  .patch .btn {padding:13px 20px;font-size:var(--fs-ui)
   }
   /* hero picture: wood-framed portrait, bleeding off the top */
   .hero-fig {position:relative;align-self:stretch;display:flex;align-items:center
@@ -344,14 +348,14 @@ background:var(--cham);
   position:absolute;left:-18px;top:clamp(24px,4vw,54px);z-index:4;
   padding:11px 15px;box-shadow:6px 6px 0 rgba(19,40,60,.18);
   }
-  .hero-chip .n {font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;color:var(--thread);text-transform:uppercase
+  .hero-chip .n {font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.16em;color:var(--thread);text-transform:uppercase
   }
-  .hero-chip .t {font-family:var(--cnd);font-weight:600;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--indigo);margin-top:2px
+  .hero-chip .t {font-family:var(--cnd);font-weight:600;font-size:var(--fs-lead);letter-spacing:.04em;text-transform:uppercase;color:var(--indigo);margin-top:2px
   }
   .hero-vjp {
   position:absolute;right:calc(var(--pad) * .34);top:20vh;z-index:5;
   writing-mode:vertical-rl;font-family:var(--jp);font-weight:500;
-  font-size:clamp(.78rem,1vw,.9rem);letter-spacing:.34em;line-height:1.9;color:var(--indigo-mid);
+  font-size:clamp(0.875rem, 0.8rem + 0.3vw, 1rem);letter-spacing:.3em;line-height:1.9;color:var(--indigo-mid);
   }
   .hero-vjp::before {content:"";position:absolute;top:-40px;left:50%;width:1px;height:30px;background:var(--thread)
   }
@@ -361,7 +365,7 @@ background:var(--cham);
   }
   .hero-side span {
   writing-mode:vertical-rl;transform:rotate(180deg);
-  font-family:var(--mono);font-size:.5625rem;letter-spacing:.4em;text-transform:uppercase;color:var(--indigo-fade);white-space:nowrap;
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.4em;text-transform:uppercase;color:var(--indigo-fade);white-space:nowrap;
   }
   /* selvedge fact rail — wood, not black */
   .rail {
@@ -380,10 +384,10 @@ background:var(--cham);
      肝心の「どこまで」が読めない帯になっていた。数字をわずかに落とし、
      ラベルを上げて、2つで1つの情報として読めるところまで寄せる。
      施設名は和文なので mono に和文フォントを継ぎ、字送りも和文向けに詰める */
-  .rail .f b {font-family:var(--cnd);font-weight:700;font-size:1.35rem;letter-spacing:.02em;line-height:1
+  .rail .f b {font-family:var(--cnd);font-weight:700;font-size:var(--fs-sub);letter-spacing:.02em;line-height:1
   }
   .rail .f span {font-family:'IBM Plex Mono',var(--jp),ui-monospace,monospace;
-  font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.92
+  font-weight:500;font-size:var(--fs-ui);letter-spacing:.05em;text-transform:uppercase;opacity:.92
   }
   .cue {display:flex;align-items:center;gap:10px;color:var(--wood-pale)
   }
@@ -398,9 +402,9 @@ background:var(--cham);
   }
   .ticker span {
   display:inline-flex;align-items:center;gap:22px;padding:12px 22px;white-space:nowrap;
-  font-family:var(--ui);font-weight:600;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(237,242,247,.92);
+  font-family:var(--ui);font-weight:600;font-size:var(--fs-label);letter-spacing:.24em;text-transform:uppercase;color:rgba(237,242,247,.92);
   }
-  .ticker em {font-family:var(--dsp);font-style:italic;font-weight:300;font-size:1.05rem;letter-spacing:0;text-transform:none;color:var(--wood-pale)
+  .ticker em {font-family:var(--dsp);font-style:italic;font-weight:300;font-size:var(--fs-lead);letter-spacing:0;text-transform:none;color:var(--wood-pale)
   }
   .ticker i {width:5px;height:5px;border-radius:50%;background:var(--thread);display:block
   }
@@ -417,9 +421,9 @@ background:var(--cham);
      共通の文法なので、01 だけでなく .sidx 全体に効かせる */
   .sidx {display:flex;align-items:baseline;gap:10px;margin-bottom:clamp(28px,4vw,44px)
   }
-  .sidx .n {font-family:var(--mono);font-size:.625rem;letter-spacing:.12em;color:var(--thread)
+  .sidx .n {font-family:var(--mono);font-size:var(--fs-label);letter-spacing:.12em;color:var(--thread)
   }
-  .sidx .l {font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase
+  .sidx .l {font-family:var(--ui);font-weight:600;font-size:var(--fs-label);letter-spacing:.14em;text-transform:uppercase
   }
   .sidx .rule {flex:1;height:1px;background:repeating-linear-gradient(90deg,currentColor 0 8px,transparent 8px 15px);opacity:.35
   }
@@ -453,7 +457,7 @@ background:var(--cham);
   }
   .c-copy p+p {margin-top:16px
   }
-  .c-copy .jp {font-size:.9375rem;color:rgba(43,38,32,.86)
+  .c-copy .jp {font-size:var(--fs-body);color:rgba(43,38,32,.86)
   }
 .c-fig {grid-column:7/13;grid-row:1;position:relative;align-self:start
   }
@@ -463,9 +467,9 @@ background:var(--cham);
   position:absolute;right:-10px;bottom:-24px;z-index:4;padding:13px 17px;max-width:250px;
   box-shadow:7px 7px 0 rgba(19,40,60,.2);
   }
-  .c-fig .tag .n {font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--thread)
+  .c-fig .tag .n {font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.16em;text-transform:uppercase;color:var(--thread)
   }
-  .c-fig .tag p {font-family:var(--jp);font-size:.75rem;line-height:1.85;color:rgba(237,242,247,.9);margin-top:6px
+  .c-fig .tag p {font-family:var(--jp);font-size:var(--fs-ui);line-height:1.85;color:rgba(237,242,247,.9);margin-top:6px
   }
 
 /* four material words as cut-out swatches */
@@ -483,7 +487,7 @@ background:var(--cham);
   }
   .ph .stamp {
   position:absolute;left:0;bottom:0;z-index:3;padding:7px 11px;background:var(--indigo);color:var(--cham-pale);
-  font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.16em;text-transform:uppercase;
   }
   /* ROOM 01's picture is a 2-slide carousel — the confirmed room, and the
      same room in morning light — switched by radio inputs, no JS required */
@@ -523,7 +527,7 @@ background:var(--cham);
   }
   .rhead h2 {grid-column:1/8;font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,5.6vw,4.8rem);line-height:.84;color:var(--indigo)
   }
-  .rhead p {grid-column:9/13;font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.7)
+  .rhead p {grid-column:9/13;font-size:var(--fs-body);line-height:1.95;color:rgba(43,38,32,.7)
   }
   .band {position:relative;display:grid;grid-template-columns:repeat(12,1fr);align-items:stretch;min-height:clamp(360px,44vw,560px)
   }
@@ -547,19 +551,19 @@ background:var(--cham);
   .band .brand {display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px
   }
   .band .brand .tag {
-  font-family:var(--mono);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:5px 10px;border:1px solid currentColor;opacity:.85;
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 11px;border:1px solid currentColor;opacity:.85;
   }
-.band h3 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(1.7rem,3vw,2.7rem);line-height:.92;color:var(--ecru)
+.band h3 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2rem, 1.7rem + 1.3vw, 3rem);line-height:.92;color:var(--ecru)
   }
   .band h3 em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none;font-size:.58em;color:var(--wood-pale);margin-top:.16em;line-height:1.2
   }
-  .band .jp {margin-top:15px;max-width:40ch;font-size:.8125rem;line-height:1.95;color:rgba(237,242,247,.72)
+  .band .jp {margin-top:17px;max-width:var(--measure-body);font-size:var(--fs-body);line-height:1.95;color:rgba(237,242,247,.72)
   }
 
 .band .go {
   align-self:flex-start;display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding-bottom:5px;
-  font-family:var(--ui);font-weight:600;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;
+  font-family:var(--ui);font-weight:600;font-size:var(--fs-ui);letter-spacing:.14em;text-transform:uppercase;
   color:var(--thread);border-bottom:1px solid rgba(200,120,58,.45);transition:border-color .2s ease;
   }
   .band .go:hover {border-bottom-color:var(--thread)
@@ -590,7 +594,7 @@ background:var(--cham);
   }
   .card .meta {display:flex;align-items:baseline;gap:10px;margin-top:13px
   }
-  .card .meta .n {font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;color:var(--thread)
+  .card .meta .n {font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.14em;color:var(--thread)
   }
   /* 2026-08-25 クライアント指示「近隣施設の文字を太く、見やすく」。
      施設名は和文なのに Barlow Condensed + 字送り .05em + uppercase が
@@ -598,9 +602,9 @@ background:var(--cham);
      距離は .75rem・不透明度 .68 で、カードの中で一番読みたい数字が
      一番薄いという逆転が起きていた。和文の指定に直し、距離を数値として
      立たせる（歩数はヒーローのウッド帯と同じ役なので字面も揃える） */
-  .card h4 {font-family:var(--jp);font-weight:700;font-size:1.0625rem;letter-spacing:.01em;text-transform:none;color:var(--indigo)
+  .card h4 {font-family:var(--jp);font-weight:700;font-size:var(--fs-sub);letter-spacing:.01em;text-transform:none;color:var(--indigo)
   }
-  .card p {font-family:var(--jp);font-weight:600;font-size:.8125rem;line-height:1.7;color:rgba(43,38,32,.88);margin-top:5px
+  .card p {font-family:var(--jp);font-weight:600;font-size:var(--fs-ui);line-height:1.75;color:rgba(43,38,32,.88);margin-top:5px
   }
 
 /* ============================================================
@@ -610,7 +614,7 @@ background:var(--cham);
   }
   .mhead h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.3rem,5.2vw,4.4rem);line-height:.86;color:var(--ecru)
   }
-  .mhead p {margin-top:18px;font-size:.875rem;line-height:1.95;color:rgba(237,242,247,.62)
+  .mhead p {margin-top:20px;font-size:var(--fs-body);line-height:1.95;color:rgba(237,242,247,.62)
   }
   .samples {display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,24px)
   }
@@ -624,11 +628,11 @@ background:var(--cham);
   }
   .sample .swatch .pin {position:absolute;top:9px;right:9px;z-index:2
   }
-.sample b {display:block;font-family:var(--cnd);font-weight:700;font-size:1.35rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ecru);margin-top:3px
+.sample b {display:block;font-family:var(--cnd);font-weight:700;font-size:var(--fs-sub);letter-spacing:.05em;text-transform:uppercase;color:var(--ecru);margin-top:3px
   }
-  .sample em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;font-size:.95rem;color:var(--wood-pale);margin-top:1px
+  .sample em {display:block;font-family:var(--dsp);font-style:italic;font-weight:300;font-size:var(--fs-lead);color:var(--wood-pale);margin-top:1px
   }
-  .sample p {font-family:var(--jp);font-size:.6875rem;line-height:1.85;color:rgba(237,242,247,.62);margin-top:10px
+  .sample p {font-family:var(--jp);font-size:var(--fs-ui);line-height:1.85;color:rgba(237,242,247,.62);margin-top:10px
   }
   /* ============================================================
    LOCATION — the map, stitched into the cloth
@@ -644,7 +648,7 @@ background:var(--cham);
   }
   .linfo h2 {font-family:var(--cnd);font-weight:700;text-transform:uppercase;font-size:clamp(2.1rem,3.8vw,3.3rem);line-height:.88;color:var(--indigo)
   }
-  .linfo .addr {margin-top:20px;font-family:var(--jp);font-size:.875rem;line-height:1.95;color:rgba(43,38,32,.78)
+  .linfo .addr {margin-top:20px;font-family:var(--jp);font-size:var(--fs-body);line-height:1.95;color:rgba(43,38,32,.78)
   }
   .acc {margin-top:24px;list-style:none;border-top:1px solid rgba(27,58,87,.26)
   }
@@ -660,11 +664,11 @@ background:var(--cham);
   }
   .acc .ln.t {border-color:var(--thread)
   }
-  .acc b {font-family:var(--ui);font-weight:600;font-size:.8125rem
+  .acc b {font-family:var(--ui);font-weight:600;font-size:var(--fs-ui)
   }
-  .acc i {font-family:var(--cnd);font-style:normal;font-weight:700;font-size:1.3rem;letter-spacing:.02em;color:var(--indigo)
+  .acc i {font-family:var(--cnd);font-style:normal;font-weight:700;font-size:var(--fs-sub);letter-spacing:.02em;color:var(--indigo)
   }
-  .acc i small {font-family:var(--mono);font-weight:400;font-size:.5625rem;letter-spacing:.1em;opacity:.6;margin-left:3px
+  .acc i small {font-family:var(--mono);font-weight:400;font-size:var(--fs-micro);letter-spacing:.1em;opacity:.6;margin-left:3px
   }
 
   /* --- Nearby info panel (PrimeLocation) --------------------------------
@@ -718,15 +722,15 @@ background:var(--cham);
   .nearby-col b {
     font-family: var(--jp);
     font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 1.4;
+    font-size: var(--fs-sub);
+    line-height: 1.5;
     color: var(--wood-on);
   }
   .nearby-col i {
     font-family: var(--jp);
     font-style: normal;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: var(--fs-sub);
     letter-spacing: .01em;
     color: var(--wood-on);
     white-space: nowrap;
@@ -751,7 +755,7 @@ background:var(--cham);
   }
   .hoods .h {position:relative;overflow:hidden;aspect-ratio:16/10
   }
-  .hoods .h .t {position:absolute;left:8px;bottom:7px;z-index:3;font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ecru);text-shadow:0 1px 6px rgba(0,0,0,.6)
+  .hoods .h .t {position:absolute;left:10px;bottom:9px;z-index:3;font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.14em;text-transform:uppercase;color:var(--ecru);text-shadow:0 1px 6px rgba(0,0,0,.6)
   }
   /* ============================================================
    CTA — the one raw-indigo field on a washed page
@@ -766,23 +770,23 @@ background:var(--cham);
   }
   .ft-brand {grid-column:1/5
   }
-  .ft-brand .k {font-family:var(--cnd);font-weight:700;font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase
+  .ft-brand .k {font-family:var(--cnd);font-weight:700;font-size:var(--fs-h3);letter-spacing:.04em;text-transform:uppercase
   }
   .ft-brand .k em {font-family:var(--dsp);font-style:italic;font-weight:300;text-transform:none
   }
-  .ft-brand p {margin-top:13px;font-family:var(--jp);font-size:.75rem;line-height:1.95;color:rgba(237,242,247,.55);max-width:30ch
+  .ft-brand p {margin-top:13px;font-family:var(--jp);font-size:var(--fs-ui);line-height:1.95;color:rgba(237,242,247,.55);max-width:30ch
   }
   .ft-col {grid-column:span 2
   }
-  .ft-col h5 {font-family:var(--mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--thread);margin-bottom:13px
+  .ft-col h5 {font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.2em;text-transform:uppercase;color:var(--thread);margin-bottom:13px
   }
-  .ft-col a {display:block;font-size:.8125rem;padding:5px 0;color:rgba(237,242,247,.78);transition:color .2s ease
+  .ft-col a {display:block;font-size:var(--fs-ui);padding:6px 0;color:rgba(237,242,247,.78);transition:color .2s ease
   }
   .ft-col a:hover {color:var(--ecru)
   }
   .ft-bot {margin-top:clamp(36px,5vw,60px);padding:17px var(--pad);border-top:1px solid rgba(237,242,247,.16);
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
-  font-family:var(--mono);font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,242,247,.45)
+  font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.14em;text-transform:uppercase;color:rgba(237,242,247,.45)
   }
   /* ============================================================
    SUMBAR — 節を締めるウッドのまとめ帯
@@ -816,14 +820,14 @@ background:var(--cham);
      すると「JOURNAL STANDARD FURNITURE」のようなラテンのブランド名が
      全角幅で組まれ、375px で2行に折れて右のラベルが離れて見える。
      ラテンは Barlow Condensed が拾い、和文はその次で拾われる */
-  .sumbar .f b {font-family:var(--cnd),var(--jp);font-weight:700;font-size:1.35rem;letter-spacing:.02em;line-height:1.15
+  .sumbar .f b {font-family:var(--cnd),var(--jp);font-weight:700;font-size:var(--fs-sub);letter-spacing:.02em;line-height:1.15
   }
   .sumbar .f span {font-family:'IBM Plex Mono',var(--jp),ui-monospace,monospace;
-  font-weight:500;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;opacity:.92;white-space:nowrap
+  font-weight:500;font-size:var(--fs-ui);letter-spacing:.05em;text-transform:uppercase;opacity:.92;white-space:nowrap
   }
   /* ラベルの無い帯（項目名だけを並べる立地の帯）は、1行あたりの文字数が
      多いので少し詰める */
-  .sumbar .f:not(:has(span)) b {font-size:1.0625rem;line-height:1.5
+  .sumbar .f:not(:has(span)) b {font-size:var(--fs-lead);line-height:1.5
   }
 
   /* ============================================================
@@ -1059,11 +1063,18 @@ background:var(--cham);
     .linfo {grid-column:1/13
     }
   }
-  @media (max-width:880px) {
+  /* 2026-09-08：ナビのリンクは 11px → 14〜15.5px になったので、デスクトップの
+     並びが収まらなくなる幅が上がった。英語（Location / Renovated / Rooms /
+     Access）が一番長く、1010px でも右のCTAとの隙間が 11px しか残らない。**ナビだけ**
+     先に電話用へ切り替える。880px の側に残っているのはレイアウトの規則で、
+     ナビとは切る理由が違うので一緒にしない。 */
+  @media (max-width:1080px) {
     .nav-links,.nav .lang {display:none
     }
     .burger {display:flex
     }
+  }
+  @media (max-width:880px) {
     .hero-body {grid-template-columns:1fr;align-items:start;padding-top:120px
     }
     .hero-side,.hero-vjp {display:none
@@ -1103,9 +1114,20 @@ background:var(--cham);
     }
     .mark .s {display:none
     }
-    .nav .btn {padding:9px 12px;font-size:.5625rem;letter-spacing:.12em;gap:8px
+    .nav .btn {padding:9px 14px;font-size:var(--fs-label);letter-spacing:.1em;gap:8px
     }
     .nav .btn .arw {display:none
+    }
+  }
+  /* 2026-09-08：ナビのCTAは 9px → 12px になり、英語の "CHECK AVAILABILITY" が
+     一番長い。360px 以上なら収まるが、320px では CTA・言語ボタン・バーガーの
+     3つが 18px の隙間で並びきらず、右端が overflow:hidden に切られていた
+     （級数を上げる前も 11px はみ出していて、今回それが広がった）。
+     級数は落とさず、**隙間と字送りだけ**を詰めて収める。 */
+  @media (max-width:400px) {
+    .nav-right {gap:10px
+    }
+    .nav .btn {padding:9px 11px;letter-spacing:.04em
     }
   }
   @media (max-width:520px) {

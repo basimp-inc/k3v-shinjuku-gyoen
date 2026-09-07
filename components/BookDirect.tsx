@@ -26,7 +26,7 @@ export default async function BookDirect({ showCta = true }: { showCta?: boolean
             <br />
             {t("headingLine2")}
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-[1.8] text-(--color-text-soft) md:text-base">
+          <p className="mt-4 max-w-(--measure-lead) text-base leading-[1.8] text-(--color-text-soft) md:text-lg">
             {t("description")}
           </p>
         </Reveal>
@@ -40,8 +40,8 @@ export default async function BookDirect({ showCta = true }: { showCta?: boolean
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-(--color-bg) text-(--color-accent)">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-4 text-base text-(--color-text)">{benefit.title}</h3>
-                  <p className="mt-2 text-sm leading-[1.8] text-(--color-text-soft)">{benefit.text}</p>
+                  <h3 className="mt-4 text-lg text-(--color-text)">{benefit.title}</h3>
+                  <p className="mt-2 text-base leading-[1.8] text-(--color-text-soft)">{benefit.text}</p>
                 </div>
               </Reveal>
             );
