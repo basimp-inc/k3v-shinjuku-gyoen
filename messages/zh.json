@@ -41,7 +41,7 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "heading": "步行6分钟即达新宿御苑，日常所需触手可及。",
+    "heading": "步行6分钟即达新宿御苑，无论白天还是深夜，\n日常所需都触手可及。",
     "description": "不仅适合观光，日常购物与出行同样便利。",
     "stats": [
       {
@@ -55,24 +55,6 @@
       {
         "value": "步行18分钟",
         "label": "新宿站"
-      }
-    ],
-    "nearby": [
-      {
-        "label": "便利店",
-        "distance": "步行3分钟"
-      },
-      {
-        "label": "超市",
-        "distance": "步行3分钟"
-      },
-      {
-        "label": "咖啡馆",
-        "distance": "步行3分钟"
-      },
-      {
-        "label": "药妆店",
-        "distance": "步行1分钟"
       }
     ],
     "convenience": {

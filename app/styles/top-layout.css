@@ -107,6 +107,14 @@
      messages の `heading`（1本化した文字列）を h2 に直接入れる。
      headingLine1 / headingLine2 は他デザインがまだ使っているので messages
      には残してある — A で他デザインを消したら一緒に消せる。 */
+  /* 2026-09-07：PRIME LOCATION の見出しだけ、クライアント再確認で2行に戻した
+     （リファレンス通り）。`heading` キーは1本の文字列のままで、改行は文字列
+     中の \n を white-space:pre-line で表示するだけ — headingLine1/2 の仕組みは
+     復活させない。.c-head は PrimeLocation 専用クラスなので、他3箇所
+     （.rhead/.mhead/.linfo）の1行ルールには影響しない。 */
+  .c-head h2 {
+    white-space: pre-line;
+  }
   /* 2026-08-25「近隣施設の文字を太く、見やすく」。カード見出しを一段上げる */
   .card h4 {
     font-size: 1.0625rem;

@@ -10,7 +10,6 @@ import {
   LangSwitch,
   type ConvenienceItem,
   type Detail,
-  type Nearby,
   type Point,
   type RoomCard,
   type Stat,
@@ -58,11 +57,15 @@ export default async function TopPage() {
   const locale = await getLocale();
 
   const stats = loc.raw("stats") as Stat[];
-  const nearby = loc.raw("nearby") as Nearby[];
   const points = ren.raw("points") as Point[];
   const rooms = rm.raw("items") as RoomCard[];
   const details = acc.raw("details") as Detail[];
   const convItems = loc.raw("convenience.items") as ConvenienceItem[];
+  /* 統合された01 PRIME LOCATIONリスト（徒歩時間3件＋利便性4件、共通の帯） */
+  const primeItems = [
+    ...stats.map((s) => ({ label: s.label, value: s.value as string | undefined })),
+    ...convItems.map((c) => ({ label: c.title, value: undefined as string | undefined })),
+  ];
 
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
@@ -72,12 +75,12 @@ export default async function TopPage() {
     ["access", "#access"],
   ] as const;
 
-  const nearbyScenes = [S.EXP_GYOEN, S.EXP_KISSA, S.EXP_LAUNDRY, S.EXP_YOKOCHO, S.EXP_SKYLINE];
   const roomScenes = [S.ROOM1, S.ROOM2, S.ROOM3];
   /* the three cloths the renovation is cut from */
   const sampleFaces = ["mat-wood", "mat-cham", "mat-forest"];
-  /* the coloured ring on each walk-time row */
-  const accLines = ["g", "", "w"];
+  /* the coloured ring on each row of the unified PRIME LOCATION list —
+     walk-time rows keep their own colour, convenience rows share --thread */
+  const accLines = ["g", "", "w", "t", "t", "t", "t"];
 
   const arrow = (
     <span className="arw" aria-hidden="true">
@@ -360,34 +363,6 @@ export default async function TopPage() {
             </div>
           </div>
         </div>
-
-        {/* the walk times previewed on the hem, expanded in PrimeLocation */}
-        <div className="rail mat-wood">
-          {stats.map((s) => (
-            <div className="f" key={s.label}>
-              <b>{s.value}</b>
-              <span>{s.label}</span>
-            </div>
-          ))}
-          <div className="f">
-            <span className="cue">
-              <i aria-hidden="true" />
-              <span className="mono-s">{t("rail.scroll")}</span>
-            </span>
-          </div>
-        </div>
-
-        {/* decorative */}
-        <div className="ticker mat-raw" aria-hidden="true">
-          <div className="ticker-in">
-            {[0, 1, 2, 3].map((i) => (
-              <span key={i}>
-                {t("ticker.w1")} <i /> {t("ticker.w2")} <i /> {t("ticker.w3")} <i /> {t("ticker.w4")} <i />{" "}
-                <em>{t("ticker.em")}</em> <i />
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ===================== 2. PRIME LOCATION ===================== */}
@@ -416,14 +391,19 @@ export default async function TopPage() {
               <div className="c-copy rv d1">
                 <p className="jp">{loc("description")}</p>
               </div>
+              {/* 2026-09-07 クライアント再確認：徒歩時間3件と利便性4件を、見出し＋
+                  時間の帯を共有する1本のリストへ統合した。以前は近隣写真レール
+                  （rail-x）と便利ブロックの帯（conv-head + まとめ帯）に分けていたが
+                  （2026-08-25「情報量の削減」）、リファレンス側で統合が正式判断に
+                  なったため、そちらへ差し替える。 */}
               <ul className="acc rv d1">
-                {stats.map((s, i) => (
+                {primeItems.map((s, i) => (
                   <li key={s.label}>
                     <span className="p">
                       <span className={`ln ${accLines[i % accLines.length]}`} aria-hidden="true" />
                       <b>{s.label}</b>
                     </span>
-                    <i>{s.value}</i>
+                    {s.value && <i>{s.value}</i>}
                   </li>
                 ))}
               </ul>
@@ -435,35 +415,7 @@ export default async function TopPage() {
               </div>
             </div>
           </div>
-
-          {/* 近所 — the signature horizontal rail. `data-rail` is read by
-              TopBehaviour: "auto" turns it into a slow autoplay carousel
-              for the A/B the client asked for. */}
-          <div className="rail-x rv d2" data-rail-track="">
-            {nearby.map((n, i) => (
-              <article className="card" key={n.label}>
-                <Scene svg={nearbyScenes[i % nearbyScenes.length]} />
-                <div className="meta">
-                  <span className="n">{String(i + 1).padStart(2, "0")}</span>
-                  <h4>{n.label}</h4>
-                </div>
-                <p>{n.distance}</p>
-              </article>
-            ))}
-          </div>
-
-          {/* 便利ブロックは「見出し＋リード」＋まとめ帯に圧縮した。以前は
-              4項目それぞれが見出し＋本文のカードで、モバイルでは1画面ぶんを
-              占めていた。項目名だけを帯に載せ、本文は落としている
-              （2026-08-25「情報量の削減」）。 */}
-          <div className="conv-head rv d1">
-            <span className="conv-eyebrow">{loc("convenience.eyebrow")}</span>
-            <h3 className="conv-h">{loc("convenience.heading")}</h3>
-            <p className="conv-lead">{loc("convenience.text")}</p>
-          </div>
         </div>
-
-        {sumbar(convItems.map((c) => ({ v: c.title })))}
       </section>
 
       {/* ===================== 3. RENOVATED ===================== */}

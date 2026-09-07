@@ -41,7 +41,7 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "heading": "6 minutes to Shinjuku Gyoen, everyday errands right around the corner.",
+    "heading": "6 minutes to Shinjuku Gyoen — day or night,\neverything you need is right around the corner.",
     "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around.",
     "stats": [
       {
@@ -55,24 +55,6 @@
       {
         "value": "18 min walk",
         "label": "Shinjuku Station"
-      }
-    ],
-    "nearby": [
-      {
-        "label": "Convenience store",
-        "distance": "3 min"
-      },
-      {
-        "label": "Supermarket",
-        "distance": "3 min"
-      },
-      {
-        "label": "Café",
-        "distance": "3 min"
-      },
-      {
-        "label": "Drugstore",
-        "distance": "1 min"
       }
     ],
     "convenience": {

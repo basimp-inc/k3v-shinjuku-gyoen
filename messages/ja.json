@@ -41,7 +41,7 @@
   },
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
-    "heading": "新宿御苑まで徒歩6分、暮らしに必要なものはすぐそこに。",
+    "heading": "新宿御苑まで徒歩6分、昼間でも、夜中でも。\n暮らしに必要なものはすぐそこに。",
     "description": "観光地としてだけでなく、日々の買い物や移動のしやすさも大切に選んだ立地。",
     "stats": [
       {
@@ -55,24 +55,6 @@
       {
         "value": "徒歩18分",
         "label": "新宿駅"
-      }
-    ],
-    "nearby": [
-      {
-        "label": "コンビニ",
-        "distance": "徒歩3分"
-      },
-      {
-        "label": "スーパー",
-        "distance": "徒歩3分"
-      },
-      {
-        "label": "カフェ",
-        "distance": "徒歩3分"
-      },
-      {
-        "label": "ドラッグストア",
-        "distance": "徒歩1分"
       }
     ],
     "convenience": {

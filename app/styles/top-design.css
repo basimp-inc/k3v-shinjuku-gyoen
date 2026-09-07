@@ -658,6 +658,8 @@ background:var(--cham);
   }
   .acc .ln.w {border-color:var(--wood-ink)
   }
+  .acc .ln.t {border-color:var(--thread)
+  }
   .acc b {font-family:var(--ui);font-weight:600;font-size:.8125rem
   }
   .acc i {font-family:var(--cnd);font-style:normal;font-weight:700;font-size:1.3rem;letter-spacing:.02em;color:var(--indigo)
