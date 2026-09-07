@@ -42,7 +42,6 @@
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
     "heading": "6 minutes to Shinjuku Gyoen — day or night,\neverything you need is right around the corner.",
-    "description": "A location chosen not just for sightseeing, but for how easy it makes daily errands and getting around.",
     "stats": [
       {
         "value": "6 min walk",
@@ -193,8 +192,7 @@
   },
   "rooms": {
     "eyebrow": "ROOMS",
-    "heading": "We don't photograph rooms. We photograph living.",
-    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
+    "heading": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
     "items": [
       {
         "tag": "UNICO",

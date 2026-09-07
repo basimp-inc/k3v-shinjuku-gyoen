@@ -389,7 +389,6 @@ export default async function TopPage() {
                 <h2 className="rv">{loc("heading")}</h2>
               </div>
               <div className="c-copy rv d1">
-                <p className="jp">{loc("description")}</p>
               </div>
               {/* 2026-09-07 クライアント再確認：徒歩時間3件と利便性4件を、見出し＋
                   時間の帯を共有する1本のリストへ統合した。以前は近隣写真レール
@@ -433,7 +432,6 @@ export default async function TopPage() {
           <div className="mhead">
             <p className="display-line">{t("display.renovated")}</p>
             <h2 className="rv">{ren("heading")}</h2>
-            <p className="rv d1">{ren("description")}</p>
           </div>
 
           {/* cut samples pinned to the board.
@@ -472,7 +470,6 @@ export default async function TopPage() {
           <div className="rhead">
             <p className="display-line">{t("display.rooms")}</p>
             <h2 className="rv">{rm("heading")}</h2>
-            <p className="rv d1">{rm("description")}</p>
           </div>
         </div>
 
@@ -505,7 +502,6 @@ export default async function TopPage() {
                   <span className="tag">{r.tag}</span>
                 </div>
                 <h3>{r.subtitle}</h3>
-                <p className="jp">{r.text}</p>
                 <Link href={`/rooms/${r.slug}`} className="go">
                   <span>{r.cta}</span>
                   <span aria-hidden="true">→</span>
@@ -515,15 +511,6 @@ export default async function TopPage() {
             <div className="seam" aria-hidden="true" />
           </div>
         ))}
-
-        <div className="wrap viewall-wrap">
-          <Link href="/rooms" className="btn btn-line">
-            <span>{rm("viewAll")}</span>
-            {arrow}
-          </Link>
-        </div>
-
-        {sumbar(rooms.map((r) => ({ v: r.tag, l: r.name })))}
       </section>
 
       {/* ===================== 5. ACCESS ===================== */}
@@ -546,8 +533,6 @@ export default async function TopPage() {
             <div className="linfo">
               <p className="display-line">{t("display.access")}</p>
               <h2 className="rv">{acc("heading")}</h2>
-              <p className="addr rv d1">{acc("description")}</p>
-
               <div className="hoods rv d2">
                 <div className="h">
                   <div className="scene" dangerouslySetInnerHTML={{ __html: S.HOOD_CITY }} />
@@ -567,10 +552,6 @@ export default async function TopPage() {
           </div>
         </div>
 
-        {/* 実務情報（住所・最寄り駅・IN/OUT）は節の中ほどのリストから、
-            締めのまとめ帯へ移した。ページ末尾で「で、どこで何時なの」に
-            一目で答える位置になる。 */}
-        {sumbar(details.map((d) => ({ v: d.value, l: d.label })))}
       </section>
 
       {/* ===================== FOOTER ===================== */}
