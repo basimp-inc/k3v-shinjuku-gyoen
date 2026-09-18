@@ -182,9 +182,13 @@
      nearby-shops auto rail), but it never inherited .c-fig's placement — with
      no grid-column of its own it auto-placed into a single ~1/12-wide implicit
      track, so the whole scroller (and every card in it) rendered as a sliver
-     at the column's edge instead of the pane .c-fig used to fill. */
+     at the column's edge. Full width (not 8/13 alongside .c-left) per
+     client feedback: on desktop the card group belongs below the wood
+     info-box, same as it already stacks on mobile — not beside it. Full span
+     pushes it out of .c-left's row via grid auto-placement, landing on its
+     own row underneath. */
   .cgrid .rail-x {
-    grid-column: 8 / 13;
+    grid-column: 1 / 13;
   }
   .rail-x {
     margin-top: clamp(40px, 5vw, 68px);
@@ -285,10 +289,10 @@
     }
   }
   @media (max-width: 880px) {
-    /* PrimeLocation stacks here, so the seven/five split above has to let go */
+    /* PrimeLocation stacks here, so the seven/five split above has to let go.
+       (.cgrid .rail-x is already 1/13 unconditionally — see above.) */
     .c-left,
-    .c-fig,
-    .cgrid .rail-x {
+    .c-fig {
       grid-column: 1 / 13;
     }
     /* the heads are single-column here, so the display line spans the width and
