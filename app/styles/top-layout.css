@@ -178,6 +178,14 @@
   .c-fig {
     grid-column: 8 / 13;
   }
+  /* 2026-09-18: this rail replaced .c-fig as .cgrid's second column (the
+     nearby-shops auto rail), but it never inherited .c-fig's placement — with
+     no grid-column of its own it auto-placed into a single ~1/12-wide implicit
+     track, so the whole scroller (and every card in it) rendered as a sliver
+     at the column's edge instead of the pane .c-fig used to fill. */
+  .cgrid .rail-x {
+    grid-column: 8 / 13;
+  }
   .rail-x {
     margin-top: clamp(40px, 5vw, 68px);
   }
@@ -279,7 +287,8 @@
   @media (max-width: 880px) {
     /* PrimeLocation stacks here, so the seven/five split above has to let go */
     .c-left,
-    .c-fig {
+    .c-fig,
+    .cgrid .rail-x {
       grid-column: 1 / 13;
     }
     /* the heads are single-column here, so the display line spans the width and

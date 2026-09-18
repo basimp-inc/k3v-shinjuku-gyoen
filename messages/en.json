@@ -191,6 +191,7 @@
   "rooms": {
     "eyebrow": "ROOMS",
     "heading": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
+    "comingSoon": "Coming soon",
     "items": [
       {
         "tag": "UNICO",

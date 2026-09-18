@@ -1,5 +1,7 @@
 /**
- * 近隣SHOP の横スライド — オートディスプレイ
+ * 横スライド系セクション（近隣SHOP・PRIME LOCATION ギャラリーなど）の
+ * オートディスプレイ。`[data-rail-track]` を持つ要素はいくつあっても、それ
+ * ぞれ独立してこのロジックで動く。
  *
  * Phase 1.5 で A・B 比較していた「手動 / オートプレイ」は、クライアント確認の結果
  * **オートディスプレイで統一**（2026-08-21）。
@@ -12,14 +14,18 @@
  * a carousel the reader cannot stop is worse than no carousel.
  *
  * @param root  TOPページのサブツリー（.top-page）
- * @returns a teardown that removes the clones and every listener
+ * @returns a teardown that removes the clones and every listener, for every rail
  */
 export function wireAutoRail(root: HTMLElement): () => void {
-  const rail = root.querySelector<HTMLElement>("[data-rail-track]");
-  if (!rail) return () => {};
+  const rails = [...root.querySelectorAll<HTMLElement>("[data-rail-track]")];
+  if (rails.length === 0) return () => {};
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const teardowns = rails.map((rail) => wireRail(rail, reduced));
+  return () => teardowns.forEach((teardown) => teardown());
+}
 
+function wireRail(rail: HTMLElement, reduced: boolean): () => void {
   let frame = 0;
   let held = false;
   let releaseTimer = 0;

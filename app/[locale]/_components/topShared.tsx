@@ -6,8 +6,26 @@
  * `t.raw()` で配列を取り出す箇所の形をここで一度だけ宣言している。
  */
 
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+
+const IMAGE_FILE = /\.(jpe?g|png|webp|avif)$/i;
+
+/** PRIME LOCATION の写真レール用。`public/primelocation/` に置いた画像をその
+ *  ままファイル名で拾う——写真は届き次第クライアントがこのフォルダに足すだけで、
+ *  コード側の変更は要らない。フォルダが無い/空でも落ちない。 */
+export function getPrimeLocationPhotos(): string[] {
+  try {
+    return readdirSync(join(process.cwd(), "public", "primelocation"))
+      .filter((name) => IMAGE_FILE.test(name))
+      .sort()
+      .map((name) => `/primelocation/${name}`);
+  } catch {
+    return [];
+  }
+}
 
 /** ACCESS セクションが指す住所。地図の埋め込み URL もここから作る。 */
 export const ACCESS_ADDRESS = "東京都新宿区新宿１丁目１９−６";

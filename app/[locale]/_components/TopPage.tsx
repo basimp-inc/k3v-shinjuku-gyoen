@@ -8,6 +8,7 @@ import { FLORA_DEFS } from "./flora";
 import {
   AccessMap,
   LangSwitch,
+  getPrimeLocationPhotos,
   type ConvenienceItem,
   type Detail,
   type Point,
@@ -56,12 +57,16 @@ export default async function TopPage() {
   const acc = await getTranslations("access");
   const locale = await getLocale();
 
-  const stats = loc.raw("stats") as Stat[];
-  const points = ren.raw("points") as Point[];
+const stats = loc.raw("stats") as Stat[];
+const nearby = loc.raw("convenience.items") as {
+  title: string;
+  text: string;
+}[];
+const points = ren.raw("points") as Point[];
   const rooms = rm.raw("items") as RoomCard[];
   const details = acc.raw("details") as Detail[];
   const convItems = loc.raw("convenience.items") as ConvenienceItem[];
-
+  const primeLocationPhotos = getPrimeLocationPhotos();
   const localeLabels: Record<string, string> = { ja: "JA", en: "EN", zh: "中文" };
   const navLinks = [
     ["location", "#location"],
@@ -72,8 +77,11 @@ export default async function TopPage() {
 
   const roomScenes = [S.ROOM1, S.ROOM2, S.ROOM3];
   /* the three cloths the renovation is cut from */
-  const sampleFaces = ["mat-wood", "mat-cham", "mat-forest"];
-
+const sampleFaces = [
+"/503/IMG_6194.JPG",
+"/503/IMG_6326.JPG",
+"/503/IMG_6327.JPG  ",
+];
   const arrow = (
     <span className="arw" aria-hidden="true">
       →
@@ -307,8 +315,6 @@ export default async function TopPage() {
 
       {/* ===================== 1. HERO ===================== */}
       <section id="hero" className="hero mat-cham">
-        {flora([cluster("cl-he", ANCHOR)])}
-
         <div className="hero-side">
           <span>{t("hero.side")}</span>
         </div>
@@ -385,7 +391,7 @@ export default async function TopPage() {
                   ))}
                 </ul>
                 <ul className="nearby-col">
-                  {convItems.map((c) => (
+                  {convItems.slice(0, 2).map((c) => (
                     <li key={c.title}>
                       <span className="p">
                         <span className="nearby-mark" aria-hidden="true" />
@@ -396,12 +402,24 @@ export default async function TopPage() {
                 </ul>
               </div>
             </div>
+              <div className="rail-x rv d2">
+                {nearby.map((n, i) => (
+                  <article className="card" key={n.title}>
+                    {primeLocationPhotos[i] && (
+                      <div className="ph">
+                        <img src={primeLocationPhotos[i]} alt={n.title} loading="lazy" />
+                      </div>
+                    )}
 
-            <div className="c-fig rv d1">
-              <div className="frame">
-                <Scene svg={S.LIVING} />
+                    <div className="meta">
+                      <span className="n">{String(i + 1).padStart(2, "0")}</span>
+                      <h4>{n.title}</h4>
+                    </div>
+
+                    <p>{n.text}</p>
+                  </article>
+                ))}
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -431,7 +449,12 @@ export default async function TopPage() {
           <div className="samples rv d1 samples-3">
             {points.map((p, i) => (
               <article className="sample" key={p.title}>
-                <div className={`swatch ${sampleFaces[i % sampleFaces.length]}`}>
+                  <div className="swatch">
+                  <img
+                  src={sampleFaces[i % sampleFaces.length]}
+                  alt=""
+                  className="sample-photo"
+                  />                  
                   <span className="pin rivet" aria-hidden="true" />
                 </div>
                 <b>{p.title}</b>
@@ -464,42 +487,72 @@ export default async function TopPage() {
 
         <div className="seam" aria-hidden="true" />
 
-        {rooms.map((r, i) => (
-          <div key={r.slug}>
-            <article className={`band rv${i % 2 === 1 ? " rev" : ""}`}>
-              <div className="pic">
-                {i === 0 ? (
-                  <>
-                    <input type="radio" name="room1-slide" id="room1-slide-0" className="s-radio" defaultChecked />
-                    <input type="radio" name="room1-slide" id="room1-slide-1" className="s-radio" />
-                    <Scene svg={roomScenes[0]} stamp={r.name} className="s0" />
-                    <Scene svg={S.ROOM1_MORNING} stamp={t("hero.stamp")} className="s1" />
-                    <div className="s-dots">
-                      <label htmlFor="room1-slide-0" aria-label={r.name} />
-                      <label htmlFor="room1-slide-1" aria-label={t("hero.stamp")} />
+        {rooms.map((r, i) => {
+          /* ROOM 02（JOURNAL STANDARD FURNITURE）はクライアント未承認のため一時非公開。
+             "Coming soon" 表示に置き換え。公開可否が決まったらこの分岐を削除する
+             （元のカード実装は git 履歴に残っている）。 */
+          if (r.slug === "journal-standard-furniture") {
+            return (
+              <div key={r.slug}>
+                <article className={`band rv${i % 2 === 1 ? " rev" : ""} is-coming-soon`}>
+                  <div className="pic">
+                    <Scene svg={roomScenes[i % roomScenes.length]} stamp={rm("comingSoon")} />
+                  </div>
+                  <div className="txt mat-raw">
+                    <span className="no" aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="brand">
+                      <span className="tag">{r.tag}</span>
                     </div>
-                  </>
-                ) : (
-                  <Scene svg={roomScenes[i % roomScenes.length]} stamp={r.name} />
-                )}
+                    <h3>{r.subtitle}</h3>
+                    <span className="go is-disabled" aria-disabled="true">
+                      <span>{rm("comingSoon")}</span>
+                    </span>
+                  </div>
+                </article>
+                <div className="seam" aria-hidden="true" />
               </div>
-              <div className="txt mat-raw">
-                <span className="no" aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="brand">
-                  <span className="tag">{r.tag}</span>
+            );
+          }
+
+          return (
+            <div key={r.slug}>
+              <article className={`band rv${i % 2 === 1 ? " rev" : ""}`}>
+                <div className="pic">
+                  {i === 0 ? (
+                    <>
+                      <input type="radio" name="room1-slide" id="room1-slide-0" className="s-radio" defaultChecked />
+                      <input type="radio" name="room1-slide" id="room1-slide-1" className="s-radio" />
+                      <Scene svg={roomScenes[0]} stamp={r.name} className="s0" />
+                      <Scene svg={S.ROOM1_MORNING} stamp={t("hero.stamp")} className="s1" />
+                      <div className="s-dots">
+                        <label htmlFor="room1-slide-0" aria-label={r.name} />
+                        <label htmlFor="room1-slide-1" aria-label={t("hero.stamp")} />
+                      </div>
+                    </>
+                  ) : (
+                    <Scene svg={roomScenes[i % roomScenes.length]} stamp={r.name} />
+                  )}
                 </div>
-                <h3>{r.subtitle}</h3>
-                <Link href={`/rooms/${r.slug}`} className="go">
-                  <span>{r.cta}</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </article>
-            <div className="seam" aria-hidden="true" />
-          </div>
-        ))}
+                <div className="txt mat-raw">
+                  <span className="no" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="brand">
+                    <span className="tag">{r.tag}</span>
+                  </div>
+                  <h3>{r.subtitle}</h3>
+                  <Link href={`/rooms/${r.slug}`} className="go">
+                    <span>{r.cta}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </article>
+              <div className="seam" aria-hidden="true" />
+            </div>
+          );
+        })}
       </section>
 
       {/* ===================== 5. ACCESS ===================== */}
