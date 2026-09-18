@@ -10,6 +10,8 @@
   },
   "hero": {
     "eyebrow": "SHINJUKU GYOEN · DESIGN APARTMENTS",
+    "titleLine1": "Right by Shinjuku Gyoen,",
+    "titleLine2": "stay in Tokyo like you live here.",
     "description": "Three design rooms, steps from Shinjuku Gyoen. Each one furnished by a different Japanese brand — a place to live Tokyo, not just visit it.",
     "ctaPrimary": "Check Availability",
     "ctaSecondary": "See the three rooms",
@@ -40,6 +42,7 @@
   "primeLocation": {
     "eyebrow": "PRIME LOCATION",
     "heading": "6 minutes to Shinjuku Gyoen, day or night,\neverything you need is right around the corner.",
+    "description": "Chosen not only for sightseeing, but for everyday convenience — easy shopping and easy getting around.",
     "stats": [
       {
         "value": "6 min walk",
@@ -191,6 +194,7 @@
   "rooms": {
     "eyebrow": "ROOMS",
     "heading": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
+    "description": "Each of the three rooms carries a different way of living, chosen by a different furniture brand.",
     "comingSoon": "Coming soon",
     "items": [
       {
@@ -632,6 +636,9 @@
       "w4": "Shadow"
     },
     "footer": {
+      "copyright": "© 2026 K3V Shinjuku Gyoen",
+      "credit": "Washed Chambray — Wood × Denim × Forest × Shadow",
+      "desc": "Right by Shinjuku Gyoen, stay in Tokyo like you live here. Three design rooms, each with its own furniture-brand concept.",
       "houseH": "House",
       "i1": "House Rules",
       "i2": "FAQ",

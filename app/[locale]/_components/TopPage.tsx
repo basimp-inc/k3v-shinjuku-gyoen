@@ -78,9 +78,9 @@ const points = ren.raw("points") as Point[];
   const roomScenes = [S.ROOM1, S.ROOM2, S.ROOM3];
   /* the three cloths the renovation is cut from */
 const sampleFaces = [
-"/503/IMG_6194.JPG",
-"/503/IMG_6326.JPG",
-"/503/IMG_6327.JPG  ",
+"/renovation/IMG_6194.JPG",
+"/renovation/IMG_6326.JPG",
+"/renovation/IMG_6347.JPG  ",
 ];
   const arrow = (
     <span className="arw" aria-hidden="true">

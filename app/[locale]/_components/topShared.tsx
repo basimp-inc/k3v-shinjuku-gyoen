@@ -13,9 +13,14 @@ import { routing } from "@/i18n/routing";
 
 const IMAGE_FILE = /\.(jpe?g|png|webp|avif)$/i;
 
-/** PRIME LOCATION の写真レール用。`public/primelocation/` に置いた画像をその
- *  ままファイル名で拾う——写真は届き次第クライアントがこのフォルダに足すだけで、
- *  コード側の変更は要らない。フォルダが無い/空でも落ちない。 */
+/** PRIME LOCATION の写真レール用。`public/primelocation/` に置いた画像をファイル名
+ *  ソートで拾う。TopPage.tsx 側は `primeLocationPhotos[i]` を
+ *  `convenience.items[i]`（コンビニ→スーパー/ドラッグストア→ローカルフード→
+ *  カフェ）と同じ添字で対応させているため、ファイル名の並び順＝そのままトピック
+ *  の並び順になる。写真を差し替える/足すときは `01-`, `02-`… の連番プレフィクス
+ *  を付けて、対応するトピックの位置に来るようソートを揃えること
+ *  （2026-09-18: プレフィクス無しの IMG_XXXX 撮影順ソートだとトピックと写真が
+ *  ずれる不具合があったため）。フォルダが無い/空でも落ちない。 */
 export function getPrimeLocationPhotos(): string[] {
   try {
     return readdirSync(join(process.cwd(), "public", "primelocation"))
