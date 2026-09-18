@@ -345,10 +345,6 @@ export default async function TopPage() {
             <div className="frame" aria-label={hero("illustrationAlt")}>
               <Scene svg={S.HERO} stamp={t("hero.stamp")} />
             </div>
-            <div className="hero-chip mat-paper">
-              <span className="n">{t("hero.chipN")}</span>
-              <span className="t">{t("hero.chipT")}</span>
-            </div>
           </div>
         </div>
       </section>
