@@ -576,14 +576,6 @@ const sampleFaces = [
               <p className="display-line">{t("display.access")}</p>
               <h2 className="rv">{acc("heading")}</h2>
               <div className="hoods rv d2">
-                <div className="h">
-                  <div className="scene" dangerouslySetInnerHTML={{ __html: S.HOOD_CITY }} />
-                  <span className="t">{acc("mapCaption")}</span>
-                </div>
-                <div className="h">
-                  <div className="scene" dangerouslySetInnerHTML={{ __html: S.HOOD_PARK }} />
-                  <span className="t">{stats[0]?.label}</span>
-                </div>
               </div>
 
               <Link href="/stay" className="btn btn-ink access-cta rv d2">
