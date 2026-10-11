@@ -46,7 +46,7 @@ export default async function RootLayout({
         {/* 下層ページ（app/globals.css の --font-* トークン）と TOPページ
             （app/styles/top-design.css の --dsp / --cnd / --ui / --mono / --jp）が
             使う書体を1リクエストにまとめている。 */}
-        <link href='https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Quicksand:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap' rel='stylesheet' />
+        <link href='https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Quicksand:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap' rel='stylesheet' />
       </head>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>

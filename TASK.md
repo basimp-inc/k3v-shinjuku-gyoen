@@ -1358,6 +1358,14 @@ CLAUDE.md の HERO 節（実写ベースのフラット図形並べは不採用�
       `rooms.items[].alt`・`hero.illustrationAlt` を ja/en/zh で更新。帯の写真は `next/image`（unoptimized）。
       `GRADE.gammaMin/Max` を 0.8/1.15 → 0.7/1.45（白い寝室 IMG_6305 と暗い床の IMG_6185 を目標 L* 56 へ）。
       スタイルガイド §10〜11、`illustrations-before-after.jpg`・`fidelity-check.jpg`。**承認済み。HERO はドア枠・柱の垂直化と寝室カーペットの色替えを反映（2026-10-11）。CLAUDE.md の HERO 節を最終状態へ更新済み**
+- [x] **フッターのバランス調整（2026-10-11）**：指摘は「ロゴと文字が離れすぎ／文字を太くして一つ一つに印象を」。
+      原因は 12 列グリッドでロゴ枠が 1〜4 列を占め、リンク列が 5 列目から始まっていたこと（ロゴ自体も約 30px）。
+      880px 超は「ロゴ→列→列」を auto 幅で左から詰め、間隔は `clamp(56px,7vw,128px)`。ロゴは最大 80px に拡大、
+      カラム見出しは 14〜15px/700 ＋太い短罫、リンクは 16〜20px/700。`.ft` の下余白 0 も解消。
+      521〜880px はロゴ 1 段＋列を内容幅にして "Room 02 — journal standard" の折り返しを防止、520px 以下は従来の 2 列。
+      **Google Fonts が Barlow 400/500/600・IBM Plex Mono 400/500 までしか読んでおらず、700 を指定しても
+      英字は 600 のままだった**ので `layout.tsx` に Barlow 700・Plex Mono 700 を追加（既存の 700 指定は `--jp`/`--cnd` のみで他は不変）。
+      変更は `app/styles/top-layout.css`（`.top-page .ft*`）と `app/[locale]/layout.tsx` のみ。1600/2000/1024/768/375px で確認、横スクロールなし
 - ⚠️ 未コミット：HERO・ROOM3 のイラスト、`TopPage.tsx`・`topShared.tsx`・`top-design.css`・messages、`scripts/`、`public/photos/`、`docs/review-2026-10-11/`
 - ⚠️ `/stay` も 404（`/rooms/*` と同じく 95a35ae で削除済み）。ナビ・ヒーロー・ACCESS・フッターの
   「空室を探す」が全部ここを指している。本番ビルドでは `<Link>` のプリフェッチが 404 をコンソールに出す

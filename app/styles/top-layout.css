@@ -431,22 +431,77 @@
    最暗部 4.46:1 で、wood.css のヴェールと合わせてようやくこの数字になる。
 
    太らせ方は一律ではなく役割ごと：
-     ブランドマーク  デニムのまま（27px/700 の大文字なので 4.5:1 で足りる）
+     ブランドマーク  デニムのまま。大きさだけ 27px→最大 80px に上げ、右の
+                     リンク群と釣り合う「錨」にした（下の 2026-10-11 参照）
      リード文        13px→14px / 400→500
-     カラム見出し    9px mono を 10px/700 に。9px の 400 は「細い」の本丸
-     リンク          14px / 500→600（タップ対象なので一番強く）
+     カラム見出し    9px mono を 10px/700 に。9px の 400 は「細い」の本丸。
+                     2026-10-11 に 14〜15px へ上げ、下に太い短罫を足した
+     リンク          14px / 500→600（タップ対象なので一番強く）。
+                     2026-10-11 に 16〜20px / 700 へ。1行ずつが「項目」として
+                     読めるよう、行間（padding）も広げた
      最下段          9px→10px / 600、罫線も 0.28→0.42 に濃く
 
    透明度で階層を作るのは今回もやらない（旧実装が薄い白文字で階層を作って
-   いたのが「細い」の正体）。差はサイズ・ウェイト・字間だけでつけている。 */
+   いたのが「細い」の正体）。差はサイズ・ウェイト・字間だけでつけている。
+
+   2026-10-11 レイアウト：「ロゴと文字が離れすぎ／全体のバランスが悪い／文字を
+   太くして一つ一つに印象を」という指摘。原因は top-design.css の 12 列グリッドで、
+   ロゴ枠が 1〜4 列（広い画面で約 470px）を占め、リンク列が 5 列目から始まって
+   いたこと。しかもロゴは 30px 前後で、枠の中にぽつんと浮いていた。
+   880px より広いときだけ「ロゴ → 列 → 列」を auto 幅で左から詰めて並べ、間隔は
+   画面幅に比例させる。右側の空きは右下の植物が受ける。880px 以下の積み方
+   （ロゴ 1 段 → 列 3 つ／2 つ）は top-design.css のままで、ここでは触らない。
+   .ft の下余白も 0 だったので、最後のリンクが帯の下端に貼り付いていた。
+
+   太さについて：app/[locale]/layout.tsx の Google Fonts は、以前 Barlow が
+   400/500/600、IBM Plex Mono が 400/500 までしか読んでいなかった。700 を指定
+   しても英字リンクは 600 のまま、見出しは 500 の擬似ボールドにしかならず、
+   「太くしたのに変わらない」の原因になっていた。両方に 700 を足してある
+   （既存の 700 指定は --jp / --cnd だけなので、他の見た目は動かない）。 */
 .top-page footer {
   /* footer 専用の深いインク。他セクションの --shadow より暗いのは、
      ここだけ地がウッド（明るい中間色）で、かつ小さい文字が多いから */
   --ft-ink: #221d18;
   color: var(--ft-ink);
 }
+.top-page .ft {
+  /* 下余白は上と同じにする（top-design.css は 0 で、最後のリンクが
+     帯の下端に貼り付いていた） */
+  padding-bottom: clamp(44px, 6vw, 72px);
+}
+@media (min-width: 881px) {
+  .top-page .ft {
+    grid-template-columns: auto auto auto 1fr;
+    column-gap: clamp(56px, 7vw, 128px);
+    align-items: start;
+  }
+  .top-page .ft-brand,
+  .top-page .ft-col {
+    grid-column: auto;
+  }
+}
+/* タブレット幅：ロゴは 1 段、リンク列はその下で内容幅に。top-design.css の
+   「span 4」だと列が約 230px しかなく、"Room 02 — journal standard"（太字で
+   約 260px）が不要に 2 行へ折り返す。521px 未満は 2 列 span 6 のまま */
+@media (min-width: 521px) and (max-width: 880px) {
+  .top-page .ft {
+    grid-template-columns: auto auto 1fr;
+    column-gap: clamp(40px, 8vw, 72px);
+  }
+  .top-page .ft-brand {
+    grid-column: 1 / -1;
+  }
+  .top-page .ft-col {
+    grid-column: auto;
+  }
+}
 .top-page .ft-brand .k {
+  display: block;
   color: var(--indigo);
+  /* 右のリンク群（見出し＋4行で約 200px）と並んで釣り合う大きさ。
+     行高を 1 未満に詰めて、字の上端を見出しの上端に揃える */
+  font-size: clamp(3rem, 1.9rem + 3.4vw, 5rem);
+  line-height: 0.85;
 }
 .top-page .ft-brand p {
   font-size: var(--fs-body);
@@ -459,15 +514,22 @@
    ここは 700 まで上げたうえで字間を少し詰める（太字にすると 0.2em は
    バラけて逆に読みにくい） */
 .top-page .ft-col h5 {
-  font-size: var(--fs-label);
+  width: fit-content;
+  font-size: var(--fs-ui);
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--ft-ink);
   opacity: 1;
+  /* 見出しの下に太い短罫。リンク群の「頭」がここだと一目でわかる */
+  padding-bottom: 9px;
+  border-bottom: 3px solid var(--ft-ink);
+  margin-bottom: 14px;
 }
 .top-page .ft-col a {
-  font-size: var(--fs-body);
-  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 8px 0;
   color: var(--ft-ink);
 }
 /* hover は色だけでなく下線も出す。濃いインク同士の色差は小さいので、
