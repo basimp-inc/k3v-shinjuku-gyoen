@@ -1,0 +1,196 @@
+{
+  "note": "build.mjs が書く。手で編集しない。gamma は元写真の色をイラストへ採るときにも使う",
+  "grade": {
+    "targetMedianL": 56,
+    "gammaMin": 0.7,
+    "gammaMax": 1.45,
+    "vibranceKnee": 24,
+    "vibranceRange": 16,
+    "warmDa": 0.5,
+    "warmDb": 3,
+    "warmFullAtL": 45,
+    "sharpenSigma": 0.5
+  },
+  "photos": {
+    "location/01-convenience": {
+      "src": "~/Downloads/IMG_6392.JPG",
+      "frame": "card",
+      "crop": {
+        "left": 0,
+        "top": 360,
+        "width": 4000,
+        "height": 5333
+      },
+      "out": [
+        600,
+        800
+      ],
+      "medianL": {
+        "before": 50.6,
+        "after": 56
+      },
+      "gamma": 0.851,
+      "bytes": 138546
+    },
+    "location/02-drugstore": {
+      "src": "~/Downloads/IMG_6378.JPG",
+      "frame": "card",
+      "crop": {
+        "left": 720,
+        "top": 0,
+        "width": 3000,
+        "height": 4000
+      },
+      "out": [
+        600,
+        800
+      ],
+      "medianL": {
+        "before": 57.3,
+        "after": 56
+      },
+      "gamma": 1.041,
+      "bytes": 140482
+    },
+    "location/03-ramen": {
+      "src": "~/Downloads/IMG_6379.JPG",
+      "frame": "card",
+      "crop": {
+        "left": 2670,
+        "top": 0,
+        "width": 3000,
+        "height": 4000
+      },
+      "out": [
+        600,
+        800
+      ],
+      "medianL": {
+        "before": 51.6,
+        "after": 56.1
+      },
+      "gamma": 0.876,
+      "bytes": 98934
+    },
+    "location/04-cafe": {
+      "src": "~/Downloads/IMG_6390.JPG",
+      "frame": "card",
+      "crop": {
+        "left": 1800,
+        "top": 0,
+        "width": 3000,
+        "height": 4000
+      },
+      "out": [
+        600,
+        800
+      ],
+      "medianL": {
+        "before": 50.7,
+        "after": 56.1
+      },
+      "gamma": 0.854,
+      "bytes": 126616
+    },
+    "rooms/unico-bedroom": {
+      "src": "~/Downloads/k3v 503/IMG_6305.JPG",
+      "frame": "band",
+      "crop": {
+        "left": 648,
+        "top": 0,
+        "width": 5333,
+        "height": 4000
+      },
+      "out": [
+        1500,
+        1125
+      ],
+      "medianL": {
+        "before": 66.9,
+        "after": 56.1
+      },
+      "gamma": 1.442,
+      "bytes": 95650
+    },
+    "rooms/crash-gate-living": {
+      "src": "~/Downloads/IMG_6185.JPG",
+      "frame": "band",
+      "crop": {
+        "left": 600,
+        "top": 0,
+        "width": 5333,
+        "height": 4000
+      },
+      "out": [
+        1500,
+        1125
+      ],
+      "medianL": {
+        "before": 46.3,
+        "after": 56.1
+      },
+      "gamma": 0.753,
+      "bytes": 262110
+    },
+    "renovated/01-overview": {
+      "src": "~/Downloads/IMG_6194.JPG",
+      "frame": "swatch",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 6000,
+        "height": 4000
+      },
+      "out": [
+        1200,
+        800
+      ],
+      "medianL": {
+        "before": 56.6,
+        "after": 56
+      },
+      "gamma": 1.019,
+      "bytes": 111908
+    },
+    "renovated/02-kitchen-dining": {
+      "src": "~/Downloads/k3v 503/IMG_6323.JPG",
+      "frame": "swatch",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 6000,
+        "height": 4000
+      },
+      "out": [
+        1200,
+        800
+      ],
+      "medianL": {
+        "before": 58.5,
+        "after": 56
+      },
+      "gamma": 1.081,
+      "bytes": 76918
+    },
+    "renovated/03-bench-shower": {
+      "src": "~/Downloads/IMG_6207.JPG",
+      "frame": "swatch",
+      "crop": {
+        "left": 0,
+        "top": 3120,
+        "width": 4000,
+        "height": 2667
+      },
+      "out": [
+        1200,
+        800
+      ],
+      "medianL": {
+        "before": 54.6,
+        "after": 56
+      },
+      "gamma": 0.958,
+      "bytes": 35298
+    }
+  }
+}

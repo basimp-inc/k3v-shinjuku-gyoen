@@ -15,7 +15,7 @@
     "description": "紧邻新宿御苑的3间设计师民泊。每间客房由不同的家具品牌打造，让您像生活一样入住东京。",
     "ctaPrimary": "查询空房",
     "ctaSecondary": "浏览三种客房",
-    "illustrationAlt": "新宿御苑附近，窗边摆放着盆栽与咖啡杯、可眺望东京街景的房间插画"
+    "illustrationAlt": "ROOM 01 插画：晨光洒进的窗边挂着一件浅蓝色水洗牛仔衬衫，前景的圆桌上摆着发财树和苔玉，门洞深处可见两张单人床"
   },
   "concept": {
     "eyebrow": "OUR CONCEPT",
@@ -203,7 +203,7 @@
         "subtitle": "Natural Living",
         "text": "由UNICO打造，以实木家具叠加北欧布艺柔软质感的自然风客房。为那些希望像生活一样长住的人，提供百看不厌的舒适。",
         "cta": "查看这间客房",
-        "alt": "UNICO 打造的北欧自然风客房意象",
+        "alt": "晨光透过竖百叶窗洒进卧室，白色床品的双人单床上摆着绿色小鸭和冰淇淋图案的靠垫",
         "slug": "unico"
       },
       {
@@ -212,7 +212,7 @@
         "subtitle": "Urban Vintage",
         "text": "由JOURNAL STANDARD FURNITURE家具打造，以做旧皮革与黄铜元素统一整体的一间客房。略带粗犷气质，献给想在都市夜晚中沉淀片刻的人。",
         "cta": "查看这间客房",
-        "alt": "JOURNAL STANDARD FURNITURE 打造的都市复古风客房意象",
+        "alt": "ROOM 02 示意插画（非实拍）：裸露混凝土梁下，木台座上的床铺，窗边的方形餐桌",
         "slug": "journal-standard-furniture"
       },
       {
@@ -221,7 +221,7 @@
         "subtitle": "Industrial Modern",
         "text": "由CRASH GATE操刀，兼具粗犷与舒适的房间。钢材与黄铜的细节，为日常生活增添一丝张力。（详情筹备中）",
         "cta": "查看这间客房",
-        "alt": "CRASH GATE 打造的工业摩登风客房意象",
+        "alt": "整面竖向纱帘前的宽敞房间：赤褐色实木床、餐桌、米色躺椅和几何图案地毯",
         "slug": "crash-gate"
       }
     ],

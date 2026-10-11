@@ -13,20 +13,24 @@ import { routing } from "@/i18n/routing";
 
 const IMAGE_FILE = /\.(jpe?g|png|webp|avif)$/i;
 
-/** PRIME LOCATION の写真レール用。`public/primelocation/` に置いた画像をファイル名
+/** PRIME LOCATION の写真レール用。`public/photos/location/` に置いた画像をファイル名
  *  ソートで拾う。TopPage.tsx 側は `primeLocationPhotos[i]` を
  *  `convenience.items[i]`（コンビニ→スーパー/ドラッグストア→ローカルフード→
  *  カフェ）と同じ添字で対応させているため、ファイル名の並び順＝そのままトピック
  *  の並び順になる。写真を差し替える/足すときは `01-`, `02-`… の連番プレフィクス
  *  を付けて、対応するトピックの位置に来るようソートを揃えること
  *  （2026-09-18: プレフィクス無しの IMG_XXXX 撮影順ソートだとトピックと写真が
- *  ずれる不具合があったため）。フォルダが無い/空でも落ちない。 */
+ *  ずれる不具合があったため）。フォルダが無い/空でも落ちない。
+ *
+ *  このフォルダの画像は scripts/photos/build.mjs が書き出す（3:4・600×800・共通の
+ *  色調補正済み）。手で入れ替えず、photos.config.mjs を直して再実行すること。
+ *  旧置き場 `public/primelocation/` の原本（6000px・各 10MB）は参照されなくなった。 */
 export function getPrimeLocationPhotos(): string[] {
   try {
-    return readdirSync(join(process.cwd(), "public", "primelocation"))
+    return readdirSync(join(process.cwd(), "public", "photos", "location"))
       .filter((name) => IMAGE_FILE.test(name))
       .sort()
-      .map((name) => `/primelocation/${name}`);
+      .map((name) => `/photos/location/${name}`);
   } catch {
     return [];
   }

@@ -491,34 +491,37 @@ background:var(--cham);
   position:absolute;left:0;bottom:0;z-index:3;padding:7px 11px;background:var(--indigo);color:var(--cham-pale);
   font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.16em;text-transform:uppercase;
   }
-  /* ROOM 01's picture is a 2-slide carousel — the confirmed room, and the
-     same room in morning light — switched by radio inputs, no JS required */
+  /* 部屋の帯の絵は、2枚以上あるときだけスライダーになる（最大3枚）。ラジオ入力 + :has() で
+     切り替える JS 不要の仕組み。何枚あるか・何を載せるかは ./roomMedia.ts の部屋ごとの設定で決まる
+     （今は ROOM 01 の2枚：実写 → イラスト）。1枚の部屋はラジオもドットも出さない。 */
   .s-radio {position:absolute;width:1px;height:1px;opacity:0;pointer-events:none
   }
-  .s-radio:nth-of-type(1):focus-visible ~ .s-dots label:first-child,
-  .s-radio:nth-of-type(2):focus-visible ~ .s-dots label:last-child {
+  .s-radio:nth-of-type(1):focus-visible ~ .s-dots label:nth-child(1),
+  .s-radio:nth-of-type(2):focus-visible ~ .s-dots label:nth-child(2),
+  .s-radio:nth-of-type(3):focus-visible ~ .s-dots label:nth-child(3) {
   outline:2px solid var(--thread);outline-offset:2px;
   }
   .pic .ph.s0 {opacity:1
   }
-  .pic .ph.s1 {opacity:0
+  .pic .ph.s1,.pic .ph.s2 {opacity:0
   }
-  .pic .ph.s0,.pic .ph.s1 {transition:opacity .6s ease
+  .pic .ph.s0,.pic .ph.s1,.pic .ph.s2 {transition:opacity .6s ease
   }
-  .pic:has(.s-radio:nth-of-type(2):checked) .ph.s0 {opacity:0
+  .pic:has(.s-radio:nth-of-type(2):checked) .ph.s0,
+  .pic:has(.s-radio:nth-of-type(3):checked) .ph.s0 {opacity:0
   }
   .pic:has(.s-radio:nth-of-type(2):checked) .ph.s1 {opacity:1
+  }
+  .pic:has(.s-radio:nth-of-type(3):checked) .ph.s2 {opacity:1
   }
   .s-dots {position:absolute;right:16px;bottom:16px;z-index:4;display:flex;gap:8px
   }
   .s-dots label {display:block;width:8px;height:8px;border-radius:50%;cursor:pointer;
   background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.15);transition:background .2s ease;
   }
-  .s-dots label:first-child {background:#FFFFFF
-  }
-  .pic:has(.s-radio:nth-of-type(2):checked) .s-dots label:first-child {background:rgba(255,255,255,.55)
-  }
-  .pic:has(.s-radio:nth-of-type(2):checked) .s-dots label:last-child {background:#FFFFFF
+  .pic:has(.s-radio:nth-of-type(1):checked) .s-dots label:nth-child(1),
+  .pic:has(.s-radio:nth-of-type(2):checked) .s-dots label:nth-child(2),
+  .pic:has(.s-radio:nth-of-type(3):checked) .s-dots label:nth-child(3) {background:#FFFFFF
   }
   /* ============================================================
    ROOMS — full-bleed bands, number crossing the seam
@@ -632,6 +635,12 @@ background:var(--cham);
   .sample:nth-child(even) {transform:rotate(.5deg)
   }
   .sample .swatch {position:relative;height:clamp(150px,19vw,240px);overflow:hidden
+  }
+  /* Without an explicit box the photo just flows in at its own aspect ratio
+     and .swatch's overflow:hidden crops whatever spills past the bottom —
+     on the wide/short mobile box that's most of the room, leaving only the
+     ceiling. Fill the box and let object-position choose the crop instead. */
+  .sample-photo {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 75%
   }
   .sample .swatch .pin {position:absolute;top:9px;right:9px;z-index:2
   }

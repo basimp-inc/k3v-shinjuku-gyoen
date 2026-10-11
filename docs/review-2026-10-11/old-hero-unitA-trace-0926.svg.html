@@ -1,0 +1,643 @@
+<svg viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="fig-kwall" x1="400" y1="0" x2="620" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#A59489"/><stop offset="1" stop-color="#94837A"/>
+            </linearGradient>
+            <linearGradient id="fig-kglass" x1="0" y1="20" x2="0" y2="420" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#857C74"/><stop offset=".25" stop-color="#AFAFBB"/><stop offset=".6" stop-color="#A9ABB7"/><stop offset="1" stop-color="#B8BCCB"/>
+            </linearGradient>
+            <linearGradient id="fig-ksheer" x1="0" y1="140" x2="0" y2="522" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#5A4D40"/><stop offset=".157" stop-color="#7A7062"/><stop offset=".215" stop-color="#9A9284"/>
+              <stop offset=".26" stop-color="#C4C3BC"/><stop offset=".42" stop-color="#DADBD6"/><stop offset=".772" stop-color="#D2D2CC"/>
+              <stop offset=".815" stop-color="#8E8A82"/><stop offset=".864" stop-color="#5A5048"/><stop offset="1" stop-color="#3A332C"/>
+            </linearGradient>
+            <!-- 奥の窓は右ほど明るい（実測で輝度 190 → 240） -->
+            <linearGradient id="fig-kwinx" x1="740" y1="0" x2="1150" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".22"/>
+            </linearGradient>
+            <linearGradient id="fig-kshl" x1="731" y1="0" x2="911" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#3E352C" stop-opacity=".45"/><stop offset="1" stop-color="#3E352C" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="fig-kwtop" x1="0" y1="20" x2="0" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#3E2A20" stop-opacity=".6"/><stop offset="1" stop-color="#3E2A20" stop-opacity="0"/>
+            </linearGradient>
+            <pattern id="fig-kvane" x="742.5" width="16.5" height="40" patternUnits="userSpaceOnUse">
+              <rect width="2.6" height="40" fill="#35302A" opacity=".8"/>
+              <rect x="2.6" width="3.4" height="40" fill="#FBFBF7" opacity=".45"/>
+              <rect x="9" width="5" height="40" fill="#8F8A82" opacity=".1"/>
+            </pattern>
+            <linearGradient id="fig-kvfade" x1="0" y1="150" x2="0" y2="520" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff"/>
+            </linearGradient>
+            <mask id="fig-kvmask" maskUnits="userSpaceOnUse" x="700" y="130" width="560" height="400">
+              <rect x="700" y="130" width="560" height="400" fill="url(#fig-kvfade)"/>
+            </mask>
+            <pattern id="fig-kcp" width="5" height="3.6" patternUnits="userSpaceOnUse">
+              <rect width="5" height="3.6" fill="#5A4A40"/>
+              <rect width="2.6" height="1.5" fill="#6F5E52"/><rect x="2.5" y="1.8" width="2.5" height="1.4" fill="#685749"/>
+              <rect x="4.2" width=".8" height="3.6" fill="#3A2F28" opacity=".8"/><rect y="3.2" width="5" height=".4" fill="#3A2F28" opacity=".6"/>
+            </pattern>
+            <radialGradient id="fig-kfloor" cx="820" cy="640" r="720" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 640) scale(1 .6) translate(-820 -640)">
+              <stop offset="0" stop-color="#8A7666" stop-opacity=".3"/><stop offset=".6" stop-color="#5A4A40" stop-opacity="0"/>
+              <stop offset="1" stop-color="#241C17" stop-opacity=".25"/>
+            </radialGradient>
+            <linearGradient id="fig-khb" x1="0" y1="300" x2="0" y2="430" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#C9845F"/><stop offset=".45" stop-color="#B0633F"/><stop offset="1" stop-color="#6A2A14"/>
+            </linearGradient>
+            <linearGradient id="fig-kduv" x1="0" y1="414" x2="0" y2="580" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ECEAE7"/><stop offset=".12" stop-color="#D8D1CC"/><stop offset=".35" stop-color="#B2A69C"/>
+              <stop offset=".65" stop-color="#A09288"/><stop offset=".88" stop-color="#7A6A5E"/><stop offset="1" stop-color="#5E4E43"/>
+            </linearGradient>
+            <linearGradient id="fig-krail" x1="0" y1="510" x2="0" y2="632" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#5A2412"/><stop offset=".35" stop-color="#43180B"/><stop offset="1" stop-color="#2C0F07"/>
+            </linearGradient>
+            <linearGradient id="fig-kns" x1="600" y1="0" x2="650" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#37140B"/><stop offset=".2" stop-color="#4A1B0C"/><stop offset="1" stop-color="#5E2812"/>
+            </linearGradient>
+            <linearGradient id="fig-ksofa" x1="0" y1="474" x2="0" y2="580" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#BBB0A4"/><stop offset=".15" stop-color="#B4A698"/><stop offset=".27" stop-color="#8A7969"/>
+              <stop offset=".53" stop-color="#715F51"/><stop offset=".81" stop-color="#5B493C"/><stop offset="1" stop-color="#4A3A30"/>
+            </linearGradient>
+            <linearGradient id="fig-krug" x1="420" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#140E0A" stop-opacity=".32"/><stop offset=".45" stop-color="#140E0A" stop-opacity=".06"/>
+              <stop offset="1" stop-color="#FFF4E8" stop-opacity=".1"/>
+            </linearGradient>
+            <linearGradient id="fig-kshade" x1="0" y1="40" x2="0" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#2A2A26"/><stop offset=".6" stop-color="#161613"/><stop offset="1" stop-color="#0E0E0C"/>
+            </linearGradient>
+            <linearGradient id="fig-kpl" x1="731" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#4E3E31"/><stop offset="1" stop-color="#7B6854"/>
+            </linearGradient>
+            <linearGradient id="fig-kceil" x1="400" y1="0" x2="1240" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#877A6D"/><stop offset=".5" stop-color="#94897C"/><stop offset="1" stop-color="#B4AFA4"/>
+            </linearGradient>
+            <linearGradient id="fig-ktv" x1="0" y1="256" x2="0" y2="392" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#3E3D38"/><stop offset=".25" stop-color="#2A2B26"/><stop offset=".45" stop-color="#6A6B64"/><stop offset=".6" stop-color="#9E9D94"/><stop offset="1" stop-color="#9C9C94"/>
+            </linearGradient>
+            <linearGradient id="fig-kpil" x1="356" y1="0" x2="548" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FEFDFB"/><stop offset=".62" stop-color="#F4F2EE"/><stop offset=".86" stop-color="#DCD2C9"/><stop offset=".92" stop-color="#C9B8AD"/>
+            </linearGradient>
+            <!-- 手前ほど織り目が大きく、明暗の差も強い（写真の実測で輝度 25〜146） -->
+            <pattern id="fig-kcp2" width="9" height="6" patternUnits="userSpaceOnUse">
+              <rect width="9" height="6" fill="#524237"/>
+              <rect width="4.6" height="2.4" fill="#86746A"/><rect x="4.5" y="3" width="4.5" height="2.2" fill="#76655A"/>
+              <rect x="7.6" width="1.4" height="6" fill="#1E1813"/><rect y="5.1" width="9" height=".9" fill="#1E1813"/>
+              <rect x="1" y="2.5" width="3" height=".5" fill="#8C7B6E" opacity=".6"/>
+            </pattern>
+            <linearGradient id="fig-kcpf" x1="0" y1="640" x2="0" y2="820" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/>
+            </linearGradient>
+            <mask id="fig-kcpm" maskUnits="userSpaceOnUse" x="280" y="600" width="980" height="480">
+              <rect x="280" y="600" width="980" height="480" fill="url(#fig-kcpf)"/>
+            </mask>
+            <!-- ラグの毛足。色面の上にごく薄くかける -->
+            <filter id="fig-kpile" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".07 .12" numOctaves="3" seed="7"/>
+              <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -.72"/>
+              <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+            <linearGradient id="fig-krugv" x1="0" y1="620" x2="0" y2="890" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFF6EC" stop-opacity=".16"/><stop offset=".35" stop-color="#FFF6EC" stop-opacity="0"/>
+              <stop offset="1" stop-color="#120C08" stop-opacity=".1"/>
+            </linearGradient>
+            <!-- カーペットの横方向のムラ。格子だけだと機械的に見えるので崩す -->
+            <filter id="fig-kstreak" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency=".03 .35" numOctaves="2" seed="11"/>
+              <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 2.2 -1"/>
+              <feComposite in2="SourceGraphic" operator="in"/>
+            </filter>
+            <path id="fig-kleaf" d="M0-1C1-1 1 .6 0 1C-1 .6-1-1 0-1Z"/>
+            <filter id="fig-kbl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="fig-kbl2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.6"/></filter>
+            <filter id="fig-kbl3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter>
+          </defs>
+          <g transform="translate(-261.52 100) scale(0.85745)">
+            <!-- 壁と天井。写真のとおり白ではなく、光の回っていない生成りのグレージュ -->
+            <rect x="280" y="-140" width="980" height="1220" fill="#A19086"/>
+            <rect x="400" y="-140" width="224" height="700" fill="url(#fig-kwall)"/>
+            <polygon points="280,-140 1260,-140 1260,100 1238,101 694,124 668,124 668,33 620,33 552,23 433,6 280,-14" fill="url(#fig-kceil)"/>
+            <path d="M552 23 L620 33 L668 33" fill="none" stroke="#85796D" stroke-width="1.5"/>
+            <path d="M668 38 L1260 24" fill="none" stroke="#8C8174" stroke-width="2" opacity=".6"/>
+            <ellipse cx="770" cy="91" rx="9" ry="2.6" fill="#F4F2EC"/><ellipse cx="770" cy="91" rx="12" ry="4" fill="none" stroke="#B9AFA2" stroke-width="1.2"/>
+            <ellipse cx="990" cy="79" rx="9" ry="2.6" fill="#F4F2EC"/><ellipse cx="990" cy="79" rx="12" ry="4" fill="none" stroke="#B9AFA2" stroke-width="1.2"/>
+            <ellipse cx="1230" cy="65" rx="9" ry="2.6" fill="#F4F2EC"/><ellipse cx="1230" cy="65" rx="12" ry="4" fill="none" stroke="#B9AFA2" stroke-width="1.2"/>
+            <!-- 奥：ダイニング側。柱の奥の凹んだ壁とドア枠 -->
+            <rect x="668" y="120" width="70" height="410" fill="#6C5C4F"/>
+            <rect x="668" y="300" width="70" height="230" fill="#7A6C60"/>
+            <rect x="711" y="211" width="15" height="224" fill="#4E3A30"/><rect x="723" y="211" width="3" height="224" fill="#6A5244"/>
+            <!-- 木のバランスと、エアコンの吹き出し -->
+            <rect x="694" y="136" width="44" height="26" fill="#766759"/>
+            <rect x="699" y="142" width="31" height="7" fill="#3E3833"/><rect x="699" y="147" width="31" height="1.5" fill="#9A8E82"/>
+            <polygon points="694,120 1260,95.5 1260,115 694,143.3" fill="#351F18"/>
+            <path d="M694 121.5 L1260 97" stroke="#5A3A2C" stroke-width="2"/>
+            <!-- シアーの頭。筒状のプリーツが 16.5 ピッチで並ぶ -->
+            <rect x="733.0" y="141.0" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="737.0" y="141.0" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="749.5" y="140.2" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="753.5" y="140.2" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="766.0" y="139.3" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="770.0" y="139.3" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="782.5" y="138.5" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="786.5" y="138.5" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="799.0" y="137.7" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="803.0" y="137.7" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="815.5" y="136.9" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="819.5" y="136.9" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="832.0" y="136.1" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="836.0" y="136.1" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="848.5" y="135.2" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="852.5" y="135.2" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="865.0" y="134.4" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="869.0" y="134.4" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="881.5" y="133.6" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="885.5" y="133.6" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="898.0" y="132.8" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="902.0" y="132.8" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="914.5" y="131.9" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="918.5" y="131.9" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="931.0" y="131.1" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="935.0" y="131.1" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="947.5" y="130.3" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="951.5" y="130.3" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="964.0" y="129.4" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="968.0" y="129.4" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="980.5" y="128.6" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="984.5" y="128.6" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="997.0" y="127.8" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1001.0" y="127.8" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1013.5" y="127.0" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1017.5" y="127.0" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1030.0" y="126.2" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1034.0" y="126.2" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1046.5" y="125.3" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1050.5" y="125.3" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1063.0" y="124.5" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1067.0" y="124.5" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1079.5" y="123.7" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1083.5" y="123.7" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1096.0" y="122.8" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1100.0" y="122.8" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1112.5" y="122.0" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1116.5" y="122.0" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1129.0" y="121.2" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1133.0" y="121.2" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1145.5" y="120.4" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1149.5" y="120.4" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1162.0" y="119.5" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1166.0" y="119.5" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1178.5" y="118.7" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1182.5" y="118.7" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1195.0" y="117.9" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1199.0" y="117.9" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1211.5" y="117.1" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1215.5" y="117.1" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1228.0" y="116.2" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1232.0" y="116.2" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <rect x="1244.5" y="115.4" width="14" height="19.0" rx="2" fill="url(#fig-kpl)"/><rect x="1248.5" y="115.4" width="5" height="19.0" fill="#9A8670" opacity=".45"/>
+            <!-- シアー越しの窓。光源なので白く抜き、框と外の手すりは影として薄く残す -->
+            <polygon points="731,160 1260,133 1260,516 731,522" fill="url(#fig-ksheer)"/>
+            <rect x="739" y="232" width="521" height="210" fill="url(#fig-kwinx)"/>
+            <g fill="#9E9B94" opacity=".6">
+            <rect x="857" y="226" width="8" height="214"/>
+            <rect x="977" y="226" width="20" height="214"/>
+            <rect x="1152" y="226" width="15" height="214"/>
+            </g>
+            <g fill="#A9A7A0" opacity=".38">
+            <rect x="739" y="331" width="521" height="8"/>
+            <rect x="739" y="355" width="521" height="6"/>
+            <rect x="739" y="377" width="521" height="5"/>
+            <rect x="739" y="410" width="521" height="5"/>
+            <rect x="739" y="427" width="521" height="5"/>
+            </g>
+            <g fill="#B6B6B2" opacity=".35"><rect x="745" y="222" width="100" height="100"/><rect x="1004" y="215" width="140" height="110"/></g>
+            <rect x="731" y="150" width="180" height="100" fill="url(#fig-kshl)"/>
+            <rect x="731" y="140" width="530" height="385" fill="url(#fig-kvane)" mask="url(#fig-kvmask)"/>
+            <rect x="731" y="160" width="10" height="362" fill="#4E463D" opacity=".5"/>
+            <!-- 柱。ベッド側の壁より一段明るい -->
+            <rect x="620" y="33" width="48" height="500" fill="#A39384"/>
+            <rect x="620" y="300" width="48" height="233" fill="#9A8D7E"/>
+            <rect x="620" y="33" width="2" height="500" fill="#86786B"/><rect x="665" y="33" width="3" height="300" fill="#B6A999"/>
+            <rect x="655" y="400" width="16" height="130" fill="#3A342C" opacity=".7" filter="url(#fig-kbl)"/>
+            <rect x="658" y="277" width="6" height="21" rx="1" fill="#CFC6BA"/><rect x="660" y="284" width="2" height="6" fill="#A99E91"/>
+            <rect x="550" y="50" width="5" height="15" fill="#8D7F73"/>
+            <!-- サンバーストの時計。柱の面を斜めに見ているので縦長の楕円 -->
+            <g>
+            <line x1="665.0" y1="120.0" x2="675.0" y2="120.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="670.0" cy="120.0" rx="5" ry="1.7" transform="rotate(0 670.0 120.0)" fill="#8A3A24"/>
+            <line x1="664.6" y1="124.1" x2="676.2" y2="133.2" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="676.2" cy="133.2" r="1.3" fill="#8A3A24"/>
+            <line x1="663.4" y1="128.0" x2="672.1" y2="144.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="667.7" cy="138.0" rx="5" ry="1.7" transform="rotate(51 667.7 138.0)" fill="#8A3A24"/>
+            <line x1="661.5" y1="131.3" x2="670.0" y2="156.1" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="670.0" cy="156.1" r="1.3" fill="#8A3A24"/>
+            <line x1="659.0" y1="133.9" x2="664.0" y2="161.6" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="661.5" cy="151.2" rx="5" ry="1.7" transform="rotate(75 661.5 151.2)" fill="#8A3A24"/>
+            <line x1="656.1" y1="135.5" x2="659.2" y2="169.3" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="659.2" cy="169.3" r="1.3" fill="#8A3A24"/>
+            <line x1="653.0" y1="136.0" x2="653.0" y2="168.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="653.0" cy="156.0" rx="5" ry="1.7" transform="rotate(90 653.0 156.0)" fill="#8A3A24"/>
+            <line x1="649.9" y1="135.5" x2="646.8" y2="169.3" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="646.8" cy="169.3" r="1.3" fill="#8A3A24"/>
+            <line x1="647.0" y1="133.9" x2="642.0" y2="161.6" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="644.5" cy="151.2" rx="5" ry="1.7" transform="rotate(105 644.5 151.2)" fill="#8A3A24"/>
+            <line x1="644.5" y1="131.3" x2="636.0" y2="156.1" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="636.0" cy="156.1" r="1.3" fill="#8A3A24"/>
+            <line x1="642.6" y1="128.0" x2="633.9" y2="144.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="638.3" cy="138.0" rx="5" ry="1.7" transform="rotate(129 638.3 138.0)" fill="#8A3A24"/>
+            <line x1="641.4" y1="124.1" x2="629.8" y2="133.2" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="629.8" cy="133.2" r="1.3" fill="#8A3A24"/>
+            <line x1="641.0" y1="120.0" x2="631.0" y2="120.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="636.0" cy="120.0" rx="5" ry="1.7" transform="rotate(180 636.0 120.0)" fill="#8A3A24"/>
+            <line x1="641.4" y1="115.9" x2="629.8" y2="106.8" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="629.8" cy="106.8" r="1.3" fill="#8A3A24"/>
+            <line x1="642.6" y1="112.0" x2="633.9" y2="96.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="638.3" cy="102.0" rx="5" ry="1.7" transform="rotate(-129 638.3 102.0)" fill="#8A3A24"/>
+            <line x1="644.5" y1="108.7" x2="636.0" y2="83.9" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="636.0" cy="83.9" r="1.3" fill="#8A3A24"/>
+            <line x1="647.0" y1="106.1" x2="642.0" y2="78.4" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="644.5" cy="88.8" rx="5" ry="1.7" transform="rotate(-105 644.5 88.8)" fill="#8A3A24"/>
+            <line x1="649.9" y1="104.5" x2="646.8" y2="70.7" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="646.8" cy="70.7" r="1.3" fill="#8A3A24"/>
+            <line x1="653.0" y1="104.0" x2="653.0" y2="72.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="653.0" cy="84.0" rx="5" ry="1.7" transform="rotate(-90 653.0 84.0)" fill="#8A3A24"/>
+            <line x1="656.1" y1="104.5" x2="659.2" y2="70.7" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="659.2" cy="70.7" r="1.3" fill="#8A3A24"/>
+            <line x1="659.0" y1="106.1" x2="664.0" y2="78.4" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="661.5" cy="88.8" rx="5" ry="1.7" transform="rotate(-75 661.5 88.8)" fill="#8A3A24"/>
+            <line x1="661.5" y1="108.7" x2="670.0" y2="83.9" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="670.0" cy="83.9" r="1.3" fill="#8A3A24"/>
+            <line x1="663.4" y1="112.0" x2="672.1" y2="96.0" stroke="#B3A08A" stroke-width="1"/>
+            <ellipse cx="667.7" cy="102.0" rx="5" ry="1.7" transform="rotate(-51 667.7 102.0)" fill="#8A3A24"/>
+            <line x1="664.6" y1="115.9" x2="676.2" y2="106.8" stroke="#B3A08A" stroke-width="1"/>
+            <circle cx="676.2" cy="106.8" r="1.3" fill="#8A3A24"/>
+            <ellipse cx="653" cy="120" rx="12" ry="16" fill="#7A6652"/><ellipse cx="653" cy="120" rx="12" ry="16" fill="none" stroke="#7D6246" stroke-width="1.2"/>
+            <ellipse cx="652" cy="121" rx="8" ry="11.5" fill="#3E3322"/><ellipse cx="652" cy="121" rx="2" ry="3" fill="#8C7A60"/></g>
+            <!-- 壁付けのアームランプ。黒いパイプ、白い内側、真鍮のソケット -->
+            <rect x="574" y="30" width="4.5" height="256" fill="#1D1F14"/>
+            <path d="M576 34 C576 20 592 16 599 26 L601 40" fill="none" stroke="#1D1F14" stroke-width="3.5"/>
+            <rect x="598.5" y="37" width="8" height="7" rx="1.5" fill="#9C8058"/>
+            <path d="M571 80 C573 58 586 44 602.5 43 C619 44 630 58 632 80 Z" fill="url(#fig-kshade)"/>
+            <path d="M580 60 C586 50 594 46 601 45" fill="none" stroke="#56564E" stroke-width="2" opacity=".7"/>
+            <ellipse cx="601.5" cy="80" rx="30.5" ry="4" fill="#D6D2CC"/><ellipse cx="601.5" cy="79.3" rx="26" ry="2.2" fill="#F1EFEA"/>
+            <!-- 吊り鉢のアイビー。壁に落ちた影から先に描く -->
+            <ellipse cx="548" cy="212" rx="16" ry="34" fill="#6A5A4E" opacity=".45" filter="url(#fig-kbl)"/>
+            <path d="M580 172 L595 150 L609 172" fill="none" stroke="#2B2B25" stroke-width="1"/>
+            <g fill="none" stroke="#3B4524" stroke-width="1.1"><path d="M620 176 C636 170 648 166 664 176"/><path d="M612 196 C630 196 640 190 652 186"/><path d="M584 212 C580 226 568 236 565 246"/><path d="M604 216 C608 230 610 238 609 246"/><path d="M568 176 C560 196 558 212 556 224"/></g>
+            <use href="#fig-kleaf" transform="translate(574 158) rotate(52) scale(4.5)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(608 182) rotate(305) scale(4.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(563 168) rotate(33) scale(4.0)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(575 174) rotate(107) scale(5.5)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(588 172) rotate(108) scale(5.9)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(581 160) rotate(170) scale(3.7)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(624 172) rotate(352) scale(4.5)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(588 148) rotate(187) scale(4.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(587 186) rotate(230) scale(4.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(614 178) rotate(114) scale(4.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(568 167) rotate(178) scale(3.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(612 189) rotate(124) scale(4.4)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(596 192) rotate(54) scale(5.3)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(609 162) rotate(69) scale(4.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(580 154) rotate(110) scale(4.3)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(593 190) rotate(339) scale(4.4)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(624 175) rotate(8) scale(4.7)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(577 153) rotate(11) scale(6.1)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(610 190) rotate(2) scale(5.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(597 163) rotate(211) scale(4.3)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(575 188) rotate(340) scale(4.7)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(582 169) rotate(321) scale(4.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(576 176) rotate(246) scale(4.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(615 178) rotate(297) scale(5.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(566 176) rotate(220) scale(5.8)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(614 162) rotate(49) scale(4.5)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(598 182) rotate(281) scale(6.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(598 159) rotate(224) scale(5.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(585 175) rotate(96) scale(4.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(605 162) rotate(347) scale(6.0)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(594 149) rotate(305) scale(5.1)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(568 170) rotate(247) scale(5.8)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(596 150) rotate(316) scale(4.7)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(611 162) rotate(54) scale(4.5)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(576 188) rotate(6) scale(5.5)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(601 174) rotate(331) scale(4.3)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(612 161) rotate(107) scale(5.1)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(576 153) rotate(298) scale(6.0)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(607 182) rotate(312) scale(5.8)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(569 157) rotate(268) scale(6.2)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(623 160) rotate(287) scale(5.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(590 154) rotate(7) scale(3.8)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(577 186) rotate(261) scale(4.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(611 170) rotate(299) scale(4.4)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(570 167) rotate(295) scale(3.8)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(617 184) rotate(251) scale(5.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(590 184) rotate(164) scale(5.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(620 153) rotate(207) scale(4.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(575 182) rotate(177) scale(4.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(593 165) rotate(260) scale(5.6)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(609 149) rotate(143) scale(5.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(604 180) rotate(358) scale(4.3)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(567 172) rotate(102) scale(5.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(571 183) rotate(90) scale(5.7)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(616 184) rotate(239) scale(5.5)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(619 182) rotate(308) scale(3.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(618 187) rotate(94) scale(5.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(595 153) rotate(183) scale(6.0)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(598 170) rotate(20) scale(5.6)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(591 169) rotate(121) scale(4.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(616 189) rotate(15) scale(3.9)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(599 192) rotate(189) scale(5.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(581 219) rotate(77) scale(4.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(573 225) rotate(155) scale(4.5)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(575 195) rotate(358) scale(3.8)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(566 212) rotate(112) scale(4.3)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(578 191) rotate(58) scale(4.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(587 201) rotate(96) scale(5.4)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(578 210) rotate(251) scale(5.1)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(574 210) rotate(327) scale(5.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(574 206) rotate(102) scale(6.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(578 215) rotate(340) scale(5.1)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(569 196) rotate(106) scale(4.4)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(568 222) rotate(262) scale(5.2)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(583 215) rotate(243) scale(3.9)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(573 223) rotate(164) scale(4.0)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(581 190) rotate(183) scale(4.7)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(580 195) rotate(221) scale(4.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(576 196) rotate(198) scale(5.4)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(573 190) rotate(334) scale(4.4)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(577 207) rotate(188) scale(3.8)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(583 199) rotate(348) scale(5.9)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(590 205) rotate(26) scale(4.9)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(604 209) rotate(14) scale(4.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(618 208) rotate(266) scale(4.4)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(595 192) rotate(75) scale(4.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(611 208) rotate(195) scale(4.0)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(605 215) rotate(182) scale(3.7)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(602 218) rotate(224) scale(4.0)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(603 214) rotate(258) scale(5.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(615 200) rotate(182) scale(5.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(599 217) rotate(358) scale(5.2)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(603 216) rotate(213) scale(5.2)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(607 197) rotate(53) scale(5.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(592 203) rotate(174) scale(3.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(602 205) rotate(79) scale(6.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(616 205) rotate(207) scale(5.3)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(600 203) rotate(204) scale(3.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(612 205) rotate(154) scale(3.6)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(620 208) rotate(264) scale(6.2)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(598 220) rotate(309) scale(4.2)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(602 208) rotate(226) scale(4.7)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(608 195) rotate(220) scale(6.1)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(611 215) rotate(352) scale(5.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(574 159) rotate(10) scale(3.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(567 146) rotate(111) scale(6.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(570 147) rotate(97) scale(5.4)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(568 153) rotate(319) scale(4.7)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(557 153) rotate(55) scale(5.8)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(569 154) rotate(119) scale(5.4)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(564 167) rotate(195) scale(4.1)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(560 148) rotate(173) scale(3.7)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(574 149) rotate(267) scale(4.6)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(632 156) rotate(245) scale(6.1)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(628 154) rotate(151) scale(3.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(622 153) rotate(4) scale(4.3)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(621 154) rotate(132) scale(3.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(620 153) rotate(142) scale(4.1)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(613 158) rotate(114) scale(6.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(631 164) rotate(226) scale(3.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(617 158) rotate(19) scale(5.6)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(613 154) rotate(315) scale(5.8)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(621 162) rotate(137) scale(4.2)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(619 166) rotate(177) scale(4.4)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(620 176) rotate(37) scale(5.3)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(624 174) rotate(122) scale(3.7)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(629 171) rotate(353) scale(4.5)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(633 170) rotate(355) scale(5.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(638 168) rotate(46) scale(4.2)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(642 168) rotate(315) scale(4.0)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(646 168) rotate(232) scale(4.3)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(651 170) rotate(327) scale(4.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(655 171) rotate(199) scale(6.1)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(660 178) rotate(248) scale(4.1)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(664 184) rotate(44) scale(4.3)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(584 214) rotate(323) scale(5.8)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(604 218) rotate(293) scale(4.5)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(566 180) rotate(302) scale(3.9)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(582 218) rotate(28) scale(4.9)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(605 221) rotate(227) scale(4.0)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(565 185) rotate(73) scale(4.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(580 221) rotate(265) scale(4.8)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(605 224) rotate(31) scale(4.2)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(564 190) rotate(113) scale(4.4)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(577 225) rotate(10) scale(4.6)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(606 228) rotate(34) scale(6.0)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(562 195) rotate(160) scale(3.9)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(575 228) rotate(87) scale(4.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(606 231) rotate(257) scale(5.9)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(561 200) rotate(242) scale(5.6)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(573 232) rotate(80) scale(4.8)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(607 234) rotate(272) scale(4.7)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(560 205) rotate(205) scale(5.8)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(571 236) rotate(101) scale(3.7)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(608 237) rotate(257) scale(5.6)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(559 210) rotate(169) scale(5.6)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(569 239) rotate(97) scale(3.8)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(608 240) rotate(152) scale(4.4)" fill="#23261A"/>
+            <use href="#fig-kleaf" transform="translate(558 215) rotate(249) scale(3.8)" fill="#2E3322"/>
+            <use href="#fig-kleaf" transform="translate(566 243) rotate(314) scale(3.9)" fill="#1D1F13"/>
+            <use href="#fig-kleaf" transform="translate(609 244) rotate(322) scale(4.1)" fill="#272A1B"/>
+            <use href="#fig-kleaf" transform="translate(556 220) rotate(140) scale(5.4)" fill="#2E3322"/>
+            <rect x="582" y="174" width="27" height="16" rx="3" fill="#44473F"/><rect x="582" y="174" width="27" height="3" fill="#6C6E66"/>
+            <ellipse cx="596" cy="176" rx="26" ry="20" fill="#1A1D12" opacity=".5" filter="url(#fig-kbl2)"/>
+            <use href="#fig-kleaf" transform="translate(572 156) rotate(192) scale(2.9)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(575 172) rotate(84) scale(2.8)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(625 172) rotate(241) scale(3.9)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(616 179) rotate(40) scale(3.9)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(595 191) rotate(45) scale(4.0)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(595 188) rotate(333) scale(3.3)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(610 189) rotate(167) scale(3.6)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(581 171) rotate(45) scale(3.5)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(565 175) rotate(299) scale(4.0)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(597 160) rotate(156) scale(3.2)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(593 149) rotate(328) scale(3.6)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(613 163) rotate(222) scale(4.1)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(610 161) rotate(270) scale(3.2)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(570 156) rotate(101) scale(4.0)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(577 184) rotate(322) scale(2.7)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(616 185) rotate(22) scale(3.4)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(574 181) rotate(20) scale(3.0)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(604 182) rotate(42) scale(3.4)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(617 183) rotate(284) scale(4.2)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(595 152) rotate(199) scale(3.0)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(618 189) rotate(268) scale(2.6)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(580 189) rotate(189) scale(2.8)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(579 193) rotate(71) scale(3.1)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(583 198) rotate(248) scale(3.3)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(611 208) rotate(257) scale(3.8)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(617 203) rotate(351) scale(3.8)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(610 195) rotate(162) scale(2.7)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(565 147) rotate(213) scale(2.9)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(556 152) rotate(223) scale(4.0)" fill="#7D9148"/>
+            <use href="#fig-kleaf" transform="translate(558 149) rotate(24) scale(3.9)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(626 154) rotate(4) scale(3.1)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(619 152) rotate(76) scale(3.1)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(616 159) rotate(152) scale(2.8)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(617 167) rotate(254) scale(3.5)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(628 173) rotate(3) scale(3.0)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(644 169) rotate(4) scale(3.3)" fill="#4F5E2E"/>
+            <use href="#fig-kleaf" transform="translate(656 169) rotate(180) scale(3.7)" fill="#62763A"/>
+            <use href="#fig-kleaf" transform="translate(567 181) rotate(143) scale(3.1)" fill="#3E4A26"/>
+            <use href="#fig-kleaf" transform="translate(563 197) rotate(311) scale(3.3)" fill="#7D9148"/>
+            <!-- 左の掃き出し窓。上に「避難器具」の表示がある箱 -->
+            <polygon points="280,-40 334,-10 334,420 280,420" fill="url(#fig-kglass)"/>
+            <g fill="#D8DAE4" opacity=".5"><rect x="280" y="40" width="30" height="120"/></g>
+            <g fill="#9CA0AE" opacity=".35"><rect x="280" y="170" width="40" height="8"/><rect x="280" y="186" width="40" height="8"/></g>
+            <rect x="334" y="30" width="27" height="390" fill="#9AA09F"/>
+            <g fill="#F1F4F3"><rect x="336" y="30" width="4" height="390"/><rect x="348" y="30" width="3" height="390"/><rect x="353" y="30" width="5" height="390"/></g>
+            <g fill="#9FA4A6"><rect x="342" y="30" width="2" height="390"/><rect x="358.5" y="30" width="2.5" height="390"/></g>
+            <polygon points="361,50 379,74 379,420 361,420" fill="#857F79"/>
+            <polygon points="379,72 403,79 400,290 379,290" fill="#9D7C67"/>
+            <rect x="392" y="80" width="2" height="210" fill="#6E5242"/>
+            <polygon points="280,12 403,68 403,86 280,40" fill="#6A4634"/>
+            <polygon points="280,-40 433,24 433,73 280,14" fill="#837062"/>
+            <polygon points="280,10 433,68 433,74 280,18" fill="#6B5B50"/>
+            <g transform="skewY(24) translate(0 -150)"><rect x="340" y="0" width="68" height="18" fill="#D9D5CE"/><text x="374" y="14" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1" fill="#2E2A26" font-family="sans-serif">避難器具</text></g>
+            <rect x="280" y="20" width="125" height="130" fill="url(#fig-kwtop)"/>
+            <!-- 転落防止バーと、外のバルコニーの手すり -->
+            <polygon points="280,301 380,318 380,322 280,311" fill="#C9C7C1"/>
+            <polygon points="280,347 380,355 380,365 280,360" fill="#C9C7C1"/>
+            <polygon points="280,392 380,398 380,408 280,403" fill="#C9C7C1"/>
+            <polygon points="280,254 380,273 380,285 280,265" fill="#CCCCCC"/>
+            <polygon points="280,262 380,281 380,285 280,265" fill="#A09C95"/>
+            <rect x="379" y="272" width="10" height="14" rx="1" fill="#B9B6AF"/>
+            <!-- 床。目の粗い織りのタイルカーペットを一枚で通す -->
+            <rect x="280" y="518" width="980" height="560" fill="url(#fig-kcp)"/>
+            <rect x="280" y="600" width="980" height="480" fill="url(#fig-kcp2)" mask="url(#fig-kcpm)"/>
+            <rect x="280" y="518" width="980" height="560" fill="#140F0B" opacity=".35" filter="url(#fig-kstreak)"/>
+            <rect x="280" y="518" width="980" height="560" fill="url(#fig-kfloor)"/>
+            <rect x="280" y="518" width="980" height="8" fill="#241A14" opacity=".35" filter="url(#fig-kbl2)"/>
+            <ellipse cx="960" cy="532" rx="260" ry="16" fill="#D8D0C4" opacity=".22" filter="url(#fig-kbl)"/>
+            <!-- 幾何柄のラグ。色面はすべて写真からトレースした位置のまま -->
+            <path d="M415 792.5 L718 626.5 L1163 652 L1238 895 Q1031 874 830 854.6 Q615 828 415 792.5 Z" fill="#1A1410" opacity=".55" filter="url(#fig-kbl2)"/>
+            <path d="M415 791.0 L718 625.0 L1163 650.5 L1238 893.5 Q1031 872.5 830 853.1 Q615 826.5 415 791.0 Z" fill="#6B4436"/>
+            <path d="M415 787.5 L718 621.5 L1163 647 L1238 890 Q1031 869 830 849.6 Q615 823 415 787.5 Z" fill="#8E6654"/>
+            <path d="M478 765 L712 631 L1149 658 L1192 846 Q1017 832 830 813 Q600 782 478 765 Z" fill="#747B80"/>
+            <polygon points="733,643 1041,659 1041,675 966,681 751,667 705,665" fill="#CAAFA9"/>
+            <polygon points="705,665 751,667 737,683 792,706 815,708 664,707 680,690" fill="#C2B5A5"/>
+            <polygon points="751,667 966,681 792,706 737,683" fill="#A88370"/>
+            <polygon points="664,707 800,708 966,681 945,689 967,733 970,749 687,724" fill="#8B91A0"/>
+            <polygon points="687,724 970,749 976,751 1002,803 640,768" fill="#5F6E8C"/>
+            <polygon points="478,765 640,672 664,706 687,724 640,768 940,797 955,829 830,813 600,784" fill="#3E4951"/>
+            <polygon points="938,664 1041,661 1032,738 967,733 945,689" fill="#C4B7A6"/>
+            <polygon points="975.8,751.4 1057.2,758.2 1051.1,805.8 1002,802.7" fill="#C6B8A6"/>
+            <g fill="#4F5D7C" opacity=".55" filter="url(#fig-kbl)"><ellipse cx="820" cy="772" rx="60" ry="10"/><ellipse cx="930" cy="790" rx="40" ry="8"/></g>
+            <g fill="#1B1B1B">
+            <polygon points="698,642 710,632 742,633 733,643" fill="#1B1B1B"/>
+            <polygon points="481.4,765.1 501.4,748.8 631.9,761.1 621.1,768.2 602.7,784.4" fill="#1B1B1B"/>
+            <polygon points="525.9,739 661.1,662.2 681,667.4 611.9,715 682.6,724.2" fill="#1B1B1B"/>
+            <polygon points="1045,653.7 1101.8,655.9 1074.1,662.3 1046.5,661.4" fill="#1B1B1B"/>
+            <polygon points="1112.5,656.8 1147.8,658.4 1147.8,666 1112.5,665.1" fill="#1B1B1B"/>
+            <polygon points="1049.6,666 1109.5,665.1 1118.7,761.2 1083.3,759.7 1083.3,689 1063.4,687.5 1063.4,670 1049.6,669.1" fill="#1B1B1B"/>
+            <polygon points="1058.8,759.1 1079.7,759.7 1079.7,805.8 1052.6,805.8" fill="#1B1B1B"/>
+            <polygon points="1003.5,802.7 1048,807.3 1046.5,835 1018.8,831.9" fill="#1B1B1B"/>
+            <polygon points="1081.8,808.8 1186.2,816.5 1192.4,845.7 1080.3,838" fill="#1B1B1B"/>
+            </g>
+            <path d="M415 787.5 L718 621.5 L1163 647 L1238 890 Q1031 869 830 849.6 Q615 823 415 787.5 Z" fill="#0E1420" opacity=".22" filter="url(#fig-kpile)"/>
+            <path d="M415 787.5 L718 621.5 L1163 647 L1238 890 Q1031 869 830 849.6 Q615 823 415 787.5 Z" fill="url(#fig-krug)"/>
+            <path d="M415 787.5 L718 621.5 L1163 647 L1238 890 Q1031 869 830 849.6 Q615 823 415 787.5 Z" fill="url(#fig-krugv)"/>
+            <path d="M415 787.5 L718 621.5 L1163 647 L1238 890 Q1031 869 830 849.6 Q615 823 415 787.5 Z" fill="none" stroke="#B08A78" stroke-width="1.2" opacity=".6"/>
+            <!-- 接地影。ベッドの下がいちばん暗い -->
+            <polygon points="280,600 590,548 610,580 520,660 280,720" fill="#0E0B08" opacity=".62" filter="url(#fig-kbl3)"/>
+            <polygon points="280,612 600,556 622,598 280,652" fill="#070504" opacity=".55" filter="url(#fig-kbl)"/>
+            <ellipse cx="880" cy="556" rx="80" ry="8" fill="#140E0A" opacity=".45" filter="url(#fig-kbl)"/>
+            <ellipse cx="1000" cy="560" rx="40" ry="6" fill="#140E0A" opacity=".4" filter="url(#fig-kbl)"/>
+            <polygon points="990,560 1240,575 1250,612 1060,612 980,580" fill="#15110E" opacity=".7" filter="url(#fig-kbl)"/>
+            <ellipse cx="696" cy="524" rx="34" ry="5" fill="#140E0A" opacity=".5" filter="url(#fig-kbl2)"/>
+            <!-- 柱の奥のスチールラック。上にトースター、下の段は木箱 -->
+            <rect x="669" y="307" width="47" height="50" rx="2" fill="#8A817B"/><rect x="669" y="307" width="47" height="4" fill="#A69E97"/>
+            <rect x="684" y="316" width="24" height="34" fill="#5A5451"/><rect x="687" y="319" width="18" height="28" fill="#3C3836"/><rect x="673" y="318" width="6" height="30" fill="#6D6560"/>
+            <g fill="#161914"><rect x="672" y="459" width="48" height="48" fill="#1A1612" opacity=".6"/><rect x="669" y="352" width="3" height="173"/><rect x="719" y="352" width="3" height="173"/><rect x="669" y="355" width="53" height="4"/><rect x="669" y="372" width="53" height="3"/><rect x="669" y="507" width="53" height="4"/></g>
+            <rect x="672" y="395" width="48" height="13" fill="#7A5A40"/><rect x="672" y="395" width="48" height="3" fill="#9C7A5A"/>
+            <rect x="672" y="445" width="48" height="13" fill="#4E3424"/><rect x="672" y="445" width="48" height="3" fill="#6E4E36"/>
+            <g fill="#D8D1C6" opacity=".85"><rect x="676" y="386" width="7" height="9"/><rect x="686" y="388" width="6" height="7"/><rect x="696" y="387" width="7" height="8"/></g>
+            <rect x="672" y="412" width="48" height="33" fill="#2E2A26" opacity=".75"/><rect x="676" y="426" width="24" height="19" fill="#5A5048"/>
+            <rect x="671" y="475" width="44" height="32" rx="2" fill="#4A3020"/><rect x="671" y="475" width="44" height="3" fill="#6A4A32"/><ellipse cx="682" cy="490" rx="4" ry="3.5" fill="#2A1C12"/><rect x="694" y="475" width="1.5" height="32" fill="#6A4A2E"/>
+            <circle cx="672" cy="526" r="2.5" fill="#161914"/><circle cx="720" cy="526" r="2.5" fill="#161914"/>
+            <rect x="655" y="460" width="10" height="25" rx="1.5" fill="#D2CABF"/><rect x="657" y="470" width="8" height="5" fill="#1A1A18"/><path d="M661 475 C660 495 650 505 640 520" fill="none" stroke="#1A1A18" stroke-width="1.2"/>
+            <!-- ダイニング。奥から、黒いベンチ → テーブル → 椅子の順に重ねる -->
+            <rect x="947" y="447" width="238" height="31" rx="5" fill="#2C2C2A"/><rect x="947" y="447" width="238" height="4" rx="2" fill="#4A4A48"/>
+            <rect x="840" y="440" width="110" height="14" rx="4" fill="#2C2C2A"/>
+            <path d="M846 386 L1200 386 Q1207 388 1203 394 L846 394 Z" fill="#4A2A20"/><rect x="846" y="385" width="355" height="2" fill="#7A5242"/>
+            <rect x="1175" y="393" width="12" height="84" fill="#3D241D"/><rect x="866" y="393" width="10" height="70" fill="#3D241D"/>
+            <!-- テーブルの上の鉢植え。逆光で葉だけ明るい -->
+            <path d="M1020 378 L1049 378 L1045 386 L1024 386 Z" fill="#3A302A"/><ellipse cx="1034.5" cy="377.5" rx="15" ry="2.4" fill="#5D4F46"/>
+            <g fill="none" stroke="#5B6B3A" stroke-width="1.3"><path d="M1034 377 C1040 356 1052 336 1063 322"/><path d="M1033 377 C1028 360 1020 340 1008 327"/><path d="M1035 377 C1030 368 1022 362 1014 358"/><path d="M1036 376 C1044 366 1054 356 1062 350"/></g>
+            <ellipse cx="1072" cy="317" rx="14" ry="9" transform="rotate(-8 1072 317)" fill="#72824A"/><ellipse cx="1070" cy="315" rx="8" ry="5" transform="rotate(-8 1070 315)" fill="#8C9C5E"/>
+            <ellipse cx="1004" cy="327" rx="9" ry="1.8" fill="#5D6B3E"/><ellipse cx="1013" cy="357" rx="6" ry="2.4" transform="rotate(-10 1013 357)" fill="#5D6B3E"/><ellipse cx="1062" cy="350" rx="3.2" ry="6.5" transform="rotate(25 1062 350)" fill="#5D6B3E"/>
+            <!-- テーブルの太い角脚と、椅子の座面の下にたまる影 -->
+            <path d="M826 462 L958 462 L962 548 L824 552 Z" fill="#231812" opacity=".55" filter="url(#fig-kbl)"/>
+            <rect x="850" y="394" width="13" height="152" fill="#4A2418"/><rect x="850" y="394" width="3" height="152" fill="#6E3A24"/>
+            <line x1="870" y1="470" x2="869" y2="546" stroke="#2A130E" stroke-width="5" stroke-linecap="round"/>
+            <path d="M893 410 Q906 392 912 426" fill="none" stroke="#2A1A14" stroke-width="3"/>
+            <!-- 椅子 A：ベージュ張りの丸い背。いちばん奥 -->
+            <line x1="821" y1="463" x2="812" y2="538" stroke="#4A2418" stroke-width="5" stroke-linecap="round"/>
+            <line x1="846" y1="463" x2="850" y2="535" stroke="#3A1C15" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="815" y1="518" x2="850" y2="518" stroke="#3A1C15" stroke-width="2.5" stroke-linecap="round"/>
+            <g stroke="#4A2418" stroke-width="3"><line x1="813" y1="414" x2="815" y2="458"/><line x1="821" y1="414" x2="823" y2="458"/><line x1="829" y1="414" x2="831" y2="458"/><line x1="837" y1="414" x2="839" y2="458"/><line x1="845" y1="414" x2="847" y2="458"/></g>
+            <rect x="822" y="452" width="26" height="6" rx="2" fill="#8C7E6C"/>
+            <path d="M805 396 Q807 384 824 384 L842 385 L842 415 Q824 413 808 416 Z" fill="#76675A"/><path d="M806 390 Q810 385 824 385 L840 386" fill="none" stroke="#A89886" stroke-width="2.5"/><path d="M808 409 Q824 407 842 409 L842 415 Q824 413 808 416 Z" fill="#4C3F31"/>
+            <rect x="813" y="457" width="40" height="6" rx="2" fill="#4A2418"/>
+            <!-- 椅子 B：手前のキャプテンチェア。太い曲木の笠木、スピンドル、黒い座面 -->
+            <rect x="852" y="400" width="86" height="46" fill="#2E2019" opacity=".55" filter="url(#fig-kbl2)"/>
+            <rect x="860" y="445" width="92" height="12" rx="4" fill="#1E1C1A"/><rect x="860" y="445" width="92" height="3" rx="1.5" fill="#3E3B38"/>
+            <g stroke="#5A2C20" stroke-width="3.6"><line x1="872" y1="399" x2="871" y2="458"/><line x1="882" y1="399" x2="881" y2="458"/><line x1="895" y1="399" x2="894" y2="458"/><line x1="912" y1="399" x2="911" y2="458"/><line x1="922" y1="399" x2="921" y2="458"/><line x1="934" y1="399" x2="933" y2="458"/></g>
+            <g stroke="#8A4A32" stroke-width="1" opacity=".7"><line x1="870.8" y1="400" x2="869.8" y2="457"/><line x1="880.8" y1="400" x2="879.8" y2="457"/><line x1="893.8" y1="400" x2="892.8" y2="457"/><line x1="910.8" y1="400" x2="909.8" y2="457"/><line x1="920.8" y1="400" x2="919.8" y2="457"/><line x1="932.8" y1="400" x2="931.8" y2="457"/></g>
+            <path d="M815 457 L946 457 L948 464 L815 464 Z" fill="#5A2A1E"/><path d="M815 457 L946 457 L946 459 L815 459 Z" fill="#8A4C36"/>
+            <line x1="856" y1="464" x2="830" y2="557" stroke="#5A2A1C" stroke-width="7.5" stroke-linecap="round"/>
+            <line x1="917" y1="467" x2="924" y2="563" stroke="#5A2A1C" stroke-width="7.5" stroke-linecap="round"/>
+            <line x1="946" y1="465" x2="955" y2="553" stroke="#3E1C14" stroke-width="6" stroke-linecap="round"/>
+            <line x1="852" y1="486" x2="918" y2="486" stroke="#4A2218" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="926" y1="490" x2="944" y2="490" stroke="#3E1C14" stroke-width="3" stroke-linecap="round"/>
+            <line x1="853" y1="466" x2="832" y2="553" stroke="#8A4A30" stroke-width="1.6" opacity=".7"/><line x1="915" y1="468" x2="921" y2="560" stroke="#8A4A30" stroke-width="1.6" opacity=".7"/>
+            <path d="M841 392 Q842 383 850 382 Q880 380 908 383 Q935 387 956 393 Q958 398 954 398 Q930 397 900 399 L850 400 Q842 401 841 392 Z" fill="#5A2A20"/><path d="M846 385 Q880 381 908 384 Q934 388 954 394" fill="none" stroke="#8C4A34" stroke-width="2"/><path d="M841 392 Q841 400 850 401 L852 408 Q843 407 841 399 Z" fill="#40190F"/>
+            <!-- 椅子 C：こちらに背を向けた A 字脚の椅子。座面の上は窓の光を拾う -->
+            <line x1="974" y1="462" x2="958" y2="563" stroke="#6A3622" stroke-width="7.5" stroke-linecap="round"/>
+            <line x1="1030" y1="462" x2="1040" y2="558" stroke="#4A2418" stroke-width="5.5" stroke-linecap="round"/>
+            <path d="M947 456 Q997 450 1048 456 L1048 462 L947 462 Z" fill="#7A7068"/><rect x="947" y="461" width="101" height="4" rx="2" fill="#4A2A20"/>
+            <line x1="967" y1="390" x2="978" y2="462" stroke="#744128" stroke-width="7" stroke-linecap="round"/>
+            <line x1="1036" y1="390" x2="1028" y2="466" stroke="#744128" stroke-width="7" stroke-linecap="round"/>
+            <line x1="966" y1="392" x2="976" y2="460" stroke="#A0664A" stroke-width="1.5" opacity=".8"/>
+            <path d="M957 384 Q1002 380 1048 384 L1048 393 Q1002 390 957 393 Z" fill="#7E4A34"/><path d="M957 384 Q1002 380 1048 384" fill="none" stroke="#A06A4E" stroke-width="1.5"/>
+            <!-- 椅子 D：曲げ木の丸い笠木 -->
+            <line x1="1085" y1="386" x2="1086" y2="476" stroke="#5A3020" stroke-width="8" stroke-linecap="round"/>
+            <line x1="1171" y1="386" x2="1166" y2="476" stroke="#5A3020" stroke-width="8" stroke-linecap="round"/>
+            <path d="M1069 388 Q1070 374 1128 373 Q1188 374 1188 386 L1188 390 Q1128 382 1069 390 Z" fill="#5E3424"/><path d="M1072 380 Q1128 371 1185 380" fill="none" stroke="#8A5438" stroke-width="1.6"/>
+            <path d="M1214 388 Q1226 384 1240 385 L1240 395 L1214 395 Z" fill="#5E3424"/>
+            <!-- ヘッドボードの後ろ：テレビ、真鍮のランプ、窓台の機器 -->
+            <polygon points="463,254 588,285 588,392 463,392" fill="#2E2D2B"/>
+            <polygon points="467,259 584,288 584,392 467,392" fill="url(#fig-ktv)"/>
+            <polygon points="530,274 584,288 584,330 560,320" fill="#8A8B84" opacity=".35"/>
+            <rect x="476" y="283" width="3" height="55" fill="#B39052"/>
+            <path d="M485 301 A18 17 0 0 1 521 301 Z" fill="#C9CAC4"/><path d="M490 294 A13 10 0 0 1 505 287" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".8"/>
+            <rect x="373" y="289" width="61" height="15" rx="3" fill="#E8E6E2"/><rect x="373" y="289" width="61" height="3" rx="1.5" fill="#F7F6F3"/>
+            <ellipse cx="386.5" cy="300" rx="4.5" ry="2.8" fill="#8E8C88"/><rect x="400" y="292" width="14" height="10" fill="#F4F4F2"/><rect x="401" y="294" width="12" height="1.2" fill="#B7B5B0"/><rect x="416" y="291" width="11" height="13" fill="#3A3C3E"/><rect x="429" y="291" width="5" height="13" rx="1" fill="#DEDCD8"/>
+            <!-- ナイトテーブル。ベッドの頭の右 -->
+            <rect x="600" y="425" width="49" height="125" fill="url(#fig-kns)"/><rect x="600" y="425" width="49" height="3" fill="#7A4E36"/>
+            <rect x="609" y="428" width="1.5" height="122" fill="#2A0E06" opacity=".6"/>
+            <polygon points="610,550 620,550 618,590 612,590" fill="#3A150A"/>
+            <polygon points="640,550 648,550 646,586 642,586" fill="#2E1008"/>
+            <!-- ヘッドボード。抜きの向こうに窓とテレビが見える -->
+            <path d="M330 311 L607 303 L607 612 L592 612 L592 420 L330 420 Z M349 313 L380 313 L381.6 336 L381 391 Q365 398 349 391 Z M445 312 L485 311 L485 336 L444 336 Z M552 309 L594 308 L594 392 L552 392 Z" fill="url(#fig-khb)" fill-rule="evenodd"/>
+            <rect x="342" y="316" width="6" height="74" rx="3" fill="#7A3418" opacity=".6"/>
+            <path d="M381 313 L445 312 L441 336 L383 336 Z" fill="#D39A7C" opacity=".55"/>
+            <path d="M485 311 L552 309 L550 336 L487 336 Z" fill="#BA7249" opacity=".6"/>
+            <rect x="555" y="377" width="38" height="11" rx="1.5" fill="#1C1A18"/><rect x="555" y="377" width="38" height="2" fill="#4E4A46"/>
+            <polygon points="326,305 609,297 609,305 326,313" fill="#C98A64"/>
+            <polygon points="326,305 609,297 609,299 326,307.5" fill="#E1B08E"/>
+            <rect x="594" y="305" width="13" height="307" fill="#5E2612"/><rect x="594" y="305" width="3" height="307" fill="#8C4A2A" opacity=".7"/>
+            <!-- 枕 -->
+            <ellipse cx="452" cy="418" rx="100" ry="8" fill="#6E5E54" opacity=".35" filter="url(#fig-kbl)"/>
+            <path d="M371 335 Q452 326 537 314 Q528 334 526 356 Q522 392 520 420 L356 420 Q357 405 360 390 Q364 360 371 335 Z" fill="url(#fig-kpil)"/>
+            <path d="M374 338 Q452 329 532 318" fill="none" stroke="#FFFFFF" stroke-width="2.5" opacity=".9"/>
+            <path d="M392 350 Q450 344 520 336" fill="none" stroke="#E4DDD6" stroke-width="5" opacity=".5" filter="url(#fig-kbl2)"/>
+            <path d="M371 335 Q360 355 358 380 Q356 400 358 420 L368 420 Q364 380 376 342 Z" fill="#E4DED8" opacity=".8"/>
+            <path d="M520 346 L552 344 L552 420 L518 420 Z" fill="#1E0A05" opacity=".7" filter="url(#fig-kbl2)"/>
+            <!-- 掛け布団とシーツ。上面は窓の光で明るく、側面は落ちる -->
+            <path d="M562 440 L586 447 L586 506 L562 508 Z" fill="#8F857D"/><path d="M562 440 L586 447 L586 452 L562 447 Z" fill="#B9AFA7"/>
+            <path d="M280 412 L540 426 Q550 428 558 438 L566 446 Q569 480 565 500 Q561 510 548 512 L280 580 Z" fill="url(#fig-kduv)"/>
+            <path d="M280 412 L540 426 Q550 428 558 438 L566 446" fill="none" stroke="#F6F4F1" stroke-width="4" opacity=".7" filter="url(#fig-kbl2)"/>
+            <g fill="none" stroke="#7E6E63" stroke-width="7" opacity=".16" filter="url(#fig-kbl)"><path d="M420 440 Q430 480 424 540"/><path d="M500 440 Q505 470 500 520"/><path d="M330 430 Q345 480 336 562"/></g><g fill="none" stroke="#E2DCD6" stroke-width="5" opacity=".2" filter="url(#fig-kbl2)"><path d="M440 438 Q448 480 442 536"/><path d="M350 430 Q362 480 356 560"/></g>
+            <!-- ベッドの側板。奥の端だけ上面が光る -->
+            <polygon points="280,576 600,511 600,556 280,636" fill="url(#fig-krail)"/>
+            <polygon points="540,522 600,511 600,516 540,528" fill="#6D5343"/>
+            <polygon points="566,552 580,550 578,606 570,606" fill="#1E0C06"/>
+            <polygon points="566,552 569,552 571,606 570,606" fill="#4A2012"/>
+            <polygon points="470,580 481,578 479,597 472,597" fill="#140804"/>
+            <polygon points="519,570 530,568 528,584 521,584" fill="#140804"/>
+            <rect x="591" y="556" width="18" height="56" fill="#3F1709"/>
+            <!-- ブークレのソファ。左端は丸く、脚は外へ開いた木 -->
+            <line x1="1039" y1="560" x2="1037" y2="567" stroke="#3A1A0C" stroke-width="4" stroke-linecap="round"/>
+            <path d="M1064.6 569 L1090 569 L1070 612.3 L1053 612.3 Z" fill="#5A2610"/><path d="M1066 569 L1073 569 L1056 612 L1053 612 Z" fill="#8A4424"/>
+            <path d="M967.7 494.6 Q970 476 1004.6 475 L1180 478.5 L1250 490 L1250 578 L1050.8 567.3 Q1000 560 970 535 Q965 515 967.7 494.6 Z" fill="url(#fig-ksofa)"/>
+            <path d="M968 496 Q970 477 1004.6 475.5 L1180 479" fill="none" stroke="#C7BDB2" stroke-width="2.2" opacity=".85"/>
+            <path d="M968 500 Q966 520 972 533" fill="none" stroke="#9A8A7A" stroke-width="3" opacity=".6"/>
+            <g stroke="#4E3F34" stroke-width="1.3" opacity=".55"><line x1="1052" y1="486" x2="1052" y2="567"/><line x1="1138.5" y1="484" x2="1138.5" y2="572"/><line x1="1227" y1="492" x2="1227" y2="577"/></g>
+            <g stroke="#A89A8C" stroke-width="1" opacity=".5"><line x1="1054" y1="486" x2="1054" y2="567"/><line x1="1140.5" y1="484" x2="1140.5" y2="572"/></g>
+            <ellipse cx="1060" cy="484" rx="10" ry="2" fill="#8E8174" opacity=".35" filter="url(#fig-kbl2)"/>
+            <!-- 背もたれのグリーンのクッション -->
+            <path d="M1180 488 L1205 398 Q1208 395 1214 395 L1250 394 L1250 492 Z" fill="#42493B"/>
+            <path d="M1205 398 Q1208 395 1214 395 L1250 394 L1250 400 L1212 401 Z" fill="#5A6150"/>
+            <path d="M1181 486 L1205 400" stroke="#2E3429" stroke-width="2"/>
+            <circle cx="1233" cy="467" r="2.3" fill="#2E3429"/>
+            <!-- 窓の光のにじみ。左の窓と奥のシアーの二方向から -->
+            <rect x="739" y="215" width="521" height="220" fill="#FFFFFF" opacity=".12" filter="url(#fig-kbl3)"/>
+            <ellipse cx="310" cy="220" rx="40" ry="150" fill="#F2F4F8" opacity=".25" filter="url(#fig-kbl3)"/>
+            </g>
+          </svg>

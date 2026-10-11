@@ -2,8 +2,10 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import TopBehaviour from "./TopBehaviour";
 import * as S from "./scenes";
+import { getRoomMedia, type RoomSlide } from "./roomMedia";
 import { FLORA_DEFS } from "./flora";
 import {
   AccessMap,
@@ -38,10 +40,45 @@ import {
 
 /** The illustrated scenes are authored SVG, injected as-is. `.scene` is
  *  display:contents so the svg still sizes against its `.ph` frame. */
-function Scene({ svg, stamp, className }: { svg: string; stamp?: string; className?: string }) {
+function Scene({
+  svg,
+  stamp,
+  className,
+  label,
+}: {
+  svg: string;
+  stamp?: string;
+  className?: string;
+  /** 帯の主役の絵だけ、スクリーンリーダー向けの説明を付ける（SVG 自体は aria-hidden） */
+  label?: string;
+}) {
+  return (
+    <div className={className ? `ph ${className}` : "ph"} {...(label ? { role: "img", "aria-label": label } : null)}>
+      <div className="scene" dangerouslySetInnerHTML={{ __html: svg }} />
+      {stamp && <span className="stamp">{stamp}</span>}
+    </div>
+  );
+}
+
+/** 帯の実写。scripts/photos/ が書き出した WebP をそのまま配信する（再圧縮しないので unoptimized） */
+function Photo({
+  src,
+  width,
+  height,
+  alt,
+  stamp,
+  className,
+}: {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  stamp?: string;
+  className?: string;
+}) {
   return (
     <div className={className ? `ph ${className}` : "ph"}>
-      <div className="scene" dangerouslySetInnerHTML={{ __html: svg }} />
+      <Image src={src} alt={alt} width={width} height={height} unoptimized />
       {stamp && <span className="stamp">{stamp}</span>}
     </div>
   );
@@ -75,12 +112,13 @@ const points = ren.raw("points") as Point[];
     ["access", "#access"],
   ] as const;
 
-  const roomScenes = [S.ROOM1, S.ROOM2, S.ROOM3];
-  /* the three cloths the renovation is cut from */
+  /* the three cloths the renovation is cut from.
+     全景／キッチンとダイニング／水まわりの順。どれも scripts/photos/ が共通の色調で
+     1200×800 に書き出したもの。部屋名・ブランドとは紐づけない（部屋割り未確定） */
 const sampleFaces = [
-"/renovation/IMG_6194.JPG",
-"/renovation/IMG_6326.JPG",
-"/renovation/IMG_6347.JPG  ",
+"/photos/renovated/01-overview.webp",
+"/photos/renovated/02-kitchen-dining.webp",
+"/photos/renovated/03-bench-shower.webp",
 ];
   const arrow = (
     <span className="arw" aria-hidden="true">
@@ -402,12 +440,12 @@ const sampleFaces = [
                 </ul>
               </div>
             </div>
-              <div className="rail-x rv d2">
+              <div className="rail-x rv d2" data-rail-track>
                 {nearby.map((n, i) => (
                   <article className="card" key={n.title}>
                     {primeLocationPhotos[i] && (
                       <div className="ph">
-                        <img src={primeLocationPhotos[i]} alt={n.title} loading="lazy" />
+                        <img src={primeLocationPhotos[i]} alt={n.title} width={600} height={800} loading="lazy" decoding="async" />
                       </div>
                     )}
 
@@ -453,8 +491,12 @@ const sampleFaces = [
                   <img
                   src={sampleFaces[i % sampleFaces.length]}
                   alt=""
+                  width={1200}
+                  height={800}
+                  loading="lazy"
+                  decoding="async"
                   className="sample-photo"
-                  />                  
+                  />
                   <span className="pin rivet" aria-hidden="true" />
                 </div>
                 <b>{p.title}</b>
@@ -488,51 +530,58 @@ const sampleFaces = [
         <div className="seam" aria-hidden="true" />
 
         {rooms.map((r, i) => {
-          /* ROOM 02（JOURNAL STANDARD FURNITURE）はクライアント未承認のため一時非公開。
-             "Coming soon" 表示に置き換え。公開可否が決まったらこの分岐を削除する
-             （元のカード実装は git 履歴に残っている）。 */
-          if (r.slug === "journal-standard-furniture") {
-            return (
-              <div key={r.slug}>
-                <article className={`band rv${i % 2 === 1 ? " rev" : ""} is-coming-soon`}>
-                  <div className="pic">
-                    <Scene svg={roomScenes[i % roomScenes.length]} stamp={rm("comingSoon")} />
-                  </div>
-                  <div className="txt mat-raw">
-                    <span className="no" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="brand">
-                      <span className="tag">{r.tag}</span>
-                    </div>
-                    <h3>{r.subtitle}</h3>
-                    <span className="go is-disabled" aria-disabled="true">
-                      <span>{rm("comingSoon")}</span>
-                    </span>
-                  </div>
-                </article>
-                <div className="seam" aria-hidden="true" />
-              </div>
-            );
-          }
+          /* 帯の絵は ./roomMedia.ts の部屋ごとの設定で決まる（写真があれば実写→イラスト、
+             無ければイラストのみ）。ROOM 02 の Coming soon もそこで持つ。 */
+          const media = getRoomMedia(r.slug);
+          if (!media) return null;
+          const slides = media.slides;
+          const stampOf = (slide: RoomSlide) =>
+            slide.stamp === "name" ? r.name : slide.stamp === "morning" ? t("hero.stamp") : rm("comingSoon");
+          const name = `${r.slug}-slide`;
 
           return (
             <div key={r.slug}>
-              <article className={`band rv${i % 2 === 1 ? " rev" : ""}`}>
+              <article className={`band rv${i % 2 === 1 ? " rev" : ""}${media.comingSoon ? " is-coming-soon" : ""}`}>
                 <div className="pic">
-                  {i === 0 ? (
-                    <>
-                      <input type="radio" name="room1-slide" id="room1-slide-0" className="s-radio" defaultChecked />
-                      <input type="radio" name="room1-slide" id="room1-slide-1" className="s-radio" />
-                      <Scene svg={roomScenes[0]} stamp={r.name} className="s0" />
-                      <Scene svg={S.ROOM1_MORNING} stamp={t("hero.stamp")} className="s1" />
-                      <div className="s-dots">
-                        <label htmlFor="room1-slide-0" aria-label={r.name} />
-                        <label htmlFor="room1-slide-1" aria-label={t("hero.stamp")} />
-                      </div>
-                    </>
-                  ) : (
-                    <Scene svg={roomScenes[i % roomScenes.length]} stamp={r.name} />
+                  {slides.length > 1 &&
+                    slides.map((_, k) => (
+                      <input
+                        key={k}
+                        type="radio"
+                        name={name}
+                        id={`${name}-${k}`}
+                        className="s-radio"
+                        defaultChecked={k === 0}
+                      />
+                    ))}
+                  {slides.map((slide, k) => {
+                    const cls = slides.length > 1 ? `s${k}` : undefined;
+                    return slide.kind === "photo" ? (
+                      <Photo
+                        key={k}
+                        src={slide.src}
+                        width={slide.width}
+                        height={slide.height}
+                        alt={k === 0 ? r.alt : ""}
+                        stamp={stampOf(slide)}
+                        className={cls}
+                      />
+                    ) : (
+                      <Scene
+                        key={k}
+                        svg={slide.svg}
+                        stamp={stampOf(slide)}
+                        className={cls}
+                        label={k === 0 ? r.alt : undefined}
+                      />
+                    );
+                  })}
+                  {slides.length > 1 && (
+                    <div className="s-dots">
+                      {slides.map((slide, k) => (
+                        <label key={k} htmlFor={`${name}-${k}`} aria-label={stampOf(slide)} />
+                      ))}
+                    </div>
                   )}
                 </div>
                 <div className="txt mat-raw">
@@ -543,10 +592,16 @@ const sampleFaces = [
                     <span className="tag">{r.tag}</span>
                   </div>
                   <h3>{r.subtitle}</h3>
-                  <Link href={`/rooms/${r.slug}`} className="go">
-                    <span>{r.cta}</span>
-                    <span aria-hidden="true">→</span>
-                  </Link>
+                  {media.comingSoon ? (
+                    <span className="go is-disabled" aria-disabled="true">
+                      <span>{rm("comingSoon")}</span>
+                    </span>
+                  ) : (
+                    <Link href={`/rooms/${r.slug}`} className="go">
+                      <span>{r.cta}</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  )}
                 </div>
               </article>
               <div className="seam" aria-hidden="true" />
@@ -610,13 +665,6 @@ const sampleFaces = [
             <a href="#location">{nav("location")}</a>
             <a href="#renovated">{nav("renovated")}</a>
             <a href="#access">{nav("access")}</a>
-          </div>
-          <div className="ft-col">
-            <h5>{t("footer.infoH")}</h5>
-            <a href="#">{t("footer.i1")}</a>
-            <a href="#">{t("footer.i2")}</a>
-            <a href="#">{t("footer.i3")}</a>
-            <a href="#">{t("footer.i4")}</a>
           </div>
         </div>
       </footer>
