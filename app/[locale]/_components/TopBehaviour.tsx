@@ -20,6 +20,15 @@ export default function TopBehaviour() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    const burger = root.querySelector<HTMLInputElement>(".burger-in");
+    const closeBurger = () => {
+      if (burger) burger.checked = false;
+    };
+    const pop = root.querySelector(".burger-pop");
+    pop?.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a")) closeBurger();
+    });
+
     const targets = [...root.querySelectorAll<HTMLElement>(".rv")];
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

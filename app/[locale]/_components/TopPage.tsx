@@ -343,11 +343,24 @@ const sampleFaces = [
             {arrow}
           </Link>
           <LangSwitch locale={locale} />
-          <button type="button" className="burger" aria-label={nav("menu")}>
+          <input type="checkbox" id="burger-in" className="burger-in" />
+          <label htmlFor="burger-in" className="burger-scrim" aria-hidden="true" />
+          <label htmlFor="burger-in" className="burger" role="button" aria-label={nav("menu")}>
             <i />
             <i />
             <i />
-          </button>
+          </label>
+          <nav className="burger-pop" aria-label="Menu">
+            {navLinks.map(([key, href]) => (
+              <a key={key} href={href}>
+                {nav(key)}
+              </a>
+            ))}
+            <Link href="/stay" className="btn btn-ink">
+              <span>{nav("book")}</span>
+              {arrow}
+            </Link>
+          </nav>
         </div>
       </header>
 
